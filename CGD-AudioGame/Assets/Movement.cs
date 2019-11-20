@@ -14,10 +14,11 @@ public class Movement : MonoBehaviour
     }
 
 
-    public void OnAnimatorMove()
+    public void Move()
     {
 
     }
+
     public void Rotate()
     {
 
