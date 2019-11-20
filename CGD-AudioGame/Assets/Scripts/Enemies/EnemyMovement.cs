@@ -1,19 +1,20 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using enums;
 public class EnemyMovement : MonoBehaviour
 {
-    GameObject player;
-    bool following = true;
-    float distance;
     public float chase_speed = 10;
     public float patrol_speed = 5;
     public float hit_range = 1;
     public float detect_range = 10;
     public int damage = 10;
-    int path_index;
-    public List<Transform> path_points = new List<Transform>();
+    public STATE current_state = STATE.patrol;
+    private GameObject player;
+    private float distance;
+    private int path_index;
+    private List<Transform> path_points = new List<Transform>();
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -34,18 +35,18 @@ public class EnemyMovement : MonoBehaviour
 
         if (distance < detect_range)
         {
-            following = true;
+            current_state = STATE.chase;
         }
         else
         {
-            following = false;
+            current_state = STATE.patrol;
         }
 
-        if (following)
+        if (current_state == STATE.chase)
         {
             MoveToPlayer();
         }
-        else
+        else if (current_state == STATE.patrol)
         {
             FollowPath();
         }
