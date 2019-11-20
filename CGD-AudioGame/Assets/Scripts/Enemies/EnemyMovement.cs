@@ -14,8 +14,9 @@ public class EnemyMovement : MonoBehaviour
     private float distance;
     private int path_index;
     private List<Transform> path_points = new List<Transform>();
-    
-    // Start is called before the first frame update
+    private Vector3 random_pos;
+    bool searching = false;
+
     void Start()
     {
         player = GameObject.FindWithTag("Player");
@@ -28,34 +29,45 @@ public class EnemyMovement : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
     void Update()
     {
         distance = Vector3.Distance(player.transform.position, transform.position);
+        Movement();      
+    }
 
+    void Movement()
+    {
+        // If player is in range, start chasing
         if (distance < detect_range)
         {
             current_state = STATE.chase;
         }
-        else
-        {
-            current_state = STATE.patrol;
-        }
 
+        // If chasing player and goes out of range, start searching
         if (current_state == STATE.chase)
         {
+            searching = false;
             MoveToPlayer();
+
+            if (distance > detect_range)
+            {
+                current_state = STATE.search;
+            }
         }
         else if (current_state == STATE.patrol)
         {
+            searching = false;
             FollowPath();
+        }
+        else if (current_state == STATE.search)
+        {
+            RandomMovement();
         }
     }
 
     void MoveToPlayer()
     {
         float step = chase_speed * Time.deltaTime;
-
         transform.LookAt(player.transform);
         if (distance > hit_range)
         {
@@ -86,6 +98,33 @@ public class EnemyMovement : MonoBehaviour
         {
             transform.LookAt(path_points[path_index]);
             transform.position = Vector3.MoveTowards(transform.position, path_points[path_index].position, step);
+        }
+    }
+
+    void RandomMovement()
+    {
+        float step = patrol_speed * Time.deltaTime;
+        if (!searching)
+        {
+            StartCoroutine(SearchTimer());
+        }
+
+        if (transform.position == random_pos)
+        {
+            random_pos = new Vector3(Random.Range(transform.position.x - 5, transform.position.x + 5), 0, Random.Range(transform.position.z - 5, transform.position.z + 5));
+        }
+        transform.LookAt(random_pos);
+        transform.position = Vector3.MoveTowards(transform.position, random_pos, step);
+    }
+
+    IEnumerator SearchTimer()
+    {
+        searching = true;
+        random_pos = new Vector3(Random.Range(transform.position.x - 5, transform.position.x + 5), 0, Random.Range(transform.position.z - 5, transform.position.z + 5));
+        yield return new WaitForSeconds(10);
+        if (current_state == STATE.search)
+        {
+            current_state = STATE.patrol;
         }
     }
 }
