@@ -2,25 +2,27 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(PlayerData), typeof(Rigidbody2D))]
 public class Movement : MonoBehaviour
 {
-    private int player_ID;
+    [SerializeField] private float movementSpeed;
+
+    private int playerID;
     private Rigidbody2D rb2d;
     
     private void Start()
     {
-        player_ID = GetComponent<PlayerData>().PlayerID();
+        playerID = GetComponent<PlayerData>().PlayerID();
         rb2d = GetComponent<Rigidbody2D>();
     }
-
 
     public void Move()
     {
 
     }
 
-    public void Rotate()
-    {
-
-    }
+    //public void Rotate()
+    //{
+    //    float go_direction = Mathf.Atan2(InputManager.JoystickVertical(playerID), InputManager.JoystickHorizontal(playerID));
+    //}
 }

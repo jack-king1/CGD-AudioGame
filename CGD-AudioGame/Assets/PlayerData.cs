@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class PlayerData : MonoBehaviour
 {
-    [SerializeField] private int playerID;
-    private float playerScore;
+    [SerializeField] private int playerID = 0;
+    private float playerScore = 0;
 
     public int PlayerID()
     {
