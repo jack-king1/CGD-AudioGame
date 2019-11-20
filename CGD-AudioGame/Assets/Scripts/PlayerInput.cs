@@ -19,13 +19,25 @@ public class PlayerInput : MonoBehaviour
         {
 
         }
+        else if(Input.GetKey(KeyCode.E))
+        {
+            //Attck or something?
+        }
 
         if (InputManager.JoystickHorizontal(playerID) != 0 || InputManager.JoystickVertical(playerID) != 0)
         {
-            movement.Move();
+            movement.Move(false);
+        }
+        else if(Input.GetAxis("Horizontal") != 0 || Input.GetAxis("Vertical") != 0)
+        {
+            movement.Move(true);
         }
 
         if (InputManager.XButton(playerID))
+        {
+
+        }
+        else if(Input.GetKey(KeyCode.Q))
         {
 
         }
