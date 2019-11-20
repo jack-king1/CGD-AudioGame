@@ -416,9 +416,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74d04039cdfc6394e997bd1a6965e78f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  chase_speed: 10
-  patrol_speed: 5
+  chase_speed: 5
+  patrol_speed: 2.5
   hit_range: 1
+  damage: 10
   path_points: []
 --- !u!114 &4726157238975266003
 MonoBehaviour:
@@ -432,5 +433,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b24beb0da000cc64387d085c2801887f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  start_health: 100
+  start_health: 10
   invulnerable_time: 0.5

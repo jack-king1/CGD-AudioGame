@@ -10,6 +10,7 @@ public class EnemyMovement : MonoBehaviour
     public float chase_speed = 10;
     public float patrol_speed = 5;
     public float hit_range = 1;
+    public float detect_range = 10;
     public int damage = 10;
     int path_index;
     public List<Transform> path_points = new List<Transform>();
@@ -30,6 +31,16 @@ public class EnemyMovement : MonoBehaviour
     void Update()
     {
         distance = Vector3.Distance(player.transform.position, transform.position);
+
+        if (distance < detect_range)
+        {
+            following = true;
+        }
+        else
+        {
+            following = false;
+        }
+
         if (following)
         {
             MoveToPlayer();
@@ -72,6 +83,7 @@ public class EnemyMovement : MonoBehaviour
         }
         else
         {
+            transform.LookAt(path_points[path_index]);
             transform.position = Vector3.MoveTowards(transform.position, path_points[path_index].position, step);
         }
     }
