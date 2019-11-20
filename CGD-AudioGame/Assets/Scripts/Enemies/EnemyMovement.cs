@@ -5,11 +5,12 @@ using UnityEngine;
 public class EnemyMovement : MonoBehaviour
 {
     GameObject player;
-    bool can_hear = false;
+    bool following = true;
     float distance;
     public float chase_speed = 10;
     public float patrol_speed = 5;
     public float hit_range = 1;
+    public int damage = 10;
     int path_index;
     public List<Transform> path_points = new List<Transform>();
     // Start is called before the first frame update
@@ -29,7 +30,7 @@ public class EnemyMovement : MonoBehaviour
     void Update()
     {
         distance = Vector3.Distance(player.transform.position, transform.position);
-        if (can_hear)
+        if (following)
         {
             MoveToPlayer();
         }
@@ -46,7 +47,12 @@ public class EnemyMovement : MonoBehaviour
         transform.LookAt(player.transform);
         if (distance > hit_range)
         {
-            transform.position = Vector3.MoveTowards(transform.position, player.transform.position, step);         
+            transform.position = Vector3.MoveTowards(transform.position, player.transform.position, step);
+        }
+        else
+        {
+            Health pl_health = player.GetComponent<Health>();
+            pl_health.DealDamage(damage);
         }
     }
 

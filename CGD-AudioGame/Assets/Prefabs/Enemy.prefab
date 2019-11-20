@@ -323,6 +323,7 @@ GameObject:
   - component: {fileID: 6654866258818275392}
   - component: {fileID: 6654866258818275393}
   - component: {fileID: 6654866258818275394}
+  - component: {fileID: 4726157238975266003}
   m_Layer: 0
   m_Name: EnemyObject
   m_TagString: Untagged
@@ -419,3 +420,17 @@ MonoBehaviour:
   patrol_speed: 5
   hit_range: 1
   path_points: []
+--- !u!114 &4726157238975266003
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6654866258818275395}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b24beb0da000cc64387d085c2801887f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  start_health: 100
+  invulnerable_time: 0.5
