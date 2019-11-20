@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class TempMove : MonoBehaviour
 {
-    float speed;
+    public float speed;
     void Start()
     {
         
