@@ -8,7 +8,8 @@ public class EnemyMovement : MonoBehaviour
     public float patrol_speed = 2.5f;
     public float search_speed = 1.5f;
     public float hit_range = 1;
-    public float detect_range = 5;
+    public float detect_volume = 5;
+    public float detect_range = 2;
     public float turn_speed = 5;
     public int damage = 10;
     public STATE current_state = STATE.patrol;
@@ -43,7 +44,7 @@ public class EnemyMovement : MonoBehaviour
     {
         hear_volume = pl_movement.FootStepVolume() - distance;
         // If player is in range, start chasing
-        if (hear_volume > detect_range)
+        if (hear_volume >= detect_volume || distance <= detect_range)
         {
             current_state = STATE.chase;
         }
@@ -54,7 +55,7 @@ public class EnemyMovement : MonoBehaviour
             searching = false;
             ChasePlayer();
 
-            if (hear_volume < detect_range)
+            if (hear_volume < detect_volume || distance > detect_range)
             {
                 current_state = STATE.search;
             }
