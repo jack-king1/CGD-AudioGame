@@ -2,18 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(PlayerData), typeof(Rigidbody2D))]
+[RequireComponent(typeof(PlayerData), typeof(Rigidbody))]
 public class Movement : MonoBehaviour
 {
     [SerializeField] private float movementSpeed = 0;
 
     private int playerID;
-    private Rigidbody2D rb2d;
+    private Rigidbody rb;
     
     private void Start()
     {
         playerID = GetComponent<PlayerData>().PlayerID();
-        rb2d = GetComponent<Rigidbody2D>();
+        rb = GetComponent<Rigidbody>();
     }
 
     public void Move(bool keyboardInput)
@@ -25,7 +25,7 @@ public class Movement : MonoBehaviour
             x *= movementSpeed * Time.deltaTime;
             y *= (movementSpeed * Time.deltaTime);
 
-            transform.Translate(x, y, 0);
+            transform.Translate(x, 0, y);
         }
         else
         {
@@ -33,8 +33,9 @@ public class Movement : MonoBehaviour
             float y = InputManager.JoystickVertical(playerID);
             x *= movementSpeed * Time.deltaTime;
             y *= (movementSpeed * Time.deltaTime) *-1;
+            Vector3 normalizedmovement = new Vector3(x, 0, y).normalized;
 
-            transform.Translate(x, y, 0);
+            transform.Translate(normalizedmovement * movementSpeed * Time.deltaTime);
         }
     }
 
