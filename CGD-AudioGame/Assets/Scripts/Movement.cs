@@ -6,6 +6,7 @@ using UnityEngine;
 public class Movement : MonoBehaviour
 {
     [SerializeField] private float movementSpeed = 0;
+    private float footStepVolume;
 
     private int playerID;
     private Rigidbody rb;
@@ -40,7 +41,7 @@ public class Movement : MonoBehaviour
     }
 
    //Audio 
-   public void FootstepVolume(int soundID)
+   public void SetFootstepVolume(int soundID)
     {
         switch(soundID)
         {
@@ -59,6 +60,11 @@ public class Movement : MonoBehaviour
             default:
                 break;
         }
+    }
+
+    public float FootStepVolume()
+    {
+        return footStepVolume;
     }
 
     //public void Rotate()
