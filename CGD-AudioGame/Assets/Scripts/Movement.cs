@@ -13,11 +13,24 @@ public class Movement : MonoBehaviour
 
     private int playerID;
     private Rigidbody rb;
+    private Vector3 lastPosition;
     
     private void Start()
     {
         playerID = GetComponent<PlayerData>().PlayerID();
         rb = GetComponent<Rigidbody>();
+    }
+
+    public void Update()
+    {
+
+        var currentPosition = transform.position;
+        if (currentPosition != lastPosition)
+        {
+            SetFootstepVolume(0);
+        }
+
+
     }
 
     public void Move(bool keyboardInput)
