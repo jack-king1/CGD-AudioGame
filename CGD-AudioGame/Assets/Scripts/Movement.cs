@@ -8,7 +8,7 @@ public class Movement : MonoBehaviour
     [SerializeField] private float movementSpeed = 0;
     private float footStepVolume;
 
-
+    [Range(0,10)]
     [SerializeField] float[] FootStepVolumes;
 
     private int playerID;

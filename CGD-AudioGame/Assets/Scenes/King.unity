@@ -169,6 +169,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementSpeed: 5
+  FootStepVolumes:
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
 --- !u!114 &742813783
 MonoBehaviour:
   m_ObjectHideFlags: 0
