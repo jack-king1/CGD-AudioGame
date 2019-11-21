@@ -8,6 +8,9 @@ public class Movement : MonoBehaviour
     [SerializeField] private float movementSpeed = 0;
     private float footStepVolume;
 
+
+    [SerializeField] float[] FootStepVolumes;
+
     private int playerID;
     private Rigidbody rb;
     
@@ -43,23 +46,7 @@ public class Movement : MonoBehaviour
    //Audio 
    public void SetFootstepVolume(int soundID)
     {
-        switch(soundID)
-        {
-            case 0:
-            {
-                break;
-            }
-            case 1:
-            {
-                break;
-            }
-            case 2:
-            {
-                break;
-            }
-            default:
-                break;
-        }
+        footStepVolume = FootStepVolumes[soundID];
     }
 
     public float FootStepVolume()
