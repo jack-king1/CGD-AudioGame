@@ -8,6 +8,7 @@ public class EnemyMovement : MonoBehaviour
     public float patrol_speed = 5;
     public float hit_range = 1;
     public float detect_range = 5;
+    public float turn_speed = 5;
     public int damage = 10;
     public STATE current_state = STATE.patrol;
     private GameObject player;
@@ -50,7 +51,7 @@ public class EnemyMovement : MonoBehaviour
         if (current_state == STATE.chase)
         {
             searching = false;
-            MoveToPlayer();
+            ChasePlayer();
 
             if (hear_volume < detect_range)
             {
@@ -68,10 +69,10 @@ public class EnemyMovement : MonoBehaviour
         }
     }
 
-    void MoveToPlayer()
+    void ChasePlayer()
     {
         float step = chase_speed * Time.deltaTime;
-        transform.LookAt(player.transform);
+        TurnSmoothly(player.transform.position);
         if (distance > hit_range)
         {
             transform.position = Vector3.MoveTowards(transform.position, player.transform.position, step);
@@ -99,7 +100,7 @@ public class EnemyMovement : MonoBehaviour
         }
         else
         {
-            transform.LookAt(path_points[path_index]);
+            TurnSmoothly(path_points[path_index].position);
             transform.position = Vector3.MoveTowards(transform.position, path_points[path_index].position, step);
         }
     }
@@ -116,7 +117,7 @@ public class EnemyMovement : MonoBehaviour
         {
             random_pos = new Vector3(Random.Range(transform.position.x - 5, transform.position.x + 5), 0, Random.Range(transform.position.z - 5, transform.position.z + 5));
         }
-        transform.LookAt(random_pos);
+        TurnSmoothly(random_pos);
         transform.position = Vector3.MoveTowards(transform.position, random_pos, step);
     }
 
@@ -129,5 +130,11 @@ public class EnemyMovement : MonoBehaviour
         {
             current_state = STATE.patrol;
         }
+    }
+
+    void TurnSmoothly(Vector3 target)
+    {
+        var target_rotation = Quaternion.LookRotation(target - transform.position);
+        transform.rotation = Quaternion.Slerp(transform.rotation, target_rotation, turn_speed * Time.deltaTime);
     }
 }
