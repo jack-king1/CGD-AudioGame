@@ -39,6 +39,28 @@ public class Movement : MonoBehaviour
         }
     }
 
+   //Audio 
+   public void FootstepVolume(int soundID)
+    {
+        switch(soundID)
+        {
+            case 0:
+            {
+                break;
+            }
+            case 1:
+            {
+                break;
+            }
+            case 2:
+            {
+                break;
+            }
+            default:
+                break;
+        }
+    }
+
     //public void Rotate()
     //{
     //    float go_direction = Mathf.Atan2(InputManager.JoystickVertical(playerID), InputManager.JoystickHorizontal(playerID));
