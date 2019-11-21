@@ -7,7 +7,7 @@ public class EnemyMovement : MonoBehaviour
     public float chase_speed = 10;
     public float patrol_speed = 5;
     public float hit_range = 1;
-    public float detect_range = 10;
+    public float detect_range = 5;
     public int damage = 10;
     public STATE current_state = STATE.patrol;
     private GameObject player;
@@ -16,10 +16,12 @@ public class EnemyMovement : MonoBehaviour
     private List<Transform> path_points = new List<Transform>();
     private Vector3 random_pos;
     bool searching = false;
-
+    public float hear_volume = 0.0f;
+    Movement pl_movement;
     void Start()
     {
         player = GameObject.FindWithTag("Player");
+        pl_movement = player.GetComponent<Movement>();
         for (int i = 0; i < transform.parent.childCount; i++)
         {
             if (transform.parent.GetChild(i).gameObject.tag == "Path")
@@ -37,8 +39,9 @@ public class EnemyMovement : MonoBehaviour
 
     void Movement()
     {
+        hear_volume = pl_movement.FootStepVolume() - distance;
         // If player is in range, start chasing
-        if (distance < detect_range)
+        if (hear_volume > detect_range)
         {
             current_state = STATE.chase;
         }
@@ -49,7 +52,7 @@ public class EnemyMovement : MonoBehaviour
             searching = false;
             MoveToPlayer();
 
-            if (distance > detect_range)
+            if (hear_volume < detect_range)
             {
                 current_state = STATE.search;
             }
