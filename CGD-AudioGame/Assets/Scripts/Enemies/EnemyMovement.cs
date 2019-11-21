@@ -4,8 +4,9 @@ using UnityEngine;
 using enums;
 public class EnemyMovement : MonoBehaviour
 {
-    public float chase_speed = 10;
-    public float patrol_speed = 5;
+    public float chase_speed = 5;
+    public float patrol_speed = 2.5f;
+    public float search_speed = 1.5f;
     public float hit_range = 1;
     public float detect_range = 5;
     public float turn_speed = 5;
@@ -107,7 +108,7 @@ public class EnemyMovement : MonoBehaviour
 
     void RandomMovement()
     {
-        float step = patrol_speed * Time.deltaTime;
+        float step = search_speed * Time.deltaTime;
         if (!searching)
         {
             StartCoroutine(SearchTimer());
