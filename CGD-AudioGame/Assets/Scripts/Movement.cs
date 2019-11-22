@@ -27,8 +27,11 @@ public class Movement : MonoBehaviour
         var currentPosition = transform.position;
         if (currentPosition != lastPosition)
         {
-            SetFootstepVolume(0);
-            Debug.Log("Step Volume Set to 0");
+            if(footStepVolume != 0)
+            {
+                SetFootstepVolume(0);
+                Debug.Log("Step Volume Set to 0");
+            }
         }
     }
 
@@ -52,8 +55,8 @@ public class Movement : MonoBehaviour
             Debug.Log("X axis: " + x);
             float InputMagnitude =  new Vector3(x, 0, y).magnitude;
             SetFootstepVolume(InputMagnitude);
-            Vector3 normalizedmovement = new Vector3(x, 0, y).normalized;
-            transform.Translate((normalizedmovement * InputMagnitude )* Time.deltaTime);
+            Vector3 normalizedmovement = new Vector3(x, 0, y*-1).normalized;
+            transform.Translate((normalizedmovement * (InputMagnitude * movementSpeed) )* Time.deltaTime);
         }
     }
 
