@@ -7,7 +7,7 @@ public class FogOfWarScript : MonoBehaviour
     public GameObject m_FogOfWarPlane;
     public Transform m_Player;
     public LayerMask m_fogLayer;
-    public float m_radius = 5.0f;
+    public float m_radius = 10.0f;
     private  float  m_radiusSqr { get { return m_radius * m_radius; } }
 
     private Mesh m_mesh;
