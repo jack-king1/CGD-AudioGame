@@ -65,7 +65,7 @@ public class Movement : MonoBehaviour
     {
         
         footStepVolume = InputMagnitude;
-        Debug.Log(footStepVolume);
+        //Debug.Log(footStepVolume);
     }
 
     public float FootStepVolume()

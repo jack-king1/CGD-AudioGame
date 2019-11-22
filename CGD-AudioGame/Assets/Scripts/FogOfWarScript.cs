@@ -22,14 +22,11 @@ public class FogOfWarScript : MonoBehaviour
     void Start()
     {
         Init();
-
-
     }
 
     // Update is called once per frame
     void Update()
     {
-
         timer += Time.deltaTime ;
         if(timer> maxTime)
         {
@@ -37,7 +34,6 @@ public class FogOfWarScript : MonoBehaviour
             timer = 0;
 
         }
-
 
        if(m_radius <= 2.5)
         {

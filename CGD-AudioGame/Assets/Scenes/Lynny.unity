@@ -591,9 +591,10 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 512
   m_radius: 10
+  m_verticeDiscovered: 
   maxTime: 10
   timer: 0
-  Player: {fileID: 0}
+  Player: {fileID: 89219777}
 --- !u!1 &1946267653
 GameObject:
   m_ObjectHideFlags: 0
