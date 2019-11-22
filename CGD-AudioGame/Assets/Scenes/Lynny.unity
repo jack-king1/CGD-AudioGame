@@ -590,7 +590,10 @@ MonoBehaviour:
   m_fogLayer:
     serializedVersion: 2
     m_Bits: 512
-  m_radius: 4
+  m_radius: 10
+  maxTime: 10
+  timer: 0
+  Player: {fileID: 0}
 --- !u!1 &1946267653
 GameObject:
   m_ObjectHideFlags: 0
