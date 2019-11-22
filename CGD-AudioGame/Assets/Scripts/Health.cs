@@ -5,7 +5,7 @@ using UnityEngine;
 public class Health : MonoBehaviour
 {
     public int start_health = 100;
-    int health;
+    public int health;
     public float invulnerable_time = 0.5f;
     bool can_damage = true;
     // Start is called before the first frame update
