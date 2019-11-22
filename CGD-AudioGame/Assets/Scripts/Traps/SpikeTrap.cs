@@ -21,8 +21,11 @@ public class SpikeTrap : MonoBehaviour
         {
             for (int i = 0; i < targets.Count; i++)
             {
-                Health health = targets[i].GetComponent<Health>();
-                health.DealDamage(damage);
+                if (targets[i] != null)
+                {
+                    Health health = targets[i].GetComponent<Health>();
+                    health.DealDamage(damage);
+                }
             }
         }
     }

@@ -36,7 +36,10 @@ public class EnemyMovement : MonoBehaviour
 
     void Update()
     {
-        distance = Vector3.Distance(player.transform.position, transform.position);
+        if (player)
+        {
+            distance = Vector3.Distance(player.transform.position, transform.position);
+        }
         Movement();      
     }
 
@@ -44,7 +47,7 @@ public class EnemyMovement : MonoBehaviour
     {
         hear_volume = pl_movement.FootStepVolume() - distance;
         // If player is in range, start chasing
-        if (hear_volume >= detect_volume || distance <= detect_range)
+        if ((hear_volume >= detect_volume || distance <= detect_range) && player)
         {
             current_state = STATE.chase;
         }
@@ -53,7 +56,14 @@ public class EnemyMovement : MonoBehaviour
         if (current_state == STATE.chase)
         {
             searching = false;
-            ChasePlayer();
+            if (player != null)
+            {
+                ChasePlayer();
+            }
+            else
+            {
+                current_state = STATE.patrol;
+            }
 
             if (hear_volume < detect_volume || distance > detect_range)
             {

@@ -18,6 +18,14 @@ public class Health : MonoBehaviour
     {
         if (health <= 0)
         {
+            if (transform.parent != null)
+            {
+                Destroy(transform.parent.gameObject);
+            }
+            else
+            {
+                Destroy(this.gameObject);
+            }
             Debug.Log(gameObject.name + " died");
         }
     }
