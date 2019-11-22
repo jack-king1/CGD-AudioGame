@@ -2,18 +2,34 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(PlayerData), typeof(Rigidbody2D))]
+[RequireComponent(typeof(PlayerData), typeof(Rigidbody))]
 public class Movement : MonoBehaviour
 {
     [SerializeField] private float movementSpeed = 0;
+    private float footStepVolume;
+
+    [Range(0,10)]
+    [SerializeField] float[] FootStepVolumes;
 
     private int playerID;
-    private Rigidbody2D rb2d;
+    private Rigidbody rb;
+    private Vector3 lastPosition;
     
     private void Start()
     {
         playerID = GetComponent<PlayerData>().PlayerID();
-        rb2d = GetComponent<Rigidbody2D>();
+        rb = GetComponent<Rigidbody>();
+    }
+
+    public void Update()
+    {
+
+        var currentPosition = transform.position;
+        if (currentPosition != lastPosition)
+        {
+            SetFootstepVolume(0);
+            Debug.Log("Step Volume Set to 0");
+        }
     }
 
     public void Move(bool keyboardInput)
@@ -22,21 +38,38 @@ public class Movement : MonoBehaviour
         {
             float x = Input.GetAxis("Horizontal");
             float y = Input.GetAxis("Vertical");
+
+            
             x *= movementSpeed * Time.deltaTime;
             y *= (movementSpeed * Time.deltaTime);
 
-            transform.Translate(x, y, 0);
+            transform.Translate(x, 0, y);
         }
         else
         {
             float x = InputManager.JoystickHorizontal(playerID);
             float y = InputManager.JoystickVertical(playerID);
-            x *= movementSpeed * Time.deltaTime;
-            y *= (movementSpeed * Time.deltaTime) *-1;
-
-            transform.Translate(x, y, 0);
+            Debug.Log("X axis: " + x);
+            float InputMagnitude =  new Vector3(x, 0, y).magnitude;
+            SetFootstepVolume(InputMagnitude);
+            Vector3 normalizedmovement = new Vector3(x, 0, y).normalized;
+            transform.Translate((normalizedmovement * InputMagnitude )* Time.deltaTime);
         }
     }
+
+   //Audio 
+   public void SetFootstepVolume(float InputMagnitude)
+    {
+        
+        footStepVolume = InputMagnitude;
+        Debug.Log(footStepVolume);
+    }
+
+    public float FootStepVolume()
+    {
+        return footStepVolume;
+    }
+
 
     //public void Rotate()
     //{
