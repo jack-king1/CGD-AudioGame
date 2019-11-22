@@ -5,7 +5,7 @@ using UnityEngine;
 public class Health : MonoBehaviour
 {
     public int start_health = 100;
-    int health;
+    public int health;
     public float invulnerable_time = 0.5f;
     bool can_damage = true;
     // Start is called before the first frame update
@@ -18,6 +18,14 @@ public class Health : MonoBehaviour
     {
         if (health <= 0)
         {
+            if (transform.parent != null)
+            {
+                Destroy(transform.parent.gameObject);
+            }
+            else
+            {
+                Destroy(this.gameObject);
+            }
             Debug.Log(gameObject.name + " died");
         }
     }
