@@ -7,13 +7,17 @@ public class FogOfWarScript : MonoBehaviour
     public GameObject m_FogOfWarPlane;
     public Transform m_Player;
     public LayerMask m_fogLayer;
-    public float m_radius = 10.0f;
+    public float m_radius = 5.0f;
     private  float  m_radiusSqr { get { return m_radius * m_radius; } }
 
     private Mesh m_mesh;
     private Vector3[] m_vertices;
     private Color[] m_colours;
 
+
+    public float maxTime =10;
+    public float timer;
+    public GameObject Player;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,6 +27,21 @@ public class FogOfWarScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        timer += Time.deltaTime ;
+        if(timer> maxTime)
+        {
+            m_radius -= 0.5f;
+            timer = 0;
+
+        }
+
+
+       if(m_radius <= 2.5)
+        {
+            Player.SetActive(false);
+        }
+
         Ray r = new Ray(transform.position, m_Player.position - transform.position);
         RaycastHit hit;
         if(Physics.Raycast(r,out hit, 1000, m_fogLayer, QueryTriggerInteraction.Collide))
