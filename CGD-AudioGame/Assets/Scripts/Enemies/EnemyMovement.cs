@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 using enums;
 public class EnemyMovement : MonoBehaviour
 {
@@ -21,10 +22,10 @@ public class EnemyMovement : MonoBehaviour
     bool searching = false;
     public float hear_volume = 0.0f;
     Movement pl_movement;
-    Pathfinding pathfinding;
+    NavMeshAgent agent;
     void Start()
     {
-        pathfinding = GetComponent<Pathfinding>();
+        agent = GetComponent<NavMeshAgent>();
         player = GameObject.FindWithTag("Player");
         pl_movement = player.GetComponent<Movement>();
         for (int i = 0; i < transform.parent.childCount; i++)
@@ -34,7 +35,6 @@ public class EnemyMovement : MonoBehaviour
                 path_points.Add(transform.parent.GetChild(i).gameObject.transform);
             }
         }
-        pathfinding.SetTarget(path_points[0]);
     }
 
     void Update()
@@ -86,12 +86,11 @@ public class EnemyMovement : MonoBehaviour
 
     void ChasePlayer()
     {
-        float step = chase_speed * Time.deltaTime;
-        pathfinding.SetTarget(player.transform);
+        agent.speed = chase_speed;
         TurnSmoothly(player.transform.position);
         if (distance > hit_range)
         {
-            transform.position = Vector3.MoveTowards(transform.position, pathfinding.FirstNode(), step);
+            agent.SetDestination(player.transform.position);
         }
         else
         {
@@ -102,8 +101,7 @@ public class EnemyMovement : MonoBehaviour
 
     void FollowPath()
     {
-        float step = patrol_speed * Time.deltaTime;
-        pathfinding.SetTarget(path_points[path_index].transform);
+        agent.speed = patrol_speed;
         if (Vector3.Distance(transform.position, path_points[path_index].position) < 1)
         {
             if (path_index == path_points.Count - 1)
@@ -117,14 +115,14 @@ public class EnemyMovement : MonoBehaviour
         }
         else
         {          
-            TurnSmoothly(pathfinding.FirstNode());
-            transform.position = Vector3.MoveTowards(transform.position, pathfinding.FirstNode(), step);
+            TurnSmoothly(path_points[path_index].position);        
+            agent.SetDestination(path_points[path_index].position);
         }
     }
 
     void RandomMovement()
     {
-        float step = search_speed * Time.deltaTime;
+        agent.speed = search_speed;
         if (!searching)
         {
             StartCoroutine(SearchTimer());
@@ -135,7 +133,7 @@ public class EnemyMovement : MonoBehaviour
             random_pos = new Vector3(Random.Range(transform.position.x - 5, transform.position.x + 5), 0, Random.Range(transform.position.z - 5, transform.position.z + 5));
         }
         TurnSmoothly(random_pos);
-        transform.position = Vector3.MoveTowards(transform.position, random_pos, step);
+        agent.SetDestination(random_pos);
     }
 
     IEnumerator SearchTimer()
