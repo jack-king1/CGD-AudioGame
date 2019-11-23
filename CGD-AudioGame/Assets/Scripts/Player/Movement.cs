@@ -6,7 +6,6 @@ using UnityEngine;
 public class Movement : MonoBehaviour
 {
     [SerializeField] private float movementSpeed = 0;
-    [SerializeField] private float rotateSpeed = 0;
     private float footStepVolume;
 
     [Range(0,10)]
@@ -56,7 +55,6 @@ public class Movement : MonoBehaviour
             Vector3 movement = new Vector3(x, 0, (z*-1));
             float InputMagnitude =  new Vector3(x, 0, z).magnitude;
             SetFootstepVolume(InputMagnitude);
-
             transform.Translate((movement.normalized * (InputMagnitude * movementSpeed) )* Time.deltaTime);
         }
     }

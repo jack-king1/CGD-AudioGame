@@ -14,4 +14,16 @@
         follow,
         cinematic
     }
+
+    public enum PEEKDIRECTION
+    {
+        n,
+        ne,
+        e,
+        se,
+        s,
+        sw,
+        w,
+        nw
+    }
 }

@@ -1,18 +1,21 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using enums;
 
 public class PlayerInput : MonoBehaviour
 {
     private Movement movement;
     private int playerID;
     private Camera m_cam;
+    private CameraFollow m_camerafollow;
 
     private void Awake()
     {
         movement = GetComponent<Movement>();
         playerID = GetComponent<PlayerData>().PlayerID();
         m_cam = Camera.main;
+        m_camerafollow = m_cam.GetComponent<CameraFollow>();
     }
 
     void Update()
@@ -35,9 +38,16 @@ public class PlayerInput : MonoBehaviour
             movement.Move(true);
         }
 
-        if (InputManager.JoystickRightHorizontal(playerID) != 0 || InputManager.JoystickRightVertical(playerID) != 0)
+        if (InputManager.JoystickRightHorizontalRaw(playerID) != 0 || InputManager.JoystickRightVerticalRaw(playerID) != 0)
         {
-            movement.Rotate();
+            float h = InputManager.JoystickRightHorizontalRaw(playerID);
+            float v = InputManager.JoystickRightVerticalRaw(playerID);
+
+            m_camerafollow.SetPeekValues(h, v*-1);
+        }
+        else
+        {
+            m_camerafollow.SetPeekValues(0, 0);
         }
 
         if (InputManager.XButton(playerID))

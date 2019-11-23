@@ -5,14 +5,18 @@ using enums;
 public class CameraFollow : MonoBehaviour
 {
     public GameObject m_target;
-    [Range(0.01f,1.0f)]
+    [Range(0.01f, 1.0f)]
     public float m_cameraSpeed;
     public CAMERASTATE m_cameraState;
     private Vector3 cinematicEndLocation;
+    int playerID;
+    float peekV;
+    float peekH;
+    [SerializeField]private float peekOffset = 3.0f;
 
     //Camera state variables
     //Player Follow
-    [Range(0,365)]
+    [Range(0, 365)]
     public float cameraFollowPitch = 45.0f;
 
     //Player Won
@@ -25,11 +29,12 @@ public class CameraFollow : MonoBehaviour
     {
         m_target = GameObject.FindGameObjectWithTag("Player");
         cinematicEndLocation = m_target.transform.position;
+        playerID = m_target.GetComponent<PlayerData>().PlayerID();
     }
 
     private void Update()
     {
-        switch(m_cameraState)
+        switch (m_cameraState)
         {
             case CAMERASTATE.cinematic:
                 break;
@@ -43,7 +48,7 @@ public class CameraFollow : MonoBehaviour
                 break;
             default:
                 break;
-        }   
+        }
     }
 
     //This function will be at the beginning or end or completed game and will have a start gameobject/transform and an end.
@@ -60,9 +65,9 @@ public class CameraFollow : MonoBehaviour
             //Position
             //transform.LookAt(m_target.transform.localPosition);
             Vector3 followPosition = new Vector3(
-                m_target.transform.position.x,
+                m_target.transform.position.x + (peekH * peekOffset),
                 m_target.transform.position.y + m_cameraZoomOffset,
-                m_target.transform.position.z - 2.5f);
+                m_target.transform.position.z - 2.5f + (peekV *peekOffset));
             transform.position = Vector3.Slerp(transform.position, followPosition, m_cameraSpeed);
         }
         else
@@ -91,7 +96,12 @@ public class CameraFollow : MonoBehaviour
 
             gameObject.transform.position = Vector3.Slerp(transform.position, targetPos, 0.01f);
         }
-
         transform.Translate(Vector3.right * Time.deltaTime);
+    }
+
+    public void SetPeekValues(float h, float v)
+    {
+        peekH = h;
+        peekV = v;
     }
 }

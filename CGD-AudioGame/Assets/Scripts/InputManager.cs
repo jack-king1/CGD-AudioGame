@@ -40,6 +40,19 @@ public static class InputManager
         return r;
     }
 
+    public static float JoystickRightHorizontalRaw(int player_id)
+    {
+        float r = 0.0f;
+        r += Input.GetAxisRaw("JR_Horizontal_" + player_id.ToString());
+        return r;
+    }
+    public static float JoystickRightVerticalRaw(int player_id)
+    {
+        float r = 0.0f;
+        r += Input.GetAxisRaw("JR_Vertical_" + player_id.ToString());
+        return r;
+    }
+
     //Buttons
     public static bool AButton(int player_id)
     {

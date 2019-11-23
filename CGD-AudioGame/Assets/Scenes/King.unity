@@ -593,9 +593,10 @@ MonoBehaviour:
   m_target: {fileID: 0}
   m_cameraSpeed: 0.13
   m_cameraState: 2
+  peekOffset: 5
   cameraFollowPitch: 45
   spinHeightabovePlayer: 2
-  m_cameraZoomOffset: 8
+  m_cameraZoomOffset: 15.09
 --- !u!1001 &7866110918394209677
 PrefabInstance:
   m_ObjectHideFlags: 0
