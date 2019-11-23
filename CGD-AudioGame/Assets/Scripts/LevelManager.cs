@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using enums;
 
 public class LevelManager : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class LevelManager : MonoBehaviour
     public bool m_startLevel = false;
     private bool levelWon = false;
     private bool levelLost = false;
+    GAMESTATE m_gameState = GAMESTATE.attract;
 
     private void Update()
     {

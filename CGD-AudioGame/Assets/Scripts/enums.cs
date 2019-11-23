@@ -12,7 +12,8 @@
         levelwon,
         levellost,
         follow,
-        cinematic
+        cinematic,
+        attract
     }
 
     public enum PEEKDIRECTION
@@ -25,5 +26,11 @@
         sw,
         w,
         nw
+    }
+
+    public enum GAMESTATE
+    {
+        attract,
+        game
     }
 }
