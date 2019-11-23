@@ -6,6 +6,7 @@ using UnityEngine;
 public class Movement : MonoBehaviour
 {
     [SerializeField] private float movementSpeed = 0;
+    [SerializeField] private float rotateSpeed = 0;
     private float footStepVolume;
 
     [Range(0,10)]
@@ -14,7 +15,8 @@ public class Movement : MonoBehaviour
     private int playerID;
     private Rigidbody rb;
     private Vector3 lastPosition;
-    
+    private float current_rotation;
+
     private void Start()
     {
         playerID = GetComponent<PlayerData>().PlayerID();
@@ -30,7 +32,6 @@ public class Movement : MonoBehaviour
             if(footStepVolume != 0)
             {
                 SetFootstepVolume(0);
-                Debug.Log("Step Volume Set to 0");
             }
         }
     }
@@ -51,19 +52,18 @@ public class Movement : MonoBehaviour
         else
         {
             float x = InputManager.JoystickHorizontal(playerID);
-            float y = InputManager.JoystickVertical(playerID);
-            Debug.Log("X axis: " + x);
-            float InputMagnitude =  new Vector3(x, 0, y).magnitude;
+            float z = InputManager.JoystickVertical(playerID);
+            Vector3 movement = new Vector3(x, 0, (z*-1));
+            float InputMagnitude =  new Vector3(x, 0, z).magnitude;
             SetFootstepVolume(InputMagnitude);
-            Vector3 normalizedmovement = new Vector3(x, 0, y*-1).normalized;
-            transform.Translate((normalizedmovement * (InputMagnitude * movementSpeed) )* Time.deltaTime);
+
+            transform.Translate((movement.normalized * (InputMagnitude * movementSpeed) )* Time.deltaTime);
         }
     }
 
    //Audio 
    public void SetFootstepVolume(float InputMagnitude)
     {
-        
         footStepVolume = InputMagnitude;
         //Debug.Log(footStepVolume);
     }
@@ -73,9 +73,10 @@ public class Movement : MonoBehaviour
         return footStepVolume;
     }
 
-
-    //public void Rotate()
-    //{
-    //    float go_direction = Mathf.Atan2(InputManager.JoystickVertical(playerID), InputManager.JoystickHorizontal(playerID));
-    //}
+    public void Rotate()
+    {
+        //float z = InputManager.JoystickRightHorizontal(playerID);
+        //float InputMagnitude = new Vector3(0, 0,z ).magnitude;
+        //transform.Rotate((Vector3.up * z) * rotateSpeed  * Time.deltaTime);
+    }
 }

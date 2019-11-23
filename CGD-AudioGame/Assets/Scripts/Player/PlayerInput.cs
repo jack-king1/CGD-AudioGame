@@ -35,6 +35,11 @@ public class PlayerInput : MonoBehaviour
             movement.Move(true);
         }
 
+        if (InputManager.JoystickRightHorizontal(playerID) != 0 || InputManager.JoystickRightVertical(playerID) != 0)
+        {
+            movement.Rotate();
+        }
+
         if (InputManager.XButton(playerID))
         {
 

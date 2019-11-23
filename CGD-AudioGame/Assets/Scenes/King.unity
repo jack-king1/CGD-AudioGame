@@ -132,7 +132,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-13204
+  m_Name: pb_Mesh13654
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -591,8 +591,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_target: {fileID: 0}
-  m_cameraSpeed: 0.03
-  m_cameraState: 0
+  m_cameraSpeed: 0.13
+  m_cameraState: 2
+  cameraFollowPitch: 45
   spinHeightabovePlayer: 2
   m_cameraZoomOffset: 8
 --- !u!1001 &7866110918394209677
@@ -661,6 +662,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7866110917660055000, guid: e836030ac2ca20345a6b35861dcb1a04,
+        type: 3}
+      propertyPath: rotateSpeed
+      value: 53.65
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e836030ac2ca20345a6b35861dcb1a04, type: 3}

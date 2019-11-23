@@ -14,14 +14,29 @@ public static class InputManager
     {
         float r = 0.0f;
         r += Input.GetAxis("J_Horizontal_" + player_id.ToString());
-        r += Input.GetAxis("K_Horizontal_" + player_id.ToString());
-        return Mathf.Clamp(r, -1.0f, 1.0f);;
+       // r += Input.GetAxis("K_Horizontal_" + player_id.ToString());
+        //return Mathf.Clamp(r, -1.0f, 1.0f);
+        return r;
     }
     public static float JoystickVertical(int player_id)
     {
         float r = 0.0f;
         r += Input.GetAxis("J_Vertical_" + player_id.ToString());
-        r += Input.GetAxis("K_Vertical_" + player_id.ToString());
+       // r += Input.GetAxis("K_Vertical_" + player_id.ToString());
+        //return Mathf.Clamp(r, -1.0f, 1.0f);
+        return r;
+    }
+
+    public static float JoystickRightHorizontal(int player_id)
+    {
+        float r = 0.0f;
+        r += Input.GetAxis("JR_Horizontal_" + player_id.ToString());
+        return Mathf.Clamp(r, -1.0f, 1.0f); ;
+    }
+    public static float JoystickRightVertical(int player_id)
+    {
+        float r = 0.0f;
+        r += Input.GetAxis("JR_Vertical_" + player_id.ToString());
         return r;
     }
 

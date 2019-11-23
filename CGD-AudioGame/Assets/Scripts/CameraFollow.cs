@@ -11,6 +11,9 @@ public class CameraFollow : MonoBehaviour
     private Vector3 cinematicEndLocation;
 
     //Camera state variables
+    //Player Follow
+    [Range(0,365)]
+    public float cameraFollowPitch = 45.0f;
 
     //Player Won
     public float spinHeightabovePlayer = 3f;
@@ -54,12 +57,12 @@ public class CameraFollow : MonoBehaviour
     {
         if (m_target)
         {
-            transform.LookAt(m_target.transform);
+            //Position
+            //transform.LookAt(m_target.transform.localPosition);
             Vector3 followPosition = new Vector3(
                 m_target.transform.position.x,
                 m_target.transform.position.y + m_cameraZoomOffset,
                 m_target.transform.position.z - 2.5f);
-
             transform.position = Vector3.Slerp(transform.position, followPosition, m_cameraSpeed);
         }
         else
