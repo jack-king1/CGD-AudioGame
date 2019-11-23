@@ -52,7 +52,12 @@ public class FogOfWarScript : MonoBehaviour
                 if(dist< m_radiusSqr)
                 {
                     float alpha = Mathf.Min(m_colours[i].a, dist / m_radiusSqr);
-                    m_verticeDiscovered[i] = true;
+
+                    //Just check cam state is not in any other state e.g. cinematic.
+                    if(gameObject.GetComponent<CameraFollow>().m_cameraState == enums.CAMERASTATE.follow)
+                    {
+                        m_verticeDiscovered[i] = true;
+                    }
                     m_colours[i].a = alpha;
                 }
                 else if(m_verticeDiscovered[i])

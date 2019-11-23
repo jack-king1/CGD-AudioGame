@@ -13,6 +13,9 @@ public class CameraFollow : MonoBehaviour
     float peekV;
     float peekH;
     [SerializeField]private float peekOffset = 3.0f;
+    [SerializeField] private GameObject m_startCinematicCamPosition;
+    [SerializeField] private float cineTimerEnd;
+    [SerializeField] private float timer;
 
     //Camera state variables
     //Player Follow
@@ -30,6 +33,18 @@ public class CameraFollow : MonoBehaviour
         m_target = GameObject.FindGameObjectWithTag("Player");
         cinematicEndLocation = m_target.transform.position;
         playerID = m_target.GetComponent<PlayerData>().PlayerID();
+        m_startCinematicCamPosition = GameObject.FindGameObjectWithTag("CineStart");
+        if(m_startCinematicCamPosition)
+        {
+            m_cameraState = CAMERASTATE.cinematic;
+            gameObject.transform.position = m_startCinematicCamPosition.transform.position;
+            transform.LookAt(m_target.transform.position);
+        }
+        else
+        {
+            m_cameraState = CAMERASTATE.follow;
+            Debug.LogWarning("Camers state set to FOLLOW. This scene/level currently has no cinematic camera. Speak to King if it needs one.");
+        }
     }
 
     private void Update()
@@ -37,6 +52,7 @@ public class CameraFollow : MonoBehaviour
         switch (m_cameraState)
         {
             case CAMERASTATE.cinematic:
+                CinematicCam();
                 break;
             case CAMERASTATE.follow:
                 FollowCam();
@@ -54,7 +70,20 @@ public class CameraFollow : MonoBehaviour
     //This function will be at the beginning or end or completed game and will have a start gameobject/transform and an end.
     void CinematicCam()
     {
-
+        timer += Time.deltaTime;
+        if(timer < 5)
+        {
+            Vector3 targetPosition = new Vector3(
+            m_target.transform.position.x,
+            m_target.transform.position.y + 3,
+            m_target.transform.position.z - 2.5f);
+            transform.position = Vector3.Lerp(transform.position, targetPosition, 0.01f);
+        }
+        else
+        {
+            m_cameraState = CAMERASTATE.follow;
+            timer = 0;
+        }
     }
 
     //Main gameloop camera.
@@ -115,5 +144,6 @@ public class CameraFollow : MonoBehaviour
 
     public void ResetLookAngle()
     {
+
     }
 }

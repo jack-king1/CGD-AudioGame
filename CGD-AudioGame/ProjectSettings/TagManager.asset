@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Path
   - Enemy
+  - CineStart
   layers:
   - Default
   - TransparentFX

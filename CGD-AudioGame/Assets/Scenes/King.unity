@@ -132,7 +132,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh13654
+  m_Name: pb_Mesh20480
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -301,6 +301,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Fog Plane
       objectReference: {fileID: 0}
+    - target: {fileID: 4641319361750214342, guid: f011e70494dc4d346a577bdbdb795dc4,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4641319361750214347, guid: f011e70494dc4d346a577bdbdb795dc4,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -459,6 +464,36 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1 &1458585009
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1458585010}
+  m_Layer: 0
+  m_Name: CinematicStartPosition
+  m_TagString: CineStart
+  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1458585010
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1458585009}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -47.9, y: 4.2, z: -24.6}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1719088127 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7866110917660055006, guid: e836030ac2ca20345a6b35861dcb1a04,
@@ -592,10 +627,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_target: {fileID: 0}
   m_cameraSpeed: 0.13
-  m_cameraState: 2
+  m_cameraState: 3
   peekOffset: 5
+  m_startCinematicCamPosition: {fileID: 0}
+  cineTimerEnd: 0
+  timer: 0
   cameraFollowPitch: 45
-  spinHeightabovePlayer: 2
+  spinHeightabovePlayer: 5
   m_cameraZoomOffset: 15.09
 --- !u!1001 &7866110918394209677
 PrefabInstance:
@@ -669,5 +707,10 @@ PrefabInstance:
       propertyPath: rotateSpeed
       value: 53.65
       objectReference: {fileID: 0}
+    - target: {fileID: 7866110919471989674, guid: e836030ac2ca20345a6b35861dcb1a04,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 564c15c793368b044a5a97283e16333e, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e836030ac2ca20345a6b35861dcb1a04, type: 3}
