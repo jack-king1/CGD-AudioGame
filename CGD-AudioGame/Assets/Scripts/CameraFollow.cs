@@ -69,6 +69,14 @@ public class CameraFollow : MonoBehaviour
                 m_target.transform.position.y + m_cameraZoomOffset,
                 m_target.transform.position.z - 2.5f + (peekV *peekOffset));
             transform.position = Vector3.Slerp(transform.position, followPosition, m_cameraSpeed);
+
+            Quaternion LookAtPlayer = new Quaternion(
+            m_target.transform.rotation.x + cameraFollowPitch * Mathf.Deg2Rad,
+            m_target.transform.rotation.y,
+            m_target.transform.rotation.z,
+            m_target.transform.rotation.w);
+
+            gameObject.transform.rotation = Quaternion.Slerp(transform.rotation, LookAtPlayer, 0.01f);
         }
         else
         {
@@ -103,5 +111,9 @@ public class CameraFollow : MonoBehaviour
     {
         peekH = h;
         peekV = v;
+    }
+
+    public void ResetLookAngle()
+    {
     }
 }
