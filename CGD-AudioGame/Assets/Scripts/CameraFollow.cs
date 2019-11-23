@@ -77,7 +77,9 @@ public class CameraFollow : MonoBehaviour
             m_target.transform.position.x,
             m_target.transform.position.y + 3,
             m_target.transform.position.z - 2.5f);
-            transform.position = Vector3.Lerp(transform.position, targetPosition, 0.01f);
+            transform.position = Vector3.Lerp(transform.position, targetPosition, 0.005f);
+
+
         }
         else
         {
