@@ -584,6 +584,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f1d87b72c649694891037a9733ea8bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  LevelManager: {fileID: 0}
+  timeText: {fileID: 0}
 --- !u!1001 &596084656
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -679,6 +681,7 @@ GameObject:
   - component: {fileID: 1151689350}
   - component: {fileID: 1151689352}
   - component: {fileID: 1151689351}
+  - component: {fileID: 1151689353}
   m_Layer: 5
   m_Name: Level
   m_TagString: Untagged
@@ -747,6 +750,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1151689349}
   m_CullTransparentMesh: 0
+--- !u!114 &1151689353
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1151689349}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 414a8530e4486a84f81e09b9061026c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LevelManager: {fileID: 0}
+  levelText: {fileID: 0}
 --- !u!1 &1166075942
 GameObject:
   m_ObjectHideFlags: 0
@@ -1089,7 +1106,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_levelTimer: 60
-  m_startLevel: 0
+  m_levelID: 5
+  m_startLevel: 1
 --- !u!1001 &7866110918394209677
 PrefabInstance:
   m_ObjectHideFlags: 0

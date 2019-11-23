@@ -5,6 +5,7 @@ using UnityEngine;
 public class LevelManager : MonoBehaviour
 {
     [SerializeField] private float m_levelTimer = 60;
+    [SerializeField] private int m_levelID = 1;
     public bool m_startLevel = false;
     private bool levelWon = false;
     private bool levelLost = false;
@@ -49,6 +50,11 @@ public class LevelManager : MonoBehaviour
     public void LevelLost()
     {
         levelLost = true;
+    }
+
+    public int LevelID()
+    {
+        return m_levelID;
     }
 
 }
