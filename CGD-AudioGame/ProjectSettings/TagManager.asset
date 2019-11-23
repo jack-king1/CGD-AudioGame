@@ -23,6 +23,9 @@ TagManager:
   - 
   - 
   - Wall
+  - Player
+  - Enemy
+  - Trap
   - 
   - FogOfWar
   - 

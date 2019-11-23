@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7920677070716108733}
   - component: {fileID: 7920677070716108674}
   - component: {fileID: 7920677070716108675}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Spike Trap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -123,6 +123,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Spikes
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 269dfb857098ca74880c4a1b251725b0,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: -1196776876041431688, guid: 269dfb857098ca74880c4a1b251725b0,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 269dfb857098ca74880c4a1b251725b0,
         type: 3}
