@@ -8,6 +8,7 @@ public class EnemyMovement : MonoBehaviour
     public float chase_speed = 7;
     public float patrol_speed = 3.5f;
     public float search_speed = 2.5f;
+    public float search_radius = 10f;
     public float hit_range = 1;
     public float detect_volume = 5;
     public float detect_range = 2;
@@ -18,7 +19,7 @@ public class EnemyMovement : MonoBehaviour
     private float distance;
     public int path_index;
     private List<Transform> path_points = new List<Transform>();
-    private Vector3 random_pos;
+    public Vector3 random_pos;
     bool searching = false;
     public float hear_volume = 0.0f;
     Movement pl_movement;
@@ -50,6 +51,7 @@ public class EnemyMovement : MonoBehaviour
     void Movement()
     {
         hear_volume = pl_movement.FootStepVolume() - distance;
+        LookatSmoothly(agent.steeringTarget);
         // If player is in range, start chasing
         if ((hear_volume >= detect_volume || distance <= detect_range) && player)
         {
@@ -88,7 +90,6 @@ public class EnemyMovement : MonoBehaviour
     void ChasePlayer()
     {
         agent.speed = chase_speed;
-        TurnSmoothly(player.transform.position);
         if (distance > hit_range)
         {
             agent.SetDestination(player.transform.position);
@@ -115,8 +116,7 @@ public class EnemyMovement : MonoBehaviour
             }           
         }
         else
-        {          
-            TurnSmoothly(path_points[path_index].position);        
+        {                 
             agent.SetDestination(path_points[path_index].position);
         }
     }
@@ -129,18 +129,27 @@ public class EnemyMovement : MonoBehaviour
             StartCoroutine(SearchTimer());
         }
 
-        if (transform.position == random_pos)
+        if (Vector3.Distance(transform.position, random_pos) < 2)
         {
-            random_pos = new Vector3(Random.Range(transform.position.x - 5, transform.position.x + 5), 0, Random.Range(transform.position.z - 5, transform.position.z + 5));
+            StartCoroutine(GetRandomPos());
         }
-        TurnSmoothly(random_pos);
         agent.SetDestination(random_pos);
+    }
+    
+    IEnumerator GetRandomPos()
+    {
+        Vector3 randomDirection = Random.insideUnitSphere * search_radius;
+        randomDirection += player.transform.position;
+        NavMeshHit hit;
+        NavMesh.SamplePosition(randomDirection, out hit, search_radius, 1);
+        random_pos = hit.position;
+        yield return null;
     }
 
     IEnumerator SearchTimer()
     {
         searching = true;
-        random_pos = new Vector3(Random.Range(transform.position.x - 5, transform.position.x + 5), 0, Random.Range(transform.position.z - 5, transform.position.z + 5));
+        StartCoroutine(GetRandomPos());
         yield return new WaitForSeconds(10);
         if (current_state == STATE.search)
         {
@@ -148,7 +157,7 @@ public class EnemyMovement : MonoBehaviour
         }
     }
 
-    void TurnSmoothly(Vector3 target)
+    void LookatSmoothly(Vector3 target)
     {
         var target_rotation = Quaternion.LookRotation(target - transform.position);
         transform.rotation = Quaternion.Slerp(transform.rotation, target_rotation, turn_speed * Time.deltaTime);
