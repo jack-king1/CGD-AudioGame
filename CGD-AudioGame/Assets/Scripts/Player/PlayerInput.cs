@@ -9,6 +9,7 @@ public class PlayerInput : MonoBehaviour
     private int playerID;
     private Camera m_cam;
     private CameraFollow m_camerafollow;
+    private LevelManager m_levelManager;
 
     private void Awake()
     {
@@ -16,13 +17,14 @@ public class PlayerInput : MonoBehaviour
         playerID = GetComponent<PlayerData>().PlayerID();
         m_cam = Camera.main;
         m_camerafollow = m_cam.GetComponent<CameraFollow>();
+        m_levelManager = GameObject.FindGameObjectWithTag("LevelManager").GetComponent<LevelManager>();
     }
 
     void Update()
     {
-        if(InputManager.AButton(playerID))
+        if(InputManager.AButton(playerID) && m_levelManager.GameState() == GAMESTATE.attract)
         {
-
+            m_levelManager.GameState(GAMESTATE.game);
         }
         else if(Input.GetKey(KeyCode.E))
         {

@@ -37,7 +37,7 @@ public class CameraFollow : MonoBehaviour
         m_startCinematicCamPosition = GameObject.FindGameObjectWithTag("CineStart");
         if(m_startCinematicCamPosition)
         {
-            m_cameraState = CAMERASTATE.cinematic;
+            m_cameraState = CAMERASTATE.attract;
             gameObject.transform.position = m_startCinematicCamPosition.transform.position;
             transform.LookAt(m_target.transform.position);
         }
@@ -56,6 +56,11 @@ public class CameraFollow : MonoBehaviour
             m_cameraState = CAMERASTATE.levelwon;
         }
 
+        if(m_levelManager.GameState() == GAMESTATE.game)
+        {
+            m_cameraState = CAMERASTATE.follow;
+        }
+
         switch (m_cameraState)
         {
             case CAMERASTATE.cinematic:
@@ -68,6 +73,9 @@ public class CameraFollow : MonoBehaviour
                 break;
             case CAMERASTATE.levelwon:
                 LevelWon();
+                break;
+            case CAMERASTATE.attract:
+                Attract();
                 break;
             default:
                 break;
@@ -121,6 +129,21 @@ public class CameraFollow : MonoBehaviour
             Debug.LogError("You absolute mongrel! Camera can't find gameobject tagged with 'Player'. Please specify a target via" +
                 " the script on the camera. https://www.youtube.com/watch?v=S8rRladhM1g ");
         }
+    }
+
+    void Attract()
+    {
+        transform.LookAt(m_target.transform);
+        if (gameObject.transform.position.y != m_target.transform.position.y)
+        {
+            Vector3 targetPos = new Vector3(
+                gameObject.transform.position.x,
+                m_target.transform.position.y + 50,
+                gameObject.transform.position.z);
+
+            gameObject.transform.position = Vector3.Slerp(transform.position, targetPos, 0.01f);
+        }
+        transform.Translate(Vector3.right * (Time.deltaTime * 30));
     }
 
     //Pan around player

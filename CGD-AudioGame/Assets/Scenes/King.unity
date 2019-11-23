@@ -132,6 +132,7 @@ GameObject:
   - component: {fileID: 54202271}
   - component: {fileID: 54202270}
   - component: {fileID: 54202269}
+  - component: {fileID: 54202273}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -221,6 +222,20 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &54202273
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 54202268}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ee501b87316ecf40b4eee6fa89edbfc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AttractUI: {fileID: 822052219}
+  GameUI: {fileID: 222210820}
 --- !u!1 &153365682
 GameObject:
   m_ObjectHideFlags: 0
@@ -274,7 +289,7 @@ GameObject:
   - component: {fileID: 222210821}
   m_Layer: 5
   m_Name: GameUI
-  m_TagString: Untagged
+  m_TagString: GameUI
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -718,7 +733,7 @@ GameObject:
   - component: {fileID: 822052220}
   m_Layer: 5
   m_Name: AttractUI
-  m_TagString: Untagged
+  m_TagString: AttractUI
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -779,7 +794,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.000061035, y: 157}
+  m_AnchoredPosition: {x: 0.000061036, y: 133}
   m_SizeDelta: {x: 367.4, y: 100}
   m_Pivot: {x: 0.5000001, y: 0.5}
 --- !u!114 &844023589
@@ -972,7 +987,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.000061035, y: -117}
+  m_AnchoredPosition: {x: 0.000061035, y: -105}
   m_SizeDelta: {x: 367.4, y: 100}
   m_Pivot: {x: 0.5000001, y: 0.5}
 --- !u!114 &1164800735
@@ -1326,7 +1341,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_target: {fileID: 0}
   m_cameraSpeed: 0.13
-  m_cameraState: 3
+  m_cameraState: 4
   peekOffset: 5
   m_startCinematicCamPosition: {fileID: 0}
   cineTimerEnd: 0

@@ -14,7 +14,7 @@ public class LevelManager : MonoBehaviour
 
     private void Update()
     {
-        if (m_startLevel)
+        if (m_startLevel && m_gameState == GAMESTATE.game)
         {
             if(m_levelTimer > 0)
             {
@@ -57,6 +57,16 @@ public class LevelManager : MonoBehaviour
     public int LevelID()
     {
         return m_levelID;
+    }
+
+    public GAMESTATE GameState()
+    {
+        return m_gameState;
+    }
+
+    public void GameState(GAMESTATE gs)
+    {
+        m_gameState = gs;
     }
 
 }
