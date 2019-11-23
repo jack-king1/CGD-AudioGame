@@ -9,6 +9,10 @@ TagManager:
   - Trap
   - Wall
   - Grid
+  - CineStart
+  - LevelManager
+  - GameUI
+  - AttractUI
   layers:
   - Default
   - TransparentFX
@@ -22,6 +26,9 @@ TagManager:
   - Player
   - Enemy
   - Trap
+  - 
+  - FogOfWar
+  - 
   - 
   - 
   - 

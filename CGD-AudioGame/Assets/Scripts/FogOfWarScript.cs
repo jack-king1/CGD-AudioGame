@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 public class FogOfWarScript : MonoBehaviour
@@ -12,8 +11,13 @@ public class FogOfWarScript : MonoBehaviour
 
     private Mesh m_mesh;
     private Vector3[] m_vertices;
+    public List<bool> m_verticeDiscovered;
     private Color[] m_colours;
 
+
+    public float maxTime =10;
+    public float timer;
+    public GameObject Player;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,6 +27,19 @@ public class FogOfWarScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        timer += Time.deltaTime ;
+        if(timer> maxTime)
+        {
+            m_radius -= 0.5f;
+            timer = 0;
+
+        }
+
+       if(m_radius <= 2.5)
+        {
+            Player.SetActive(false);
+        }
+
         Ray r = new Ray(transform.position, m_Player.position - transform.position);
         RaycastHit hit;
         if(Physics.Raycast(r,out hit, 1000, m_fogLayer, QueryTriggerInteraction.Collide))
@@ -35,12 +52,22 @@ public class FogOfWarScript : MonoBehaviour
                 if(dist< m_radiusSqr)
                 {
                     float alpha = Mathf.Min(m_colours[i].a, dist / m_radiusSqr);
+
+                    //Just check cam state is not in any other state e.g. cinematic.
+                    if(gameObject.GetComponent<CameraFollow>().m_cameraState == enums.CAMERASTATE.follow)
+                    {
+                        m_verticeDiscovered[i] = true;
+                    }
                     m_colours[i].a = alpha;
                 }
-
-                else 
+                else if(m_verticeDiscovered[i])
                 {
-                    m_colours[i].a = 1;
+                    m_colours[i].a = 0.5f;
+                }
+                else
+                {
+                    m_colours[i].a = 1f;
+
                 }
             }
 
@@ -61,13 +88,16 @@ public class FogOfWarScript : MonoBehaviour
         }
 
         UpdateColour();
-    }
 
+        foreach (Vector3 vertice in m_vertices)
+        {
+            m_verticeDiscovered.Add(false);
+        }
+    }
 
    void UpdateColour()
     {
         m_mesh.colors = m_colours;
-
     }
 
 }
