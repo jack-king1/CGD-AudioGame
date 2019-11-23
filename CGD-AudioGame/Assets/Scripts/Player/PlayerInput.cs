@@ -6,11 +6,13 @@ public class PlayerInput : MonoBehaviour
 {
     private Movement movement;
     private int playerID;
+    private Camera m_cam;
 
     private void Awake()
     {
         movement = GetComponent<Movement>();
         playerID = GetComponent<PlayerData>().PlayerID();
+        m_cam = Camera.main;
     }
 
     void Update()

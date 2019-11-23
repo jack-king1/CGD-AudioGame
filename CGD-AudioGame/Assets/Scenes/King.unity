@@ -573,9 +573,9 @@ MonoBehaviour:
   m_fogLayer:
     serializedVersion: 2
     m_Bits: 512
-  m_radius: 5
+  m_radius: 10
   m_verticeDiscovered: 
-  maxTime: 10
+  maxTime: 1000
   timer: 0
   Player: {fileID: 1719088127}
 --- !u!114 &1752925849
@@ -592,6 +592,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_target: {fileID: 0}
   m_cameraSpeed: 0.03
+  m_cameraState: 0
+  spinHeightabovePlayer: 2
   m_cameraZoomOffset: 8
 --- !u!1001 &7866110918394209677
 PrefabInstance:

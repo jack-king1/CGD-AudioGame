@@ -6,4 +6,12 @@
         chase,
         search
     }
+
+    public enum CAMERASTATE
+    {
+        levelwon,
+        levellost,
+        follow,
+        cinematic
+    }
 }
