@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Path
   - Enemy
+  - Trap
+  - Wall
+  - Grid
   - CineStart
   - LevelManager
   layers:
@@ -17,6 +20,7 @@ TagManager:
   - UI
   - 
   - 
+  - Wall
   - 
   - FogOfWar
   - 

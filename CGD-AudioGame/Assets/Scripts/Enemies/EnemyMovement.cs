@@ -15,14 +15,16 @@ public class EnemyMovement : MonoBehaviour
     public STATE current_state = STATE.patrol;
     private GameObject player;
     private float distance;
-    private int path_index;
+    public int path_index;
     private List<Transform> path_points = new List<Transform>();
     private Vector3 random_pos;
     bool searching = false;
     public float hear_volume = 0.0f;
     Movement pl_movement;
+    Pathfinding pathfinding;
     void Start()
     {
+        pathfinding = GetComponent<Pathfinding>();
         player = GameObject.FindWithTag("Player");
         pl_movement = player.GetComponent<Movement>();
         for (int i = 0; i < transform.parent.childCount; i++)
@@ -32,6 +34,7 @@ public class EnemyMovement : MonoBehaviour
                 path_points.Add(transform.parent.GetChild(i).gameObject.transform);
             }
         }
+        pathfinding.SetTarget(path_points[0]);
     }
 
     void Update()
@@ -84,10 +87,11 @@ public class EnemyMovement : MonoBehaviour
     void ChasePlayer()
     {
         float step = chase_speed * Time.deltaTime;
+        pathfinding.SetTarget(player.transform);
         TurnSmoothly(player.transform.position);
         if (distance > hit_range)
         {
-            transform.position = Vector3.MoveTowards(transform.position, player.transform.position, step);
+            transform.position = Vector3.MoveTowards(transform.position, pathfinding.FirstNode(), step);
         }
         else
         {
@@ -99,7 +103,8 @@ public class EnemyMovement : MonoBehaviour
     void FollowPath()
     {
         float step = patrol_speed * Time.deltaTime;
-        if (transform.position == path_points[path_index].position)
+        pathfinding.SetTarget(path_points[path_index].transform);
+        if (Vector3.Distance(transform.position, path_points[path_index].position) < 1)
         {
             if (path_index == path_points.Count - 1)
             {
@@ -108,12 +113,12 @@ public class EnemyMovement : MonoBehaviour
             else
             {
                 path_index++;
-            }
+            }           
         }
         else
-        {
-            TurnSmoothly(path_points[path_index].position);
-            transform.position = Vector3.MoveTowards(transform.position, path_points[path_index].position, step);
+        {          
+            TurnSmoothly(pathfinding.FirstNode());
+            transform.position = Vector3.MoveTowards(transform.position, pathfinding.FirstNode(), step);
         }
     }
 
