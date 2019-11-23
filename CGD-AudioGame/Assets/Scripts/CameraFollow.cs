@@ -53,10 +53,13 @@ public class CameraFollow : MonoBehaviour
     {
         if(m_levelManager.IsLevelWon() || m_levelManager.IsLevelLost())
         {
-            m_cameraState = CAMERASTATE.levelwon;
+            if(m_cameraState != CAMERASTATE.levelwon)
+            {
+                m_cameraState = CAMERASTATE.levelwon;
+            }
         }
 
-        if(m_levelManager.GameState() == GAMESTATE.game)
+        if(m_levelManager.GameState() == GAMESTATE.game && (m_levelManager.IsLevelWon() != true && m_levelManager.IsLevelLost()!= true))
         {
             m_cameraState = CAMERASTATE.follow;
         }
@@ -70,6 +73,7 @@ public class CameraFollow : MonoBehaviour
                 FollowCam();
                 break;
             case CAMERASTATE.levellost:
+                LevelWon();
                 break;
             case CAMERASTATE.levelwon:
                 LevelWon();
