@@ -55,6 +55,7 @@ public class Movement : MonoBehaviour
             Vector3 movement = new Vector3(x, 0, (z*-1));
             float InputMagnitude =  new Vector3(x, 0, z).magnitude;
             SetFootstepVolume(InputMagnitude);
+            Debug.Log("Footstep Volume: " + footStepVolume);
             transform.Translate((movement.normalized * (InputMagnitude * movementSpeed) )* Time.deltaTime);
         }
     }
@@ -68,6 +69,7 @@ public class Movement : MonoBehaviour
 
     public float FootStepVolume()
     {
+        
         return footStepVolume;
     }
 
