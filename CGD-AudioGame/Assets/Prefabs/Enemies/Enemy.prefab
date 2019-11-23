@@ -135,7 +135,6 @@ GameObject:
   - component: {fileID: 6654866258818275398}
   - component: {fileID: 6654866258818275399}
   - component: {fileID: 6654866258818275392}
-  - component: {fileID: 6654866258818275393}
   - component: {fileID: 6654866258818275394}
   - component: {fileID: 4726157238975266003}
   - component: {fileID: 6849182725199625703}
@@ -206,19 +205,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!65 &6654866258818275393
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6654866258818275395}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &6654866258818275394
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -231,14 +217,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74d04039cdfc6394e997bd1a6965e78f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  chase_speed: 5
-  patrol_speed: 2.5
-  search_speed: 1.5
+  chase_speed: 7
+  patrol_speed: 3.5
+  search_speed: 2.5
   hit_range: 1
   detect_volume: 5
   detect_range: 2
   turn_speed: 5
-  damage: 10
+  damage: 100
   current_state: 0
   path_index: 0
   hear_volume: 0

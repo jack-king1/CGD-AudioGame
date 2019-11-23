@@ -5,9 +5,9 @@ using UnityEngine.AI;
 using enums;
 public class EnemyMovement : MonoBehaviour
 {
-    public float chase_speed = 5;
-    public float patrol_speed = 2.5f;
-    public float search_speed = 1.5f;
+    public float chase_speed = 7;
+    public float patrol_speed = 3.5f;
+    public float search_speed = 2.5f;
     public float hit_range = 1;
     public float detect_volume = 5;
     public float detect_range = 2;
@@ -23,6 +23,7 @@ public class EnemyMovement : MonoBehaviour
     public float hear_volume = 0.0f;
     Movement pl_movement;
     NavMeshAgent agent;
+
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
