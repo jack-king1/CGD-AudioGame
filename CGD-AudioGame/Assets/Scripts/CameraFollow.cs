@@ -9,6 +9,7 @@ public class CameraFollow : MonoBehaviour
     public float m_cameraSpeed;
     public CAMERASTATE m_cameraState;
     private Vector3 cinematicEndLocation;
+    private LevelManager m_levelManager;
     int playerID;
     float peekV;
     float peekH;
@@ -45,10 +46,16 @@ public class CameraFollow : MonoBehaviour
             m_cameraState = CAMERASTATE.follow;
             Debug.LogWarning("Camers state set to FOLLOW. This scene/level currently has no cinematic camera. Speak to King if it needs one.");
         }
+        m_levelManager = GameObject.FindGameObjectWithTag("LevelManager").GetComponent<LevelManager>();
     }
 
     private void Update()
     {
+        if(m_levelManager.IsLevelWon() || m_levelManager.IsLevelLost())
+        {
+            m_cameraState = CAMERASTATE.levelwon;
+        }
+
         switch (m_cameraState)
         {
             case CAMERASTATE.cinematic:
