@@ -28,13 +28,13 @@ TagManager:
   - 
   - 
   - Wall
-  - Player
+  - FogOfWar
   - Enemy
   - Trap
+  - Player
   - 
   - FogOfWar
   - Walkable
-  - 
   - 
   - 
   - 
