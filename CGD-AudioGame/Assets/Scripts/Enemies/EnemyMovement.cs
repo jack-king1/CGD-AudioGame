@@ -138,6 +138,7 @@ public class EnemyMovement : MonoBehaviour
     
     IEnumerator GetRandomPos()
     {
+        // Gets random position within the navmesh
         Vector3 randomDirection = Random.insideUnitSphere * search_radius;
         randomDirection += player.transform.position;
         NavMeshHit hit;
@@ -153,6 +154,16 @@ public class EnemyMovement : MonoBehaviour
         yield return new WaitForSeconds(10);
         if (current_state == STATE.search)
         {
+            // Finds closest patrol point after losing the player
+            float lowest_distance = 100;
+            for (int i = 0; i < path_points.Count; i++)
+            {
+                if (Vector3.Distance(path_points[i].position, transform.position) < lowest_distance)
+                {
+                    lowest_distance = Vector3.Distance(path_points[i].position, transform.position);
+                    path_index = i;
+                }
+            }
             current_state = STATE.patrol;
         }
     }
