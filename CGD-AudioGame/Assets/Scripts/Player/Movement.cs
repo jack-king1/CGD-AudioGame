@@ -89,7 +89,6 @@ public class Movement : MonoBehaviour
 
     public float FootStepVolume()
     {
-        
         return footStepVolume;
     }
 
@@ -102,6 +101,7 @@ public class Movement : MonoBehaviour
 
     void FloorType(string tagName)
     {
+        //To do
         Debug.Log("On: "+tagName);
         switch(tagName)
         {

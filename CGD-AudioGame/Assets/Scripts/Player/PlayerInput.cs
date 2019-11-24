@@ -18,6 +18,11 @@ public class PlayerInput : MonoBehaviour
         m_cam = Camera.main;
         m_camerafollow = m_cam.GetComponent<CameraFollow>();
         m_levelManager = GameObject.FindGameObjectWithTag("LevelManager").GetComponent<LevelManager>();
+
+        if(!m_levelManager)
+        {
+            Debug.LogError("Mongrel! Add a level manager and hopefully movement should work.");
+        }
     }
 
     void Update()
