@@ -1009,6 +1009,14 @@ PrefabInstance:
       propertyPath: m_levelTimer
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 428138502, guid: 45769784d52f8d2408f8ffc1e27a7636, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 71
+      objectReference: {fileID: 0}
+    - target: {fileID: 428138502, guid: 45769784d52f8d2408f8ffc1e27a7636, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -33.3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 45769784d52f8d2408f8ffc1e27a7636, type: 3}
 --- !u!1001 &2274140278722509940
@@ -1101,6 +1109,14 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 470378387, guid: b2eb4c643c1b4e545b9b0dadc319f752, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2060780927, guid: b2eb4c643c1b4e545b9b0dadc319f752, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8388546029621082095, guid: b2eb4c643c1b4e545b9b0dadc319f752,
         type: 3}
@@ -1222,17 +1238,9 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 470378387, guid: b2eb4c643c1b4e545b9b0dadc319f752, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 774169583, guid: b2eb4c643c1b4e545b9b0dadc319f752, type: 3}
       propertyPath: m_FontData.m_HorizontalOverflow
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2060780927, guid: b2eb4c643c1b4e545b9b0dadc319f752, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2033551382, guid: b2eb4c643c1b4e545b9b0dadc319f752, type: 3}
       propertyPath: m_IsActive
