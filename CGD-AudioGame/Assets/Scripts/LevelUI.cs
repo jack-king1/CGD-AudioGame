@@ -12,7 +12,10 @@ public class LevelUI : MonoBehaviour
     {
         LevelManager = GameObject.FindGameObjectWithTag("LevelManager").GetComponent<LevelManager>();
         levelText = GetComponent<Text>();
-        levelText.text += LevelManager.LevelID().ToString();
+
+        //+ 1 because otherwise it messes with scene manager, loading the right scene based on level id.
+        int levelID = LevelManager.LevelID() + 1;
+        levelText.text += levelID.ToString();
     }
 
 }

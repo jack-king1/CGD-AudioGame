@@ -13,6 +13,9 @@ TagManager:
   - LevelManager
   - GameUI
   - AttractUI
+  - Floor
+  - Floor2
+  - Start
   layers:
   - Default
   - TransparentFX
@@ -28,10 +31,7 @@ TagManager:
   - Trap
   - 
   - FogOfWar
-  - 
-  - 
-  - 
-  - 
+  - Walkable
   - 
   - 
   - 

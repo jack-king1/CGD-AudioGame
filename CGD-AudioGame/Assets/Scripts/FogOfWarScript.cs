@@ -17,7 +17,6 @@ public class FogOfWarScript : MonoBehaviour
 
     public float maxTime =10;
     public float timer;
-    public GameObject Player;
     // Start is called before the first frame update
     void Start()
     {
@@ -37,7 +36,7 @@ public class FogOfWarScript : MonoBehaviour
 
        if(m_radius <= 2.5)
         {
-            Player.SetActive(false);
+            //Player.SetActive(false);
         }
 
         Ray r = new Ray(transform.position, m_Player.position - transform.position);

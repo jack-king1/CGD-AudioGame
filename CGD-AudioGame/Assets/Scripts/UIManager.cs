@@ -7,6 +7,8 @@ public class UIManager : MonoBehaviour
 {
     public GameObject AttractUI;
     public GameObject GameUI;
+    public GameObject NextLevelUI;
+    public GameObject RetryUI;
     LevelManager lm;
 
     void Start()
@@ -26,6 +28,17 @@ public class UIManager : MonoBehaviour
                 {
                     GameUI.SetActive(true);
                     AttractUI.SetActive(false);
+                }
+
+                if(lm.IsLevelLost())
+                {
+                    RetryUI.SetActive(true);
+                    GameUI.SetActive(false);
+                }
+                else if(lm.IsLevelWon())
+                {
+                    NextLevelUI.SetActive(true);
+                    GameUI.SetActive(false);
                 }
             }
             else if(lm.GameState() == GAMESTATE.attract)

@@ -33,4 +33,17 @@
         attract,
         game
     }
+
+    public enum FLOORTYPE
+    {
+        //QUIET TO LOUD
+        //Temp - Replace with actual tags
+        floor,
+        floor2
+    }
+
+    public enum SCENE
+    {
+
+    }
 }
