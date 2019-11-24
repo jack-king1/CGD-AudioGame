@@ -40,11 +40,10 @@ public class FogOfWarScript : MonoBehaviour
             
         }
 
-
        if(m_radius <= 3)
-       if(m_radius <= 2.5)
-        {
-            //Player.SetActive(false);
+     
+        { 
+        //   Player.SetActive(false);  //Go to lose Screen
         }
 
         Ray r = new Ray(transform.position, m_Player.position - transform.position);
