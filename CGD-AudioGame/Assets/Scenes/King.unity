@@ -923,15 +923,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8772758763648627369, guid: 6fd9fe7409d5b9440a67ea3e3f4bdac6,
+    - target: {fileID: 4088504733586153147, guid: 6fd9fe7409d5b9440a67ea3e3f4bdac6,
         type: 3}
-      propertyPath: m_Constraints
-      value: 80
-      objectReference: {fileID: 0}
-    - target: {fileID: 4088504733578734813, guid: 6fd9fe7409d5b9440a67ea3e3f4bdac6,
-        type: 3}
-      propertyPath: m_TagString
-      value: PlayerModel
+      propertyPath: m_ApplyRootMotion
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6fd9fe7409d5b9440a67ea3e3f4bdac6, type: 3}
