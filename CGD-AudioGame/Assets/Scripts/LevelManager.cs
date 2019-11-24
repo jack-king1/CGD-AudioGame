@@ -17,6 +17,7 @@ public class LevelManager : MonoBehaviour
     public Transform m_PlayerFinishPos;
     private GameObject m_Player;
 
+
     private void Start()
     {
         m_Player = GameObject.FindGameObjectWithTag("Player");
@@ -88,5 +89,10 @@ public class LevelManager : MonoBehaviour
     public void NextLevel()
     {
         SceneManager.LoadScene(LevelID() + 1);
+    }
+
+    public void LoseScene()
+    {
+        SceneManager.LoadScene(LevelID() + 2);
     }
 }
