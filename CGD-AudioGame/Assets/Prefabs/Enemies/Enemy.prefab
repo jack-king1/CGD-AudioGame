@@ -224,7 +224,7 @@ MonoBehaviour:
   search_radius: 10
   hit_range: 1
   detect_volume: 5
-  detect_range: 2
+  detect_range: 1
   turn_speed: 5
   damage: 100
   current_state: 0

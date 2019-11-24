@@ -50,14 +50,14 @@ public class EnemyMovement : MonoBehaviour
 
     void Movement()
     {
-        hear_volume = pl_movement.FootStepVolume() - distance;
+        hear_volume = (pl_movement.FootStepVolume() * 20) - distance;
         LookatSmoothly(agent.steeringTarget);
         // If player is in range, start chasing
         if ((hear_volume >= detect_volume || distance <= detect_range) && player)
         {
             current_state = STATE.chase;
         }
-
+        
         // If chasing player and goes out of range, start searching
         if (current_state == STATE.chase)
         {
