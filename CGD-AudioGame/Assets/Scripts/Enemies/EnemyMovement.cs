@@ -61,7 +61,6 @@ public class EnemyMovement : MonoBehaviour
         // If chasing player and goes out of range, start searching
         if (current_state == STATE.chase)
         {
-            searching = false;
             if (player != null)
             {
                 ChasePlayer();
@@ -78,7 +77,6 @@ public class EnemyMovement : MonoBehaviour
         }
         else if (current_state == STATE.patrol)
         {
-            searching = false;
             FollowPath();
         }
         else if (current_state == STATE.search)
@@ -90,6 +88,7 @@ public class EnemyMovement : MonoBehaviour
     void ChasePlayer()
     {
         agent.speed = chase_speed;
+        searching = false;
         if (distance > hit_range)
         {
             agent.SetDestination(player.transform.position);
@@ -104,6 +103,7 @@ public class EnemyMovement : MonoBehaviour
     void FollowPath()
     {
         agent.speed = patrol_speed;
+        searching = false;
         if (Vector3.Distance(transform.position, path_points[path_index].position) < 1)
         {
             if (path_index == path_points.Count - 1)
@@ -126,7 +126,7 @@ public class EnemyMovement : MonoBehaviour
         agent.speed = search_speed;
         if (!searching)
         {
-            StartCoroutine(SearchTimer());
+            StartCoroutine(SearchTimer(10));
         }
 
         if (Vector3.Distance(transform.position, random_pos) < 2)
@@ -147,11 +147,15 @@ public class EnemyMovement : MonoBehaviour
         yield return null;
     }
 
-    IEnumerator SearchTimer()
+    IEnumerator SearchTimer(float time)
     {
         searching = true;
         StartCoroutine(GetRandomPos());
-        yield return new WaitForSeconds(10);
+        while (time > 0)
+        {
+            time -= Time.deltaTime;
+            yield return null;
+        }
         if (current_state == STATE.search)
         {
             // Finds closest patrol point after losing the player
