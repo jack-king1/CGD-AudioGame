@@ -22,43 +22,59 @@ public class PlayerInput : MonoBehaviour
 
     void Update()
     {
-        if(InputManager.AButton(playerID) && m_levelManager.GameState() == GAMESTATE.attract)
+        //Attract State
+        if(m_levelManager.GameState() == GAMESTATE.attract)
         {
-            m_levelManager.GameState(GAMESTATE.game);
-        }
-        else if(Input.GetKey(KeyCode.E))
-        {
-            //Attck or something?
-        }
-
-        if (InputManager.JoystickHorizontal(playerID) != 0 || InputManager.JoystickVertical(playerID) != 0)
-        {
-            movement.Move(false);
-        }
-        else if(Input.GetAxis("Horizontal") != 0 || Input.GetAxis("Vertical") != 0)
-        {
-            movement.Move(true);
+            if (InputManager.AButton(playerID))
+            {
+                m_levelManager.GameState(GAMESTATE.game);
+            }
+            else if (Input.GetKey(KeyCode.A))
+            {
+                m_levelManager.GameState(GAMESTATE.game);
+            }
         }
 
-        if (InputManager.JoystickRightHorizontalRaw(playerID) != 0 || InputManager.JoystickRightVerticalRaw(playerID) != 0)
-        {
-            float h = InputManager.JoystickRightHorizontalRaw(playerID);
-            float v = InputManager.JoystickRightVerticalRaw(playerID);
-
-            m_camerafollow.SetPeekValues(h, v*-1);
-        }
-        else
-        {
-            m_camerafollow.SetPeekValues(0, 0);
-        }
-
-        if (InputManager.XButton(playerID))
+        //Game State
+        if (m_levelManager.GameState() == GAMESTATE.game)
         {
 
-        }
-        else if(Input.GetKey(KeyCode.Q))
-        {
+            if (InputManager.JoystickHorizontal(playerID) != 0 || InputManager.JoystickVertical(playerID) != 0)
+            {
+                movement.Move(false);
+            }
+            else if (Input.GetAxis("Horizontal") != 0 || Input.GetAxis("Vertical") != 0)
+            {
+                movement.Move(true);
+            }
 
+            if (InputManager.JoystickRightHorizontalRaw(playerID) != 0 || InputManager.JoystickRightVerticalRaw(playerID) != 0)
+            {
+                float h = InputManager.JoystickRightHorizontalRaw(playerID);
+                float v = InputManager.JoystickRightVerticalRaw(playerID);
+
+                m_camerafollow.SetPeekValues(h, v * -1);
+            }
+            else if (Input.GetAxisRaw("Horizontal_Arrow") != 0 || Input.GetAxisRaw("Vertical_Arrow") != 0)
+            {
+                float h = Input.GetAxisRaw("Horizontal_Arrow");
+                float v = Input.GetAxisRaw("Vertical_Arrow");
+
+                m_camerafollow.SetPeekValues(h, v);
+            }
+            else
+            {
+                m_camerafollow.SetPeekValues(0, 0);
+            }
+
+            if (InputManager.XButton(playerID))
+            {
+
+            }
+            else if (Input.GetKey(KeyCode.Q))
+            {
+
+            }
         }
     }
 }

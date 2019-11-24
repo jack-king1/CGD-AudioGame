@@ -10,6 +10,7 @@ public class Movement : MonoBehaviour
 
     [Range(0,10)]
     [SerializeField] float[] FootStepVolumes;
+    private int currentFloorType;
 
     private int playerID;
     private Rigidbody rb;
@@ -33,6 +34,8 @@ public class Movement : MonoBehaviour
                 SetFootstepVolume(0);
             }
         }
+
+        //Raycast detatction floor type
     }
 
     public void Move(bool keyboardInput)
@@ -40,13 +43,12 @@ public class Movement : MonoBehaviour
         if(keyboardInput)
         {
             float x = Input.GetAxis("Horizontal");
-            float y = Input.GetAxis("Vertical");
-
-            
-            x *= movementSpeed * Time.deltaTime;
-            y *= (movementSpeed * Time.deltaTime);
-
-            transform.Translate(x, 0, y);
+            float z = Input.GetAxis("Vertical");
+            Vector3 movement = new Vector3(x, 0, z );
+            float InputMagnitude = new Vector3(x, 0, z).magnitude;
+            SetFootstepVolume(InputMagnitude);
+            Debug.Log("Footstep Volume: " + footStepVolume);
+            transform.Translate((movement.normalized * (InputMagnitude * movementSpeed)) * Time.deltaTime);
         }
         else
         {
@@ -63,7 +65,7 @@ public class Movement : MonoBehaviour
    //Audio 
    public void SetFootstepVolume(float InputMagnitude)
     {
-        footStepVolume = InputMagnitude;
+        footStepVolume = InputMagnitude + FootStepVolumes[currentFloorType];
         //Debug.Log(footStepVolume);
     }
 
