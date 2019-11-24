@@ -39,6 +39,10 @@ public class ArrowTrap : MonoBehaviour
             arrow.transform.position = Vector3.MoveTowards(arrow.transform.position, target.position, arrow_speed * Time.deltaTime);
             yield return null;
         }
+        if (arrow != null)
+        {
+            Destroy(arrow.gameObject);
+        }
         yield return new WaitForSeconds(cooldown);
         can_fire = true;
     }
