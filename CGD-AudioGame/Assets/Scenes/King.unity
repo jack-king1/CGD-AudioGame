@@ -1088,11 +1088,6 @@ PrefabInstance:
       propertyPath: m_Player
       value: 
       objectReference: {fileID: 978429441}
-    - target: {fileID: 2274140278054075117, guid: e126473d2b197dc499f883296e1aa639,
-        type: 3}
-      propertyPath: spinHeightabovePlayer
-      value: 3.6
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e126473d2b197dc499f883296e1aa639, type: 3}
 --- !u!1001 &8388546029639235663
