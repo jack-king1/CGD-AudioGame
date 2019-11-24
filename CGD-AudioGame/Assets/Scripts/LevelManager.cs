@@ -2,15 +2,25 @@
 using System.Collections.Generic;
 using UnityEngine;
 using enums;
+using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour
 {
     [SerializeField] private float m_levelTimer = 60;
-    [SerializeField] private int m_levelID = 1;
+    private float timerResetValue;
+    [SerializeField] private int m_levelID = 0;
     public bool m_startLevel = false;
     private bool levelWon = false;
     private bool levelLost = false;
     GAMESTATE m_gameState = GAMESTATE.attract;
+    public Transform m_PlayerStartPos;
+    private GameObject m_Player;
+
+    private void Start()
+    {
+        m_Player = GameObject.FindGameObjectWithTag("Player");
+        timerResetValue = m_levelTimer;
+    }
 
     private void Update()
     {
@@ -22,7 +32,7 @@ public class LevelManager : MonoBehaviour
             }
             else if(m_levelTimer <= 0)
             {
-                levelLost = true;
+                levelWon = true;
                 m_levelTimer = 0.0f;
             }
             
@@ -69,4 +79,13 @@ public class LevelManager : MonoBehaviour
         m_gameState = gs;
     }
 
+    public void ResetLevel()
+    {
+        SceneManager.LoadScene(0);
+    }
+
+    public void NextLevel()
+    {
+        SceneManager.LoadScene(LevelID() + 1);
+    }
 }

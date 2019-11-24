@@ -41,44 +41,67 @@ public class PlayerInput : MonoBehaviour
         }
 
         //Game State
-        if (m_levelManager.GameState() == GAMESTATE.game)
+        if (m_levelManager.GameState() == GAMESTATE.game )
         {
-
-            if (InputManager.JoystickHorizontal(playerID) != 0 || InputManager.JoystickVertical(playerID) != 0)
+            if(!m_levelManager.IsLevelLost() && !m_levelManager.IsLevelWon())
             {
-                movement.Move(false);
+                if (InputManager.JoystickHorizontal(playerID) != 0 || InputManager.JoystickVertical(playerID) != 0)
+                {
+                    movement.Move(false);
+                }
+                else if (Input.GetAxis("Horizontal") != 0 || Input.GetAxis("Vertical") != 0)
+                {
+                    movement.Move(true);
+                }
+
+                if (InputManager.JoystickRightHorizontalRaw(playerID) != 0 || InputManager.JoystickRightVerticalRaw(playerID) != 0)
+                {
+                    float h = InputManager.JoystickRightHorizontalRaw(playerID);
+                    float v = InputManager.JoystickRightVerticalRaw(playerID);
+
+                    m_camerafollow.SetPeekValues(h, v * -1);
+                }
+                else if (Input.GetAxisRaw("Horizontal_Arrow") != 0 || Input.GetAxisRaw("Vertical_Arrow") != 0)
+                {
+                    float h = Input.GetAxisRaw("Horizontal_Arrow");
+                    float v = Input.GetAxisRaw("Vertical_Arrow");
+
+                    m_camerafollow.SetPeekValues(h, v);
+                }
+                else
+                {
+                    m_camerafollow.SetPeekValues(0, 0);
+                }
+                if (InputManager.XButton(playerID))
+                {
+
+                }
+                else if (Input.GetKey(KeyCode.Q))
+                {
+
+                }
             }
-            else if (Input.GetAxis("Horizontal") != 0 || Input.GetAxis("Vertical") != 0)
+            else if(m_levelManager.IsLevelWon())
             {
-                movement.Move(true);
+                if (InputManager.AButton(playerID))
+                {
+                    m_levelManager.NextLevel();
+                }
+                else if (Input.GetKey(KeyCode.A))
+                {
+                    m_levelManager.NextLevel();
+                }
             }
-
-            if (InputManager.JoystickRightHorizontalRaw(playerID) != 0 || InputManager.JoystickRightVerticalRaw(playerID) != 0)
+            else if(m_levelManager.IsLevelLost())
             {
-                float h = InputManager.JoystickRightHorizontalRaw(playerID);
-                float v = InputManager.JoystickRightVerticalRaw(playerID);
-
-                m_camerafollow.SetPeekValues(h, v * -1);
-            }
-            else if (Input.GetAxisRaw("Horizontal_Arrow") != 0 || Input.GetAxisRaw("Vertical_Arrow") != 0)
-            {
-                float h = Input.GetAxisRaw("Horizontal_Arrow");
-                float v = Input.GetAxisRaw("Vertical_Arrow");
-
-                m_camerafollow.SetPeekValues(h, v);
-            }
-            else
-            {
-                m_camerafollow.SetPeekValues(0, 0);
-            }
-
-            if (InputManager.XButton(playerID))
-            {
-
-            }
-            else if (Input.GetKey(KeyCode.Q))
-            {
-
+                if (InputManager.AButton(playerID))
+                {
+                    m_levelManager.ResetLevel();
+                }
+                else if (Input.GetKey(KeyCode.A))
+                {
+                    m_levelManager.ResetLevel();
+                }
             }
         }
     }

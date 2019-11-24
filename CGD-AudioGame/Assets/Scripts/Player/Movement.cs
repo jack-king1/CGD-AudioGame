@@ -51,7 +51,7 @@ public class Movement : MonoBehaviour
         }
         else
         {
-            //nothing was below your gameObject within 10m.
+
         }
     }
 

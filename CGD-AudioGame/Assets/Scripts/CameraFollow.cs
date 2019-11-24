@@ -44,7 +44,7 @@ public class CameraFollow : MonoBehaviour
         else
         {
             m_cameraState = CAMERASTATE.follow;
-            Debug.LogWarning("Camers state set to FOLLOW. This scene/level currently has no cinematic camera. Speak to King if it needs one.");
+            Debug.LogWarning("Cameras state set to FOLLOW. This scene/level currently has no cinematic camera. Speak to King if it needs one.");
         }
         m_levelManager = GameObject.FindGameObjectWithTag("LevelManager").GetComponent<LevelManager>();
     }
@@ -97,8 +97,6 @@ public class CameraFollow : MonoBehaviour
             m_target.transform.position.y + 3,
             m_target.transform.position.z - 2.5f);
             transform.position = Vector3.Lerp(transform.position, targetPosition, 0.005f);
-
-
         }
         else
         {

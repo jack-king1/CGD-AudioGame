@@ -40,6 +40,10 @@
         //Temp - Replace with actual tags
         floor,
         floor2
+    }
+
+    public enum SCENE
+    {
 
     }
 }

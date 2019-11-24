@@ -15,6 +15,7 @@ TagManager:
   - AttractUI
   - Floor
   - Floor2
+  - Start
   layers:
   - Default
   - TransparentFX
