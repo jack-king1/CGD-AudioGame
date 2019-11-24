@@ -212,6 +212,11 @@ PrefabInstance:
       propertyPath: m_radius
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 2274140278054075116, guid: e126473d2b197dc499f883296e1aa639,
+        type: 3}
+      propertyPath: levelManager
+      value: 
+      objectReference: {fileID: 1425869935}
     - target: {fileID: 2274140278054075117, guid: e126473d2b197dc499f883296e1aa639,
         type: 3}
       propertyPath: spinHeightabovePlayer
@@ -1673,24 +1678,28 @@ PrefabInstance:
       propertyPath: m_levelTimer
       value: 1000
       objectReference: {fileID: 0}
+    - target: {fileID: 1708805827910350494, guid: 45769784d52f8d2408f8ffc1e27a7636,
+        type: 3}
+      propertyPath: m_startLevel
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1708805827910350494, guid: 45769784d52f8d2408f8ffc1e27a7636,
+        type: 3}
+      propertyPath: m_levelID
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 45769784d52f8d2408f8ffc1e27a7636, type: 3}
---- !u!1 &1425869934 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1708805827910350488, guid: 45769784d52f8d2408f8ffc1e27a7636,
+--- !u!114 &1425869935 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1708805827910350494, guid: 45769784d52f8d2408f8ffc1e27a7636,
     type: 3}
   m_PrefabInstance: {fileID: 1425869933}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1425869935
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1425869934}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1bc3d0923a44cca4a9afe643a9c223f7, type: 3}
+  m_Script: {fileID: 11500000, guid: 88a76559c079ecf4f96e329b06628870, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1435753995 stripped
