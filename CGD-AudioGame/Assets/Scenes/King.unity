@@ -132,7 +132,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh13798
+  m_Name: pb_Mesh89896
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -395,7 +395,7 @@ PrefabInstance:
     - target: {fileID: 4641319361750214342, guid: f011e70494dc4d346a577bdbdb795dc4,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4641319361750214347, guid: f011e70494dc4d346a577bdbdb795dc4,
         type: 3}
@@ -923,11 +923,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4088504733586153147, guid: 6fd9fe7409d5b9440a67ea3e3f4bdac6,
-        type: 3}
-      propertyPath: m_ApplyRootMotion
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6fd9fe7409d5b9440a67ea3e3f4bdac6, type: 3}
 --- !u!1 &2060780927 stripped
@@ -1012,7 +1007,7 @@ PrefabInstance:
     - target: {fileID: 1708805827910350494, guid: 45769784d52f8d2408f8ffc1e27a7636,
         type: 3}
       propertyPath: m_levelTimer
-      value: 10000
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 45769784d52f8d2408f8ffc1e27a7636, type: 3}
@@ -1093,6 +1088,11 @@ PrefabInstance:
       propertyPath: m_Player
       value: 
       objectReference: {fileID: 978429441}
+    - target: {fileID: 2274140278054075117, guid: e126473d2b197dc499f883296e1aa639,
+        type: 3}
+      propertyPath: spinHeightabovePlayer
+      value: 3.6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e126473d2b197dc499f883296e1aa639, type: 3}
 --- !u!1001 &8388546029639235663
