@@ -34,7 +34,7 @@ public class FogOfWarScript : MonoBehaviour
         if(timer> maxTime)
         {
             m_radius -= 0.5f;
-            //lamp.intensity --;
+            lamp.spotAngle -= 10;
             lamp.color -= (Color.white / 7.0f);
             timer = 0;
             
