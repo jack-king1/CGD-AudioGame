@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Path
   - Enemy
+  - Door
   - Trap
   - Wall
   - Grid
@@ -40,6 +41,7 @@ TagManager:
   - 
   - 
   - 
+  - FogOfWar
   - 
   - 
   - 

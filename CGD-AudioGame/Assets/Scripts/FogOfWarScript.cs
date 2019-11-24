@@ -17,6 +17,8 @@ public class FogOfWarScript : MonoBehaviour
 
     public float maxTime =10;
     public float timer;
+    public GameObject Player;
+    public Light lamp;
     // Start is called before the first frame update
     void Start()
     {
@@ -30,8 +32,10 @@ public class FogOfWarScript : MonoBehaviour
         if(timer> maxTime)
         {
             m_radius -= 0.5f;
+            //lamp.intensity --;
+            lamp.color -= (Color.white / 7.0f);
             timer = 0;
-
+            
         }
 
        if(m_radius <= 2.5)
@@ -40,15 +44,14 @@ public class FogOfWarScript : MonoBehaviour
         }
 
         Ray r = new Ray(transform.position, m_Player.position - transform.position);
-        RaycastHit hit;
-        if(Physics.Raycast(r,out hit, 1000, m_fogLayer, QueryTriggerInteraction.Collide))
+        if (Physics.Raycast(r, out RaycastHit hit, 1000, m_fogLayer, QueryTriggerInteraction.Collide))
         {
-            for(int i=0; i<m_vertices.Length; i++)
+            for (int i = 0; i < m_vertices.Length; i++)
             {
                 Vector3 v = m_FogOfWarPlane.transform.TransformPoint(m_vertices[i]);
                 float dist = Vector3.SqrMagnitude(v - hit.point);
 
-                if(dist< m_radiusSqr)
+                if (dist < m_radiusSqr)
                 {
                     float alpha = Mathf.Min(m_colours[i].a, dist / m_radiusSqr);
 
