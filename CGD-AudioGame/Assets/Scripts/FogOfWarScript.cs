@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 public class FogOfWarScript : MonoBehaviour
@@ -12,6 +11,7 @@ public class FogOfWarScript : MonoBehaviour
 
     private Mesh m_mesh;
     private Vector3[] m_vertices;
+    public List<bool> m_verticeDiscovered;
     private Color[] m_colours;
 
 
@@ -42,8 +42,9 @@ public class FogOfWarScript : MonoBehaviour
 
 
        if(m_radius <= 3)
+       if(m_radius <= 2.5)
         {
-            Player.SetActive(false);
+            //Player.SetActive(false);
         }
 
         Ray r = new Ray(transform.position, m_Player.position - transform.position);
@@ -57,12 +58,24 @@ public class FogOfWarScript : MonoBehaviour
                 if (dist < m_radiusSqr)
                 {
                     float alpha = Mathf.Min(m_colours[i].a, dist / m_radiusSqr);
+
+                    //Just check cam state is not in any other state e.g. cinematic.
+                    if(gameObject.GetComponent<CameraFollow>().m_cameraState == enums.CAMERASTATE.follow)
+                    {
+                        m_verticeDiscovered[i] = true;
+                    }
                     m_colours[i].a = alpha;
                 }
 
+                
+                else if(m_verticeDiscovered[i])
+                {
+                    m_colours[i].a = 0.5f;
+                }
                 else
                 {
-                    m_colours[i].a = 1;
+                    m_colours[i].a = 1f;
+
                 }
             }
 
@@ -83,13 +96,16 @@ public class FogOfWarScript : MonoBehaviour
         }
 
         UpdateColour();
-    }
 
+        foreach (Vector3 vertice in m_vertices)
+        {
+            m_verticeDiscovered.Add(false);
+        }
+    }
 
    void UpdateColour()
     {
         m_mesh.colors = m_colours;
-
     }
 
 }

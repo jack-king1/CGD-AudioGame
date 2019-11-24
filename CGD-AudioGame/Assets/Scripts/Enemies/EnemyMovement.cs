@@ -1,12 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 using enums;
 public class EnemyMovement : MonoBehaviour
 {
-    public float chase_speed = 5;
-    public float patrol_speed = 2.5f;
-    public float search_speed = 1.5f;
+    public float chase_speed = 7;
+    public float patrol_speed = 3.5f;
+    public float search_speed = 2.5f;
+    public float search_radius = 10f;
     public float hit_range = 1;
     public float detect_volume = 5;
     public float detect_range = 2;
@@ -15,14 +17,17 @@ public class EnemyMovement : MonoBehaviour
     public STATE current_state = STATE.patrol;
     private GameObject player;
     private float distance;
-    private int path_index;
+    public int path_index;
     private List<Transform> path_points = new List<Transform>();
-    private Vector3 random_pos;
+    public Vector3 random_pos;
     bool searching = false;
     public float hear_volume = 0.0f;
     Movement pl_movement;
+    NavMeshAgent agent;
+
     void Start()
     {
+        agent = GetComponent<NavMeshAgent>();
         player = GameObject.FindWithTag("Player");
         pl_movement = player.GetComponent<Movement>();
         for (int i = 0; i < transform.parent.childCount; i++)
@@ -36,15 +41,19 @@ public class EnemyMovement : MonoBehaviour
 
     void Update()
     {
-        distance = Vector3.Distance(player.transform.position, transform.position);
+        if (player)
+        {
+            distance = Vector3.Distance(player.transform.position, transform.position);
+        }
         Movement();      
     }
 
     void Movement()
     {
         hear_volume = pl_movement.FootStepVolume() - distance;
+        LookatSmoothly(agent.steeringTarget);
         // If player is in range, start chasing
-        if (hear_volume >= detect_volume || distance <= detect_range)
+        if ((hear_volume >= detect_volume || distance <= detect_range) && player)
         {
             current_state = STATE.chase;
         }
@@ -53,7 +62,14 @@ public class EnemyMovement : MonoBehaviour
         if (current_state == STATE.chase)
         {
             searching = false;
-            ChasePlayer();
+            if (player != null)
+            {
+                ChasePlayer();
+            }
+            else
+            {
+                current_state = STATE.patrol;
+            }
 
             if (hear_volume < detect_volume || distance > detect_range)
             {
@@ -73,11 +89,10 @@ public class EnemyMovement : MonoBehaviour
 
     void ChasePlayer()
     {
-        float step = chase_speed * Time.deltaTime;
-        TurnSmoothly(player.transform.position);
+        agent.speed = chase_speed;
         if (distance > hit_range)
         {
-            transform.position = Vector3.MoveTowards(transform.position, player.transform.position, step);
+            agent.SetDestination(player.transform.position);
         }
         else
         {
@@ -88,8 +103,8 @@ public class EnemyMovement : MonoBehaviour
 
     void FollowPath()
     {
-        float step = patrol_speed * Time.deltaTime;
-        if (transform.position == path_points[path_index].position)
+        agent.speed = patrol_speed;
+        if (Vector3.Distance(transform.position, path_points[path_index].position) < 1)
         {
             if (path_index == path_points.Count - 1)
             {
@@ -98,43 +113,62 @@ public class EnemyMovement : MonoBehaviour
             else
             {
                 path_index++;
-            }
+            }           
         }
         else
-        {
-            TurnSmoothly(path_points[path_index].position);
-            transform.position = Vector3.MoveTowards(transform.position, path_points[path_index].position, step);
+        {                 
+            agent.SetDestination(path_points[path_index].position);
         }
     }
 
     void RandomMovement()
     {
-        float step = search_speed * Time.deltaTime;
+        agent.speed = search_speed;
         if (!searching)
         {
             StartCoroutine(SearchTimer());
         }
 
-        if (transform.position == random_pos)
+        if (Vector3.Distance(transform.position, random_pos) < 2)
         {
-            random_pos = new Vector3(Random.Range(transform.position.x - 5, transform.position.x + 5), 0, Random.Range(transform.position.z - 5, transform.position.z + 5));
+            StartCoroutine(GetRandomPos());
         }
-        TurnSmoothly(random_pos);
-        transform.position = Vector3.MoveTowards(transform.position, random_pos, step);
+        agent.SetDestination(random_pos);
+    }
+    
+    IEnumerator GetRandomPos()
+    {
+        // Gets random position within the navmesh
+        Vector3 randomDirection = Random.insideUnitSphere * search_radius;
+        randomDirection += player.transform.position;
+        NavMeshHit hit;
+        NavMesh.SamplePosition(randomDirection, out hit, search_radius, 1);
+        random_pos = hit.position;
+        yield return null;
     }
 
     IEnumerator SearchTimer()
     {
         searching = true;
-        random_pos = new Vector3(Random.Range(transform.position.x - 5, transform.position.x + 5), 0, Random.Range(transform.position.z - 5, transform.position.z + 5));
+        StartCoroutine(GetRandomPos());
         yield return new WaitForSeconds(10);
         if (current_state == STATE.search)
         {
+            // Finds closest patrol point after losing the player
+            float lowest_distance = 100;
+            for (int i = 0; i < path_points.Count; i++)
+            {
+                if (Vector3.Distance(path_points[i].position, transform.position) < lowest_distance)
+                {
+                    lowest_distance = Vector3.Distance(path_points[i].position, transform.position);
+                    path_index = i;
+                }
+            }
             current_state = STATE.patrol;
         }
     }
 
-    void TurnSmoothly(Vector3 target)
+    void LookatSmoothly(Vector3 target)
     {
         var target_rotation = Quaternion.LookRotation(target - transform.position);
         transform.rotation = Quaternion.Slerp(transform.rotation, target_rotation, turn_speed * Time.deltaTime);
