@@ -15,6 +15,7 @@ public class Arrow : MonoBehaviour
     {
         if (other.gameObject.tag == "Player" || other.gameObject.tag == "Enemy")
         {
+            Debug.Log("HIT");   
             Health health = other.gameObject.GetComponent<Health>();
             health.DealDamage(damage);
             Destroy(this.gameObject);
