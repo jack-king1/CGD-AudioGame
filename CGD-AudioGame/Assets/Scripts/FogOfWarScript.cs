@@ -67,7 +67,7 @@ public class FogOfWarScript : MonoBehaviour
                 }
                 else if(m_verticeDiscovered[i])
                 {
-                    m_colours[i].a = 0.5f;
+                    m_colours[i].a = 0.9f;
                 }
                 else
                 {
