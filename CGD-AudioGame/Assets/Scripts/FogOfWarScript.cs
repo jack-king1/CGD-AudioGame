@@ -34,16 +34,22 @@ public class FogOfWarScript : MonoBehaviour
         if(timer> maxTime)
         {
             m_radius -= 0.5f;
-            lamp.spotAngle -= 10;
-            lamp.color -= (Color.white / 7.0f);
+            if(lamp)
+            {
+                lamp.spotAngle -= 10;
+                lamp.color -= (Color.white / 7.0f);
+            }
             timer = 0;
             
         }
 
-       if(m_radius <= 3|| lamp.spotAngle ==0)
-     
+        if(lamp)
         {
-            levelManager.LoseScene();
+            if (m_radius <= 3 || lamp.spotAngle == 0)
+
+            {
+                levelManager.LoseScene();
+            }
         }
 
         Ray r = new Ray(transform.position, m_Player.position - transform.position);
