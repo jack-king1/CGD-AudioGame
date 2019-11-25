@@ -4,7 +4,15 @@
     {
         patrol,
         chase,
-        search
+        search,
+        fire
+    }
+
+    public enum ENEMYTYPE
+    {
+        ground,
+        flying,
+        ranged
     }
 
     public enum CAMERASTATE
