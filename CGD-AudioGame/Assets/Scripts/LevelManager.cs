@@ -14,7 +14,9 @@ public class LevelManager : MonoBehaviour
     private bool levelLost = false;
     GAMESTATE m_gameState = GAMESTATE.attract;
     public Transform m_PlayerStartPos;
+    public Transform m_PlayerFinishPos;
     private GameObject m_Player;
+
 
     private void Start()
     {
@@ -32,7 +34,7 @@ public class LevelManager : MonoBehaviour
             }
             else if(m_levelTimer <= 0)
             {
-                levelWon = true;
+                levelLost = true;
                 m_levelTimer = 0.0f;
             }
             
@@ -87,5 +89,10 @@ public class LevelManager : MonoBehaviour
     public void NextLevel()
     {
         SceneManager.LoadScene(LevelID() + 1);
+    }
+
+    public void LoseScene()
+    {
+        SceneManager.LoadScene(LevelID() + 2);
     }
 }

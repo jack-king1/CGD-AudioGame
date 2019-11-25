@@ -16,7 +16,8 @@ TagManager:
   - Floor
   - Floor2
   - Start
-  - Projectile
+  - PlayerModel
+  - Door
   layers:
   - Default
   - TransparentFX
@@ -27,18 +28,18 @@ TagManager:
   - 
   - 
   - Wall
-  - Player
+  - FogOfWar
   - Enemy
   - Trap
+  - Player
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
   - 
   - FogOfWar
-  - Walkable
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
   - 
   - 
   - 

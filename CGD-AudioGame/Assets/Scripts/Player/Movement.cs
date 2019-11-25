@@ -16,11 +16,15 @@ public class Movement : MonoBehaviour
     private Rigidbody rb;
     private Vector3 lastPosition;
     private float current_rotation;
+    public Animator anim;
+    private GameObject PlayerModel;
 
     private void Start()
     {
         playerID = GetComponent<PlayerData>().PlayerID();
         rb = GetComponent<Rigidbody>();
+        anim = GetComponentInChildren<Animator>();
+        PlayerModel = GameObject.FindGameObjectWithTag("PlayerModel");
     }
 
     public void Update()
@@ -32,6 +36,7 @@ public class Movement : MonoBehaviour
             if(footStepVolume != 0)
             {
                 SetFootstepVolume(0);
+                anim.SetBool("Moving", false);
             }
         }
     }
@@ -64,7 +69,10 @@ public class Movement : MonoBehaviour
             Vector3 movement = new Vector3(x, 0, z );
             float InputMagnitude = new Vector3(x, 0, z).magnitude;
             SetFootstepVolume(InputMagnitude);
+            anim.SetFloat("InputMagnitude", InputMagnitude);
+            anim.SetBool("Moving", true);
             //Debug.Log("Footstep Volume: " + footStepVolume);
+            Rotate();
             transform.Translate((movement.normalized * (InputMagnitude * movementSpeed)) * Time.deltaTime);
         }
         else
@@ -75,7 +83,10 @@ public class Movement : MonoBehaviour
             Vector3 movement = new Vector3(x, 0, (z*-1));
             float InputMagnitude =  new Vector3(x, 0, z).magnitude;
             SetFootstepVolume(InputMagnitude);
+            anim.SetFloat("InputMagnitude", InputMagnitude);
+            anim.SetBool("Moving", true);
             //Debug.Log("Footstep Volume: " + footStepVolume);
+            Rotate();
             transform.Translate((movement.normalized * (InputMagnitude * movementSpeed) )* Time.deltaTime);
         }
     }
@@ -94,9 +105,12 @@ public class Movement : MonoBehaviour
 
     public void Rotate()
     {
-        //float z = InputManager.JoystickRightHorizontal(playerID);
-        //float InputMagnitude = new Vector3(0, 0,z ).magnitude;
-        //transform.Rotate((Vector3.up * z) * rotateSpeed  * Time.deltaTime);
+        //Rotate the player on the Z axis
+        //Calculate an angle here using the analogue sticks axis values.
+        float go_direction = Mathf.Atan2(InputManager.JoystickVertical(playerID), InputManager.JoystickHorizontal(playerID));
+        //Calculate radians to degrees.
+        current_rotation = go_direction * Mathf.Rad2Deg + 90;
+        PlayerModel.transform.eulerAngles = new Vector3(0, current_rotation, 0);
     }
 
     void FloorType(string tagName)
