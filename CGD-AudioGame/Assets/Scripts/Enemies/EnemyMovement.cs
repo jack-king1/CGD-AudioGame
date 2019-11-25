@@ -24,7 +24,7 @@ public class EnemyMovement : MonoBehaviour
     public float hear_volume = 0.0f;
     Movement pl_movement;
     NavMeshAgent agent;
-
+    public ENEMYTYPE type;
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
@@ -55,7 +55,14 @@ public class EnemyMovement : MonoBehaviour
         // If player is in range, start chasing
         if ((hear_volume >= detect_volume || distance <= detect_range) && player)
         {
-            current_state = STATE.chase;
+            if (type == ENEMYTYPE.ground || type == ENEMYTYPE.flying)
+            {
+                current_state = STATE.chase;
+            }
+            else if (type == ENEMYTYPE.ranged)
+            {
+                current_state = STATE.fire;
+            }
         }
         
         // If chasing player and goes out of range, start searching
@@ -72,8 +79,19 @@ public class EnemyMovement : MonoBehaviour
 
             if (hear_volume < detect_volume || distance > detect_range)
             {
-                current_state = STATE.search;
+                if (type == ENEMYTYPE.ground || type == ENEMYTYPE.flying)
+                {
+                    current_state = STATE.search;
+                }
+                else if (type == ENEMYTYPE.ranged)
+                {
+                    current_state = STATE.patrol;
+                }
             }
+        }
+        else if (current_state == STATE.fire)
+        {
+            Fire();
         }
         else if (current_state == STATE.patrol)
         {
@@ -83,6 +101,12 @@ public class EnemyMovement : MonoBehaviour
         {
             RandomMovement();
         }
+    }
+
+    void Fire()
+    {
+        EnemyFire fireball = GetComponent<EnemyFire>();
+        fireball.Fire(player.transform.position);
     }
 
     void ChasePlayer()

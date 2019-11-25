@@ -16,6 +16,7 @@ TagManager:
   - Floor
   - Floor2
   - Start
+  - Projectile
   layers:
   - Default
   - TransparentFX
