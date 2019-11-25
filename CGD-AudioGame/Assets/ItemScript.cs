@@ -5,11 +5,11 @@ using UnityEngine;
 public class ItemScript : MonoBehaviour
 {
     public FogOfWarScript fow;
-    public GameObject target;
+    public MeshRenderer mesh;
     // Start is called before the first frame update
     void Start()
     {
-        
+        mesh.enabled = false;
     }
 
     // Update is called once per frame
@@ -21,14 +21,31 @@ public class ItemScript : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if (target.tag == "PlayerModel")
+        if (other.tag == "PlayerModel")
         {
-            Debug.Log("Why");
+          
             fow.m_radius += 0.5f;
             fow.lamp.spotAngle += 10;
             fow.lamp.color += (Color.white / 7.0f);
 
             Destroy(this.gameObject);
         }
+
+
+
+        if(other.tag == "CullRange")
+        {
+            Debug.Log("Why");
+            mesh.enabled = true;
+            
+        }
+
+       
+    }
+
+
+    private void OnTriggerExit(Collider other)
+    {
+        mesh.enabled = false;
     }
 }
