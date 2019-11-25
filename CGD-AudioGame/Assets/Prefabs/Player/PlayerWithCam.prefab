@@ -106,6 +106,10 @@ MonoBehaviour:
   m_verticeDiscovered: 
   maxTime: 1000
   timer: 0
+  Player: {fileID: 0}
+  lamp: {fileID: 0}
+  darkness: 0.9
+  levelManager: {fileID: 0}
 --- !u!114 &2274140278054075117
 MonoBehaviour:
   m_ObjectHideFlags: 0
