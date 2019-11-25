@@ -20,6 +20,7 @@ public class FogOfWarScript : MonoBehaviour
     public GameObject Player;
     public Light lamp;
 
+    public float darkness;
     public LevelManager levelManager;
     // Start is called before the first frame update
     void Start()
@@ -73,7 +74,7 @@ public class FogOfWarScript : MonoBehaviour
                 }
                 else if(m_verticeDiscovered[i])
                 {
-                    m_colours[i].a = 0.9f;
+                    m_colours[i].a = darkness;
                 }
                 else
                 {
