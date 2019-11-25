@@ -19,6 +19,8 @@ public class FogOfWarScript : MonoBehaviour
     public float timer;
     public GameObject Player;
     public Light lamp;
+
+    public LevelManager levelManager;
     // Start is called before the first frame update
     void Start()
     {
@@ -32,15 +34,16 @@ public class FogOfWarScript : MonoBehaviour
         if(timer> maxTime)
         {
             m_radius -= 0.5f;
-            //lamp.intensity --;
+            lamp.spotAngle -= 10;
             lamp.color -= (Color.white / 7.0f);
             timer = 0;
             
         }
 
-       if(m_radius <= 2.5)
+       if(m_radius <= 3|| lamp.spotAngle ==0)
+     
         {
-            //Player.SetActive(false);
+            levelManager.LoseScene();
         }
 
         Ray r = new Ray(transform.position, m_Player.position - transform.position);
