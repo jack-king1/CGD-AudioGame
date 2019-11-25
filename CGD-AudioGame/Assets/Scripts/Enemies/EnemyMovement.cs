@@ -56,7 +56,6 @@ public class EnemyMovement : MonoBehaviour
     void Movement()
     {
         hear_volume = (pl_movement.FootStepVolume() * 20) - distance;
-        LookatSmoothly(agent.steeringTarget);
         // If player is in range, start chasing
         if ((hear_volume >= detect_volume || distance <= detect_range) && player)
         {
@@ -84,19 +83,20 @@ public class EnemyMovement : MonoBehaviour
 
             if (hear_volume < detect_volume || distance > detect_range)
             {
-                if (type == ENEMYTYPE.ground || type == ENEMYTYPE.flying)
-                {
-                    current_state = STATE.search;
-                }
-                else if (type == ENEMYTYPE.ranged)
-                {
-                    current_state = STATE.patrol;
-                }
+                current_state = STATE.search;             
             }
         }
         else if (current_state == STATE.fire)
         {
-            Fire();
+            if (hear_volume < detect_volume)
+            {
+                StartCoroutine(SwitchDelay(STATE.patrol, 1.0f));
+            }
+            else
+            {
+                Fire();
+                LookatSmoothly(player.transform.position);
+            }
         }
         else if (current_state == STATE.patrol)
         {
@@ -112,23 +112,37 @@ public class EnemyMovement : MonoBehaviour
     {
         EnemyFire fireball = GetComponent<EnemyFire>();
         fireball.Fire(player.transform.position);
+        anim.SetBool("Idle", true);
+        anim.SetBool("Moving", false);
+        agent.speed = 0;
+    }
+
+    IEnumerator SwitchDelay(STATE state, float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        current_state = state;
     }
 
     void ChasePlayer()
     {
+        LookatSmoothly(agent.steeringTarget);
         agent.speed = chase_speed;
         anim.SetFloat("Speed", 1.5f);
         searching = false;
         if (distance > hit_range)
         {
+            agent.speed = chase_speed;
             anim.SetBool("Attack", false);
             anim.SetBool("Moving", true);
+            anim.SetBool("Idle", false);
             agent.SetDestination(player.transform.position);
         }
         else
         {
+            agent.speed = 0;
             anim.SetBool("Attack", true);
             anim.SetBool("Moving", false);
+            anim.SetBool("Idle", true);
             Health pl_health = player.GetComponent<Health>();
             pl_health.DealDamage(damage);
         }
@@ -136,8 +150,10 @@ public class EnemyMovement : MonoBehaviour
 
     void FollowPath()
     {
+        LookatSmoothly(agent.steeringTarget);
         anim.SetBool("Attack", false);
         anim.SetBool("Moving", true);
+        anim.SetBool("Idle", false);
         agent.speed = patrol_speed;
         anim.SetFloat("Speed", 1.0f);
         searching = false;
@@ -160,8 +176,10 @@ public class EnemyMovement : MonoBehaviour
 
     void RandomMovement()
     {
+        LookatSmoothly(agent.steeringTarget);
         anim.SetBool("Attack", false);
         anim.SetBool("Moving", true);
+        anim.SetBool("Idle", false);
         agent.speed = search_speed;
         anim.SetFloat("Speed", 0.7f);
         if (!searching)
@@ -176,6 +194,7 @@ public class EnemyMovement : MonoBehaviour
         agent.SetDestination(random_pos);
     }
     
+
     IEnumerator GetRandomPos()
     {
         // Gets random position within the navmesh

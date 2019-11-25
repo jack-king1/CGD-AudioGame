@@ -9,7 +9,11 @@ public class EnemyFire : MonoBehaviour
     public float cooldown = 4;
     public int damage;
     bool can_fire = true;
-
+    Animator anim;
+    private void Start()
+    {
+        anim = GetComponent<Animator>();
+    }
     public void Fire(Vector3 target)
     {
         if (can_fire)
@@ -20,11 +24,14 @@ public class EnemyFire : MonoBehaviour
 
     IEnumerator FireSequence(Vector3 target)
     {
+        anim.SetBool("Attack", true);
         can_fire = false;
         Vector3 move_dir = (target - transform.position).normalized;
         GameObject fireball = Instantiate(fireball_prefab, transform.position, Quaternion.identity);
         Fireball fireball_scr = fireball.GetComponent<Fireball>();
         fireball_scr.Fire(damage, shot_speed, move_dir);
+        yield return new WaitForSeconds(0.5f);
+        anim.SetBool("Attack", false);
         yield return new WaitForSeconds(cooldown);
         can_fire = true;
     }
