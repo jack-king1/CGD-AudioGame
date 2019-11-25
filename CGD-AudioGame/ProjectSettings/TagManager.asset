@@ -6,6 +6,17 @@ TagManager:
   tags:
   - Path
   - Enemy
+  - Trap
+  - Wall
+  - Grid
+  - CineStart
+  - LevelManager
+  - GameUI
+  - AttractUI
+  - Floor
+  - Floor2
+  - Start
+  - PlayerModel
   - Door
   layers:
   - Default
@@ -16,19 +27,19 @@ TagManager:
   - UI
   - 
   - 
+  - Wall
+  - FogOfWar
+  - Enemy
+  - Trap
+  - Player
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
   - 
   - FogOfWar
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
   - 
   - 
   - 
