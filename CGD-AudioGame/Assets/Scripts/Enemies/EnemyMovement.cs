@@ -25,9 +25,13 @@ public class EnemyMovement : MonoBehaviour
     Movement pl_movement;
     NavMeshAgent agent;
     public ENEMYTYPE type;
+    Animator anim;
+
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
+        anim = GetComponent<Animator>();
+
         player = GameObject.FindWithTag("Player");
         pl_movement = player.GetComponent<Movement>();
         for (int i = 0; i < transform.parent.childCount; i++)
@@ -45,7 +49,8 @@ public class EnemyMovement : MonoBehaviour
         {
             distance = Vector3.Distance(player.transform.position, transform.position);
         }
-        Movement();      
+
+        Movement();   
     }
 
     void Movement()
@@ -112,13 +117,18 @@ public class EnemyMovement : MonoBehaviour
     void ChasePlayer()
     {
         agent.speed = chase_speed;
+        anim.SetFloat("Speed", 1.5f);
         searching = false;
         if (distance > hit_range)
         {
+            anim.SetBool("Attack", false);
+            anim.SetBool("Moving", true);
             agent.SetDestination(player.transform.position);
         }
         else
         {
+            anim.SetBool("Attack", true);
+            anim.SetBool("Moving", false);
             Health pl_health = player.GetComponent<Health>();
             pl_health.DealDamage(damage);
         }
@@ -126,7 +136,10 @@ public class EnemyMovement : MonoBehaviour
 
     void FollowPath()
     {
+        anim.SetBool("Attack", false);
+        anim.SetBool("Moving", true);
         agent.speed = patrol_speed;
+        anim.SetFloat("Speed", 1.0f);
         searching = false;
         if (Vector3.Distance(transform.position, path_points[path_index].position) < 1)
         {
@@ -147,7 +160,10 @@ public class EnemyMovement : MonoBehaviour
 
     void RandomMovement()
     {
+        anim.SetBool("Attack", false);
+        anim.SetBool("Moving", true);
         agent.speed = search_speed;
+        anim.SetFloat("Speed", 0.7f);
         if (!searching)
         {
             StartCoroutine(SearchTimer(10));
