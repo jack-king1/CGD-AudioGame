@@ -26,8 +26,8 @@ public class EnemyFire : MonoBehaviour
     {       
         anim.SetBool("Attack", true);
         can_fire = false;
-        Vector3 move_dir = (target.transform.position - transform.position).normalized;
         yield return new WaitForSeconds(0.5f);
+        Vector3 move_dir = (target.transform.position - transform.position).normalized;
         Vector3 staff_pos = transform.Find("Hips/Staff/StaffTarget").position;
         GameObject fireball = Instantiate(fireball_prefab, staff_pos, Quaternion.identity);
         Fireball fireball_scr = fireball.GetComponent<Fireball>();
