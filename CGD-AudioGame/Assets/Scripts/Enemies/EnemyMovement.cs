@@ -90,7 +90,7 @@ public class EnemyMovement : MonoBehaviour
         {
             if (hear_volume < detect_volume)
             {
-                StartCoroutine(SwitchDelay(STATE.patrol, 1.0f));
+                StartCoroutine(SwitchDelay(STATE.patrol, 2.0f));
             }
             else
             {
