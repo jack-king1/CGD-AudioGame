@@ -14,7 +14,7 @@ public class EnemyFire : MonoBehaviour
     {
         anim = GetComponent<Animator>();
     }
-    public void Fire(Vector3 target)
+    public void Fire(GameObject target)
     {
         if (can_fire)
         {
@@ -22,12 +22,14 @@ public class EnemyFire : MonoBehaviour
         }
     }
 
-    IEnumerator FireSequence(Vector3 target)
-    {
+    IEnumerator FireSequence(GameObject target)
+    {       
         anim.SetBool("Attack", true);
         can_fire = false;
-        Vector3 move_dir = (target - transform.position).normalized;
-        GameObject fireball = Instantiate(fireball_prefab, transform.position, Quaternion.identity);
+        Vector3 move_dir = (target.transform.position - transform.position).normalized;
+        yield return new WaitForSeconds(0.5f);
+        Vector3 staff_pos = transform.Find("Hips/Staff/StaffTarget").position;
+        GameObject fireball = Instantiate(fireball_prefab, staff_pos, Quaternion.identity);
         Fireball fireball_scr = fireball.GetComponent<Fireball>();
         fireball_scr.Fire(damage, shot_speed, move_dir);
         yield return new WaitForSeconds(0.5f);

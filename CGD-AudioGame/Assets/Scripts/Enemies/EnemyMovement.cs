@@ -111,7 +111,7 @@ public class EnemyMovement : MonoBehaviour
     void Fire()
     {
         EnemyFire fireball = GetComponent<EnemyFire>();
-        fireball.Fire(player.transform.position);
+        fireball.Fire(player);
         anim.SetBool("Idle", true);
         anim.SetBool("Moving", false);
         agent.speed = 0;
