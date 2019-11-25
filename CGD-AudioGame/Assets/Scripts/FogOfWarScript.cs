@@ -30,8 +30,6 @@ public class FogOfWarScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-     
-
         timer += Time.deltaTime ;
         if(timer> maxTime)
         {
@@ -67,8 +65,6 @@ public class FogOfWarScript : MonoBehaviour
                     }
                     m_colours[i].a = alpha;
                 }
-
-                
                 else if(m_verticeDiscovered[i])
                 {
                     m_colours[i].a = 0.5f;
