@@ -51,7 +51,7 @@ public class CameraFollow : MonoBehaviour
         m_levelManager = GameObject.FindGameObjectWithTag("LevelManager").GetComponent<LevelManager>();
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         if(m_levelManager.IsLevelWon() || m_levelManager.IsLevelLost())
         {
@@ -147,7 +147,7 @@ public class CameraFollow : MonoBehaviour
 
             gameObject.transform.position = Vector3.Slerp(transform.position, targetPos, 0.01f);
         }
-        transform.Translate(Vector3.right * (Time.deltaTime * m_AttractCamSpinSpeed));
+        transform.Translate(Vector3.right * (Time.fixedDeltaTime * m_AttractCamSpinSpeed));
     }
 
     //Pan around player

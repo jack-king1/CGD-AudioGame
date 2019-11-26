@@ -6774,7 +6774,7 @@ PrefabInstance:
     - target: {fileID: 2274140278054075117, guid: e126473d2b197dc499f883296e1aa639,
         type: 3}
       propertyPath: m_AttractCamSpinHeight
-      value: 20.8
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 2274140278054075117, guid: e126473d2b197dc499f883296e1aa639,
         type: 3}
