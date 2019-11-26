@@ -45,6 +45,14 @@ public class EnemyMovement : MonoBehaviour
 
     void Update()
     {
+        if (Input.GetKey("e"))
+        {
+            Time.timeScale = 0;
+        }
+        if (Input.GetKey("f"))
+        {
+            Time.timeScale = 1;
+        }
         if (player)
         {
             distance = Vector3.Distance(player.transform.position, transform.position);

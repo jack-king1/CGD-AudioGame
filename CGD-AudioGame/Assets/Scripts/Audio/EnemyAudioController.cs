@@ -4,9 +4,11 @@ using UnityEngine;
 using enums;
 public class EnemyAudioController : MonoBehaviour
 {
+    [Header("Spider Sounds")]
     [FMODUnity.EventRef] public string SpiderAttack;
     [FMODUnity.EventRef] public string SpiderChase;
     [FMODUnity.EventRef] public string SpiderDie;
+    [Header("Bat Sounds")]
     [FMODUnity.EventRef] public string BatAttack;
     [FMODUnity.EventRef] public string BatChase;
     [FMODUnity.EventRef] public string BatDie;

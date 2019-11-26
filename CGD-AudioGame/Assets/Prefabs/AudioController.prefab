@@ -9,6 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3484843366128476303}
+  - component: {fileID: 4060543308404951640}
+  - component: {fileID: -5940699484622923927}
   - component: {fileID: 3484843366128476302}
   - component: {fileID: 3119445464918953779}
   m_Layer: 0
@@ -32,6 +34,38 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4060543308404951640
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3484843366128476301}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7616c586a61eaa4a9d3eb3bf0f4937a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Master: 0.5
+  Music: 100
+  Asmospheric: 100
+  Gameplay: 100
+--- !u!114 &-5940699484622923927
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3484843366128476301}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d46a7f2d8d882db4a9c113bbc5a362a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  music: 
+  atmospheric: 
+  win_jingle: 
+  lose_jingle: 
 --- !u!114 &3484843366128476302
 MonoBehaviour:
   m_ObjectHideFlags: 0
