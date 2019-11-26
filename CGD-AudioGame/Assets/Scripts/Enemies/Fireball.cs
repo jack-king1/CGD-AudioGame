@@ -4,17 +4,23 @@ using UnityEngine;
 
 public class Fireball : MonoBehaviour
 {
+    public GameObject explosion_prefab;
     private int damage;
     public float kill_timer = 5;
     bool moving = true;
+    ParticleSystem fireball_p;
     public void Fire(int dmg, float shot_speed, Vector3 target)
     {
+        fireball_p = transform.GetChild(0).gameObject.GetComponent<ParticleSystem>();        
         damage = dmg;
         StartCoroutine(Move(target, shot_speed));
     }
 
     IEnumerator Move(Vector3 target, float shot_speed)
     {
+        var em = fireball_p.emission;
+        fireball_p.Play();
+        em.enabled = true;
         float timer = 5;
         while (moving)
         {
@@ -46,8 +52,16 @@ public class Fireball : MonoBehaviour
     IEnumerator Explode()
     {
         moving = false;
-        // !!RUN EXPLODE PARTICLE HERE!!
-        yield return new WaitForSeconds(0.5F);
-        Destroy(this.gameObject);
+        
+        yield return new WaitForSeconds(0.1f);
+        GameObject explosion = Instantiate(explosion_prefab, transform.position, Quaternion.identity);
+        ParticleSystem explosion_p = explosion.GetComponent<ParticleSystem>();
+        DeleteAfterDelay delete = explosion.GetComponent<DeleteAfterDelay>();
+        var em = explosion_p.emission;
+        em.enabled = true;
+        explosion_p.Play();
+        delete.StartDelete(0.5f);
+        yield return new WaitForSeconds(0.4f);
+        Destroy(this.gameObject);     
     }
 }
