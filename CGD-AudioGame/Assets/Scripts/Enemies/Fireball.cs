@@ -52,14 +52,16 @@ public class Fireball : MonoBehaviour
     IEnumerator Explode()
     {
         moving = false;
+        
+        yield return new WaitForSeconds(0.1f);
         GameObject explosion = Instantiate(explosion_prefab, transform.position, Quaternion.identity);
         ParticleSystem explosion_p = explosion.GetComponent<ParticleSystem>();
         DeleteAfterDelay delete = explosion.GetComponent<DeleteAfterDelay>();
         var em = explosion_p.emission;
         em.enabled = true;
         explosion_p.Play();
-        delete.StartDelete(0.8f);
-        yield return new WaitForSeconds(0.5f);
+        delete.StartDelete(0.5f);
+        yield return new WaitForSeconds(0.4f);
         Destroy(this.gameObject);     
     }
 }

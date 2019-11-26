@@ -255,12 +255,22 @@ PrefabInstance:
     - target: {fileID: 6499948798150826561, guid: 2a1e0729b7a5b7845b284879ef7401db,
         type: 3}
       propertyPath: InitialModule.startLifetime.scalar
-      value: 0.8
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 6499948798150826561, guid: 2a1e0729b7a5b7845b284879ef7401db,
         type: 3}
       propertyPath: lengthInSec
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6499948798150826561, guid: 2a1e0729b7a5b7845b284879ef7401db,
+        type: 3}
+      propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.data[1].time
+      value: 0.05957202
+      objectReference: {fileID: 0}
+    - target: {fileID: 6499948798150826561, guid: 2a1e0729b7a5b7845b284879ef7401db,
+        type: 3}
+      propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.data[1].value
+      value: 0.2755924
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2a1e0729b7a5b7845b284879ef7401db, type: 3}
