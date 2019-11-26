@@ -12,9 +12,11 @@ public class EnemyAudioController : MonoBehaviour
     [FMODUnity.EventRef] public string BatAttack;
     [FMODUnity.EventRef] public string BatChase;
     [FMODUnity.EventRef] public string BatDie;
-
+    [Header("Pyromancer Sounds")]
+    [FMODUnity.EventRef] public string PyroAttack;
     private float volume = 100;
-
+    List<GameObject> enemies = new List<GameObject>();
+    List<FMOD.Studio.EventInstance> enemies_events = new List<FMOD.Studio.EventInstance>();
     public void SetVolume(float vol)
     {
         volume = vol;
@@ -57,6 +59,13 @@ public class EnemyAudioController : MonoBehaviour
             else if (sound_type == SOUND.die)
             {
                 return BatDie;
+            }
+        }
+        else if (enemy_type == ENEMYTYPE.ranged)
+        {
+            if (sound_type == SOUND.attack)
+            {
+                return PyroAttack;
             }
         }
 

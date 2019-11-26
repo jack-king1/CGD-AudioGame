@@ -24,12 +24,14 @@ public class Health : MonoBehaviour
         }
     }
 
-    public void DealDamage(int damage)
+    public bool DealDamage(int damage)
     {
         if (can_damage)
         {
             StartCoroutine(DamageRoutine(damage));
+            return true;
         }
+        return false;
     }
 
     IEnumerator DamageRoutine(int damage)

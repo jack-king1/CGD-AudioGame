@@ -13,6 +13,7 @@ public class Fireball : MonoBehaviour
     {
         fireball_p = transform.GetChild(0).gameObject.GetComponent<ParticleSystem>();        
         damage = dmg;
+
         StartCoroutine(Move(target, shot_speed));
     }
 

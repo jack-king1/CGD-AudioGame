@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using enums;
 public class EnemyFire : MonoBehaviour
 {
     public GameObject fireball_prefab;
@@ -14,16 +14,17 @@ public class EnemyFire : MonoBehaviour
     {
         anim = GetComponent<Animator>();
     }
-    public void Fire(GameObject target)
+    public void Fire(GameObject target, EnemyAudioController audio_controller)
     {
         if (can_fire)
         {
-            StartCoroutine(FireSequence(target));
+            StartCoroutine(FireSequence(target, audio_controller));
         }
     }
 
-    IEnumerator FireSequence(GameObject target)
-    {       
+    IEnumerator FireSequence(GameObject target, EnemyAudioController audio_controller)
+    {
+        audio_controller.PlaySound(ENEMYTYPE.ranged, SOUND.attack, gameObject);
         anim.SetBool("Attack", true);
         can_fire = false;
         yield return new WaitForSeconds(0.5f);

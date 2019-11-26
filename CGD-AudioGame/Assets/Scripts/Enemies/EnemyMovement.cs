@@ -27,6 +27,7 @@ public class EnemyMovement : MonoBehaviour
     public ENEMYTYPE type;
     Animator anim;
     EnemyAudioController audio_controller;
+
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
@@ -119,7 +120,7 @@ public class EnemyMovement : MonoBehaviour
     void Fire()
     {
         EnemyFire fireball = GetComponent<EnemyFire>();
-        fireball.Fire(player);
+        fireball.Fire(player, audio_controller);
         anim.SetBool("Idle", true);
         anim.SetBool("Moving", false);
         agent.speed = 0;
@@ -152,7 +153,11 @@ public class EnemyMovement : MonoBehaviour
             anim.SetBool("Moving", false);
             anim.SetBool("Idle", true);
             Health pl_health = player.GetComponent<Health>();
-            pl_health.DealDamage(damage);
+            if (pl_health.DealDamage(damage))
+            {
+                audio_controller.PlaySound(type, SOUND.attack, gameObject);
+            }
+            
         }
     }
 
