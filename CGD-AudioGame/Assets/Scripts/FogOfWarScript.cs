@@ -43,8 +43,6 @@ public class FogOfWarScript : MonoBehaviour
                 }
                 lamp.color -= (Color.white / 7.0f);
             }
-
-          
             timer = 0;
             
         }

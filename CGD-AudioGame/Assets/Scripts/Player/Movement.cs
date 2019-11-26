@@ -8,7 +8,8 @@ public class Movement : MonoBehaviour
     [SerializeField] private float movementSpeed = 0;
     private float footStepVolume;
 
-    [Range(0,10)]
+    [Range(0, 10)]
+    //Used for different floor types.
     [SerializeField] float[] FootStepVolumes;
     private int currentFloorType;
 
