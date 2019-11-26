@@ -19,7 +19,7 @@ public class SawTrap : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Rotate(0, 0, spin_speed * Time.deltaTime);
+        transform.Rotate(spin_speed * Time.deltaTime, 0, 0);
         Move();
     }
 

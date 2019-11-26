@@ -36,7 +36,7 @@ public class SpikeTrap : MonoBehaviour
 
     IEnumerator Raise()
     {
-        target = new Vector3(transform.position.x, transform.position.y + 0.2f, transform.position.z);
+        target = new Vector3(transform.position.x, transform.position.y, transform.position.z);
         raised = true;
         yield return new WaitForSeconds(timer);
         StartCoroutine(Lower());
@@ -44,7 +44,7 @@ public class SpikeTrap : MonoBehaviour
 
     IEnumerator Lower()
     {
-        target = new Vector3(transform.position.x, transform.position.y - 0.2f, transform.position.z);
+        target = new Vector3(transform.position.x, transform.position.y - 0.5f, transform.position.z);
         raised = false;
         yield return new WaitForSeconds(timer);
         StartCoroutine(Raise());
