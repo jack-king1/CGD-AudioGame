@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8772758763648627368}
   - component: {fileID: 4034710153847342033}
   - component: {fileID: 8772758763648627369}
-  - component: {fileID: 1649130089}
+  - component: {fileID: 7451862925885330904}
   m_Layer: 9
   m_Name: Player
   m_TagString: Player
@@ -94,6 +94,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b24beb0da000cc64387d085c2801887f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  blood_prefab: {fileID: 2770977972137082471, guid: bb72a1daf90a6404a894ee8601493140,
+    type: 3}
   start_health: 100
   health: 0
   invulnerable_time: 0.5
@@ -113,7 +115,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 80
   m_CollisionDetection: 0
---- !u!136 &1649130089
+--- !u!136 &7451862925885330904
 CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -123,10 +125,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.44
-  m_Height: 3.39
+  m_Radius: 0.5
+  m_Height: 2.91
   m_Direction: 1
-  m_Center: {x: 0, y: 1.52, z: 0}
+  m_Center: {x: 0, y: 1.35, z: 0}
 --- !u!1001 &2303786813309340716
 PrefabInstance:
   m_ObjectHideFlags: 0
