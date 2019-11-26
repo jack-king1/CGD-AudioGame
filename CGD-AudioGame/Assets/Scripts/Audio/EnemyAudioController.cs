@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using enums;
 public class EnemyAudioController : MonoBehaviour
-{
+{  
     [Header("Spider Sounds")]
     [FMODUnity.EventRef] public string SpiderAttack;
     [FMODUnity.EventRef] public string SpiderChase;
@@ -12,6 +12,13 @@ public class EnemyAudioController : MonoBehaviour
     [FMODUnity.EventRef] public string BatAttack;
     [FMODUnity.EventRef] public string BatChase;
     [FMODUnity.EventRef] public string BatDie;
+
+    private float volume = 100;
+
+    public void SetVolume(float vol)
+    {
+        volume = vol;
+    }
 
     public void PlaySound(ENEMYTYPE enemy_type, SOUND sound_type, GameObject position)
     {      
