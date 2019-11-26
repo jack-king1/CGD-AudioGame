@@ -94,6 +94,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b24beb0da000cc64387d085c2801887f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  blood_prefab: {fileID: 2770977972137082471, guid: bb72a1daf90a6404a894ee8601493140,
+    type: 3}
   start_health: 100
   health: 0
   invulnerable_time: 0.5
