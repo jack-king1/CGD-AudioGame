@@ -15,6 +15,15 @@
         ranged
     }
 
+    public enum SOUND
+    {
+        attack,
+        chase,
+        die,
+        footstep
+    }
+
+
     public enum CAMERASTATE
     {
         levelwon,

@@ -26,12 +26,12 @@ public class EnemyMovement : MonoBehaviour
     NavMeshAgent agent;
     public ENEMYTYPE type;
     Animator anim;
-
+    EnemyAudioController audio_controller;
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
         anim = GetComponent<Animator>();
-
+        audio_controller = GameObject.Find("AudioController").GetComponent<EnemyAudioController>();
         player = GameObject.FindWithTag("Player");
         pl_movement = player.GetComponent<Movement>();
         for (int i = 0; i < transform.parent.childCount; i++)
@@ -45,6 +45,14 @@ public class EnemyMovement : MonoBehaviour
 
     void Update()
     {
+        if (Input.GetKey("e"))
+        {
+            Time.timeScale = 0;
+        }
+        if (Input.GetKey("f"))
+        {
+            Time.timeScale = 1;
+        }
         if (player)
         {
             distance = Vector3.Distance(player.transform.position, transform.position);
@@ -209,6 +217,7 @@ public class EnemyMovement : MonoBehaviour
     IEnumerator SearchTimer(float time)
     {
         searching = true;
+        audio_controller.PlaySound(type, SOUND.chase, gameObject);
         StartCoroutine(GetRandomPos());
         while (time > 0)
         {
