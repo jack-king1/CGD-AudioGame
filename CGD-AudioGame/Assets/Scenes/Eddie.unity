@@ -845,6 +845,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6502805540522263420, guid: 71113994c0700af43b675b5195c2935a,
+        type: 3}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1338163167851336257, guid: 71113994c0700af43b675b5195c2935a,
+        type: 3}
+      propertyPath: damage
+      value: 100
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 71113994c0700af43b675b5195c2935a, type: 3}
 --- !u!1001 &1384896571
@@ -1675,7 +1685,7 @@ PrefabInstance:
     - target: {fileID: 3484843366128476302, guid: 28a8a769e719edf46b0741828418334f,
         type: 3}
       propertyPath: PyroAttack
-      value: 
+      value: event:/TestSound
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 28a8a769e719edf46b0741828418334f, type: 3}
