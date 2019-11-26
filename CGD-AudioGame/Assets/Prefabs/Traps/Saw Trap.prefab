@@ -8,10 +8,10 @@ MeshCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1421522171660234990}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 3
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 14
   m_Mesh: {fileID: 4300000, guid: e3a25d4ccafb5c740aa3c70982a173e2, type: 3}
 --- !u!114 &1338163167851336257
@@ -30,7 +30,7 @@ MonoBehaviour:
   end_point: {fileID: 8318465171922172556}
   move_speed: 2.5
   spin_speed: 400
-  damage: 10
+  damage: 100
 --- !u!1 &8318465171908917206
 GameObject:
   m_ObjectHideFlags: 0
