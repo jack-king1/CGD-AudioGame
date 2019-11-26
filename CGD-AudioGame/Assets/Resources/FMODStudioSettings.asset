@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HasSourceProject: 1
   HasPlatforms: 1
-  sourceProjectPath: 
-  SourceProjectPathUnformatted: 
-  SourceBankPathUnformatted: 
+  sourceProjectPath: BlankFMod (To Be Replaced)\BlankFMod (To Be Replaced).fspro
+  SourceProjectPathUnformatted: BlankFMod (To Be Replaced)\BlankFMod (To Be Replaced).fspro
+  SourceBankPathUnformatted: BlankFMod (To Be Replaced)\Build
   AutomaticEventLoading: 1
   AutomaticSampleLoading: 0
   ImportType: 0
