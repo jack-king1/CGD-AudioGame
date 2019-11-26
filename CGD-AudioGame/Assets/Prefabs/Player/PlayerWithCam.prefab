@@ -147,11 +147,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_target: {fileID: 0}
-  m_cameraSpeed: 0.02
-  m_cameraState: 4
+  m_cameraSpeed: 0.125
+  m_cameraState: 2
   peekOffset: 5
   m_startCinematicCamPosition: {fileID: 0}
   m_AttractCamSpinHeight: 15
+  m_AttractCamSpinSpeed: 5
   cineTimerEnd: 0
   timer: 0
   cameraFollowPitch: 45
