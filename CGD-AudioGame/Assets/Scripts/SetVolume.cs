@@ -6,9 +6,9 @@ public class SetVolume : MonoBehaviour
 {
     public float volume = 100.0f;
     string masterBusString = "Bus:/";
+    FMOD.Studio.Bus masterBus;
     [FMODUnity.EventRef]
     public string event_path;
-    FMOD.Studio.Bus masterBus;
     FMOD.Studio.EventInstance sound_event;
     // Start is called before the first frame update
     void Start()
