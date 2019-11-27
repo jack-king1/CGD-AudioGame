@@ -32,6 +32,7 @@ public class ArrowTrap : MonoBehaviour
         Debug.Log("Fired");
         can_fire = false;
         GameObject arrow = Instantiate(arrow_prefab, transform.position, Quaternion.identity);
+        arrow.transform.LookAt(target.position);
         Arrow arrow_scr = arrow.GetComponent<Arrow>();
         arrow_scr.SetDamage(damage);
         while (arrow.transform.position != target.position && arrow != null)

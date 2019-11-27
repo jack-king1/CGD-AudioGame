@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Path
   - Enemy
+  - Door
   - Trap
   - Wall
   - Grid
@@ -17,7 +18,7 @@ TagManager:
   - Floor2
   - Start
   - PlayerModel
-  - Door
+  - CullRange
   layers:
   - Default
   - TransparentFX
@@ -33,6 +34,8 @@ TagManager:
   - Trap
   - Player
   - 
+  - FogOfWar
+  - Walkable
   - 
   - 
   - 
@@ -40,8 +43,6 @@ TagManager:
   - 
   - 
   - FogOfWar
-  - 
-  - 
   - 
   - 
   - 
