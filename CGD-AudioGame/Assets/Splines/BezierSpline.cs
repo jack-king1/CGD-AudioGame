@@ -26,7 +26,8 @@ public class BezierSpline : MonoBehaviour {
 	}
 
 	public int ControlPointCount {
-		get {
+		get
+        {
 			return points.Length;
 		}
 	}

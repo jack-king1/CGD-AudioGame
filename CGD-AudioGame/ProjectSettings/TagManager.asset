@@ -20,6 +20,8 @@ TagManager:
   - PlayerModel
   - CullRange
   - Fog
+  - Stair
+  - PlayerStair
   layers:
   - Default
   - TransparentFX
