@@ -8,7 +8,8 @@ public class Movement : MonoBehaviour
     [SerializeField] private float movementSpeed = 0;
     private float footStepVolume;
 
-    [Range(0,10)]
+    [Range(0, 10)]
+    //Used for different floor types.
     [SerializeField] float[] FootStepVolumes;
     private int currentFloorType;
 
@@ -30,19 +31,20 @@ public class Movement : MonoBehaviour
     public void Update()
     {
 
+
+    }
+
+    private void FixedUpdate()
+    {
         var currentPosition = transform.position;
         if (currentPosition != lastPosition)
         {
-            if(footStepVolume != 0)
+            if (footStepVolume != 0)
             {
                 SetFootstepVolume(0);
                 anim.SetBool("Moving", false);
             }
         }
-    }
-
-    private void FixedUpdate()
-    {
         float dist = 3;
         Vector3 dir = new Vector3(0, -1, 0);
         RaycastHit hit;
@@ -72,7 +74,7 @@ public class Movement : MonoBehaviour
             anim.SetFloat("InputMagnitude", InputMagnitude);
             anim.SetBool("Moving", true);
             //Debug.Log("Footstep Volume: " + footStepVolume);
-            Rotate();
+            Rotate(true);
             transform.Translate((movement.normalized * (InputMagnitude * movementSpeed)) * Time.deltaTime);
         }
         else
@@ -86,7 +88,7 @@ public class Movement : MonoBehaviour
             anim.SetFloat("InputMagnitude", InputMagnitude);
             anim.SetBool("Moving", true);
             //Debug.Log("Footstep Volume: " + footStepVolume);
-            Rotate();
+            Rotate(false);
             transform.Translate((movement.normalized * (InputMagnitude * movementSpeed) )* Time.deltaTime);
         }
     }
@@ -103,14 +105,25 @@ public class Movement : MonoBehaviour
         return footStepVolume;
     }
 
-    public void Rotate()
+    public void Rotate(bool kbd)
     {
-        //Rotate the player on the Z axis
-        //Calculate an angle here using the analogue sticks axis values.
-        float go_direction = Mathf.Atan2(InputManager.JoystickVertical(playerID), InputManager.JoystickHorizontal(playerID));
-        //Calculate radians to degrees.
-        current_rotation = go_direction * Mathf.Rad2Deg + 90;
-        PlayerModel.transform.eulerAngles = new Vector3(0, current_rotation, 0);
+        if(kbd)
+        {
+            float moveHorizontal = Input.GetAxis("Horizontal");
+            float moveVertical = Input.GetAxis("Vertical");
+            Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertical);
+            PlayerModel.transform.rotation = Quaternion.LookRotation(movement);
+
+        }
+        else
+        {
+            //Rotate the player on the Z axis
+            //Calculate an angle here using the analogue sticks axis values.
+            float go_direction = Mathf.Atan2(InputManager.JoystickVertical(playerID), InputManager.JoystickHorizontal(playerID));
+            //Calculate radians to degrees.
+            current_rotation = go_direction * Mathf.Rad2Deg + 90;
+            PlayerModel.transform.eulerAngles = new Vector3(0, current_rotation, 0);
+        }
     }
 
     void FloorType(string tagName)

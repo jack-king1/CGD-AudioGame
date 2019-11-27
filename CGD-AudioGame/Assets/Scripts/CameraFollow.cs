@@ -15,6 +15,8 @@ public class CameraFollow : MonoBehaviour
     float peekH;
     [SerializeField]private float peekOffset = 3.0f;
     [SerializeField] private GameObject m_startCinematicCamPosition;
+    [SerializeField] private float m_AttractCamSpinHeight;
+    [SerializeField] private float m_AttractCamSpinSpeed;
     [SerializeField] private float cineTimerEnd;
     [SerializeField] private float timer;
 
@@ -49,7 +51,7 @@ public class CameraFollow : MonoBehaviour
         m_levelManager = GameObject.FindGameObjectWithTag("LevelManager").GetComponent<LevelManager>();
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         if(m_levelManager.IsLevelWon() || m_levelManager.IsLevelLost())
         {
@@ -140,12 +142,12 @@ public class CameraFollow : MonoBehaviour
         {
             Vector3 targetPos = new Vector3(
                 gameObject.transform.position.x,
-                m_target.transform.position.y + 50,
+                m_target.transform.position.y + m_AttractCamSpinHeight,
                 gameObject.transform.position.z);
 
             gameObject.transform.position = Vector3.Slerp(transform.position, targetPos, 0.01f);
         }
-        transform.Translate(Vector3.right * (Time.deltaTime * 30));
+        transform.Translate(Vector3.right * (Time.fixedDeltaTime * m_AttractCamSpinSpeed));
     }
 
     //Pan around player
