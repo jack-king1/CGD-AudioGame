@@ -17,7 +17,6 @@ public class EnemyAudioController : MonoBehaviour
     [FMODUnity.EventRef] public string PyroAttack;
     private float volume = 100;
 
-
     public void SetVolume(float vol)
     {
         volume = vol;
@@ -50,9 +49,36 @@ public class EnemyAudioController : MonoBehaviour
         }
     }
 
+    public void SetParameter(GameObject owner, SOUND sound_type, string param, float val)
+    {
+        FMOD.Studio.ParameterInstance parameter;
+        sounds[0].GetAttack().getParameter(param, out parameter);
+        parameter.setValue(val);
+    }
+
+    public float GetParameter(GameObject owner, SOUND sound_type, string param)
+    {
+        float val;
+        FMOD.Studio.ParameterInstance parameter;
+        sounds[0].GetAttack().getParameter(param, out parameter);
+        parameter.getValue(out val);
+        return val;
+    }
+
     public void SetupSound(GameObject owner, ENEMYTYPE enemy_type)
     {
         sounds.Add(new EnemySounds(owner, SelectAudio(enemy_type, SOUND.attack), SelectAudio(enemy_type, SOUND.chase), SelectAudio(enemy_type, SOUND.die)));
+    }
+
+    public void RemoveSound(GameObject owner)
+    {
+        for (int i = 0; i < sounds.Count; i++)
+        {   
+            if (sounds[i].Owner() == owner)
+            {
+                sounds.Remove(sounds[i]);
+            }
+        }
     }
 
     public string SelectAudio(ENEMYTYPE enemy_type, SOUND sound_type)

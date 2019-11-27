@@ -26,19 +26,19 @@
 [LOG] SystemI::createSoundInternal             : exinfo->length             = 32224
 [LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 13728
 [LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 000000A754AFF07C
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 000000A754AFEE4C
 [LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
 [LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
 [LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FFA60DFD9C0
 [LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FFA60DFD990
 [LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FFA60DFDA90
 [LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FFA60DFDB50
-[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 000001A8909E4998
+[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 000001A896504E08
 [LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
 [LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
 [LOG] SystemI::createSoundInternal             : Sample 0/1: name='494397__erokia__msfxp4-135', format=2, channels=2, frequency=48000, lengthbytes=32064, lengthpcm=148273, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.598013.
-[LOG] SoundI::release                          :  (000001A895D88628)
-[LOG] SoundI::release                          :     494397__erokia__msfxp4-135 (000001A8AA0633E8)
+[LOG] SoundI::release                          :  (000001A895EEB788)
+[LOG] SoundI::release                          :     494397__erokia__msfxp4-135 (000001A8A7850D88)
 [LOG] Thread::callback                         : FMOD Studio update thread finished.
 [LOG] Thread::callback                         : FMOD Studio bank load thread finished.
 [LOG] Profile::disconnectAll                   : Profiler disconnecting all clients

@@ -41,4 +41,15 @@ public class EnemySounds
     {
         return die_event;
     }
+
+    public void SetVolume(float volume)
+    {
+        FMOD.Studio.ParameterInstance volume_param;
+        attack_event.getParameter("Volume", out volume_param);
+        volume_param.setValue(volume);
+        chase_event.getParameter("Volume", out volume_param);
+        volume_param.setValue(volume);
+        die_event.getParameter("Volume", out volume_param);
+        volume_param.setValue(volume);
+    }
 }

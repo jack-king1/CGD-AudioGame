@@ -62,4 +62,13 @@ public class Health : MonoBehaviour
         }
         yield return null;
     }
+
+    private void OnDestroy()
+    {
+        if (gameObject.tag == "Enemy")
+        {
+            EnemyAudioController audio_controller = GameObject.Find("AudioController").GetComponent<EnemyAudioController>();
+            audio_controller.RemoveSound(gameObject);
+        }
+    }
 }
