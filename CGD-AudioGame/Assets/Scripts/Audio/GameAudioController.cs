@@ -11,12 +11,18 @@ public class GameAudioController : MonoBehaviour
     [FMODUnity.EventRef] public string win_jingle;
     [FMODUnity.EventRef] public string lose_jingle;
     FMOD.Studio.EventInstance music_event;
-    FMOD.Studio.EventInstance atmospheric_event;    
+    FMOD.Studio.EventInstance atmospheric_event;
 
-    public void SetMusicVolume(float vol) => music_volume = vol;
-
-    public void SetAtmosphericVolume(float vol) => atmospheric_volume = vol;
-
+    public void SetMusicVolume(float vol)
+    {
+        music_volume = vol;
+        music_event.setParameterValue("Volume", music_volume);
+    }
+    public void SetAtmosphericVolume(float vol)
+    {
+        atmospheric_volume = vol;
+        atmospheric_event.setParameterValue("Volume", atmospheric_volume);
+    }
     void Start()
     {
         music_event = FMODUnity.RuntimeManager.CreateInstance(music);
