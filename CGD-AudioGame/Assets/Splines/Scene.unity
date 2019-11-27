@@ -401,7 +401,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 541a76f9c03874323b5154b14ac00427, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spline: {fileID: 321500124}
+  spline: {fileID: 516411527}
   duration: 5
   lookForward: 1
   mode: 1
@@ -802,7 +802,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spline: {fileID: 321500124}
   frequency: 10
-  lookForward: 1
+  lookForward: 0
   items:
   - {fileID: 400000, guid: 428260ca0c7884ffa9afcb1da133720c, type: 3}
   - {fileID: 400000, guid: 07bc9122086c6428c8abcca8696763ac, type: 3}
