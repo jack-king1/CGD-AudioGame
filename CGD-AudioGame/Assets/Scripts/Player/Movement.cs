@@ -22,6 +22,7 @@ public class Movement : MonoBehaviour
     public bool onStairs = false;
     private Vector3 stairStart;
     private Vector3 stairEnd;
+    private float stairTimer = 3.8f;
 
     private void Start()
     {
@@ -69,7 +70,16 @@ public class Movement : MonoBehaviour
             gameObject.transform.position = Vector3.MoveTowards(gameObject.transform.position, stairEnd, 0.05f);
             anim.SetBool("Moving", true);
             anim.SetFloat("InputMagnitude", 0.7f);
+            stairTimer -= Time.fixedDeltaTime;
+            if(stairTimer <= 0.0f)
+            {
+                stairTimer = 3.8f;
+                onStairs = false;
+                anim.SetBool("Moving", false);
+                anim.SetFloat("InputMagnitude", 0.0f);
+            }
         }
+
     }
 
     public void Move(bool keyboardInput)
@@ -159,8 +169,8 @@ public class Movement : MonoBehaviour
         {
             onStairs = true;
             gameObject.transform.position = other.gameObject.GetComponent<endPosition>().startPos.position;
+            PlayerModel.transform.rotation = other.gameObject.transform.rotation;
             stairEnd = other.gameObject.GetComponent<endPosition>().endPos.position;
-            other.gameObject.GetComponent<endPosition>();
         }
 
         //if (other.gameObject.CompareTag("Stair") && onStairs)
