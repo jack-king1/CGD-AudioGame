@@ -19,6 +19,8 @@ TagManager:
   - Start
   - PlayerModel
   - CullRange
+  - Projectile
+  - CheckPoint
   layers:
   - Default
   - TransparentFX
