@@ -31,19 +31,20 @@ public class Movement : MonoBehaviour
     public void Update()
     {
 
+
+    }
+
+    private void FixedUpdate()
+    {
         var currentPosition = transform.position;
         if (currentPosition != lastPosition)
         {
-            if(footStepVolume != 0)
+            if (footStepVolume != 0)
             {
                 SetFootstepVolume(0);
                 anim.SetBool("Moving", false);
             }
         }
-    }
-
-    private void FixedUpdate()
-    {
         float dist = 3;
         Vector3 dir = new Vector3(0, -1, 0);
         RaycastHit hit;
