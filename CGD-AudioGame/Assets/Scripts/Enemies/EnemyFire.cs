@@ -10,6 +10,7 @@ public class EnemyFire : MonoBehaviour
     public int damage;
     bool can_fire = true;
     Animator anim;
+
     private void Start()
     {
         anim = GetComponent<Animator>();
@@ -24,7 +25,7 @@ public class EnemyFire : MonoBehaviour
 
     IEnumerator FireSequence(GameObject target, EnemyAudioController audio_controller)
     {
-        audio_controller.PlaySound(ENEMYTYPE.ranged, SOUND.attack, gameObject);
+        audio_controller.PlaySound(gameObject, SOUND.attack);
         anim.SetBool("Attack", true);
         can_fire = false;
         yield return new WaitForSeconds(0.5f);

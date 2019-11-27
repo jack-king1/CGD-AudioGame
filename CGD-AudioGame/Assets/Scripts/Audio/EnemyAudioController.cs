@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using enums;
 public class EnemyAudioController : MonoBehaviour
-{  
+{
+    public List<EnemySounds> sounds = new List<EnemySounds>();
     [Header("Spider Sounds")]
     [FMODUnity.EventRef] public string SpiderAttack;
     [FMODUnity.EventRef] public string SpiderChase;
@@ -15,18 +16,43 @@ public class EnemyAudioController : MonoBehaviour
     [Header("Pyromancer Sounds")]
     [FMODUnity.EventRef] public string PyroAttack;
     private float volume = 100;
-    List<GameObject> enemies = new List<GameObject>();
-    List<FMOD.Studio.EventInstance> enemies_events = new List<FMOD.Studio.EventInstance>();
+
+
     public void SetVolume(float vol)
     {
         volume = vol;
     }
 
-    public void PlaySound(ENEMYTYPE enemy_type, SOUND sound_type, GameObject position)
-    {      
-        FMOD.Studio.EventInstance sound_event = FMODUnity.RuntimeManager.CreateInstance(SelectAudio(enemy_type, sound_type));
-        sound_event.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(position));
-        sound_event.start();
+    public void PlaySound(GameObject owner, SOUND sound_type)
+    {
+        sounds[0].GetAttack().set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(sounds[0].Owner()));
+        sounds[0].GetAttack().start();
+        for (int i = 0; i < sounds.Count; i++)
+        {
+            if (owner == sounds[i].Owner())
+            {
+                if (sound_type == SOUND.attack)
+                {
+                    sounds[i].GetAttack().set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(sounds[i].Owner()));
+                    sounds[i].GetAttack().start();
+                }
+                else if (sound_type == SOUND.chase)
+                {
+                    sounds[i].GetChase().set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(sounds[i].Owner()));
+                    sounds[i].GetChase().start();
+                }
+                else if (sound_type == SOUND.die)
+                {
+                    sounds[i].GetDeath().set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(sounds[0].Owner()));
+                    sounds[i].GetDeath().start();
+                }
+            }
+        }
+    }
+
+    public void SetupSound(GameObject owner, ENEMYTYPE enemy_type)
+    {
+        sounds.Add(new EnemySounds(owner, SelectAudio(enemy_type, SOUND.attack), SelectAudio(enemy_type, SOUND.chase), SelectAudio(enemy_type, SOUND.die)));
     }
 
     public string SelectAudio(ENEMYTYPE enemy_type, SOUND sound_type)
@@ -69,6 +95,6 @@ public class EnemyAudioController : MonoBehaviour
             }
         }
 
-        return "";
+        return "No Sound";
     }
 }

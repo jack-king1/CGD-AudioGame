@@ -32,7 +32,6 @@ public class EnemyMovement : MonoBehaviour
     {
         agent = GetComponent<NavMeshAgent>();
         anim = GetComponent<Animator>();
-        audio_controller = GameObject.Find("AudioController").GetComponent<EnemyAudioController>();
         player = GameObject.FindWithTag("Player");
         pl_movement = player.GetComponent<Movement>();
         for (int i = 0; i < transform.parent.childCount; i++)
@@ -42,6 +41,8 @@ public class EnemyMovement : MonoBehaviour
                 path_points.Add(transform.parent.GetChild(i).gameObject.transform);
             }
         }
+        audio_controller = GameObject.Find("AudioController").GetComponent<EnemyAudioController>();
+        audio_controller.SetupSound(gameObject, type);       
     }
 
     void Update()
@@ -155,7 +156,7 @@ public class EnemyMovement : MonoBehaviour
             Health pl_health = player.GetComponent<Health>();
             if (pl_health.DealDamage(damage))
             {
-                audio_controller.PlaySound(type, SOUND.attack, gameObject);
+                audio_controller.PlaySound(gameObject, SOUND.attack);
             }
             
         }
@@ -222,7 +223,7 @@ public class EnemyMovement : MonoBehaviour
     IEnumerator SearchTimer(float time)
     {
         searching = true;
-        audio_controller.PlaySound(type, SOUND.chase, gameObject);
+        audio_controller.PlaySound(gameObject, SOUND.chase);
         StartCoroutine(GetRandomPos());
         while (time > 0)
         {
