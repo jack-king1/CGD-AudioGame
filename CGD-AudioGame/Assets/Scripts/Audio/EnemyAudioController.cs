@@ -15,7 +15,26 @@ public class EnemyAudioController : MonoBehaviour
     [FMODUnity.EventRef] public string BatDie;
     [Header("Pyromancer Sounds")]
     [FMODUnity.EventRef] public string PyroAttack;
-    private float volume = 100;
+    private float last_vol;
+    public float volume = 1;
+
+    private void Start()
+    {
+        last_vol = volume;
+    }
+
+    private void Update()
+    {
+        if (volume != last_vol)
+        {
+            last_vol = volume;
+            for (int i = 0; i < sounds.Count; i++)
+            {
+                sounds[i].SetVolume(volume);
+                Debug.Log(sounds[i].GetVolume());
+            }
+        }
+    }
 
     public void SetVolume(float vol)
     {
@@ -24,8 +43,6 @@ public class EnemyAudioController : MonoBehaviour
 
     public void PlaySound(GameObject owner, SOUND sound_type)
     {
-        sounds[0].GetAttack().set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(sounds[0].Owner()));
-        sounds[0].GetAttack().start();
         for (int i = 0; i < sounds.Count; i++)
         {
             if (owner == sounds[i].Owner())
@@ -47,21 +64,53 @@ public class EnemyAudioController : MonoBehaviour
                 }
             }
         }
+        Debug.Log(sounds[0].GetVolume());
     }
 
     public void SetParameter(GameObject owner, SOUND sound_type, string param, float val)
     {
-        FMOD.Studio.ParameterInstance parameter;
-        sounds[0].GetAttack().getParameter(param, out parameter);
-        parameter.setValue(val);
+        for (int i = 0; i < sounds.Count; i++)
+        {
+            if  (sounds[i].Owner() == owner)
+            {
+                if (sound_type == SOUND.attack)
+                {
+                    sounds[i].GetAttack().setParameterValue(param, val);
+                }
+                else if (sound_type == SOUND.chase)
+                {
+                    sounds[i].GetChase().setParameterValue(param, val);
+                }
+                else if (sound_type == SOUND.die)
+                {
+                    sounds[i].GetDeath().setParameterValue(param, val);
+                }             
+            }
+        }      
     }
 
     public float GetParameter(GameObject owner, SOUND sound_type, string param)
     {
-        float val;
-        FMOD.Studio.ParameterInstance parameter;
-        sounds[0].GetAttack().getParameter(param, out parameter);
-        parameter.getValue(out val);
+        float val = 0;
+        float val2 = 0;
+        for (int i = 0; i < sounds.Count; i++)
+        {
+            if (sounds[i].Owner() == owner)
+            {
+                if (sound_type == SOUND.attack)
+                {
+                    sounds[i].GetAttack().getParameterValue(param, out val, out val2);
+                }
+                else if (sound_type == SOUND.chase)
+                {
+                    sounds[i].GetChase().getParameterValue(param, out val, out val2);
+                }
+                else if (sound_type == SOUND.die)
+                {
+                    sounds[i].GetDeath().getParameterValue(param, out val, out val2);
+                }
+            }
+        }
         return val;
     }
 

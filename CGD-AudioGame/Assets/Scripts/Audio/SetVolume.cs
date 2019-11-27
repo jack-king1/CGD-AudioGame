@@ -7,7 +7,7 @@ public class SetVolume : MonoBehaviour
     public float Master = 1.0f;
     public float Music = 100.0f;
     public float Asmospheric = 100.0f;
-    public float Gameplay = 100.0f;
+    public float Gameplay = 1.0f;
     string masterBusString = "Bus:/";
     FMOD.Studio.Bus masterBus;
 
@@ -20,5 +20,7 @@ public class SetVolume : MonoBehaviour
     void Update()
     {
         masterBus.setVolume(100 * Master);
+        EnemyAudioController enemy_audio = GetComponent<EnemyAudioController>();
+        enemy_audio.SetVolume(Gameplay);
     }
 }
