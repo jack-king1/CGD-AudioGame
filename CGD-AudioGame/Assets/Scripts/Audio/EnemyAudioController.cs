@@ -18,28 +18,18 @@ public class EnemyAudioController : MonoBehaviour
     private float last_vol;
     public float volume = 1;
 
-    private void Start()
-    {
-        last_vol = volume;
-    }
+    private void Start() => last_vol = volume;
 
     private void Update()
     {
-        if (volume != last_vol)
+        last_vol = volume;
+        for (int i = 0; i < sounds.Count; i++)
         {
-            last_vol = volume;
-            for (int i = 0; i < sounds.Count; i++)
-            {
-                sounds[i].SetVolume(volume);
-                Debug.Log(sounds[i].GetVolume());
-            }
+            sounds[i].SetVolume(volume);
         }
     }
 
-    public void SetVolume(float vol)
-    {
-        volume = vol;
-    }
+    public void SetVolume(float vol) => volume = vol;
 
     public void PlaySound(GameObject owner, SOUND sound_type)
     {
@@ -89,6 +79,24 @@ public class EnemyAudioController : MonoBehaviour
         }      
     }
 
+    public void SetVolMultiplier(GameObject owner, bool reduced)
+    {
+        for (int i = 0; i < sounds.Count; i++)
+        {
+            if (sounds[i].Owner() == owner)
+            {
+                if (reduced)
+                {
+                    sounds[i].SetVolMultiplier(0.6f);
+                }
+                else
+                {
+                    sounds[i].SetVolMultiplier(1.0f);
+                }
+            }
+        }
+    }
+
     public float GetParameter(GameObject owner, SOUND sound_type, string param)
     {
         float val = 0;
@@ -114,10 +122,7 @@ public class EnemyAudioController : MonoBehaviour
         return val;
     }
 
-    public void SetupSound(GameObject owner, ENEMYTYPE enemy_type)
-    {
-        sounds.Add(new EnemySounds(owner, SelectAudio(enemy_type, SOUND.attack), SelectAudio(enemy_type, SOUND.chase), SelectAudio(enemy_type, SOUND.die)));
-    }
+    public void SetupSound(GameObject owner, ENEMYTYPE enemy_type) => sounds.Add(new EnemySounds(owner, SelectAudio(enemy_type, SOUND.attack), SelectAudio(enemy_type, SOUND.chase), SelectAudio(enemy_type, SOUND.die)));
 
     public void RemoveSound(GameObject owner)
     {
@@ -169,7 +174,6 @@ public class EnemyAudioController : MonoBehaviour
                 return PyroAttack;
             }
         }
-
         return "No Sound";
     }
 }

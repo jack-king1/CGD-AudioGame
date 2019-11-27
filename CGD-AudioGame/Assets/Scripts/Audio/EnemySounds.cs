@@ -4,17 +4,11 @@ using UnityEngine;
 
 public class EnemySounds
 {
-    GameObject owner;
-    FMOD.Studio.EventInstance attack_event;
-    FMOD.Studio.EventInstance chase_event;
-    FMOD.Studio.EventInstance die_event;
-    FMOD.Studio.ParameterInstance[] vol_instance = new FMOD.Studio.ParameterInstance[3];
-    private void Update()
-    {
-        attack_event.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(owner));
-        chase_event.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(owner));
-        die_event.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(owner));
-    }
+    private GameObject owner;
+    private FMOD.Studio.EventInstance attack_event;
+    private FMOD.Studio.EventInstance chase_event;
+    private FMOD.Studio.EventInstance die_event;
+    private float vol_multi = 1;
 
     public EnemySounds(GameObject obj, string attack, string chase, string die)
     {
@@ -22,33 +16,21 @@ public class EnemySounds
         attack_event = FMODUnity.RuntimeManager.CreateInstance(attack);
         chase_event = FMODUnity.RuntimeManager.CreateInstance(chase);
         die_event = FMODUnity.RuntimeManager.CreateInstance(die);
-        attack_event.getParameter("Volume", out vol_instance[0]);
-        chase_event.getParameter("Volume", out vol_instance[1]);
-        die_event.getParameter("Volume", out vol_instance[2]);
     }
 
-    public GameObject Owner()
-    {
-        return owner;
-    }
-    public FMOD.Studio.EventInstance GetAttack()
-    {
-        return attack_event;
-    }
-    public FMOD.Studio.EventInstance GetChase()
-    {
-        return chase_event;
-    }
-    public FMOD.Studio.EventInstance GetDeath()
-    {
-        return die_event;
-    }
+    public GameObject Owner() => owner;
+
+    public FMOD.Studio.EventInstance GetAttack() => attack_event;
+
+    public FMOD.Studio.EventInstance GetChase() => chase_event;
+
+    public FMOD.Studio.EventInstance GetDeath() => die_event;
 
     public void SetVolume(float volume)
     {
-        attack_event.setParameterValue("Volume", volume);
-        chase_event.setParameterValue("Volume", volume);
-        die_event.setParameterValue("Volume", volume);
+        attack_event.setParameterValue("Volume", volume * vol_multi);
+        chase_event.setParameterValue("Volume", volume * vol_multi);
+        die_event.setParameterValue("Volume", volume * vol_multi);
     }
 
     public float GetVolume()
@@ -57,4 +39,6 @@ public class EnemySounds
         chase_event.getParameterValue("Volume", out vol, out vol);
         return vol;
     }
+
+    public void SetVolMultiplier(float multi) => vol_multi = multi;
 }

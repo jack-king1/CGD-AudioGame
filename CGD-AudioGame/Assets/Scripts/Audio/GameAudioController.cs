@@ -13,25 +13,13 @@ public class GameAudioController : MonoBehaviour
     FMOD.Studio.EventInstance music_event;
     FMOD.Studio.EventInstance atmospheric_event;    
 
-    public void SetMusicVolume(float vol)
-    {
-        music_volume = vol;
-    }
+    public void SetMusicVolume(float vol) => music_volume = vol;
 
-    public void SetAtmosphericVolume(float vol)
-    {
-        atmospheric_volume = vol;
-    }
+    public void SetAtmosphericVolume(float vol) => atmospheric_volume = vol;
 
     void Start()
     {
         music_event = FMODUnity.RuntimeManager.CreateInstance(music);
         atmospheric_event = FMODUnity.RuntimeManager.CreateInstance(atmospheric);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

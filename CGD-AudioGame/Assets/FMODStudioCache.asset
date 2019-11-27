@@ -72,7 +72,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Path: BlankFMod (To Be Replaced)\Build\Desktop\Master Bank.strings.bank
-  lastModified: 637104663739876523
+  lastModified: 637104708720054578
   LoadResult: 0
   FileSizes:
   - Name: Desktop
@@ -98,6 +98,22 @@ MonoBehaviour:
   - Name: Desktop
     Value: 12474
   Exists: 1
+--- !u!114 &-2545875355266972827
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: Volume
+  Min: 0
+  Max: 100
+  Default: 0
 --- !u!114 &-1845757713831222813
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -133,7 +149,7 @@ MonoBehaviour:
   - {fileID: 1185160109210313190}
   MasterBankRef: {fileID: 1746001798280986269}
   StringsBankRef: {fileID: -4138513958696132444}
-  stringsBankWriteTime: 637104663739876523
+  stringsBankWriteTime: 637104708720054578
   cacheVersion: 2
 --- !u!114 &1185160109210313190
 MonoBehaviour:
@@ -154,7 +170,8 @@ MonoBehaviour:
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
-  Parameters: []
+  Parameters:
+  - {fileID: -2545875355266972827}
   MinDistance: 1
   MaxDistance: 20
   Length: 3089
@@ -172,11 +189,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: C:\Users\Hazar\Documents\University Work\Year 3\CGD\CGD-AudioGame\CGD-AudioGame\BlankFMod
     (To Be Replaced)\Build\Desktop\Master Bank.bank
-  lastModified: 637104663739746607
+  lastModified: 637104708719774833
   LoadResult: 0
   FileSizes:
   - Name: Desktop
-    Value: 45952
+    Value: 46144
   Exists: 1
 --- !u!114 &1971162583950720443
 MonoBehaviour:
