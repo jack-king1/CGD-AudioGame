@@ -1541,11 +1541,6 @@ PrefabInstance:
       propertyPath: BatDie
       value: event:/TestSound
       objectReference: {fileID: 0}
-    - target: {fileID: 4060543308404951640, guid: 28a8a769e719edf46b0741828418334f,
-        type: 3}
-      propertyPath: Gameplay
-      value: 0.5
-      objectReference: {fileID: 0}
     - target: {fileID: -5940699484622923927, guid: 28a8a769e719edf46b0741828418334f,
         type: 3}
       propertyPath: m_Enabled
@@ -1554,7 +1549,22 @@ PrefabInstance:
     - target: {fileID: 3119445464918953779, guid: 28a8a769e719edf46b0741828418334f,
         type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3119445464918953779, guid: 28a8a769e719edf46b0741828418334f,
+        type: 3}
+      propertyPath: SpikeTrap
+      value: event:/TestSound
+      objectReference: {fileID: 0}
+    - target: {fileID: 3119445464918953779, guid: 28a8a769e719edf46b0741828418334f,
+        type: 3}
+      propertyPath: SawTrap
+      value: event:/TestSound
+      objectReference: {fileID: 0}
+    - target: {fileID: 3119445464918953779, guid: 28a8a769e719edf46b0741828418334f,
+        type: 3}
+      propertyPath: ArrowTrap
+      value: event:/TestSound
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 28a8a769e719edf46b0741828418334f, type: 3}

@@ -10,9 +10,12 @@ public class SawTrap : MonoBehaviour
     public float spin_speed = 250;
     public int damage = 10;
     private bool forward = true;
+    TrapAudioController audio_controller;
     // Start is called before the first frame update
     void Start()
     {
+        audio_controller = GameObject.Find("AudioController").GetComponent<TrapAudioController>();
+        audio_controller.SetupSound(gameObject, enums.TRAP.saw);
         transform.position = start_point.position;
     }
 

@@ -46,10 +46,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7616c586a61eaa4a9d3eb3bf0f4937a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Master: 0.5
-  Music: 100
-  Asmospheric: 100
-  Gameplay: 100
+  Master: 1
+  Music: 1
+  Asmospheric: 1
+  Gameplay: 1
 --- !u!114 &-5940699484622923927
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -84,6 +84,8 @@ MonoBehaviour:
   BatAttack: 
   BatChase: 
   BatDie: 
+  PyroAttack: 
+  volume: 1
 --- !u!114 &3119445464918953779
 MonoBehaviour:
   m_ObjectHideFlags: 0

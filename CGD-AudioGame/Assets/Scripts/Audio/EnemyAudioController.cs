@@ -16,7 +16,7 @@ public class EnemyAudioController : MonoBehaviour
     [Header("Pyromancer Sounds")]
     [FMODUnity.EventRef] public string PyroAttack;
     private float last_vol;
-    public float volume = 1;
+    private float volume = 1;
 
     private void Start() => last_vol = volume;
 
@@ -54,7 +54,6 @@ public class EnemyAudioController : MonoBehaviour
                 }
             }
         }
-        Debug.Log(sounds[0].GetVolume());
     }
 
     public void SetParameter(GameObject owner, SOUND sound_type, string param, float val)
