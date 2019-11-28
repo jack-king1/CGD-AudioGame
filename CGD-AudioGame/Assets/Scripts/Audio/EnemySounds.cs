@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemySounds
+public class EnemySounds : MonoBehaviour
 {
     private GameObject owner;
     private FMOD.Studio.EventInstance attack_event;
@@ -20,11 +20,7 @@ public class EnemySounds
 
     public GameObject Owner() => owner;
 
-    public FMOD.Studio.EventInstance GetAttack() => attack_event;
 
-    public FMOD.Studio.EventInstance GetChase() => chase_event;
-
-    public FMOD.Studio.EventInstance GetDeath() => die_event;
 
     public void SetVolume(float volume)
     {
@@ -40,5 +36,10 @@ public class EnemySounds
         return vol;
     }
 
-    public void SetVolMultiplier(float multi) => vol_multi = multi;
+    public FMOD.Studio.EventInstance GetAttack() => attack_event;
+    public FMOD.Studio.EventInstance GetChase() => chase_event;
+    public FMOD.Studio.EventInstance GetDeath() => die_event;
+
+    public float GetVolMultiplier() => vol_multi;
+    public void SetVolMultiplier(float multi) => vol_multi = multi;   
 }

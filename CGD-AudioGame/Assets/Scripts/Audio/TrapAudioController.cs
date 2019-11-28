@@ -49,13 +49,45 @@ public class TrapAudioController : MonoBehaviour
             {
                 if (reduced)
                 {
-                    sounds[i].SetVolMultiplier(0.6f);
+                    StartCoroutine(SmoothMultiChange(sounds[i], 0.6f));
                 }
                 else
                 {
-                    sounds[i].SetVolMultiplier(1.0f);
+                    StartCoroutine(SmoothMultiChange(sounds[i], 1.0f));
                 }
             }
         }
+    }
+
+
+    IEnumerator SmoothMultiChange(TrapSounds sound, float level)
+    {
+        float multi = sound.GetVolMultiplier();
+
+        if (level > multi)
+        {
+            while (multi < level)
+            {
+                if (multi < 1)
+                {
+                    multi += 0.5f * Time.deltaTime;
+                    sound.SetVolMultiplier(multi);
+                }
+                yield return null;
+            }
+        }
+        else if (level < multi)
+        {
+            while (multi > level)
+            {
+                if (multi > 0.6)
+                {
+                    multi -= 0.5f * Time.deltaTime;
+                    sound.SetVolMultiplier(multi);
+                }
+                yield return null;
+            }
+        }
+        sound.SetVolMultiplier(level);
     }
 }
