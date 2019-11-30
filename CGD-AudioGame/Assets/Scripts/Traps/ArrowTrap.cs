@@ -11,10 +11,12 @@ public class ArrowTrap : MonoBehaviour
     private GameObject button;
     private Transform target;
     bool can_fire = true;
-    
+    TrapAudioController audio_controller;
     // Start is called before the first frame update
     void Start()
     {
+        audio_controller = GameObject.Find("AudioController").GetComponent<TrapAudioController>();
+        audio_controller.SetupSound(gameObject, enums.TRAP.arrow);
         button = transform.GetChild(0).gameObject;
         target = transform.GetChild(1);
     }
@@ -32,6 +34,7 @@ public class ArrowTrap : MonoBehaviour
         Debug.Log("Fired");
         can_fire = false;
         GameObject arrow = Instantiate(arrow_prefab, transform.position, Quaternion.identity);
+        arrow.transform.LookAt(target.position);
         Arrow arrow_scr = arrow.GetComponent<Arrow>();
         arrow_scr.SetDamage(damage);
         while (arrow.transform.position != target.position && arrow != null)

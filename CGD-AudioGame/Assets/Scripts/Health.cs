@@ -24,12 +24,14 @@ public class Health : MonoBehaviour
         }
     }
 
-    public void DealDamage(int damage)
+    public bool DealDamage(int damage)
     {
         if (can_damage)
         {
             StartCoroutine(DamageRoutine(damage));
+            return true;
         }
+        return false;
     }
 
     IEnumerator DamageRoutine(int damage)
@@ -59,5 +61,14 @@ public class Health : MonoBehaviour
             Destroy(this.gameObject);
         }
         yield return null;
+    }
+
+    private void OnDestroy()
+    {
+        if (gameObject.tag == "Enemy")
+        {
+            EnemyAudioController audio_controller = GameObject.Find("AudioController").GetComponent<EnemyAudioController>();
+            audio_controller.RemoveSound(gameObject);
+        }
     }
 }

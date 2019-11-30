@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using enums;
 public class SpikeTrap : MonoBehaviour
 {
     public int damage = 5;
@@ -10,9 +10,12 @@ public class SpikeTrap : MonoBehaviour
     public List<GameObject> targets = new List<GameObject>();
     public float speed = 10;
     public Vector3 target;
+    TrapAudioController audio_controller;
     // Start is called before the first frame update
     void Start()
     {
+        audio_controller = GameObject.Find("AudioController").GetComponent<TrapAudioController>();
+        audio_controller.SetupSound(gameObject, TRAP.spike);
         StartCoroutine(Raise());
     }
 
