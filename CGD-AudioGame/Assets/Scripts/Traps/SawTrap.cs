@@ -32,7 +32,14 @@ public class SawTrap : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        player_distance = Vector3.Distance(transform.position, player.transform.position);
+        if (player)
+        {
+            player_distance = Vector3.Distance(transform.parent.position, player.transform.position);
+        }
+        else
+        {
+            player_distance = 0;
+        }
 
         if (player_distance <= raise_range && !raised)
         {
