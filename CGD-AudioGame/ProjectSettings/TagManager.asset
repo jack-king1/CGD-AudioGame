@@ -19,6 +19,7 @@ TagManager:
   - Start
   - PlayerModel
   - CullRange
+  - Projectile
   - Fog
   - Stair
   - PlayerStair
@@ -41,9 +42,9 @@ TagManager:
   - Walkable
   - 
   - 
-  - 
-  - 
-  - 
+  - Pit
+  - Flying
+  - Grounded
   - 
   - FogOfWar
   - 

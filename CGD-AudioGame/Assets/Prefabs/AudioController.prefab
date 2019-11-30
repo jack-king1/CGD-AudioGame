@@ -46,10 +46,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7616c586a61eaa4a9d3eb3bf0f4937a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Master: 0.5
-  Music: 100
-  Asmospheric: 100
-  Gameplay: 100
+  Master: 1
+  Music: 1
+  Asmospheric: 1
+  Gameplay: 1
 --- !u!114 &-5940699484622923927
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -62,10 +62,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d46a7f2d8d882db4a9c113bbc5a362a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  music: 
-  atmospheric: 
-  win_jingle: 
-  lose_jingle: 
+  music: event:/TestSound
+  atmospheric: event:/TestSound
+  win_jingle: event:/TestSound
+  lose_jingle: event:/TestSound
 --- !u!114 &3484843366128476302
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -78,12 +78,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94b7931d79c56344f9fbe3001e24af8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SpiderAttack: 
+  SpiderAttack: event:/TestSound
   SpiderChase: event:/TestSound
-  SpiderDie: 
-  BatAttack: 
-  BatChase: 
-  BatDie: 
+  SpiderDie: event:/TestSound
+  BatAttack: event:/TestSound
+  BatChase: event:/TestSound
+  BatDie: event:/TestSound
+  PyroAttack: event:/TestSound
 --- !u!114 &3119445464918953779
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -96,3 +97,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fb6796372123c84e85468048c3889ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SpikeTrap: event:/TestSound
+  SawTrap: event:/TestSound
+  ArrowTrap: event:/TestSound

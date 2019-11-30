@@ -70,7 +70,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1708805827910350489}
   - component: {fileID: 1708805827910350494}
-  - component: {fileID: 8658069010221225327}
   m_Layer: 0
   m_Name: LevelManager
   m_TagString: LevelManager
@@ -111,16 +110,3 @@ MonoBehaviour:
   m_startLevel: 1
   m_PlayerStartPos: {fileID: 428138502}
   m_PlayerFinishPos: {fileID: 360670133}
---- !u!114 &8658069010221225327
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1708805827910350488}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f7616c586a61eaa4a9d3eb3bf0f4937a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  volume: 100

@@ -1,6 +1,63 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-8662103013149831631
+--- !u!114 &-2711773837722768075
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: Volume
+  Min: 0
+  Max: 100
+  Default: 0
+--- !u!114 &-2252989466103658973
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: F:\University\Year 3\Commercial Games Development\Jams\AudioGame\CGD-AudioGame\CGD-AudioGame\BlankFMod
+    (To Be Replaced)\Build\Desktop\Master Bank.bank
+  lastModified: 637104449190612525
+  LoadResult: 0
+  FileSizes:
+  - Name: Desktop
+    Value: 46144
+  Exists: 1
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d32cf7c32a3ed8347bac48ef5ed56d82, type: 3}
+  m_Name: FMODStudioCache
+  m_EditorClassIdentifier: 
+  EditorBanks:
+  - {fileID: 4048845472253437773}
+  - {fileID: -2252989466103658973}
+  EditorEvents:
+  - {fileID: 1735381988663221064}
+  MasterBankRef: {fileID: -2252989466103658973}
+  StringsBankRef: {fileID: 4048845472253437773}
+  stringsBankWriteTime: 637104449190652404
+  cacheVersion: 2
+--- !u!114 &1735381988663221064
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -15,56 +72,16 @@ MonoBehaviour:
   Path: event:/TestSound
   guid: bd8ec98b77c694478e8eaae55985ecb0
   Banks:
-  - {fileID: -5381928215210708581}
+  - {fileID: -2252989466103658973}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
   Parameters:
-  - {fileID: -950475288602332515}
+  - {fileID: -2711773837722768075}
   MinDistance: 720
   MaxDistance: 10000
   Length: 3089
---- !u!114 &-6987862782267038753
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Path: C:\Users\Hazar\Documents\University Work\Year 3\CGD\CGD-AudioGame\CGD-AudioGame\Assets\BlankFMod
-    (To Be Replaced)\Build\Desktop\Master Bank.bank
-  lastModified: 637103769867501952
-  LoadResult: 0
-  FileSizes:
-  - Name: Desktop
-    Value: 12474
-  Exists: 1
---- !u!114 &-5381928215210708581
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Path: E:\University\Year 3\Commercial Games Development\Jams\AudioGame\CGD-AudioGame\CGD-AudioGame\BlankFMod
-    (To Be Replaced)\Build\Desktop\Master Bank.bank
-  lastModified: 637104449190612525
-  LoadResult: 0
-  FileSizes:
-  - Name: Desktop
-    Value: 46144
-  Exists: 1
---- !u!114 &-4138513958696132444
+--- !u!114 &4048845472253437773
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -82,119 +99,4 @@ MonoBehaviour:
   FileSizes:
   - Name: Desktop
     Value: 720
-  Exists: 1
---- !u!114 &-2941501051173538156
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Path: C:\Users\Hazar\Documents\University Work\Year 3\CGD\CGD-AudioGame\CGD-AudioGame\BlankFMod
-    (To Be Replaced)\Build\Desktop\Master Bank.bank
-  lastModified: 637103769867501952
-  LoadResult: 0
-  FileSizes:
-  - Name: Desktop
-    Value: 12474
-  Exists: 1
---- !u!114 &-950475288602332515
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Name: Volume
-  Min: 0
-  Max: 100
-  Default: 0
---- !u!114 &11400000
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d32cf7c32a3ed8347bac48ef5ed56d82, type: 3}
-  m_Name: FMODStudioCache
-  m_EditorClassIdentifier: 
-  EditorBanks:
-  - {fileID: -4138513958696132444}
-  - {fileID: -5381928215210708581}
-  EditorEvents:
-  - {fileID: -8662103013149831631}
-  MasterBankRef: {fileID: -5381928215210708581}
-  StringsBankRef: {fileID: -4138513958696132444}
-  stringsBankWriteTime: 637104449190652404
-  cacheVersion: 2
---- !u!114 &1746001798280986269
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Path: C:\Users\Hazar\Documents\University Work\Year 3\CGD\CGD-AudioGame\CGD-AudioGame\BlankFMod
-    (To Be Replaced)\Build\Desktop\Master Bank.bank
-  lastModified: 637103821367050967
-  LoadResult: 0
-  FileSizes:
-  - Name: Desktop
-    Value: 45952
-  Exists: 0
---- !u!114 &1971162583950720443
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Path: BlankFMod (To Be Replaced)\Build\Desktop\Master Bank.strings.bank
-  lastModified: 637103769867881730
-  LoadResult: 0
-  FileSizes:
-  - Name: Desktop
-    Value: 672
-  Exists: 1
---- !u!114 &3548538956700772736
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Path: Assets\BlankFMod (To Be Replaced)\Build\Desktop\Master Bank.strings.bank
-  lastModified: 637103769867881730
-  LoadResult: 0
-  FileSizes:
-  - Name: Desktop
-    Value: 672
   Exists: 1
