@@ -21,6 +21,7 @@ TagManager:
   - CullRange
   - Projectile
   - CheckPoint
+  - Coin
   layers:
   - Default
   - TransparentFX

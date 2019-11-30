@@ -6,6 +6,8 @@ public class ItemScript : MonoBehaviour
 {
     public FogOfWarScript fow;
     public MeshRenderer mesh;
+    public PlayerData Pd;
+
     // Start is called before the first frame update
     void Start()
     {
