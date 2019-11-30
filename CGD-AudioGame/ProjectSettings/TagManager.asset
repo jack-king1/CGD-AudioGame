@@ -18,6 +18,7 @@ TagManager:
   - Floor2
   - Start
   - PlayerModel
+  - CullRange
   layers:
   - Default
   - TransparentFX
@@ -42,7 +43,6 @@ TagManager:
   - 
   - 
   - FogOfWar
-  - 
   - 
   - 
   - 

@@ -24,10 +24,14 @@ public class EnemyMovement : MonoBehaviour
     public float hear_volume = 0.0f;
     Movement pl_movement;
     NavMeshAgent agent;
+    public ENEMYTYPE type;
+    Animator anim;
 
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
+        anim = GetComponent<Animator>();
+
         player = GameObject.FindWithTag("Player");
         pl_movement = player.GetComponent<Movement>();
         for (int i = 0; i < transform.parent.childCount; i++)
@@ -45,23 +49,29 @@ public class EnemyMovement : MonoBehaviour
         {
             distance = Vector3.Distance(player.transform.position, transform.position);
         }
-        Movement();      
+
+        Movement();   
     }
 
     void Movement()
     {
-        hear_volume = pl_movement.FootStepVolume() - distance;
-        LookatSmoothly(agent.steeringTarget);
+        hear_volume = (pl_movement.FootStepVolume() * 20) - distance;
         // If player is in range, start chasing
         if ((hear_volume >= detect_volume || distance <= detect_range) && player)
         {
-            current_state = STATE.chase;
+            if (type == ENEMYTYPE.ground || type == ENEMYTYPE.flying)
+            {
+                current_state = STATE.chase;
+            }
+            else if (type == ENEMYTYPE.ranged)
+            {
+                current_state = STATE.fire;
+            }
         }
-
+        
         // If chasing player and goes out of range, start searching
         if (current_state == STATE.chase)
         {
-            searching = false;
             if (player != null)
             {
                 ChasePlayer();
@@ -73,12 +83,23 @@ public class EnemyMovement : MonoBehaviour
 
             if (hear_volume < detect_volume || distance > detect_range)
             {
-                current_state = STATE.search;
+                current_state = STATE.search;             
+            }
+        }
+        else if (current_state == STATE.fire)
+        {
+            if (hear_volume < detect_volume)
+            {
+                StartCoroutine(SwitchDelay(STATE.patrol, 2.0f));
+            }
+            else
+            {
+                Fire();
+                LookatSmoothly(player.transform.position);
             }
         }
         else if (current_state == STATE.patrol)
         {
-            searching = false;
             FollowPath();
         }
         else if (current_state == STATE.search)
@@ -87,15 +108,41 @@ public class EnemyMovement : MonoBehaviour
         }
     }
 
+    void Fire()
+    {
+        EnemyFire fireball = GetComponent<EnemyFire>();
+        fireball.Fire(player);
+        anim.SetBool("Idle", true);
+        anim.SetBool("Moving", false);
+        agent.speed = 0;
+    }
+
+    IEnumerator SwitchDelay(STATE state, float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        current_state = state;
+    }
+
     void ChasePlayer()
     {
+        LookatSmoothly(agent.steeringTarget);
         agent.speed = chase_speed;
+        anim.SetFloat("Speed", 1.5f);
+        searching = false;
         if (distance > hit_range)
         {
+            agent.speed = chase_speed;
+            anim.SetBool("Attack", false);
+            anim.SetBool("Moving", true);
+            anim.SetBool("Idle", false);
             agent.SetDestination(player.transform.position);
         }
         else
         {
+            agent.speed = 0;
+            anim.SetBool("Attack", true);
+            anim.SetBool("Moving", false);
+            anim.SetBool("Idle", true);
             Health pl_health = player.GetComponent<Health>();
             pl_health.DealDamage(damage);
         }
@@ -103,7 +150,13 @@ public class EnemyMovement : MonoBehaviour
 
     void FollowPath()
     {
+        LookatSmoothly(agent.steeringTarget);
+        anim.SetBool("Attack", false);
+        anim.SetBool("Moving", true);
+        anim.SetBool("Idle", false);
         agent.speed = patrol_speed;
+        anim.SetFloat("Speed", 1.0f);
+        searching = false;
         if (Vector3.Distance(transform.position, path_points[path_index].position) < 1)
         {
             if (path_index == path_points.Count - 1)
@@ -123,10 +176,15 @@ public class EnemyMovement : MonoBehaviour
 
     void RandomMovement()
     {
+        LookatSmoothly(agent.steeringTarget);
+        anim.SetBool("Attack", false);
+        anim.SetBool("Moving", true);
+        anim.SetBool("Idle", false);
         agent.speed = search_speed;
+        anim.SetFloat("Speed", 0.7f);
         if (!searching)
         {
-            StartCoroutine(SearchTimer());
+            StartCoroutine(SearchTimer(10));
         }
 
         if (Vector3.Distance(transform.position, random_pos) < 2)
@@ -136,6 +194,7 @@ public class EnemyMovement : MonoBehaviour
         agent.SetDestination(random_pos);
     }
     
+
     IEnumerator GetRandomPos()
     {
         // Gets random position within the navmesh
@@ -147,11 +206,15 @@ public class EnemyMovement : MonoBehaviour
         yield return null;
     }
 
-    IEnumerator SearchTimer()
+    IEnumerator SearchTimer(float time)
     {
         searching = true;
         StartCoroutine(GetRandomPos());
-        yield return new WaitForSeconds(10);
+        while (time > 0)
+        {
+            time -= Time.deltaTime;
+            yield return null;
+        }
         if (current_state == STATE.search)
         {
             // Finds closest patrol point after losing the player
