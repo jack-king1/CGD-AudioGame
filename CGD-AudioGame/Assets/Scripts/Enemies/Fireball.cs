@@ -13,6 +13,7 @@ public class Fireball : MonoBehaviour
     {
         fireball_p = transform.GetChild(0).gameObject.GetComponent<ParticleSystem>();        
         damage = dmg;
+
         StartCoroutine(Move(target, shot_speed));
     }
 
@@ -51,13 +52,14 @@ public class Fireball : MonoBehaviour
 
     IEnumerator Explode()
     {
-        moving = false;
-        
+        moving = false;       
         yield return new WaitForSeconds(0.1f);
+        var em = fireball_p.emission;
+        em.enabled = false;
         GameObject explosion = Instantiate(explosion_prefab, transform.position, Quaternion.identity);
         ParticleSystem explosion_p = explosion.GetComponent<ParticleSystem>();
         DeleteAfterDelay delete = explosion.GetComponent<DeleteAfterDelay>();
-        var em = explosion_p.emission;
+        em = explosion_p.emission;
         em.enabled = true;
         explosion_p.Play();
         delete.StartDelete(0.5f);

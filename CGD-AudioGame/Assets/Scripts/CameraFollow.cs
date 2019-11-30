@@ -31,12 +31,23 @@ public class CameraFollow : MonoBehaviour
     [Range(1f, 20f)]
     public float m_cameraZoomOffset = 5f;
 
+
+    // How long the object should shake for.
+    public float shakeDuration = 0f;
+
+    // Amplitude of the shake. A larger value shakes the camera harder.
+    public float shakeAmount = 0.7f;
+    public float decreaseFactor = 1.0f;
+    bool shake;
+    Vector3 originalPos;
+
     private void Start()
     {
         m_target = GameObject.FindGameObjectWithTag("Player");
         cinematicEndLocation = m_target.transform.position;
         playerID = m_target.GetComponent<PlayerData>().PlayerID();
         m_startCinematicCamPosition = GameObject.FindGameObjectWithTag("CineStart");
+
         if(m_startCinematicCamPosition)
         {
             m_cameraState = CAMERASTATE.attract;
@@ -64,6 +75,23 @@ public class CameraFollow : MonoBehaviour
         if(m_levelManager.GameState() == GAMESTATE.game && (m_levelManager.IsLevelWon() != true && m_levelManager.IsLevelLost()!= true))
         {
             m_cameraState = CAMERASTATE.follow;
+        }
+
+        if (shakeDuration > 0)
+        {
+            gameObject.transform.position = originalPos + Random.insideUnitSphere * shakeAmount;
+
+            shakeDuration -= Time.fixedDeltaTime * decreaseFactor;
+        }
+        else
+        {
+            shakeDuration = 0f;
+        }
+
+
+        if (Input.GetKeyDown(KeyCode.N))
+        {
+            Shake();
         }
 
         switch (m_cameraState)
@@ -181,5 +209,11 @@ public class CameraFollow : MonoBehaviour
     public void ResetLookAngle()
     {
 
+    }
+
+    public void Shake()
+    {
+        shakeDuration = Random.Range(0.1f, 0.2f);
+        originalPos = gameObject.transform.localPosition;
     }
 }

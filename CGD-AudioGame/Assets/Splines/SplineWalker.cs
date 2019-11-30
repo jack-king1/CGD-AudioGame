@@ -8,6 +8,10 @@ public class SplineWalker : MonoBehaviour {
 
 	public bool lookForward;
 
+    public GameObject PlayerModel;
+    public Animator anim;
+    public float animationSpeed = 1.0f;
+
 	public SplineWalkerMode mode;
 
 	private float progress;
@@ -40,7 +44,14 @@ public class SplineWalker : MonoBehaviour {
 		Vector3 position = spline.GetPoint(progress);
 		transform.localPosition = position;
 		if (lookForward) {
-			transform.LookAt(position + spline.GetDirection(progress));
-		}
+            //Get the player mage model and rotate the player but not look at point
+            var lookPos = (position + spline.GetDirection(progress)) - transform.position;
+            lookPos.y = 0;
+            var rotation = Quaternion.LookRotation(lookPos);
+            transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime * 1);
+            anim.SetBool("Moving", true);
+            anim.SetFloat("InputMagnitude", animationSpeed);
+            PlayerModel.transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime * 1);
+        }
 	}
 }
