@@ -15,6 +15,13 @@
         ranged
     }
 
+    public enum TRAP
+    {
+        spike,
+        saw,
+        arrow
+    }
+
     public enum SOUND
     {
         attack,
@@ -22,7 +29,6 @@
         die,
         footstep
     }
-
 
     public enum CAMERASTATE
     {
