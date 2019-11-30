@@ -20,30 +20,27 @@ public class CoinCollect : MonoBehaviour
     }
     void OnTriggerEnter(Collider col)
     {
-        if (this.tag != "Enemy")
+        Debug.Log("Coint Collided");
+        if (col.CompareTag("Player"))
         {
+            //Add player score here bois.
+            //Pd.playerScore += 1.0f;
 
-
-            if (col.tag == "Player")
-            {
-                Pd.playerScore += 1.0f;
-
-
-                Destroy(this.gameObject);
-            }
+            Destroy(gameObject);
         }
 
         if (col.tag == "CullRange")
         {
+            //use distance to player here rather than collding. 
+            // Put it in update or something ex. Vector.Distance(sutff) on google :)
             Debug.Log("????");
             Mesh.enabled = true;
-
         }
 
     }
     private void OnTriggerExit(Collider col)
     {
-        Mesh.enabled = false;
+        //Mesh.enabled = false;
     }
 
 }

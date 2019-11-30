@@ -35,70 +35,100 @@ public class FogOfWarScript : MonoBehaviour
         if(timer> maxTime)
         {
             m_radius -= 0.5f;
-            lamp.spotAngle -= 10;
-            lamp.color -= (Color.white / 7.0f);
+            if(lamp)
+            {
+                lamp.spotAngle -= 10;
+                lamp.color -= (Color.white / 7.0f);
+            }
+            else
+            {
+                Debug.LogError("No Lamp Model Specified you mongrel.");
+            }
             timer = 0;
             
         }
-
-       if(m_radius <= 3|| lamp.spotAngle ==0)
-     
+        if(levelManager)
         {
-            levelManager.LoseScene();
-        }
+            if (m_radius <= 3 || lamp.spotAngle == 0)
 
-        Ray r = new Ray(transform.position, m_Player.position - transform.position);
-        if (Physics.Raycast(r, out RaycastHit hit, 1000, m_fogLayer, QueryTriggerInteraction.Collide))
-        {
-            for (int i = 0; i < m_vertices.Length; i++)
             {
-                Vector3 v = m_FogOfWarPlane.transform.TransformPoint(m_vertices[i]);
-                float dist = Vector3.SqrMagnitude(v - hit.point);
-
-                if (dist < m_radiusSqr)
-                {
-                    float alpha = Mathf.Min(m_colours[i].a, dist / m_radiusSqr);
-
-                    //Just check cam state is not in any other state e.g. cinematic.
-                    if(gameObject.GetComponent<CameraFollow>().m_cameraState == enums.CAMERASTATE.follow)
-                    {
-                        m_verticeDiscovered[i] = true;
-                    }
-                    m_colours[i].a = alpha;
-                }
-                else if(m_verticeDiscovered[i])
-                {
-                    m_colours[i].a = darkness;
-                }
-                else
-                {
-                    m_colours[i].a = 1f;
-
-                }
+                levelManager.LoseScene();
             }
-
-            UpdateColour();
         }
+        else
+        {
+            Debug.LogError("Add the level manager prefab, mongrel.");
+        }
+
+        if(m_FogOfWarPlane)
+        {
+            Ray r = new Ray(transform.position, m_Player.position - transform.position);
+            if (Physics.Raycast(r, out RaycastHit hit, 1000, m_fogLayer, QueryTriggerInteraction.Collide))
+            {
+                for (int i = 0; i < m_vertices.Length; i++)
+                {
+                    Vector3 v = m_FogOfWarPlane.transform.TransformPoint(m_vertices[i]);
+                    float dist = Vector3.SqrMagnitude(v - hit.point);
+
+                    if (dist < m_radiusSqr)
+                    {
+                        float alpha = Mathf.Min(m_colours[i].a, dist / m_radiusSqr);
+
+                        //Just check cam state is not in any other state e.g. cinematic.
+                        if (gameObject.GetComponent<CameraFollow>().m_cameraState == enums.CAMERASTATE.follow)
+                        {
+                            m_verticeDiscovered[i] = true;
+                        }
+                        m_colours[i].a = alpha;
+                    }
+                    else if (m_verticeDiscovered[i])
+                    {
+                        m_colours[i].a = darkness;
+                    }
+                    else
+                    {
+                        m_colours[i].a = 1f;
+
+                    }
+                }
+
+                UpdateColour();
+            }
+        }
+        else
+        {
+            Debug.LogError("No Fog OF War Plane, Please Add.");
+        }
+
     }
 
     void Init()
     {
+        m_FogOfWarPlane = GameObject.FindGameObjectWithTag("Fog");
         m_mesh = m_FogOfWarPlane.GetComponent<MeshFilter>().mesh;
-        m_vertices = m_mesh.vertices;
-        m_colours = new Color[m_vertices.Length];
-
-        for(int i=0; i< m_colours.Length; i++)
+        if(m_FogOfWarPlane)
         {
-            m_colours[i] = Color.black;
+            m_vertices = m_mesh.vertices;
+            m_colours = new Color[m_vertices.Length];
 
+            for (int i = 0; i < m_colours.Length; i++)
+            {
+                m_colours[i] = Color.black;
+
+            }
+
+            UpdateColour();
+
+            foreach (Vector3 vertice in m_vertices)
+            {
+                m_verticeDiscovered.Add(false);
+            }
+        }
+        else
+        {
+            Debug.LogError("No Fog Plane Found! Add one you mongrel!");
         }
 
-        UpdateColour();
-
-        foreach (Vector3 vertice in m_vertices)
-        {
-            m_verticeDiscovered.Add(false);
-        }
     }
 
    void UpdateColour()

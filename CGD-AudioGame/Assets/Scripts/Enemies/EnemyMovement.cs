@@ -13,10 +13,10 @@ public class EnemyMovement : MonoBehaviour
     public float detect_volume = 5;
     public float detect_range = 2;
     public float turn_speed = 5;
-    public int damage = 10;
+    public int damage = 100;
     public STATE current_state = STATE.patrol;
     private GameObject player;
-    private float distance;
+    public float distance;
     public int path_index;
     private List<Transform> path_points = new List<Transform>();
     public Vector3 random_pos;
@@ -149,6 +149,7 @@ public class EnemyMovement : MonoBehaviour
         }
         else
         {
+            Debug.Log("Reaching");
             agent.speed = 0;
             anim.SetBool("Attack", true);
             anim.SetBool("Moving", false);

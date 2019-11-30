@@ -22,6 +22,9 @@ TagManager:
   - Projectile
   - CheckPoint
   - Coin
+  - Fog
+  - Stair
+  - PlayerStair
   layers:
   - Default
   - TransparentFX
@@ -41,9 +44,9 @@ TagManager:
   - Walkable
   - 
   - 
-  - 
-  - 
-  - 
+  - Pit
+  - Flying
+  - Grounded
   - 
   - FogOfWar
   - 
