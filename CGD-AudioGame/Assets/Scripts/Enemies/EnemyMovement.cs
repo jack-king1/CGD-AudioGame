@@ -27,7 +27,7 @@ public class EnemyMovement : MonoBehaviour
     public ENEMYTYPE type;
     Animator anim;
     EnemyAudioController audio_controller;
-
+    public LayerMask sight_layer_mask;
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
@@ -63,6 +63,20 @@ public class EnemyMovement : MonoBehaviour
         Movement();   
     }
 
+    bool InLineOfSight()
+    {
+        RaycastHit hit;
+        if (Physics.Raycast(transform.position, player.transform.position - transform.position, out hit, 100, sight_layer_mask))
+        {         
+            if (hit.transform.gameObject.tag == "Player")
+            {
+                Debug.Log("TRUE");
+                return true;
+            }
+        }
+        return false;
+    }
+
     void Movement()
     {
         hear_volume = (pl_movement.FootStepVolume() * 20) - distance;
@@ -75,7 +89,15 @@ public class EnemyMovement : MonoBehaviour
             }
             else if (type == ENEMYTYPE.ranged)
             {
-                current_state = STATE.fire;
+                if (InLineOfSight())
+                {
+                    Debug.Log("TRUE");
+                    current_state = STATE.fire;
+                }
+                else
+                {
+                    current_state = STATE.chase;
+                }
             }
         }
         
