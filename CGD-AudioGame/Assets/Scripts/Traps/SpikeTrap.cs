@@ -21,9 +21,6 @@ public class SpikeTrap : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        audio_controller = GameObject.Find("AudioController").GetComponent<TrapAudioController>();
-        audio_controller.SetupSound(gameObject, TRAP.spike);
-        StartCoroutine(Raise());
         if (raised)
         {
             StartCoroutine(Lower());
@@ -32,6 +29,9 @@ public class SpikeTrap : MonoBehaviour
         {
             StartCoroutine(Raise());
         }
+
+        audio_controller = GameObject.Find("AudioController").GetComponent<TrapAudioController>();
+        audio_controller.SetupSound(gameObject, TRAP.spike);
 
         if (isUndelayedTrap)
         {
@@ -59,12 +59,11 @@ public class SpikeTrap : MonoBehaviour
     }
 
     IEnumerator Raise()
-    {
-       
+    {    
         target = new Vector3(transform.position.x, transform.position.y, transform.position.z);
         if (!initialOffsetComplete && !isUndelayedTrap)
         {
-            yield return new WaitForSeconds(timer/1.5f);
+            yield return new WaitForSeconds(timer / 1.5f);
             initialOffsetComplete = true;
             Debug.Log("Offset waited");
         }
@@ -78,12 +77,10 @@ public class SpikeTrap : MonoBehaviour
 
     IEnumerator Lower()
     {
-
         target = new Vector3(transform.position.x, transform.position.y - 3.0f, transform.position.z);
         raised = false;
         yield return new WaitForSeconds(timer);
         StartCoroutine(Raise());
-
     }
 
     private void OnTriggerEnter(Collider other)

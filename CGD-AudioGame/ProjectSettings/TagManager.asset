@@ -20,6 +20,7 @@ TagManager:
   - PlayerModel
   - CullRange
   - Projectile
+  - FlyingEnemy
   layers:
   - Default
   - TransparentFX
