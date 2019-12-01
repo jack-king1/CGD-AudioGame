@@ -1,0 +1,102 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3484843366128476301
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3484843366128476303}
+  - component: {fileID: 4060543308404951640}
+  - component: {fileID: -5940699484622923927}
+  - component: {fileID: 3484843366128476302}
+  - component: {fileID: 3119445464918953779}
+  m_Layer: 0
+  m_Name: AudioController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3484843366128476303
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3484843366128476301}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -17.41434, y: -1.3437357, z: -10.162831}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4060543308404951640
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3484843366128476301}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7616c586a61eaa4a9d3eb3bf0f4937a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Master: 1
+  Music: 1
+  Asmospheric: 1
+  Gameplay: 1
+--- !u!114 &-5940699484622923927
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3484843366128476301}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d46a7f2d8d882db4a9c113bbc5a362a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  music: event:/TestSound
+  atmospheric: event:/TestSound
+  win_jingle: event:/TestSound
+  lose_jingle: event:/TestSound
+--- !u!114 &3484843366128476302
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3484843366128476301}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94b7931d79c56344f9fbe3001e24af8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SpiderAttack: event:/TestSound
+  SpiderChase: event:/TestSound
+  SpiderDie: event:/TestSound
+  BatAttack: event:/TestSound
+  BatChase: event:/TestSound
+  BatDie: event:/TestSound
+  PyroAttack: event:/TestSound
+--- !u!114 &3119445464918953779
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3484843366128476301}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9fb6796372123c84e85468048c3889ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SpikeTrap: event:/TestSound
+  SawTrap: event:/TestSound
+  ArrowTrap: event:/TestSound

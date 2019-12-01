@@ -4,7 +4,30 @@
     {
         patrol,
         chase,
-        search
+        search,
+        fire
+    }
+
+    public enum ENEMYTYPE
+    {
+        ground,
+        flying,
+        ranged
+    }
+
+    public enum TRAP
+    {
+        spike,
+        saw,
+        arrow
+    }
+
+    public enum SOUND
+    {
+        attack,
+        chase,
+        die,
+        footstep
     }
 
     public enum CAMERASTATE

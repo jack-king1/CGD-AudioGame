@@ -5,11 +5,13 @@ using UnityEngine;
 public class ItemScript : MonoBehaviour
 {
     public FogOfWarScript fow;
-    public GameObject target;
+    public SkinnedMeshRenderer Skinned;
+    public PlayerData Pd;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        Skinned.enabled = false;
     }
 
     // Update is called once per frame
@@ -21,14 +23,39 @@ public class ItemScript : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if (target.tag == "PlayerModel")
+
+        if (this.tag != "Enemy")
+        {
+
+
+            if (other.tag == "PlayerModel")
+            {
+
+                fow.m_radius += 0.5f;
+                fow.lamp.spotAngle += 10;
+                fow.lamp.color += (Color.white / 7.0f);
+
+                Destroy(this.gameObject);
+            }
+        }
+
+
+
+        if(other.tag == "CullRange")
         {
             Debug.Log("Why");
-            fow.m_radius += 0.5f;
-            fow.lamp.spotAngle += 10;
-            fow.lamp.color += (Color.white / 7.0f);
+           
+            Skinned.enabled = true;
 
-            Destroy(this.gameObject);
         }
+
+       
+    }
+
+
+    private void OnTriggerExit(Collider other)
+    {
+      
+        Skinned.enabled = false;
     }
 }

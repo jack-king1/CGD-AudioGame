@@ -13,10 +13,10 @@ public class EnemyMovement : MonoBehaviour
     public float detect_volume = 5;
     public float detect_range = 2;
     public float turn_speed = 5;
-    public int damage = 10;
+    public int damage = 100;
     public STATE current_state = STATE.patrol;
     private GameObject player;
-    private float distance;
+    public float distance;
     public int path_index;
     private List<Transform> path_points = new List<Transform>();
     public Vector3 random_pos;
@@ -24,10 +24,14 @@ public class EnemyMovement : MonoBehaviour
     public float hear_volume = 0.0f;
     Movement pl_movement;
     NavMeshAgent agent;
+    public ENEMYTYPE type;
+    Animator anim;
+    EnemyAudioController audio_controller;
 
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
+        anim = GetComponent<Animator>();
         player = GameObject.FindWithTag("Player");
         pl_movement = player.GetComponent<Movement>();
         for (int i = 0; i < transform.parent.childCount; i++)
@@ -37,25 +41,42 @@ public class EnemyMovement : MonoBehaviour
                 path_points.Add(transform.parent.GetChild(i).gameObject.transform);
             }
         }
+        audio_controller = GameObject.Find("AudioController").GetComponent<EnemyAudioController>();
+        audio_controller.SetupSound(gameObject, type);       
     }
 
     void Update()
     {
+        if (Input.GetKey("e"))
+        {
+            Time.timeScale = 0;
+        }
+        if (Input.GetKey("f"))
+        {
+            Time.timeScale = 1;
+        }
         if (player)
         {
             distance = Vector3.Distance(player.transform.position, transform.position);
         }
-        Movement();      
+
+        Movement();   
     }
 
     void Movement()
     {
         hear_volume = (pl_movement.FootStepVolume() * 20) - distance;
-        LookatSmoothly(agent.steeringTarget);
         // If player is in range, start chasing
         if ((hear_volume >= detect_volume || distance <= detect_range) && player)
         {
-            current_state = STATE.chase;
+            if (type == ENEMYTYPE.ground || type == ENEMYTYPE.flying)
+            {
+                current_state = STATE.chase;
+            }
+            else if (type == ENEMYTYPE.ranged)
+            {
+                current_state = STATE.fire;
+            }
         }
         
         // If chasing player and goes out of range, start searching
@@ -72,7 +93,19 @@ public class EnemyMovement : MonoBehaviour
 
             if (hear_volume < detect_volume || distance > detect_range)
             {
-                current_state = STATE.search;
+                current_state = STATE.search;             
+            }
+        }
+        else if (current_state == STATE.fire)
+        {
+            if (hear_volume < detect_volume)
+            {
+                StartCoroutine(SwitchDelay(STATE.patrol, 2.0f));
+            }
+            else
+            {
+                Fire();
+                LookatSmoothly(player.transform.position);
             }
         }
         else if (current_state == STATE.patrol)
@@ -85,24 +118,59 @@ public class EnemyMovement : MonoBehaviour
         }
     }
 
+    void Fire()
+    {
+        EnemyFire fireball = GetComponent<EnemyFire>();
+        fireball.Fire(player, audio_controller);
+        anim.SetBool("Idle", true);
+        anim.SetBool("Moving", false);
+        agent.speed = 0;
+    }
+
+    IEnumerator SwitchDelay(STATE state, float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        current_state = state;
+    }
+
     void ChasePlayer()
     {
+        LookatSmoothly(agent.steeringTarget);
         agent.speed = chase_speed;
+        anim.SetFloat("Speed", 1.5f);
         searching = false;
         if (distance > hit_range)
         {
+            agent.speed = chase_speed;
+            anim.SetBool("Attack", false);
+            anim.SetBool("Moving", true);
+            anim.SetBool("Idle", false);
             agent.SetDestination(player.transform.position);
         }
         else
         {
+            Debug.Log("Reaching");
+            agent.speed = 0;
+            anim.SetBool("Attack", true);
+            anim.SetBool("Moving", false);
+            anim.SetBool("Idle", true);
             Health pl_health = player.GetComponent<Health>();
-            pl_health.DealDamage(damage);
+            if (pl_health.DealDamage(damage))
+            {
+                audio_controller.PlaySound(gameObject, SOUND.attack);
+            }
+            
         }
     }
 
     void FollowPath()
     {
+        LookatSmoothly(agent.steeringTarget);
+        anim.SetBool("Attack", false);
+        anim.SetBool("Moving", true);
+        anim.SetBool("Idle", false);
         agent.speed = patrol_speed;
+        anim.SetFloat("Speed", 1.0f);
         searching = false;
         if (Vector3.Distance(transform.position, path_points[path_index].position) < 1)
         {
@@ -123,7 +191,12 @@ public class EnemyMovement : MonoBehaviour
 
     void RandomMovement()
     {
+        LookatSmoothly(agent.steeringTarget);
+        anim.SetBool("Attack", false);
+        anim.SetBool("Moving", true);
+        anim.SetBool("Idle", false);
         agent.speed = search_speed;
+        anim.SetFloat("Speed", 0.7f);
         if (!searching)
         {
             StartCoroutine(SearchTimer(10));
@@ -136,6 +209,7 @@ public class EnemyMovement : MonoBehaviour
         agent.SetDestination(random_pos);
     }
     
+
     IEnumerator GetRandomPos()
     {
         // Gets random position within the navmesh
@@ -150,6 +224,7 @@ public class EnemyMovement : MonoBehaviour
     IEnumerator SearchTimer(float time)
     {
         searching = true;
+        audio_controller.PlaySound(gameObject, SOUND.chase);
         StartCoroutine(GetRandomPos());
         while (time > 0)
         {

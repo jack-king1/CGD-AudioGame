@@ -13,8 +13,9 @@ public class Arrow : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Player" || other.gameObject.tag == "Enemy")
+        if (other.gameObject.tag == "Player" || other.gameObject.tag == "Enemy" || other.gameObject.tag == "FlyingEnemy")
         {
+            Debug.Log("HIT");   
             Health health = other.gameObject.GetComponent<Health>();
             health.DealDamage(damage);
             Destroy(this.gameObject);
