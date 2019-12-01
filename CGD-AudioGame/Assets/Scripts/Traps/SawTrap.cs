@@ -125,7 +125,7 @@ public class SawTrap : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Player" || other.gameObject.tag == "Enemy")
+        if (other.gameObject.tag == "Player" || other.gameObject.tag == "Enemy" || other.gameObject.tag == "FlyingEnemy")
         {
             Health health = other.gameObject.GetComponent<Health>();
             health.DealDamage(damage);
