@@ -13,10 +13,10 @@ public class EnemyMovement : MonoBehaviour
     public float detect_volume = 5;
     public float detect_range = 2;
     public float turn_speed = 5;
-    public int damage = 10;
+    public int damage = 100;
     public STATE current_state = STATE.patrol;
     private GameObject player;
-    private float distance;
+    public float distance;
     public int path_index;
     private List<Transform> path_points = new List<Transform>();
     public Vector3 random_pos;
@@ -26,12 +26,12 @@ public class EnemyMovement : MonoBehaviour
     NavMeshAgent agent;
     public ENEMYTYPE type;
     Animator anim;
-
+    EnemyAudioController audio_controller;
+    public LayerMask sight_layer_mask;
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
         anim = GetComponent<Animator>();
-
         player = GameObject.FindWithTag("Player");
         pl_movement = player.GetComponent<Movement>();
         for (int i = 0; i < transform.parent.childCount; i++)
@@ -41,16 +41,40 @@ public class EnemyMovement : MonoBehaviour
                 path_points.Add(transform.parent.GetChild(i).gameObject.transform);
             }
         }
+        audio_controller = GameObject.Find("AudioController").GetComponent<EnemyAudioController>();
+        audio_controller.SetupSound(gameObject, type);       
     }
 
     void Update()
     {
+        if (Input.GetKey("e"))
+        {
+            Time.timeScale = 0;
+        }
+        if (Input.GetKey("f"))
+        {
+            Time.timeScale = 1;
+        }
         if (player)
         {
             distance = Vector3.Distance(player.transform.position, transform.position);
         }
 
         Movement();   
+    }
+
+    bool InLineOfSight()
+    {
+        RaycastHit hit;
+        if (Physics.Raycast(transform.position, player.transform.position - transform.position, out hit, 100, sight_layer_mask))
+        {         
+            if (hit.transform.gameObject.tag == "Player")
+            {
+                Debug.Log("TRUE");
+                return true;
+            }
+        }
+        return false;
     }
 
     void Movement()
@@ -65,7 +89,15 @@ public class EnemyMovement : MonoBehaviour
             }
             else if (type == ENEMYTYPE.ranged)
             {
-                current_state = STATE.fire;
+                if (InLineOfSight())
+                {
+                    Debug.Log("TRUE");
+                    current_state = STATE.fire;
+                }
+                else
+                {
+                    current_state = STATE.chase;
+                }
             }
         }
         
@@ -111,7 +143,7 @@ public class EnemyMovement : MonoBehaviour
     void Fire()
     {
         EnemyFire fireball = GetComponent<EnemyFire>();
-        fireball.Fire(player);
+        fireball.Fire(player, audio_controller);
         anim.SetBool("Idle", true);
         anim.SetBool("Moving", false);
         agent.speed = 0;
@@ -139,12 +171,17 @@ public class EnemyMovement : MonoBehaviour
         }
         else
         {
+            Debug.Log("Reaching");
             agent.speed = 0;
             anim.SetBool("Attack", true);
             anim.SetBool("Moving", false);
             anim.SetBool("Idle", true);
             Health pl_health = player.GetComponent<Health>();
-            pl_health.DealDamage(damage);
+            if (pl_health.DealDamage(damage))
+            {
+                audio_controller.PlaySound(gameObject, SOUND.attack);
+            }
+            
         }
     }
 
@@ -209,6 +246,7 @@ public class EnemyMovement : MonoBehaviour
     IEnumerator SearchTimer(float time)
     {
         searching = true;
+        audio_controller.PlaySound(gameObject, SOUND.chase);
         StartCoroutine(GetRandomPos());
         while (time > 0)
         {

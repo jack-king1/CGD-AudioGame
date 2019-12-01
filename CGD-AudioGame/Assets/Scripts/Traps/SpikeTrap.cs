@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using enums;
 public class SpikeTrap : MonoBehaviour
 {
     public int damage = 5;
@@ -13,13 +13,15 @@ public class SpikeTrap : MonoBehaviour
     public bool canDealDamage = false;
     public List<GameObject> targets = new List<GameObject>();
     public float speed = 30;
-    public Vector3 target;
+    private Vector3 target;
+    TrapAudioController audio_controller;
 
     private bool initialOffsetComplete = false;
 
     // Start is called before the first frame update
     void Start()
     {
+        StartCoroutine(Raise());
         if (raised)
         {
             StartCoroutine(Lower());
@@ -34,6 +36,8 @@ public class SpikeTrap : MonoBehaviour
             alternateTimer = 6.0f;
         }
 
+        audio_controller = GameObject.Find("AudioController").GetComponent<TrapAudioController>();
+        audio_controller.SetupSound(gameObject, TRAP.spike);
     }
 
     // Update is called once per frame
@@ -56,30 +60,36 @@ public class SpikeTrap : MonoBehaviour
 
     IEnumerator Raise()
     {
-       
         target = new Vector3(transform.position.x, transform.position.y, transform.position.z);
         if (!initialOffsetComplete && !isUndelayedTrap)
         {
-            yield return new WaitForSeconds(timer/1.5f);
+            yield return new WaitForSeconds(timer / 1.5f);
             initialOffsetComplete = true;
             Debug.Log("Offset waited");
         }
         canDealDamage = true;
+        while (transform.GetChild(0).position != target)
+        {
+            yield return null;
+        }
         yield return new WaitForSeconds(damageWindow);
         canDealDamage = false;
         raised = true;
-        yield return new WaitForSeconds(timer/3.0f - damageWindow);
+        yield return new WaitForSeconds(timer / 3.0f - damageWindow);
         StartCoroutine(Lower());
     }
 
     IEnumerator Lower()
     {
-
+        canDealDamage = false;
         target = new Vector3(transform.position.x, transform.position.y - 3.0f, transform.position.z);
         raised = false;
+        while (transform.GetChild(0).position != target)
+        {
+            yield return null;
+        }
         yield return new WaitForSeconds(timer);
         StartCoroutine(Raise());
-
     }
 
     private void OnTriggerEnter(Collider other)

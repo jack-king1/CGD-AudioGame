@@ -24,6 +24,7 @@ public class NoteKey : MonoBehaviour
                 drawbridgeLock = transform.gameObject.GetComponentInParent<DrawbridgeLock>();
                 string value = transform.name;
                 drawbridgeLock.SetValue(value);
+                Debug.LogWarning("Note Key Value: " + value);
                 //play sound
             }
             if (masterPlate)
