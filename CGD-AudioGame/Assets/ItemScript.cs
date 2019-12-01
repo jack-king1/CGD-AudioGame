@@ -42,9 +42,7 @@ public class ItemScript : MonoBehaviour
 
 
         if(other.tag == "CullRange")
-        {
-            Debug.Log("Why");
-           
+        { 
             Skinned.enabled = true;
 
         }
