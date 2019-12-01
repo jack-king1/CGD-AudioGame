@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using enums;
 public class SawTrap : MonoBehaviour
 {
     GameObject player;
@@ -22,11 +22,12 @@ public class SawTrap : MonoBehaviour
     void Start()
     {
         audio_controller = GameObject.Find("AudioController").GetComponent<TrapAudioController>();
-        audio_controller.SetupSound(gameObject, enums.TRAP.saw);
+        audio_controller.SetupSound(gameObject, TRAP.saw);
         transform.position = start_point.position;
         lowered_height = transform.position.y - 2;
         raised_height = transform.position.y;
         player = GameObject.FindWithTag("Player");
+        audio_controller.PlaySound(TRAP.saw, gameObject);
     }
 
     // Update is called once per frame

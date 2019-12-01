@@ -14,11 +14,11 @@ public class TrapSounds
         sound_instance = FMODUnity.RuntimeManager.CreateInstance(sound);
     }
 
+    public FMOD.Studio.EventInstance GetEvent() => sound_instance;
+    public GameObject GetOwner() => owner;
     public float GetVolMultiplier() => vol_multi;
     public void SetVolMultiplier(float multi) => vol_multi = multi;
-
     public void SetVolume(float volume) => sound_instance.setParameterValue("Volume", volume * vol_multi);
-
     public GameObject Owner() => owner;
 
     public float GetVolume()

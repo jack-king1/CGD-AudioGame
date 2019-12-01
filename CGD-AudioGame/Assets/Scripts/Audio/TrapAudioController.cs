@@ -25,6 +25,28 @@ public class TrapAudioController : MonoBehaviour
         }
     }
 
+    public void SetParameter(GameObject owner, string param, float val)
+    {
+        for (int i = 0; i < sounds.Count; i++)
+        {
+            if (sounds[i].GetOwner() == owner)
+            {
+                sounds[i].GetEvent().setParameterValue(param, val);
+            }
+        }
+    }
+
+    public void PlaySound(TRAP type, GameObject owner)
+    {
+        for (int i = 0; i < sounds.Count; i++)
+        {
+            if (sounds[i].GetOwner() == owner)
+            {
+                sounds[i].GetEvent().start();
+            }
+        }
+    }
+
     public void SetupSound(GameObject owner, TRAP trap_type)
     {
         if (trap_type == TRAP.spike)

@@ -25,6 +25,7 @@ public class SetVolume : MonoBehaviour
         TrapAudioController trap_audio = GetComponent<TrapAudioController>();
         trap_audio.SetVolume(Gameplay * Master);
         GameAudioController game_audio = GetComponent<GameAudioController>();
+        game_audio.SetGameVolume(Gameplay * Master);
         game_audio.SetAtmosphericVolume(Asmospheric * Master);
         game_audio.SetMusicVolume(Music * Master);
     }

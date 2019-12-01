@@ -60,6 +60,8 @@ public class SpikeTrap : MonoBehaviour
     IEnumerator Raise()
     {    
         target = new Vector3(transform.position.x, transform.position.y, transform.position.z);
+        audio_controller.SetParameter(gameObject, "Direction", 0.0f);
+        audio_controller.PlaySound(TRAP.spike, gameObject);
         if (!initialOffsetComplete && !isUndelayedTrap)
         {
             yield return new WaitForSeconds(timer / 1.5f);
@@ -82,6 +84,8 @@ public class SpikeTrap : MonoBehaviour
     {
         canDealDamage = false;
         target = new Vector3(transform.position.x, transform.position.y - 3.0f, transform.position.z);
+        audio_controller.SetParameter(gameObject, "Direction", 0.0f);
+        audio_controller.PlaySound(TRAP.spike,gameObject);
         raised = false;
         while (transform.GetChild(0).position != target)
         {

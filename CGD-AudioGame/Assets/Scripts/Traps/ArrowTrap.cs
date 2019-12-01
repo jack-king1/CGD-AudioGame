@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using enums;
 public class ArrowTrap : MonoBehaviour
 {
     public GameObject arrow_prefab;
@@ -31,7 +31,7 @@ public class ArrowTrap : MonoBehaviour
 
     IEnumerator ArrowSequence()
     {
-        Debug.Log("Fired");
+        audio_controller.PlaySound(TRAP.arrow, gameObject);
         can_fire = false;
         GameObject arrow = Instantiate(arrow_prefab, transform.position, Quaternion.identity);
         arrow.transform.LookAt(target.position);
