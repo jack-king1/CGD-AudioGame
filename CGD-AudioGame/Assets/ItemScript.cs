@@ -5,13 +5,13 @@ using UnityEngine;
 public class ItemScript : MonoBehaviour
 {
     public FogOfWarScript fow;
-    public MeshRenderer mesh;
+    public SkinnedMeshRenderer Skinned;
     public PlayerData Pd;
 
     // Start is called before the first frame update
     void Start()
     {
-        mesh.enabled = false;
+        Skinned.enabled = false;
     }
 
     // Update is called once per frame
@@ -44,8 +44,9 @@ public class ItemScript : MonoBehaviour
         if(other.tag == "CullRange")
         {
             Debug.Log("Why");
-            mesh.enabled = true;
-            
+           
+            Skinned.enabled = true;
+
         }
 
        
@@ -54,6 +55,7 @@ public class ItemScript : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        mesh.enabled = false;
+      
+        Skinned.enabled = false;
     }
 }
