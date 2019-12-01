@@ -30,7 +30,7 @@ public class SpikeTrap : MonoBehaviour
             StartCoroutine(Raise());
         }
 
-        audio_controller = GameObject.Find("AudioController").GetComponent<TrapAudioController>();
+        //audio_controller = GameObject.Find("AudioController").GetComponent<TrapAudioController>();
         audio_controller.SetupSound(gameObject, TRAP.spike);
 
         if (isUndelayedTrap)
