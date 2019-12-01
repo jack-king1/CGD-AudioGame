@@ -4,27 +4,24 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Path
-  - Enemy
-  - Door
-  - Trap
-  - Wall
-  - Grid
-  - CineStart
-  - LevelManager
-  - GameUI
-  - AttractUI
-  - Floor
-  - Floor2
-  - Start
-  - PlayerModel
-  - CullRange
+  - Coin
   - Projectile
   - CheckPoint
-  - Coin
-  - Fog
+  - Start
+  - LevelManager
+  - Trap
+  - Door
+  - Path
+  - Enemy
   - Stair
   - PlayerStair
+  - PlayerModel
+  - CullRange
+  - AttractUI
+  - GameUI
+  - CineStart
+  - Fog
+  - FlyingEnemy
   layers:
   - Default
   - TransparentFX
@@ -34,21 +31,21 @@ TagManager:
   - UI
   - 
   - 
-  - Wall
-  - FogOfWar
-  - Enemy
-  - Trap
-  - Player
-  - 
-  - FogOfWar
-  - Walkable
   - 
   - 
-  - Pit
-  - Flying
-  - Grounded
   - 
-  - FogOfWar
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
   - 
   - 
   - 
