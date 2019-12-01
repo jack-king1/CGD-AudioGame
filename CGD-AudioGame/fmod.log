@@ -11,6 +11,7 @@
 [LOG] Thread::initThread                       : Init FMOD mixer thread. Priority: 3, Stack Size: 49152, Semaphore: No, Sleep Time: 0, Looping: Yes.
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 [LOG] AsyncManager::init                       : manager 000002375E042048 isAsync 1 updatePeriod 0.02
 =======
 [LOG] AsyncManager::init                       : manager 000001ED6C90A458 isAsync 1 updatePeriod 0.02
@@ -18,6 +19,9 @@
 =======
 [LOG] AsyncManager::init                       : manager 000001506705EE88 isAsync 1 updatePeriod 0.02
 >>>>>>> Eddie
+=======
+[LOG] AsyncManager::init                       : manager 000001E96AE8C268 isAsync 1 updatePeriod 0.02
+>>>>>>> Lynny
 [LOG] Thread::initThread                       : Init FMOD Studio update thread. Priority: 0, Stack Size: 65536, Semaphore: No, Sleep Time: 1, Looping: No.
 [LOG] AsyncManager::init                       : done
 [LOG] PlaybackSystem::init                     : 
