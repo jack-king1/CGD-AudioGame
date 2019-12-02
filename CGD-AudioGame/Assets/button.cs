@@ -28,6 +28,7 @@ public class button : MonoBehaviour
         else
         {
             buttonImage.sprite = normalButton;
+            //vv
         }
     }
 }
