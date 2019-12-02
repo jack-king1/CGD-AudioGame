@@ -17,7 +17,7 @@ public class LevelManager : MonoBehaviour
     public Transform m_PlayerFinishPos;
     private GameObject m_Player;
 
-
+    public Score score;
     private void Start()
     {
         m_Player = GameObject.FindGameObjectWithTag("Player");
@@ -34,7 +34,7 @@ public class LevelManager : MonoBehaviour
             }
             else if(m_levelTimer <= 0)
             {
-                levelLost = true;
+                LevelLost();
                 m_levelTimer = 0.0f;
             }
             
@@ -54,6 +54,7 @@ public class LevelManager : MonoBehaviour
     public bool IsLevelLost()
     {
         return levelLost;
+
     }
 
     public void LevelWin()
@@ -64,6 +65,8 @@ public class LevelManager : MonoBehaviour
     public void LevelLost()
     {
         levelLost = true;
+        score.PlayerScore = score.PlayerScore * LevelTimer();
+        score.CalculateScore();
     }
 
     public int LevelID()
