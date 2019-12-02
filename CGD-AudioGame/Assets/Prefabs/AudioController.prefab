@@ -62,10 +62,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d46a7f2d8d882db4a9c113bbc5a362a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  music: event:/TestSound
-  atmospheric: event:/TestSound
-  win_jingle: event:/TestSound
-  lose_jingle: event:/TestSound
+  music: event:/Interface & Events/Background Music
+  atmospheric: event:/Environment/Atmospheric Sounds
+  win_jingle: event:/Interface & Events/Victory Jingle
+  lose_jingle: event:/Interface & Events/Loss Jingle
 --- !u!114 &3484843366128476302
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -78,13 +78,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94b7931d79c56344f9fbe3001e24af8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SpiderAttack: event:/TestSound
-  SpiderChase: event:/TestSound
-  SpiderDie: event:/TestSound
-  BatAttack: event:/TestSound
-  BatChase: event:/TestSound
-  BatDie: event:/TestSound
-  PyroAttack: event:/TestSound
+  sounds: []
+  SpiderAttack: event:/Enemy/Spider Hiss
+  SpiderChase: event:/Enemy/Spider Hiss
+  SpiderDie: event:/Enemy/Spider Hiss
+  BatAttack: event:/Enemy/Bat Screech
+  BatChase: event:/Enemy/Bat Screech
+  BatDie: event:/Enemy/Bat Screech
+  PyroAttack: event:/Enemy/Fireball Launch
 --- !u!114 &3119445464918953779
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -97,6 +98,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fb6796372123c84e85468048c3889ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SpikeTrap: event:/TestSound
-  SawTrap: event:/TestSound
-  ArrowTrap: event:/TestSound
+  SpikeTrap: event:/Traps/Spikes
+  SawTrap: event:/Traps/Saw Blade
+  ArrowTrap: event:/Traps/Arrow Launch
