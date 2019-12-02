@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using enums;
-using UnityEngine.UI;
 
 public class PlayerInput : MonoBehaviour
 {
@@ -11,10 +10,6 @@ public class PlayerInput : MonoBehaviour
     private Camera m_cam;
     private CameraFollow m_camerafollow;
     private LevelManager m_levelManager;
-
-    public bool audioButtonClicked;
-    public bool backButtonClicked;
-    public bool quitButtonClicked;
 
     private void Awake()
     {
@@ -28,11 +23,7 @@ public class PlayerInput : MonoBehaviour
         {
             Debug.LogError("Mongrel! Add a level manager and hopefully movement should work.");
         }
-
-        audioButtonClicked = false;
-        backButtonClicked = false;
-        quitButtonClicked = false;
-}
+    }
 
     void Update()
     {
@@ -63,14 +54,15 @@ public class PlayerInput : MonoBehaviour
                     movement.Move(true);
                 }
 
+
                 // Pausing game - settings menu will appear
                 if (InputManager.StartButtonDown(playerID))
                 {
-                    Pause();
+                    m_levelManager.GameState(GAMESTATE.pause);
                 }
                 else if(Input.GetKeyDown(KeyCode.P))
                 {
-                    Pause();
+                    m_levelManager.GameState(GAMESTATE.pause);
                 }
 
                 if (InputManager.JoystickRightHorizontalRaw(playerID) != 0 || InputManager.JoystickRightVerticalRaw(playerID) != 0)
@@ -127,58 +119,22 @@ public class PlayerInput : MonoBehaviour
         {
             if (InputManager.StartButtonDown(playerID))
             {
-                Continue();
+                m_levelManager.GameState(GAMESTATE.game);
             }
             else if (Input.GetKeyDown(KeyCode.P))
             {
-                Continue();
-            }
-
-            if (audioButtonClicked == true)
-            {
-                m_levelManager.GameState(GAMESTATE.audioSettings);
-            }
-
-            //if (quitButtonClicked == true)
-            //{
-            //    Application.Quit();
-            //}
-        }
-        else if (m_levelManager.GameState() == GAMESTATE.audioSettings)
-        {
-            if (backButtonClicked == true)
-            {
-                m_levelManager.GameState(GAMESTATE.pause);
+                m_levelManager.GameState(GAMESTATE.game);
             }
         }
     }
-    public void Quit()
+
+    private void Continue()
     {
-        quitButtonClicked = true;
-        Application.Quit();
+        Time.timeScale = 1;
     }
 
-    public void AudioButtonClicked()
+    private void Pause()
     {
-        backButtonClicked = false;
-        audioButtonClicked = true;
-    }
-
-    public void BackButtonClicked()
-    {
-        audioButtonClicked = false;
-        backButtonClicked = true;
-    }
-
-    public void Continue()
-    {
-        //Time.timeScale = 1;
-        m_levelManager.GameState(GAMESTATE.game);
-    }
-
-    public void Pause()
-    {
-        //Time.timeScale = 0;
-        m_levelManager.GameState(GAMESTATE.pause);
+        Time.timeScale = 0;
     }
 }
