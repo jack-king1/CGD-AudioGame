@@ -7,6 +7,7 @@ public class Score : MonoBehaviour
 {
     public Text t_score;
    public float PlayerScore = 0.0f;
+    //mate thats fucked up......
     public string test = "Nonce";
 
     void Start()

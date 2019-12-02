@@ -3,13 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class CoinCollect : MonoBehaviour
-{ 
+{
+    
+    public float ScoreAmount = 100;
+
     void OnTriggerEnter(Collider col)
     {
         Debug.Log("Coin Collided");
         if (col.CompareTag("Player"))
         {
-            col.gameObject.GetComponent<PlayerData>();
+            col.gameObject.GetComponent<PlayerData>().PlayerScore(ScoreAmount);
             Destroy(gameObject);
         }
 
