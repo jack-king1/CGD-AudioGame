@@ -32,7 +32,14 @@ public class SawTrap : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        player_distance = Vector3.Distance(transform.position, player.transform.position);
+        if (player)
+        {
+            player_distance = Vector3.Distance(transform.parent.position, player.transform.position);
+        }
+        else
+        {
+            player_distance = 0;
+        }
 
         if (player_distance <= raise_range && !raised)
         {
@@ -118,7 +125,7 @@ public class SawTrap : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Player" || other.gameObject.tag == "Enemy")
+        if (other.gameObject.tag == "Player" || other.gameObject.tag == "Enemy" || other.gameObject.tag == "FlyingEnemy")
         {
             Health health = other.gameObject.GetComponent<Health>();
             health.DealDamage(damage);

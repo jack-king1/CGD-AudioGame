@@ -60,6 +60,7 @@ public class TrapAudioController : MonoBehaviour
     }
 
 
+
     IEnumerator SmoothMultiChange(TrapSounds sound, float level)
     {
         float multi = sound.GetVolMultiplier();

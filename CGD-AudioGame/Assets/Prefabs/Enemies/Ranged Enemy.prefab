@@ -55,7 +55,7 @@ NavMeshAgent:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1907737738911561123}
   m_Enabled: 1
-  m_AgentTypeID: 0
+  m_AgentTypeID: -1923039037
   m_Radius: 0.5
   m_Speed: 3.5
   m_Acceleration: 8
@@ -67,7 +67,7 @@ NavMeshAgent:
   m_AutoRepath: 1
   m_Height: 2
   m_BaseOffset: 0
-  m_WalkableMask: 4294967295
+  m_WalkableMask: 7
   m_ObstacleAvoidanceType: 4
 --- !u!114 &5130900132207903131
 MonoBehaviour:
@@ -108,10 +108,14 @@ MonoBehaviour:
   turn_speed: 5
   damage: 100
   current_state: 0
+  distance: 0
   path_index: 0
   random_pos: {x: 0, y: 0, z: 0}
   hear_volume: 0
   type: 2
+  sight_layer_mask:
+    serializedVersion: 2
+    m_Bits: 262144
 --- !u!1 &3497133604654947348
 GameObject:
   m_ObjectHideFlags: 0

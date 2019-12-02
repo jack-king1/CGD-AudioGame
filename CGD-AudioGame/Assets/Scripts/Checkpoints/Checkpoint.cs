@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class Checkpoint : MonoBehaviour
 {
-    public Transform checkpoint;
+    public GameObject checkpoint;
+
     GameObject player;
+    bool found = false;
 
     private void Start()
     {
@@ -15,10 +17,13 @@ public class Checkpoint : MonoBehaviour
 
     void OnTriggerEnter(Collider plyr)
     {
-        if(plyr.gameObject.tag == "Player")
+        if (!found)
         {
-            player.transform.position = checkpoint.position;
-            player.transform.rotation = checkpoint.rotation;
+            if (plyr.gameObject.tag == "Player")
+            {
+                found = true;
+                GameObject.FindGameObjectWithTag("LevelManager").GetComponent<PlayerCP>().activeCP = gameObject.transform;
+            }
         }
     }
 }

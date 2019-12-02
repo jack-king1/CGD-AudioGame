@@ -184,9 +184,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6955de62162adf54380efeb96c6ab228, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 5
+  damage: 100
   timer: 2
+  alternateTimer: 2
+  damageWindow: 0.25
+  isUndelayedTrap: 1
   raised: 0
+  canDealDamage: 0
   targets: []
-  speed: 5
+  speed: 2
   target: {x: 0, y: 0, z: 0}
