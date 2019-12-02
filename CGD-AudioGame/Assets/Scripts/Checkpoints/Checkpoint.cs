@@ -22,7 +22,7 @@ public class Checkpoint : MonoBehaviour
             if (plyr.gameObject.tag == "Player")
             {
                 found = true;
-                GameObject.FindGameObjectWithTag("LevelManager").GetComponent<PlayerCP>().activeCP = checkpoint;
+                GameObject.FindGameObjectWithTag("LevelManager").GetComponent<PlayerCP>().activeCP = gameObject.transform;
             }
         }
     }

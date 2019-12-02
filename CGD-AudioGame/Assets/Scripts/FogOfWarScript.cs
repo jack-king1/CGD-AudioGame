@@ -31,6 +31,13 @@ public class FogOfWarScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(!Player)
+        {
+            Player = GameObject.FindGameObjectWithTag("Player");
+            m_Player = Player.transform;
+            lamp = Player.GetComponentInChildren<Light>();
+        }
+
         timer += Time.deltaTime ;
         if(timer> maxTime)
         {

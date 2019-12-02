@@ -148,7 +148,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_target: {fileID: 0}
-  m_cameraSpeed: 0.125
+  m_cameraSpeed: 0.3
   m_cameraState: 2
   peekOffset: 5
   m_startCinematicCamPosition: {fileID: 0}

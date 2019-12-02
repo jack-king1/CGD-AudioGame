@@ -17,6 +17,9 @@ public class LevelManager : MonoBehaviour
     public Transform m_PlayerStartPos;
     public Transform m_PlayerFinishPos;
     private GameObject m_Player;
+    public GameObject playerPrefab;
+    public PlayerCP pchkpt;
+
 
     public Score score;
 
@@ -25,6 +28,8 @@ public class LevelManager : MonoBehaviour
         m_Player = GameObject.FindGameObjectWithTag("Player");
         score = GetComponent<Score>();
         timerResetValue = m_levelTimer;
+        pchkpt = GetComponent<PlayerCP>();
+        pchkpt.activeCP = m_PlayerStartPos;
     }
 
     private void Update()
@@ -34,12 +39,18 @@ public class LevelManager : MonoBehaviour
             if(m_levelTimer > 0)
             {
                 m_levelTimer -= Time.deltaTime;
+                if (!m_Player)
+                {
+                   m_Player = Instantiate(playerPrefab, pchkpt.activeCP.transform.position, Quaternion.identity);
+                }
             }
             else if(m_levelTimer <= 0)
             {
                 LevelLost();
                 m_levelTimer = 0.0f;
-            }        
+            }
+
+
         }
     }
 

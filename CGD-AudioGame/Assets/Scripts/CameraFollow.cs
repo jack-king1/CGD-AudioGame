@@ -64,6 +64,7 @@ public class CameraFollow : MonoBehaviour
 
     private void FixedUpdate()
     {
+
         if(m_levelManager.IsLevelWon() || m_levelManager.IsLevelLost())
         {
             if(m_cameraState != CAMERASTATE.levelwon)
@@ -74,6 +75,10 @@ public class CameraFollow : MonoBehaviour
 
         if(m_levelManager.GameState() == GAMESTATE.game && (m_levelManager.IsLevelWon() != true && m_levelManager.IsLevelLost()!= true))
         {
+            if (!m_target)
+            {
+                m_target = GameObject.FindGameObjectWithTag("Player");
+            }
             m_cameraState = CAMERASTATE.follow;
         }
 

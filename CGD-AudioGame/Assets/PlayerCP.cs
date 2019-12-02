@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerCP : MonoBehaviour
 {
-    public GameObject activeCP;
+    public Transform activeCP;
     public Transform currentCP()
     {
         return activeCP.transform;
