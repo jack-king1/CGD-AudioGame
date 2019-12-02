@@ -15,10 +15,12 @@ public class ArrowTrap : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        audio_controller = GameObject.Find("AudioController").GetComponent<TrapAudioController>();
-        audio_controller.SetupSound(gameObject, enums.TRAP.arrow);
+        
         button = transform.GetChild(0).gameObject;
         target = transform.GetChild(1);
+
+        audio_controller = GameObject.Find("AudioController").GetComponent<TrapAudioController>();
+        audio_controller.SetupSound(gameObject, enums.TRAP.arrow);
     }
 
     public void FireArrow()
