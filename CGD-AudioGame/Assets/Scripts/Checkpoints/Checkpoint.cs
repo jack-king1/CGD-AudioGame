@@ -5,8 +5,9 @@ using UnityEngine;
 public class Checkpoint : MonoBehaviour
 {
     public GameObject checkpoint;
+
     GameObject player;
-    bool found;
+    bool found = false;
 
     private void Start()
     {
@@ -21,7 +22,7 @@ public class Checkpoint : MonoBehaviour
             if (plyr.gameObject.tag == "Player")
             {
                 found = true;
-                player.gameObject.GetComponent<PlayerCP>().activeCP=checkpoint;
+                GameObject.FindGameObjectWithTag("LevelManager").GetComponent<PlayerCP>().activeCP = gameObject.transform;
             }
         }
     }

@@ -123,8 +123,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c156fbad4de4694096c9dd2d144ed93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fow: {fileID: 0}
-  Mesh: {fileID: 8419654834754169235}
+  scoreAmount: 100
+  start: {fileID: 0}
+  end: {fileID: 0}
 --- !u!65 &766810618
 BoxCollider:
   m_ObjectHideFlags: 0

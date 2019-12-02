@@ -22,6 +22,9 @@ TagManager:
   - CineStart
   - Fog
   - FlyingEnemy
+  - Floor
+  - Floor2
+  - Checkpoint
   layers:
   - Default
   - TransparentFX

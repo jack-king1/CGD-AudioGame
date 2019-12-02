@@ -5,28 +5,21 @@ using UnityEngine.UI;
 
 public class Score : MonoBehaviour
 {
-    public Text t_score;
-   public float PlayerScore = 0.0f;
-    //mate thats fucked up......
-    public string test = "Nonce";
+    //We need this script to store the score because the player is deleted upon death.
+    private float finalScore = 0;
+    public float playerScore = 0;
 
-    void Start()
+    public float CalculateScore(bool won, float gameTimer)
     {
-        t_score.gameObject.SetActive(false);
-      
-    }
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+        if(won)
+        {
+            finalScore = playerScore * gameTimer;
+        }
+        else
+        {
+            finalScore = playerScore;
+        }
 
-    public void CalculateScore()
-    {
-        t_score.gameObject.SetActive(true);
-        int scoreToInt = (int)PlayerScore;
-        t_score.text = ("Score: "+scoreToInt.ToString());
-     
+        return finalScore;
     }
-
 }
