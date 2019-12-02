@@ -54,6 +54,17 @@ public class PlayerInput : MonoBehaviour
                     movement.Move(true);
                 }
 
+
+                // Pausing game - settings menu will appear
+                if (InputManager.StartButtonDown(playerID))
+                {
+                    m_levelManager.GameState(GAMESTATE.pause);
+                }
+                else if(Input.GetKeyDown(KeyCode.P))
+                {
+                    m_levelManager.GameState(GAMESTATE.pause);
+                }
+
                 if (InputManager.JoystickRightHorizontalRaw(playerID) != 0 || InputManager.JoystickRightVerticalRaw(playerID) != 0)
                 {
                     float h = InputManager.JoystickRightHorizontalRaw(playerID);
@@ -104,5 +115,26 @@ public class PlayerInput : MonoBehaviour
                 }
             }
         }
+        else if(m_levelManager.GameState() == GAMESTATE.pause)
+        {
+            if (InputManager.StartButtonDown(playerID))
+            {
+                m_levelManager.GameState(GAMESTATE.game);
+            }
+            else if (Input.GetKeyDown(KeyCode.P))
+            {
+                m_levelManager.GameState(GAMESTATE.game);
+            }
+        }
+    }
+
+    private void Continue()
+    {
+        Time.timeScale = 1;
+    }
+
+    private void Pause()
+    {
+        Time.timeScale = 0;
     }
 }

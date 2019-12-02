@@ -54,7 +54,8 @@
     public enum GAMESTATE
     {
         attract,
-        game
+        game,
+        pause
     }
 
     public enum FLOORTYPE

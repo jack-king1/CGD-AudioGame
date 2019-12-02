@@ -85,4 +85,8 @@ public static class InputManager
         return Input.GetButtonDown("Y_Button_" + player_id.ToString());
     }
 
+    public static bool StartButtonDown(int player_id)
+    {
+        return Input.GetButtonDown("Start_Button_" + player_id.ToString());
+    }
 }
