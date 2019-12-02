@@ -15,15 +15,14 @@ public class GameAudioController : MonoBehaviour
     FMOD.Studio.EventInstance atmospheric_event;
     FMOD.Studio.EventInstance win_event;
     FMOD.Studio.EventInstance lose_event;
+    GameObject camera;
     public void SetMusicVolume(float vol)
     {
         music_volume = vol;
-        music_event.setParameterValue("Volume", music_volume);
     }
     public void SetAtmosphericVolume(float vol)
     {
         atmospheric_volume = vol;
-        atmospheric_event.setParameterValue("Volume", atmospheric_volume);
     }
     public void SetGameVolume(float vol)
     {
@@ -33,10 +32,19 @@ public class GameAudioController : MonoBehaviour
     }
     void Start()
     {
+        camera = GameObject.FindGameObjectWithTag("MainCamera");
         music_event = FMODUnity.RuntimeManager.CreateInstance(music);
         atmospheric_event = FMODUnity.RuntimeManager.CreateInstance(atmospheric);
         music_event.start();
         atmospheric_event.start();
+    }
+
+    private void Update()
+    {
+        music_event.setParameterValue("Volume", music_volume);
+        atmospheric_event.setParameterValue("Volume", atmospheric_volume);
+        atmospheric_event.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(camera));
+        music_event.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(camera));
     }
 
     public void PlayWinJingle()

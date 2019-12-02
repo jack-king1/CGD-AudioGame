@@ -115,7 +115,7 @@ MonoBehaviour:
   type: 2
   sight_layer_mask:
     serializedVersion: 2
-    m_Bits: 262144
+    m_Bits: 5824311
 --- !u!1 &3497133604654947348
 GameObject:
   m_ObjectHideFlags: 0

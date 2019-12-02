@@ -77,8 +77,8 @@ public class EnemyMovement : MonoBehaviour
         if (Physics.Raycast(transform.position, player.transform.position - transform.position, out hit, 100, sight_layer_mask))
         {         
             if (hit.transform.gameObject.tag == "Player")
-            {
-                Debug.Log("TRUE");
+            {       
+                Debug.Log("LINE OF SIGHT");
                 return true;
             }
         }
@@ -124,6 +124,11 @@ public class EnemyMovement : MonoBehaviour
             if (hear_volume < detect_volume || distance > detect_range)
             {
                 current_state = STATE.search;             
+            }
+
+            if (type == ENEMYTYPE.ranged && InLineOfSight())
+            {
+                current_state = STATE.fire;
             }
         }
         else if (current_state == STATE.fire)
@@ -179,7 +184,6 @@ public class EnemyMovement : MonoBehaviour
         }
         else
         {
-            Debug.Log("Reaching");
             agent.speed = 0;
             anim.SetBool("Attack", true);
             anim.SetBool("Moving", false);

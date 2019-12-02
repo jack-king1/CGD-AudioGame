@@ -21,7 +21,6 @@ public class TrapAudioController : MonoBehaviour
         for (int i = 0; i < sounds.Count; i++)
         {
             sounds[i].SetVolume(volume);
-            Debug.Log(sounds[i].GetVolume() + " TRAP VOL");
         }
     }
 
@@ -42,6 +41,7 @@ public class TrapAudioController : MonoBehaviour
         {
             if (sounds[i].GetOwner() == owner)
             {
+                sounds[i].GetEvent().set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(sounds[i].Owner()));
                 sounds[i].GetEvent().start();
             }
         }
