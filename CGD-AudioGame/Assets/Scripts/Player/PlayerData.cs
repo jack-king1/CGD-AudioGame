@@ -17,4 +17,9 @@ public class PlayerData : MonoBehaviour
         return playerScore;
     }
 
+    public void PlayerScore(float amount)
+    {
+        playerScore += amount;
+    }
+
 }
