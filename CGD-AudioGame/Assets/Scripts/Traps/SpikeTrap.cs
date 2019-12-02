@@ -15,7 +15,6 @@ public class SpikeTrap : MonoBehaviour
     public float speed = 30;
     private Vector3 target;
     TrapAudioController audio_controller;
-
     private bool initialOffsetComplete = false;
 
     // Start is called before the first frame update
