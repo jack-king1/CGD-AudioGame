@@ -15,7 +15,23 @@ public class SetScoreText : MonoBehaviour
 
     void Update()
     {
-        int localScoreToInt = (int)lm.score.playerScore;
-        scoreText.text = localScoreToInt.ToString();
+        if(!lm.IsLevelLost() && !lm.IsLevelWon())
+        {
+            int localScoreToInt = (int)lm.score.playerScore;
+            scoreText.text = ("Score: ") + localScoreToInt.ToString();
+        }
+        else
+        {
+            if (lm.IsLevelLost())
+            {
+                int localScoreToInt = (int)lm.score.CalculateScore(false, lm.LevelTimer());
+                scoreText.text = ("Score: ") + localScoreToInt.ToString();
+            }
+            else
+            {
+                int localScoreToInt = (int)lm.score.CalculateScore(true, lm.LevelTimer());
+                scoreText.text = ("Score: ") + localScoreToInt.ToString();
+            }
+        }
     }
 }
