@@ -25,6 +25,9 @@ public class DrawbridgeLock : MonoBehaviour
     public GameObject light3;
     public GameObject light4;
 
+    public GameObject ps;
+    public GameObject pit;
+
 
     void Start ()
     {
@@ -44,13 +47,22 @@ public class DrawbridgeLock : MonoBehaviour
     {
         if (attempedCode == code)
         {
-            anim.Play("DrawbridgeDown");
-            puzzleComplete = true;
+            StartCoroutine(Bridge());
         }
         else 
         {
             Debug.Log("Wrong Code");
         }
+    }
+
+    IEnumerator Bridge()
+    {
+        puzzleComplete = true;
+        anim.Play("DrawbridgeDown");
+        yield return new WaitForSeconds(0.90f);
+        ps.SetActive(true);
+        pit.SetActive(false);
+
     }
 
     public void SetValue(string value)
