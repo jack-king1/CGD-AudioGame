@@ -13,12 +13,13 @@ public class UIManager : MonoBehaviour
     public GameObject CurrentLevelUI;
     public GameObject SettingsButtonUI;
 
+    public GameObject AudioSettingsUI;
+
     public GameObject NextLevelUI;
     public GameObject RetryUI;
     LevelManager lm;
 
     public bool paused;
-    private int playerID;
 
     void Start()
     {
@@ -26,7 +27,6 @@ public class UIManager : MonoBehaviour
         //GameUI = GameObject.FindGameObjectWithTag("GameUI");
         lm = GameObject.FindGameObjectWithTag("LevelManager").GetComponent<LevelManager>();
         paused = false;
-        playerID = GetComponent<PlayerData>().PlayerID();
     }
 
     void Update()
@@ -39,6 +39,7 @@ public class UIManager : MonoBehaviour
                 {
                     GameUI.SetActive(true);
                     AttractUI.SetActive(false);
+                    AudioSettingsUI.SetActive(false);
                     MenuUI.SetActive(false);
                 }
 
@@ -46,12 +47,14 @@ public class UIManager : MonoBehaviour
                 {
                     RetryUI.SetActive(true);
                     GameUI.SetActive(false);
+                    AudioSettingsUI.SetActive(false);
                     MenuUI.SetActive(false);
                 }
                 else if(lm.IsLevelWon())
                 {
                     NextLevelUI.SetActive(true);
                     GameUI.SetActive(false);
+                    AudioSettingsUI.SetActive(false);
                     MenuUI.SetActive(false);
                 }                
       
@@ -68,7 +71,15 @@ public class UIManager : MonoBehaviour
             {
                 GameUI.SetActive(false);
                 AttractUI.SetActive(false);
+                AudioSettingsUI.SetActive(false);
                 MenuUI.SetActive(true);
+            }
+            else if (lm.GameState() == GAMESTATE.audioSettings)
+            {
+                GameUI.SetActive(false);
+                AttractUI.SetActive(false);
+                MenuUI.SetActive(false);
+                AudioSettingsUI.SetActive(true);
             }
         }
         else {

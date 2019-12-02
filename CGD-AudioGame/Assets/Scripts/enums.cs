@@ -55,7 +55,8 @@
     {
         attract,
         game,
-        pause
+        pause,
+        audioSettings
     }
 
     public enum FLOORTYPE
