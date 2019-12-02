@@ -9,4 +9,9 @@ public class PlayerCP : MonoBehaviour
     {
         return activeCP.transform;
     }
+
+    public void SetPlayerAtCP()
+    {
+        gameObject.transform.position = activeCP.transform.position;
+    }
 }

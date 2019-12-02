@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class LevelManager : MonoBehaviour
 {
     [SerializeField] private float m_levelTimer = 60;
+
     private float timerResetValue;
     [SerializeField] private int m_levelID = 0;
     public bool m_startLevel = false;
@@ -18,9 +19,11 @@ public class LevelManager : MonoBehaviour
     private GameObject m_Player;
 
     public Score score;
+
     private void Start()
     {
         m_Player = GameObject.FindGameObjectWithTag("Player");
+        score = GetComponent<Score>();
         timerResetValue = m_levelTimer;
     }
 
@@ -36,8 +39,7 @@ public class LevelManager : MonoBehaviour
             {
                 LevelLost();
                 m_levelTimer = 0.0f;
-            }
-            
+            }        
         }
     }
 
@@ -65,8 +67,6 @@ public class LevelManager : MonoBehaviour
     public void LevelLost()
     {
         levelLost = true;
-        score.PlayerScore = score.PlayerScore * LevelTimer();
-        score.CalculateScore();
     }
 
     public int LevelID()
