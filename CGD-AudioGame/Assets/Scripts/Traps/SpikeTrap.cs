@@ -36,7 +36,14 @@ public class SpikeTrap : MonoBehaviour
         }
 
         audio_controller = GameObject.Find("AudioController").GetComponent<TrapAudioController>();
-        audio_controller.SetupSound(gameObject, TRAP.spike);
+        if (audio_controller != null)
+        {
+            audio_controller.SetupSound(gameObject, TRAP.spike);
+        }
+        else
+        {
+            Debug.Log("Audio controller not setup");
+        }
     }
 
     // Update is called once per frame
@@ -60,8 +67,11 @@ public class SpikeTrap : MonoBehaviour
     IEnumerator Raise()
     {    
         target = new Vector3(transform.position.x, transform.position.y, transform.position.z);
-        audio_controller.SetParameter(gameObject, "Direction", 1.0f);
-        audio_controller.PlaySound(TRAP.spike, gameObject);
+        if (audio_controller != null)
+        {
+            audio_controller.SetParameter(gameObject, "Direction", 1.0f);
+            audio_controller.PlaySound(TRAP.spike, gameObject);
+        }
         if (!initialOffsetComplete && !isUndelayedTrap)
         {
             yield return new WaitForSeconds(timer / 1.5f);
@@ -84,8 +94,11 @@ public class SpikeTrap : MonoBehaviour
     {
         canDealDamage = false;
         target = new Vector3(transform.position.x, transform.position.y - 3.0f, transform.position.z);
-        audio_controller.SetParameter(gameObject, "Direction", 0.0f);
-        audio_controller.PlaySound(TRAP.spike,gameObject);
+        if (audio_controller != null)
+        {
+            audio_controller.SetParameter(gameObject, "Direction", 0.0f);
+            audio_controller.PlaySound(TRAP.spike, gameObject);
+        }
         raised = false;
         while (transform.GetChild(0).position != target)
         {

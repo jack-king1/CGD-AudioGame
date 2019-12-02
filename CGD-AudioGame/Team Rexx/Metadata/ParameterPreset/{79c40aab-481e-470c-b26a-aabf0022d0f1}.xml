@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.01.10.00">
+    <object class="ParameterPreset" id="{79c40aab-481e-470c-b26a-aabf0022d0f1}">
+        <property name="name">
+            <value>Mood</value>
+        </property>
+        <relationship name="folder">
+            <destination>{536250e3-fab2-4e59-b205-aa35448030a7}</destination>
+        </relationship>
+        <relationship name="parameter">
+            <destination>{09c963ff-54ab-4e50-a68f-e76479304290}</destination>
+        </relationship>
+    </object>
+    <object class="GameParameter" id="{09c963ff-54ab-4e50-a68f-e76479304290}">
+        <property name="initialValue">
+            <value>0</value>
+        </property>
+    </object>
+</objects>

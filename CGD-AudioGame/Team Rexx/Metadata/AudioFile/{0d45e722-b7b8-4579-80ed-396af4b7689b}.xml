@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.01.10.00">
+    <object class="AudioFile" id="{0d45e722-b7b8-4579-80ed-396af4b7689b}">
+        <property name="assetPath">
+            <value>TreasureChestOpening2.wav</value>
+        </property>
+        <property name="frequencyInKHz">
+            <value>44.0999985</value>
+        </property>
+        <property name="channelCount">
+            <value>2</value>
+        </property>
+        <property name="length">
+            <value>1.1041496598639455</value>
+        </property>
+        <relationship name="masterAssetFolder">
+            <destination>{eab73154-3ef6-459d-9ea7-19c1454043cc}</destination>
+        </relationship>
+    </object>
+</objects>

@@ -23,7 +23,10 @@ public class EnemyFire : MonoBehaviour
 
     IEnumerator FireSequence(GameObject target, EnemyAudioController audio_controller)
     {
-        audio_controller.PlaySound(gameObject, SOUND.attack);
+        if (audio_controller != null)
+        {
+            audio_controller.PlaySound(gameObject, SOUND.attack);
+        }
         anim.SetBool("Attack", true);
         can_fire = false;
         yield return new WaitForSeconds(0.5f);

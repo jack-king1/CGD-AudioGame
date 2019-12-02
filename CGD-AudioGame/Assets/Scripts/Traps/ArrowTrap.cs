@@ -16,7 +16,10 @@ public class ArrowTrap : MonoBehaviour
     void Start()
     {
         audio_controller = GameObject.Find("AudioController").GetComponent<TrapAudioController>();
-        audio_controller.SetupSound(gameObject, enums.TRAP.arrow);
+        if (audio_controller != null)
+        {
+            audio_controller.SetupSound(gameObject, enums.TRAP.arrow);
+        }
         button = transform.GetChild(0).gameObject;
         target = transform.GetChild(1);
     }
@@ -31,7 +34,10 @@ public class ArrowTrap : MonoBehaviour
 
     IEnumerator ArrowSequence()
     {
-        audio_controller.PlaySound(TRAP.arrow, gameObject);
+        if (audio_controller != null)
+        {
+            audio_controller.PlaySound(TRAP.arrow, gameObject);
+        }
         can_fire = false;
         GameObject arrow = Instantiate(arrow_prefab, transform.position, Quaternion.identity);
         arrow.transform.LookAt(target.position);

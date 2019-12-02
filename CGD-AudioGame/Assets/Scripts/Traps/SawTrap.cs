@@ -20,14 +20,22 @@ public class SawTrap : MonoBehaviour
     float player_distance;
     // Start is called before the first frame update
     void Start()
-    {
-        audio_controller = GameObject.Find("AudioController").GetComponent<TrapAudioController>();
-        audio_controller.SetupSound(gameObject, TRAP.saw);
+    {    
         transform.position = start_point.position;
         lowered_height = transform.position.y - 2;
         raised_height = transform.position.y;
         player = GameObject.FindWithTag("Player");
-        audio_controller.PlaySound(TRAP.saw, gameObject);
+
+        audio_controller = GameObject.Find("AudioController").GetComponent<TrapAudioController>();
+        if (audio_controller != null)
+        {
+            audio_controller.SetupSound(gameObject, TRAP.saw);
+            audio_controller.PlaySound(TRAP.saw, gameObject);
+        }
+        else
+        {
+            Debug.Log("Audio controller not setup");
+        }
     }
 
     // Update is called once per frame

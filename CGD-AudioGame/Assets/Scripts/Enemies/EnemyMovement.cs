@@ -41,8 +41,16 @@ public class EnemyMovement : MonoBehaviour
                 path_points.Add(transform.parent.GetChild(i).gameObject.transform);
             }
         }
+
         audio_controller = GameObject.Find("AudioController").GetComponent<EnemyAudioController>();
-        audio_controller.SetupSound(gameObject, type);       
+        if (audio_controller != null)
+        {
+            audio_controller.SetupSound(gameObject, type);
+        }
+        else
+        {
+            Debug.Log("Audio controller not setup");
+        }
     }
 
     void Update()
@@ -177,7 +185,7 @@ public class EnemyMovement : MonoBehaviour
             anim.SetBool("Moving", false);
             anim.SetBool("Idle", true);
             Health pl_health = player.GetComponent<Health>();
-            if (pl_health.DealDamage(damage))
+            if (pl_health.DealDamage(damage) && audio_controller != null)
             {
                 audio_controller.PlaySound(gameObject, SOUND.attack);
             }
@@ -246,7 +254,10 @@ public class EnemyMovement : MonoBehaviour
     IEnumerator SearchTimer(float time)
     {
         searching = true;
-        audio_controller.PlaySound(gameObject, SOUND.chase);
+        if (audio_controller != null)
+        {
+            audio_controller.PlaySound(gameObject, SOUND.chase);
+        }
         StartCoroutine(GetRandomPos());
         while (time > 0)
         {
