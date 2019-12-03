@@ -30,5 +30,7 @@ public class SetVolume : MonoBehaviour
         game_audio.SetMusicVolume(100 * Music);
         ProjectileAudioController projectile_audio = GetComponent<ProjectileAudioController>();
         projectile_audio.SetGameVolume(100 * Gameplay);
+        PickupAudioController pickup_audio = GetComponent<PickupAudioController>();
+        pickup_audio.SetVolume(100 * Gameplay);
     }
 }

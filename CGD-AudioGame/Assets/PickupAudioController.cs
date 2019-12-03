@@ -13,7 +13,17 @@ public class PickupAudioController : MonoBehaviour
 
     private void Start() => last_vol = volume;
 
-    public void SetVolume(float vol) => volume = vol;
+    public void SetVolume(float vol)
+    {
+        volume = vol;
+        for (int i = 0; i < sounds.Count; i++)
+        {
+            if (sounds[i] != null)
+            {
+                sounds[i].SetVolume(volume);
+            }
+        }
+    }
 
     private void Update()
     {
@@ -41,7 +51,7 @@ public class PickupAudioController : MonoBehaviour
         {
             if (sounds[i].GetOwner() == owner)
             {
-                sounds[i].GetEvent().set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(sounds[i].Owner()));
+                sounds[i].GetEvent().set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(owner));
                 sounds[i].GetEvent().start();
             }
         }
@@ -49,6 +59,7 @@ public class PickupAudioController : MonoBehaviour
 
     public void SetupSound(GameObject owner, PICKUP type)
     {
+        Debug.Log("SETUP PICKUP");
         if (type == PICKUP.coin)
         {
             sounds.Add(new SingleSound(owner, coin));

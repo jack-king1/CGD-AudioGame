@@ -15,17 +15,19 @@ public class ChestOpen : MonoBehaviour
     public GameObject coin3;
 
     private int playerID;
-
+    GameAudioController audio_controller;
     // Start is called before the first frame update
     // posistion -60, -90 -120
     void Start()
     {
         anim = GetComponent<Animator>();
-        playerID = GetComponent<PlayerData>().PlayerID();
-
         coin1.SetActive(false);
         coin2.SetActive(false);
         coin3.SetActive(false);
+        audio_controller = GameObject.Find("AudioController").GetComponent<GameAudioController>();
+        playerID = GetComponent<PlayerData>().PlayerID();
+
+        
     }
 
    
@@ -58,10 +60,12 @@ public class ChestOpen : MonoBehaviour
 
     IEnumerator Chest()
     {
-        anim.Play("Chest Open");
+        anim.Play("Chest Open");       
         animPlayed = true;
         button.SetActive(false);
-        yield return new WaitForSeconds(2.1f);
+        yield return new WaitForSeconds(0.5f);
+        audio_controller.PlayCoinSound(gameObject);
+        yield return new WaitForSeconds(1.6f);
         ps.SetActive(true);
         coin1.SetActive(true);
         coin2.SetActive(true);

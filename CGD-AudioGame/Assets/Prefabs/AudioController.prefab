@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 3119445464918953779}
   - component: {fileID: 1168151056689198854}
   - component: {fileID: 8235612850292739209}
+  - component: {fileID: 754432046046481132}
   m_Layer: 0
   m_Name: AudioController
   m_TagString: Untagged
@@ -104,7 +105,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fb6796372123c84e85468048c3889ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SpikeTrap: event:/Traps/Spikes
+  SpikeTrap: event:/Traps/Spike
   SawTrap: event:/Traps/Saw Blade
   ArrowTrap: event:/Traps/Arrow Launch
 --- !u!114 &1168151056689198854
@@ -137,3 +138,17 @@ MonoBehaviour:
   fireball_loop: 
   fireball_hit: 
   arrow_hit: 
+--- !u!114 &754432046046481132
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3484843366128476301}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d11edae4552d44a48a6456c4f3ef181b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  coin: event:/Environment/Collecting Treasure
+  mana: event:/Environment/Mana Pickup

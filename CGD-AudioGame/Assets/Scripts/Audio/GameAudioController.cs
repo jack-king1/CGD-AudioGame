@@ -83,14 +83,16 @@ public class GameAudioController : MonoBehaviour
 
     IEnumerator ChestSequence()
     {
+        Debug.Log("CHEST SEQUENCE");
         chest_event.start();
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(1.5f);
         chest_event.start();
-        int num_loops = 5;
+        yield return new WaitForSeconds(0.6f);
+        int num_loops = 3;
         for (int i = 0; i < num_loops; i++)
         {
             coins_event.start();
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(0.3f);
         }
     }
 
