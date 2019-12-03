@@ -5,7 +5,7 @@ using UnityEngine;
 public class DrawbridgeLock : MonoBehaviour
 {
     int codeLength = 4;
-    int placeInCode;
+    public static int placeInCode;
 
     int firstNumber;
     int secondNumber;
@@ -13,7 +13,9 @@ public class DrawbridgeLock : MonoBehaviour
     int fourthNumber;
 
     public string code = "";
-    public string attempedCode;
+
+    [SerializeField]
+    public static string attempedCode;
 
     public GameObject Drawbridge;
     public Animator anim;
@@ -24,6 +26,9 @@ public class DrawbridgeLock : MonoBehaviour
     public GameObject light2;
     public GameObject light3;
     public GameObject light4;
+
+    public GameObject ps;
+    public GameObject pit;
 
 
     void Start ()
@@ -44,13 +49,22 @@ public class DrawbridgeLock : MonoBehaviour
     {
         if (attempedCode == code)
         {
-            anim.Play("DrawbridgeDown");
-            puzzleComplete = true;
+            StartCoroutine(Bridge());
         }
         else 
         {
             Debug.Log("Wrong Code");
         }
+    }
+
+    IEnumerator Bridge()
+    {
+        puzzleComplete = true;
+        anim.Play("DrawbridgeDown");
+        yield return new WaitForSeconds(0.90f);
+        ps.SetActive(true);
+        pit.SetActive(false);
+
     }
 
     public void SetValue(string value)
@@ -60,6 +74,7 @@ public class DrawbridgeLock : MonoBehaviour
         if (placeInCode <= codeLength)
         {
             attempedCode += value;
+            CheckLights();
         }
 
         if (placeInCode == codeLength)
@@ -67,8 +82,15 @@ public class DrawbridgeLock : MonoBehaviour
             CheckCode();
             attempedCode = "";
             placeInCode = 0;
+            CheckLights();
+
         }
 
+        
+    }
+
+    public void CheckLights()
+    {
         if (placeInCode == 1)
         {
             light1.SetActive(true);

@@ -25,6 +25,7 @@ TagManager:
   - Floor
   - Floor2
   - Checkpoint
+  - CodeLock
   layers:
   - Default
   - TransparentFX
