@@ -8,6 +8,7 @@ public class DoorKey : MonoBehaviour
     public float speed = 10f;
 
     public GameObject key;
+    public GameObject button;
 
 
     public bool starterKey = false;
@@ -15,36 +16,55 @@ public class DoorKey : MonoBehaviour
     public bool Key2 = false;
     public bool Key3 = false;
 
+    private int playerID;
+
+    private void Start()
+    {
+        playerID = GetComponent<PlayerData>().PlayerID();
+    }
+
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Player" && starterKey)
+            button.SetActive(true);
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.gameObject.tag == "Player" && starterKey && InputManager.BButton(playerID))
         {
-            key.SetActive(false);
+            
             KeyManager.playerHasStarterKey = true;
+            key.SetActive(false);
+            button.SetActive(false);
         }
 
-        if (other.gameObject.tag == "Player" && Key1)
+        if (other.gameObject.tag == "Player" && Key1 && InputManager.BButton(playerID))
         {
-            key.SetActive(false);
+
             KeyManager.playerHasKey1 = true;
+            key.SetActive(false);
+            button.SetActive(false);
         }
 
-        if (other.gameObject.tag == "Player" && Key2)
+        if (other.gameObject.tag == "Player" && Key2 && InputManager.BButton(playerID))
         {
-            key.SetActive(false);
             KeyManager.playerHasKey2 = true;
+            key.SetActive(false);
+            button.SetActive(false);
         }
 
-        if (other.gameObject.tag == "Player" && Key3)
+        if (other.gameObject.tag == "Player" && Key3 && InputManager.BButton(playerID))
         {
-            key.SetActive(false);
             KeyManager.playerHasKey3 = true;
+            key.SetActive(false);
+            button.SetActive(false);
         }
     }
 
     void OnTriggerExit(Collider other)
     {
         inTrigger = false;
+        button.SetActive(false);
     }
 
     void Update()
