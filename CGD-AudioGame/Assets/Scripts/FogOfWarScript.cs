@@ -15,7 +15,7 @@ public class FogOfWarScript : MonoBehaviour
     private Color[] m_colours;
 
 
-    public float maxTime =10;
+    public float maxTime =60;
     public float timer;
     public GameObject Player;
     public Light lamp;
