@@ -7,7 +7,7 @@
 [LOG] OutputWASAPI::init                       : Output buffer size: 4096 samples, latency: 0.00ms, period: 10.00ms, DSP buffer: 1024 * 4
 [LOG] Thread::initThread                       : Init FMOD stream thread. Priority: 2, Stack Size: 65536, Semaphore: No, Sleep Time: 10, Looping: Yes.
 [LOG] Thread::initThread                       : Init FMOD mixer thread. Priority: 3, Stack Size: 49152, Semaphore: No, Sleep Time: 0, Looping: Yes.
-[LOG] AsyncManager::init                       : manager 000001C536232B88 isAsync 0 updatePeriod 0.02
+[LOG] AsyncManager::init                       : manager 000001C536231E78 isAsync 0 updatePeriod 0.02
 [LOG] AsyncManager::init                       : done
 [LOG] PlaybackSystem::init                     : 
 [LOG] Thread::initThread                       : Init FMOD Studio sample load thread. Priority: 0, Stack Size: 65536, Semaphore: No, Sleep Time: 1, Looping: No.
@@ -16,346 +16,65 @@
 [LOG] Manager::init                            : done.
 [LOG] Manager::readBank                        : fileversion = 100, compatVersion = 99 (oldest = 44, newest = 100)
 [LOG] Manager::readBank                        : fileversion = 100, compatVersion = 99 (oldest = 44, newest = 100)
-[LOG] SystemI::createSound                     : filename = Team Rexx\Build\Desktop/Master Bank.bank : mode 02010082
-[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
-[LOG] SystemI::createSound                     : setdata soundi = 000001C5332B4248 : node = 000001C53B32C140
-[LOG] SystemI::createSound                     : add node to async list : head = 000001C5317F18A8.  list count = 0
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000001C5332B4248
-[LOG] SystemI::createSoundInternal             :     Create name='Team Rexx\Build\Desktop/Master Bank.bank', mode=0x02010082
-[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 232
-[LOG] SystemI::createSoundInternal             :     exinfo->length             = 2577056
-[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 65024
-[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 000001C53B32C258
-[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
-[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
-[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
-[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='Player_Heartbeat', format=2, channels=2, frequency=48000, lengthbytes=119264, lengthpcm=559981, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.944031.
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000001C5332B4248
-[LOG] SoundI::getSubSound                      : sound 000001C5332B4248.  Subsound index 0 / 1
-[LOG] SoundI::release                          : Player_Heartbeat (000001C53B537198)
-[LOG] SoundI::release                          :     Player_Heartbeat (000001C5317F1A98)
-[LOG] SoundI::release                          :     Player_Heartbeat (000001C5332B34C8)
-[LOG] SystemI::createSound                     : filename = Team Rexx\Build\Desktop/Master Bank.bank : mode 02010082
-[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
-[LOG] SystemI::createSound                     : setdata soundi = 000001C5332B34C8 : node = 000001C53B32D100
-[LOG] SystemI::createSound                     : add node to async list : head = 000001C5317F18A8.  list count = 0
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000001C5332B34C8
-[LOG] SystemI::createSoundInternal             :     Create name='Team Rexx\Build\Desktop/Master Bank.bank', mode=0x02010082
-[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 232
-[LOG] SystemI::createSoundInternal             :     exinfo->length             = 2577056
-[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 65024
-[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 000001C53B32D218
-[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
-[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
-[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
-[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='Dungeon Atmos', format=2, channels=2, frequency=48000, lengthbytes=216192, lengthpcm=1069671, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.273045.
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000001C5332B34C8
-[LOG] SoundI::getSubSound                      : sound 000001C5332B34C8.  Subsound index 0 / 1
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000001C53B537198
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000001C53B537198
-[LOG] Manager::readBank                        : fileversion = 100, compatVersion = 99 (oldest = 44, newest = 100)
-[LOG] Manager::readBank                        : fileversion = 100, compatVersion = 99 (oldest = 44, newest = 100)
-[LOG] SystemI::createSound                     : filename = Team Rexx\Build\Desktop/Master Bank.bank : mode 02010082
-[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
-[LOG] SystemI::createSound                     : setdata soundi = 000001C539C7C738 : node = 000001C531CD4260
-[LOG] SystemI::createSound                     : add node to async list : head = 000001C5317F18A8.  list count = 0
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000001C539C7C738
-[LOG] SystemI::createSoundInternal             :     Create name='Team Rexx\Build\Desktop/Master Bank.bank', mode=0x02010082
-[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 232
-[LOG] SystemI::createSoundInternal             :     exinfo->length             = 2577056
-[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 65024
-[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 000001C531CD4378
-[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
-[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
-[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
-[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='Player_Heartbeat', format=2, channels=2, frequency=48000, lengthbytes=119264, lengthpcm=559981, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.944031.
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000001C539C7C738
-[LOG] SoundI::getSubSound                      : sound 000001C539C7C738.  Subsound index 0 / 1
-[LOG] SoundI::release                          : Player_Heartbeat (000001C5332B4248)
-[LOG] SoundI::release                          :     Player_Heartbeat (000001C54741BC48)
-[LOG] SoundI::release                          :     Player_Heartbeat (000001C5332B45A8)
-[LOG] Manager::readBank                        : fileversion = 100, compatVersion = 99 (oldest = 44, newest = 100)
-[LOG] SoundI::release                          : Dungeon Atmos (000001C5332B3828)
-[LOG] SoundI::release                          :     Dungeon Atmos (000001C517996AF8)
-[LOG] SoundI::release                          :     Dungeon Atmos (000001C5332B4AB8)
-[LOG] Manager::readBank                        : fileversion = 100, compatVersion = 99 (oldest = 44, newest = 100)
-[LOG] SystemI::createSound                     : filename = Team Rexx\Build\Desktop/Master Bank.bank : mode 02010082
-[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
-[LOG] SystemI::createSound                     : setdata soundi = 000001C539C7BEC8 : node = 000001C531CD37E0
-[LOG] SystemI::createSound                     : add node to async list : head = 000001C5317F18A8.  list count = 0
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000001C539C7BEC8
-[LOG] SystemI::createSoundInternal             :     Create name='Team Rexx\Build\Desktop/Master Bank.bank', mode=0x02010082
-[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 232
-[LOG] SystemI::createSoundInternal             :     exinfo->length             = 2577056
-[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 65024
-[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 000001C531CD38F8
-[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
-[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
-[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
-[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='Player_Heartbeat', format=2, channels=2, frequency=48000, lengthbytes=119264, lengthpcm=559981, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.944031.
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000001C539C7BEC8
-[LOG] SoundI::getSubSound                      : sound 000001C539C7BEC8.  Subsound index 0 / 1
-[LOG] SoundI::release                          : Player_Heartbeat (000001C539C7C738)
-[LOG] SoundI::release                          :     Player_Heartbeat (000001C54741BDE8)
-[LOG] SoundI::release                          :     Player_Heartbeat (000001C539C7B9B8)
-[LOG] SystemI::createSound                     : filename = Team Rexx\Build\Desktop/Master Bank.bank : mode 02010082
-[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
-[LOG] SystemI::createSound                     : setdata soundi = 000001C539C7C8E8 : node = 000001C531CD4110
-[LOG] SystemI::createSound                     : add node to async list : head = 000001C5317F18A8.  list count = 0
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000001C539C7C8E8
-[LOG] SystemI::createSoundInternal             :     Create name='Team Rexx\Build\Desktop/Master Bank.bank', mode=0x02010082
-[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 232
-[LOG] SystemI::createSound                     :     filename = Team Rexx\Build\Desktop/Master Bank.bank : mode 02010082
-[LOG] SystemI::createSoundInternal             :     exinfo->length             = 2577056
-[LOG] SystemI::createSound                     :     FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
-[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 65024
-[LOG] SystemI::createSound                     :     setdata soundi = 000001C539C7CC48 : node = 000001C531CD4260
-[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
-[LOG] SystemI::createSound                     :     add node to async list : head = 000001C5317F18A8.  list count = 0
-[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 000001C531CD4228
-[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
-[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
-[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
-[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='Dungeon Atmos', format=2, channels=2, frequency=48000, lengthbytes=216192, lengthpcm=1069671, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.273045.
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000001C539C7C8E8
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000001C539C7CC48
-[LOG] SystemI::createSoundInternal             :     Create name='Team Rexx\Build\Desktop/Master Bank.bank', mode=0x02010082
-[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 232
-[LOG] SystemI::createSoundInternal             :     exinfo->length             = 2577056
-[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 65024
-[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 000001C531CD4378
-[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
-[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
-[LOG] SystemI::createSoundInternal             :     exinfo->initialseekposition = 10000
-[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
-[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='Dungeon Atmos', format=2, channels=2, frequency=48000, lengthbytes=216192, lengthpcm=1069671, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.273045.
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000001C539C7CC48
-[LOG] SoundI::getSubSound                      : sound 000001C539C7C8E8.  Subsound index 0 / 1
-[LOG] SoundI::getSubSound                      : sound 000001C539C7CC48.  Subsound index 0 / 1
-[LOG] SoundI::release                          : Dungeon Atmos (000001C5332B34C8)
-[LOG] SoundI::release                          :     Dungeon Atmos (000001C54741AA68)
-[LOG] SoundI::release                          :     Dungeon Atmos (000001C53B537198)
-[LOG] Manager::readBank                        : fileversion = 100, compatVersion = 99 (oldest = 44, newest = 100)
-[LOG] Manager::readBank                        : fileversion = 100, compatVersion = 99 (oldest = 44, newest = 100)
-[LOG] SystemI::createSound                     : filename = Team Rexx\Build\Desktop/Master Bank.bank : mode 02010082
-[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
-[LOG] SystemI::createSound                     : setdata soundi = 000001C539C7C078 : node = 000001C517525DA0
-[LOG] SystemI::createSound                     : add node to async list : head = 000001C5317F18A8.  list count = 0
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000001C539C7C078
-[LOG] SystemI::createSoundInternal             :     Create name='Team Rexx\Build\Desktop/Master Bank.bank', mode=0x02010082
-[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 232
-[LOG] SystemI::createSoundInternal             :     exinfo->length             = 2577056
-[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 65024
-[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 000001C517525EB8
-[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
-[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
-[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
-[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='Player_Heartbeat', format=2, channels=2, frequency=48000, lengthbytes=119264, lengthpcm=559981, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.944031.
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000001C539C7C078
-[LOG] SoundI::getSubSound                      : sound 000001C539C7C078.  Subsound index 0 / 1
-[LOG] SoundI::release                          : Player_Heartbeat (000001C539C7BEC8)
-[LOG] SoundI::release                          :     Player_Heartbeat (000001C54741CFC8)
-[LOG] SoundI::release                          :     Player_Heartbeat (000001C539C7B4A8)
-[LOG] Manager::readBank                        : fileversion = 100, compatVersion = 99 (oldest = 44, newest = 100)
-[LOG] SoundI::release                          : Dungeon Atmos (000001C539C7CC48)
-[LOG] SoundI::release                          :     Dungeon Atmos (000001C54741D988)
-[LOG] SoundI::release                          :     Dungeon Atmos (000001C539C7B808)
-[LOG] SystemI::createSound                     : filename = Team Rexx\Build\Desktop/Master Bank.bank : mode 02010082
-[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
-[LOG] SystemI::createSound                     : setdata soundi = 000001C539C7C228 : node = 000001C5175259B0
-[LOG] SystemI::createSound                     : add node to async list : head = 000001C5317F18A8.  list count = 0
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000001C539C7C228
-[LOG] SystemI::createSoundInternal             :     Create name='Team Rexx\Build\Desktop/Master Bank.bank', mode=0x02010082
-[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 232
-[LOG] SystemI::createSoundInternal             :     exinfo->length             = 2577056
-[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 65024
-[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 000001C517525AC8
-[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
-[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
-[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
-[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='Player_Heartbeat', format=2, channels=2, frequency=48000, lengthbytes=119264, lengthpcm=559981, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.944031.
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000001C539C7C228
-[LOG] SoundI::getSubSound                      : sound 000001C539C7C228.  Subsound index 0 / 1
-[LOG] SoundI::release                          : Player_Heartbeat (000001C539C7C078)
-[LOG] SoundI::release                          :     Player_Heartbeat (000001C54741BAA8)
-[LOG] SoundI::release                          :     Player_Heartbeat (000001C539C7BD18)
-[LOG] Manager::readBank                        : fileversion = 100, compatVersion = 99 (oldest = 44, newest = 100)
-[LOG] SystemI::createSound                     : filename = Team Rexx\Build\Desktop/Master Bank.bank : mode 02010082
-[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
-[LOG] SystemI::createSound                     : setdata soundi = 000001C539C7B808 : node = 000001C517525DA0
-[LOG] SystemI::createSound                     : add node to async list : head = 000001C5317F18A8.  list count = 0
-[LOG] SystemI::createSound                     : filename = Team Rexx\Build\Desktop/Master Bank.bank : mode 02010082
-[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000001C539C7B808
-[LOG] SystemI::createSound                     : setdata soundi = 000001C539C7C3D8 : node = 000001C53B32C140
-[LOG] SystemI::createSoundInternal             :     Create name='Team Rexx\Build\Desktop/Master Bank.bank', mode=0x02010082
-[LOG] SystemI::createSound                     :     add node to async list : head = 000001C5317F18A8.  list count = 0
-[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 232
-[LOG] SystemI::createSoundInternal             :     exinfo->length             = 2577056
-[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 65024
-[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 000001C517525EB8
-[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
-[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
-[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
-[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='Dungeon Atmos', format=2, channels=2, frequency=48000, lengthbytes=216192, lengthpcm=1069671, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.273045.
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000001C539C7B808
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000001C539C7C3D8
-[LOG] SystemI::createSoundInternal             :     Create name='Team Rexx\Build\Desktop/Master Bank.bank', mode=0x02010082
-[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 232
-[LOG] SystemI::createSoundInternal             :     exinfo->length             = 2577056
-[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 65024
-[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 000001C53B32C258
-[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
-[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
-[LOG] SystemI::createSoundInternal             :     exinfo->initialseekposition = 10000
-[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
-[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='Dungeon Atmos', format=2, channels=2, frequency=48000, lengthbytes=216192, lengthpcm=1069671, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.273045.
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000001C539C7C3D8
-[LOG] SoundI::getSubSound                      : sound 000001C539C7B808.  Subsound index 0 / 1
-[LOG] SoundI::getSubSound                      : sound 000001C539C7C3D8.  Subsound index 0 / 1
-[LOG] SoundI::release                          : Dungeon Atmos (000001C539C7C8E8)
-[LOG] SoundI::release                          :     Dungeon Atmos (000001C54741B908)
-[LOG] SoundI::release                          :     Dungeon Atmos (000001C539C7BB68)
-[LOG] Manager::readBank                        : fileversion = 100, compatVersion = 99 (oldest = 44, newest = 100)
-[LOG] SystemI::createSound                     : filename = Team Rexx\Build\Desktop/Master Bank.bank : mode 02010082
-[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
-[LOG] SystemI::createSound                     : setdata soundi = 000001C539C7C588 : node = 000001C531CD4110
-[LOG] SystemI::createSound                     : add node to async list : head = 000001C5317F18A8.  list count = 0
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000001C539C7C588
-[LOG] SystemI::createSoundInternal             :     Create name='Team Rexx\Build\Desktop/Master Bank.bank', mode=0x02010082
-[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 232
-[LOG] SystemI::createSoundInternal             :     exinfo->length             = 2577056
-[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 65024
-[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 000001C531CD4228
-[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
-[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
-[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
-[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='Player_Heartbeat', format=2, channels=2, frequency=48000, lengthbytes=119264, lengthpcm=559981, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.944031.
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000001C539C7C588
-[LOG] SoundI::getSubSound                      : sound 000001C539C7C588.  Subsound index 0 / 1
-[LOG] SoundI::release                          : Player_Heartbeat (000001C539C7C228)
-[LOG] SoundI::release                          :     Player_Heartbeat (000001C54741BDE8)
-[LOG] SoundI::release                          :     Player_Heartbeat (000001C539C7BEC8)
-[LOG] Manager::readBank                        : fileversion = 100, compatVersion = 99 (oldest = 44, newest = 100)
-[LOG] Manager::readBank                        : fileversion = 100, compatVersion = 99 (oldest = 44, newest = 100)
-[LOG] SoundI::release                          : Dungeon Atmos (000001C539C7C3D8)
-[LOG] SoundI::release                          :     Dungeon Atmos (000001C54741C608)
-[LOG] SoundI::release                          :     Dungeon Atmos (000001C539C7B4A8)
-[LOG] SystemI::createSound                     : filename = Team Rexx\Build\Desktop/Master Bank.bank : mode 02010082
-[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
-[LOG] SystemI::createSound                     : setdata soundi = 000001C539C7C8E8 : node = 000001C5332B1E30
-[LOG] SystemI::createSound                     : add node to async list : head = 000001C5317F18A8.  list count = 0
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000001C539C7C8E8
-[LOG] SystemI::createSoundInternal             :     Create name='Team Rexx\Build\Desktop/Master Bank.bank', mode=0x02010082
-[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 232
-[LOG] SystemI::createSoundInternal             :     exinfo->length             = 2577056
-[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 65024
-[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 000001C5332B1F48
-[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
-[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
-[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
-[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='Player_Heartbeat', format=2, channels=2, frequency=48000, lengthbytes=119264, lengthpcm=559981, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.944031.
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000001C539C7C8E8
-[LOG] SoundI::getSubSound                      : sound 000001C539C7C8E8.  Subsound index 0 / 1
-[LOG] SoundI::release                          : Player_Heartbeat (000001C539C7C588)
-[LOG] SoundI::release                          :     Player_Heartbeat (000001C54741CFC8)
-[LOG] SoundI::release                          :     Player_Heartbeat (000001C539C7CDF8)
-[LOG] SystemI::createSound                     : filename = Team Rexx\Build\Desktop/Master Bank.bank : mode 02010082
-[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
-[LOG] SystemI::createSound                     : setdata soundi = 000001C539C7C228 : node = 000001C5332B1F80
-[LOG] SystemI::createSound                     : add node to async list : head = 000001C5317F18A8.  list count = 0
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000001C539C7C228
-[LOG] SystemI::createSoundInternal             :     Create name='Team Rexx\Build\Desktop/Master Bank.bank', mode=0x02010082
-[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 232
-[LOG] SystemI::createSoundInternal             :     exinfo->length             = 2577056
-[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 65024
-[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 000001C5332B2098
-[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
-[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
-[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
-[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='Danger', format=2, channels=2, frequency=48000, lengthbytes=591072, lengthpcm=2349898, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.294289.
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000001C539C7C228
-[LOG] SoundI::getSubSound                      : sound 000001C539C7C228.  Subsound index 0 / 1
-[LOG] SoundI::release                          : Dungeon Strolling (000001C5332B3678)
-[LOG] SoundI::release                          :     Dungeon Strolling (000001C5179962D8)
-[LOG] SoundI::release                          :     Dungeon Strolling (000001C5332B43F8)
-[LOG] SoundI::release                          : Player_Heartbeat (000001C539C7C8E8)
-[LOG] SoundI::release                          :     Player_Heartbeat (000001C54741B0E8)
-[LOG] SoundI::release                          :     Player_Heartbeat (000001C539C7C3D8)
-[LOG] SoundI::release                          : Danger (000001C539C7C228)
-[LOG] SoundI::release                          :     Danger (000001C54741BDE8)
-[LOG] SoundI::release                          :     Danger (000001C539C7B2F8)
-[LOG] SoundI::release                          : Dungeon Atmos (000001C539C7B808)
-[LOG] SoundI::release                          :     Dungeon Atmos (000001C54741CAE8)
-[LOG] SoundI::release                          :     Dungeon Atmos (000001C539C7CA98)
-[LOG] SoundI::release                          :  (000001C5363DFD58)
-[LOG] SoundI::release                          :     Player_Footsteps_Stone_6 (000001C517996478)
-[LOG] SoundI::release                          :  (000001C5363DF798)
-[LOG] SoundI::release                          :     Player_Footsteps_Stone_7 (000001C517995778)
+[LOG] SoundI::release                          : Dungeon Strolling (000001C53AB44298)
+[LOG] SoundI::release                          :     Dungeon Strolling (000001C5179967B8)
+[LOG] SoundI::release                          :     Dungeon Strolling (000001C53B536418)
+[LOG] SoundI::release                          : Player_Heartbeat (000001C53AB456D8)
+[LOG] SoundI::release                          :     Player_Heartbeat (000001C5317F0F38)
+[LOG] SoundI::release                          :     Player_Heartbeat (000001C53AB44958)
+[LOG] SoundI::release                          : Dungeon Atmos (000001C53AB44448)
+[LOG] SoundI::release                          :     Dungeon Atmos (000001C5179974B8)
+[LOG] SoundI::release                          :     Dungeon Atmos (000001C53B536AD8)
 [LOG] SoundI::release                          :  (000001C5363DF068)
-[LOG] SoundI::release                          :     Player_Footsteps_Stone_4 (000001C517996618)
-[LOG] SoundI::release                          :  (000001C5363DF628)
-[LOG] SoundI::release                          :     Player_Footsteps_Stone_1 (000001C5176F0358)
-[LOG] SoundI::release                          :  (000001C5363DEAA8)
-[LOG] SoundI::release                          :     Player_Footsteps_Puddle_3 (000001C517996E38)
-[LOG] SoundI::release                          :  (000001C5363DFBE8)
-[LOG] SoundI::release                          :     Player_Footsteps_Puddle_4 (000001C5178D48D8)
-[LOG] SoundI::release                          :  (000001C546C27C28)
-[LOG] SoundI::release                          :     Player_Footsteps_Puddle_5 (000001C54741B428)
-[LOG] SoundI::release                          :  (000001C546C27AB8)
-[LOG] SoundI::release                          :     Player_Footsteps_Puddle_1 (000001C54741A588)
-[LOG] SoundI::release                          :  (000001C5363E0488)
-[LOG] SoundI::release                          :     Player_Footsteps_Wood_2 (000001C54741B5C8)
-[LOG] SoundI::release                          :  (000001C5363DE658)
-[LOG] SoundI::release                          :     Player_Footsteps_Wood_3 (000001C5317F1C38)
-[LOG] SoundI::release                          :  (000001C5363DD518)
-[LOG] SoundI::release                          :     Player_Footsteps_Wood_4 (000001C517995AB8)
-[LOG] SoundI::release                          :  (000001C546C27948)
-[LOG] SoundI::release                          :     Player_Footsteps_Wood_5 (000001C54741DB28)
-[LOG] SoundI::release                          :  (000001C546C29328)
-[LOG] SoundI::release                          :     Player_Footsteps_Wood_8 (000001C54741AC08)
-[LOG] SoundI::release                          :  (000001C5363DE938)
-[LOG] SoundI::release                          :     246225__agentdd__birdflap1 (000001C5317F1DD8)
-[LOG] SoundI::release                          :  (000001C5363DE378)
-[LOG] SoundI::release                          :     TreasureChestOpening2 (000001C517997178)
-[LOG] SoundI::release                          :  (000001C5363E0038)
-[LOG] SoundI::release                          :     TreasureChestOpening3 (000001C5179974B8)
-[LOG] SoundI::release                          :  (000001C5363E0D28)
-[LOG] SoundI::release                          :     Bat_Screech1 (000001C517995DF8)
+[LOG] SoundI::release                          :     Player_Footsteps_Stone_6 (000001C517996E38)
 [LOG] SoundI::release                          :  (000001C5363DD688)
-[LOG] SoundI::release                          :     Bat_Screech2 (000001C517995C58)
-[LOG] SoundI::release                          :  (000001C5363DD0C8)
-[LOG] SoundI::release                          :     Bat_Screech3 (000001C517995F98)
-[LOG] SoundI::release                          :  (000001C5363DF348)
-[LOG] SoundI::release                          :     Bat_Screech5 (000001C517996958)
+[LOG] SoundI::release                          :     Player_Footsteps_Stone_7 (000001C517995AB8)
+[LOG] SoundI::release                          :  (000001C5363E01A8)
+[LOG] SoundI::release                          :     Player_Footsteps_Stone_4 (000001C517995778)
+[LOG] SoundI::release                          :  (000001C5363DF798)
+[LOG] SoundI::release                          :     Player_Footsteps_Stone_1 (000001C5179962D8)
+[LOG] SoundI::release                          :  (000001C5363DF628)
+[LOG] SoundI::release                          :     Player_Footsteps_Puddle_3 (000001C517997318)
 [LOG] SoundI::release                          :  (000001C5363DFA78)
-[LOG] SoundI::release                          :     Bat_Screech6 (000001C5176F04F8)
+[LOG] SoundI::release                          :     Player_Footsteps_Puddle_4 (000001C517996618)
+[LOG] SoundI::release                          :  (000001C5363DE378)
+[LOG] SoundI::release                          :     Player_Footsteps_Puddle_5 (000001C5176F04F8)
+[LOG] SoundI::release                          :  (000001C5363E0488)
+[LOG] SoundI::release                          :     Player_Footsteps_Puddle_1 (000001C5176F0358)
+[LOG] SoundI::release                          :  (000001C5363DFBE8)
+[LOG] SoundI::release                          :     Player_Footsteps_Wood_2 (000001C517996AF8)
+[LOG] SoundI::release                          :  (000001C5363DE4E8)
+[LOG] SoundI::release                          :     Player_Footsteps_Wood_3 (000001C5317F15B8)
+[LOG] SoundI::release                          :  (000001C5363DEC18)
+[LOG] SoundI::release                          :     Player_Footsteps_Wood_4 (000001C517995DF8)
 [LOG] SoundI::release                          :  (000001C5363E0A48)
-[LOG] SoundI::release                          :     Bat_Screech4 (000001C5317F1F78)
-[LOG] SoundI::release                          :  (000001C5363E0318)
-[LOG] SoundI::release                          :     Coins 1 (000001C5179967B8)
-[LOG] SoundI::release                          :  (000001C546C28ED8)
-[LOG] SoundI::release                          :     Coins 2 (000001C54741BF88)
-[LOG] SoundI::release                          :  (000001C5363DD7F8)
-[LOG] SoundI::release                          :     Coins 3 (000001C517995918)
-[LOG] SoundI::release                          :  (000001C5363E0BB8)
-[LOG] SoundI::release                          :     Player_Death_1 (000001C517997318)
-[LOG] SoundI::release                          :  (000001C546C29048)
-[LOG] SoundI::release                          :     Player_Death_2 (000001C54741C128)
+[LOG] SoundI::release                          :     Player_Footsteps_Wood_5 (000001C5176EF658)
+[LOG] SoundI::release                          :  (000001C5363DDF28)
+[LOG] SoundI::release                          :     Player_Footsteps_Wood_8 (000001C5523BDF88)
+[LOG] SoundI::release                          :  (000001C5363DED88)
+[LOG] SoundI::release                          :     Coins 1 (000001C517995918)
+[LOG] SoundI::release                          :  (000001C5363E08D8)
+[LOG] SoundI::release                          :     Coins 2 (000001C5176F0698)
+[LOG] SoundI::release                          :  (000001C5363DE658)
+[LOG] SoundI::release                          :     Coins 3 (000001C5317F1DD8)
 [LOG] SoundI::release                          :  (000001C5363DF4B8)
-[LOG] SoundI::release                          :     Player_Death_3 (000001C5176EF658)
+[LOG] SoundI::release                          :     TreasureChestOpening2 (000001C5317F1C38)
+[LOG] SoundI::release                          :  (000001C5363DDDB8)
+[LOG] SoundI::release                          :     TreasureChestOpening3 (000001C517995C58)
+[LOG] SoundI::release                          :  (000001C5363DE938)
+[LOG] SoundI::release                          :     Player_Death_1 (000001C517996478)
+[LOG] SoundI::release                          :  (000001C5363E0BB8)
+[LOG] SoundI::release                          :     Player_Death_2 (000001C5523BE948)
+[LOG] SoundI::release                          :  (000001C5363E0038)
+[LOG] SoundI::release                          :     Player_Death_3 (000001C517995F98)
+[LOG] SoundI::release                          :  (000001C5363DEAA8)
+[LOG] SoundI::release                          :     Builder_Game_Weapon_Arrow_Fire_4 (000001C517996958)
+[LOG] SoundI::release                          :  (000001C5363DD518)
+[LOG] SoundI::release                          :     Builder_Game_Weapon_Arrow_Fire_3 (000001C5178D48D8)
+[LOG] SoundI::release                          :  (000001C5363DEEF8)
+[LOG] SoundI::release                          :     Builder_Game_Weapon_Arrow_Fire_2 (000001C517997178)
+[LOG] SoundI::release                          :  (000001C5363DDC48)
+[LOG] SoundI::release                          :     Builder_Game_Weapon_Arrow_Fire_1 (000001C5317F1A98)
 [LOG] Thread::callback                         : FMOD Studio update thread finished.
 [LOG] Thread::callback                         : FMOD Studio bank load thread finished.
 [LOG] Profile::disconnectAll                   : Profiler disconnecting all clients
@@ -365,4 +84,20 @@
 [LOG] Thread::callback                         : FMOD stream thread finished.
 [LOG] Thread::callback                         : FMOD mixer thread finished.
 [LOG] Profile::disconnectAll                   : Profiler disconnecting all clients
+[LOG] SystemI::close                           : Closed.
+[LOG] Manager::readBank                        : fileversion = 100, compatVersion = 99 (oldest = 44, newest = 100)
+[LOG] Manager::readBank                        : fileversion = 100, compatVersion = 99 (oldest = 44, newest = 100)
+[LOG] Manager::readBank                        : fileversion = 100, compatVersion = 99 (oldest = 44, newest = 100)
+[LOG] Manager::readBank                        : fileversion = 100, compatVersion = 99 (oldest = 44, newest = 100)
+[LOG] Manager::readBank                        : fileversion = 100, compatVersion = 99 (oldest = 44, newest = 100)
+[LOG] Manager::readBank                        : fileversion = 100, compatVersion = 99 (oldest = 44, newest = 100)
+[LOG] PlaybackSystem::acquireMasterBus         : Setting master channel group format to 6
+[LOG] Thread::callback                         : FMOD Studio bank load thread finished.
+[LOG] Thread::callback                         : FMOD Studio sample load thread finished.
+[LOG] LiveUpdate::release                      : 
+[LOG] LiveUpdate::reset                        : Reset connection (reason Disconnected)
+[LOG] Thread::callback                         : FMOD stream thread finished.
+[LOG] Thread::callback                         : FMOD mixer thread finished.
+[LOG] Thread::callback                         : FMOD nonblocking thread (0) finished.
+[LOG] Thread::callback                         : FMOD file thread finished.
 [LOG] SystemI::close                           : Closed.

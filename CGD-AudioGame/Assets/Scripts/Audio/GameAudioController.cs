@@ -61,7 +61,14 @@ public class GameAudioController : MonoBehaviour
         music_event.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(camera));
         heartbeat_event.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(camera));
         lowest_distance = HeartbeatDetect();
-        heartbeat_event.setParameterValue("Volume", (5 / lowest_distance) * game_volume);
+        if (enemies.Count > 0)
+        {
+            heartbeat_event.setParameterValue("Volume", (5 / lowest_distance) * game_volume);
+        }
+        else
+        {
+            heartbeat_event.setParameterValue("Volume", 0);
+        }
     }
 
     public void PlayWinJingle() => win_event.start();

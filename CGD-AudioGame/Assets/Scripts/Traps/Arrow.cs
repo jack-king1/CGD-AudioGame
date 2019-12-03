@@ -23,5 +23,11 @@ public class Arrow : MonoBehaviour
             audio_controller.RemoveSound(gameObject, 1.0f);
             Destroy(this.gameObject);
         }
+        if (other.gameObject.tag == "Wall")
+        {
+            audio_controller.PlaySound(gameObject, SOUND.hit);
+            audio_controller.RemoveSound(gameObject, 1.0f);
+            Destroy(this.gameObject);
+        }
     }
 }

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.01.10.00">
+    <object class="AudioFile" id="{e37878c5-1eae-4ae7-970e-54e47778299a}">
+        <property name="assetPath">
+            <value>Sword Unsheathe 01.wav</value>
+        </property>
+        <property name="frequencyInKHz">
+            <value>44.0999985</value>
+        </property>
+        <property name="channelCount">
+            <value>1</value>
+        </property>
+        <property name="length">
+            <value>1.1878004535147393</value>
+        </property>
+        <relationship name="masterAssetFolder">
+            <destination>{eab73154-3ef6-459d-9ea7-19c1454043cc}</destination>
+        </relationship>
+    </object>
+</objects>

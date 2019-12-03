@@ -67,11 +67,7 @@ public class SpikeTrap : MonoBehaviour
     IEnumerator Raise()
     {    
         target = new Vector3(transform.position.x, transform.position.y, transform.position.z);
-        if (audio_controller != null)
-        {
-            audio_controller.SetParameter(gameObject, "Direction", 1.0f);
-            audio_controller.PlaySound(TRAP.spike, gameObject);
-        }
+        
         if (!initialOffsetComplete && !isUndelayedTrap)
         {
             yield return new WaitForSeconds(timer / 1.5f);
@@ -82,6 +78,11 @@ public class SpikeTrap : MonoBehaviour
         while (transform.GetChild(0).position != target)
         {
             yield return null;
+        }
+        if (audio_controller != null)
+        {
+            audio_controller.SetParameter(gameObject, "Direction", 1.0f);
+            audio_controller.PlaySound(TRAP.spike, gameObject);
         }
         yield return new WaitForSeconds(damageWindow);
         canDealDamage = false;
@@ -94,15 +95,16 @@ public class SpikeTrap : MonoBehaviour
     {
         canDealDamage = false;
         target = new Vector3(transform.position.x, transform.position.y - 3.0f, transform.position.z);
-        if (audio_controller != null)
-        {
-            audio_controller.SetParameter(gameObject, "Direction", 0.0f);
-            audio_controller.PlaySound(TRAP.spike, gameObject);
-        }
+        
         raised = false;
         while (transform.GetChild(0).position != target)
         {
             yield return null;
+        }
+        if (audio_controller != null)
+        {
+            audio_controller.SetParameter(gameObject, "Direction", 0.0f);
+            audio_controller.PlaySound(TRAP.spike, gameObject);
         }
         yield return new WaitForSeconds(timer);
         StartCoroutine(Raise());

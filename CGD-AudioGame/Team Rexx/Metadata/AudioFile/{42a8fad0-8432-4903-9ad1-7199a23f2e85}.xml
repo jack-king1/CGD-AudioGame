@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.01.10.00">
+    <object class="AudioFile" id="{42a8fad0-8432-4903-9ad1-7199a23f2e85}">
+        <property name="assetPath">
+            <value>Arrow Hit.wav</value>
+        </property>
+        <property name="frequencyInKHz">
+            <value>44.0999985</value>
+        </property>
+        <property name="channelCount">
+            <value>1</value>
+        </property>
+        <property name="length">
+            <value>0.40154195011337868</value>
+        </property>
+        <relationship name="masterAssetFolder">
+            <destination>{eab73154-3ef6-459d-9ea7-19c1454043cc}</destination>
+        </relationship>
+    </object>
+</objects>
