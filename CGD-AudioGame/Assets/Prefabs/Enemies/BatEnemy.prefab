@@ -56,6 +56,9 @@ MonoBehaviour:
   random_pos: {x: 0, y: 0, z: 0}
   hear_volume: 0
   type: 1
+  sight_layer_mask:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!195 &4294834076573366244
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -235,6 +238,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Layer
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8680827612502318362, guid: f32f8480d7dade04a9f5b84e05d014d0,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enemy
       objectReference: {fileID: 0}
     - target: {fileID: 5630387254964563721, guid: f32f8480d7dade04a9f5b84e05d014d0,
         type: 3}

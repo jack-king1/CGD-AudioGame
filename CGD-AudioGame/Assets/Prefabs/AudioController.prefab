@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: -5940699484622923927}
   - component: {fileID: 3484843366128476302}
   - component: {fileID: 3119445464918953779}
+  - component: {fileID: 1168151056689198854}
+  - component: {fileID: 8235612850292739209}
   m_Layer: 0
   m_Name: AudioController
   m_TagString: Untagged
@@ -101,3 +103,27 @@ MonoBehaviour:
   SpikeTrap: event:/Traps/Spikes
   SawTrap: event:/Traps/Saw Blade
   ArrowTrap: event:/Traps/Arrow Launch
+--- !u!114 &1168151056689198854
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3484843366128476301}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd8ff0450925af641a0bb477458b41e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8235612850292739209
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3484843366128476301}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53fc759ce250fd240b6dd0838cd5ca02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

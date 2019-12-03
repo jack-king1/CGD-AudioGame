@@ -11,19 +11,20 @@ public class GameAudioController : MonoBehaviour
     [FMODUnity.EventRef] public string atmospheric;
     [FMODUnity.EventRef] public string win_jingle;
     [FMODUnity.EventRef] public string lose_jingle;
+    [FMODUnity.EventRef] public string heartbeat;
     FMOD.Studio.EventInstance music_event;
     FMOD.Studio.EventInstance atmospheric_event;
     FMOD.Studio.EventInstance win_event;
     FMOD.Studio.EventInstance lose_event;
+    FMOD.Studio.EventInstance heartbeat_event;
     GameObject camera;
-    public void SetMusicVolume(float vol)
-    {
-        music_volume = vol;
-    }
-    public void SetAtmosphericVolume(float vol)
-    {
-        atmospheric_volume = vol;
-    }
+    public List<GameObject> enemies = new List<GameObject>();
+    GameObject player;
+    public float lowest_distance;
+    public void SetMusicVolume(float vol) => music_volume = vol;
+    
+    public void SetAtmosphericVolume(float vol) => atmospheric_volume = vol;
+    
     public void SetGameVolume(float vol)
     {
         game_volume = vol;
@@ -35,8 +36,15 @@ public class GameAudioController : MonoBehaviour
         camera = GameObject.FindGameObjectWithTag("MainCamera");
         music_event = FMODUnity.RuntimeManager.CreateInstance(music);
         atmospheric_event = FMODUnity.RuntimeManager.CreateInstance(atmospheric);
+        heartbeat_event = FMODUnity.RuntimeManager.CreateInstance(heartbeat);
+        heartbeat_event.start();
         music_event.start();
         atmospheric_event.start();
+        player = GameObject.FindGameObjectWithTag("Player");
+        foreach (GameObject enemy in GameObject.FindGameObjectsWithTag("Enemy"))
+        {
+            enemies.Add(enemy);
+        }
     }
 
     private void Update()
@@ -45,15 +53,27 @@ public class GameAudioController : MonoBehaviour
         atmospheric_event.setParameterValue("Volume", atmospheric_volume);
         atmospheric_event.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(camera));
         music_event.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(camera));
+        heartbeat_event.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(camera));
+        lowest_distance = HeartbeatDetect();
+        heartbeat_event.setParameterValue("Volume", (5 / lowest_distance) * game_volume);
     }
 
-    public void PlayWinJingle()
-    {
-        win_event.start();
-    }
+    public void PlayWinJingle() => win_event.start();
+    public void PlayLoseJingle() => lose_event.start();
 
-    public void PlayLoseJingle()
+    float HeartbeatDetect()
     {
-        lose_event.start();
+        List<float> distances = new List<float>();
+        foreach (GameObject enemy in enemies)
+        {
+            float dist = Vector3.Distance(player.transform.position, enemy.transform.position);
+            distances.Add(dist);    
+        }
+        distances.Sort();
+        if (distances.Count > 0)
+        {
+            return distances[0];
+        }
+        return 0;
     }
 }
