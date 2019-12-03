@@ -58,6 +58,13 @@ public class buttonSelection : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Return) || InputManager.AButton(playerID))
             {
+
+                if (Input.GetAxisRaw("J_Horizontal_1") == 1)
+                {
+                    playerID++;
+                }
+
+                
                 switch (index)
                 {
                     case 0:
