@@ -9,7 +9,7 @@
 [LOG] Thread::initThread                       : Init FMOD stream thread. Priority: 2, Stack Size: 65536, Semaphore: No, Sleep Time: 10, Looping: Yes.
 [LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
 [LOG] Thread::initThread                       : Init FMOD mixer thread. Priority: 3, Stack Size: 49152, Semaphore: No, Sleep Time: 0, Looping: Yes.
-[LOG] AsyncManager::init                       : manager 0000014806C30C58 isAsync 1 updatePeriod 0.02
+[LOG] AsyncManager::init                       : manager 0000014806C2F238 isAsync 1 updatePeriod 0.02
 [LOG] Thread::initThread                       : Init FMOD Studio update thread. Priority: 0, Stack Size: 65536, Semaphore: No, Sleep Time: 1, Looping: No.
 [LOG] AsyncManager::init                       : done
 [LOG] PlaybackSystem::init                     : 
@@ -28,19 +28,19 @@
 [LOG] SystemI::createSoundInternal             : exinfo->length             = 32224
 [LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 13920
 [LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 00000036817FF30C
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 00000036817FF3DC
 [LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
 [LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
 [LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FF981AED9C0
 [LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FF981AED990
 [LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FF981AEDA90
 [LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FF981AEDB50
-[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 0000014812889C48
+[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 00000148128D90B8
 [LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
 [LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
 [LOG] SystemI::createSoundInternal             : Sample 0/1: name='494397__erokia__msfxp4-135', format=2, channels=2, frequency=48000, lengthbytes=32064, lengthpcm=148273, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.598013.
-[LOG] SoundI::release                          :  (0000014812D37278)
-[LOG] SoundI::release                          :     494397__erokia__msfxp4-135 (00000148006998C8)
+[LOG] SoundI::release                          :  (00000148290D0848)
+[LOG] SoundI::release                          :     494397__erokia__msfxp4-135 (000001483C2AC3C8)
 [LOG] Thread::callback                         : FMOD Studio update thread finished.
 [LOG] Thread::callback                         : FMOD Studio bank load thread finished.
 [LOG] Profile::disconnectAll                   : Profiler disconnecting all clients
