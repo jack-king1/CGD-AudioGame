@@ -120,6 +120,24 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &218203688 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5120229840077738431, guid: c4911c5579fa67646b90b0b8d89d34ad,
+    type: 3}
+  m_PrefabInstance: {fileID: 5120229839949789154}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &218203689
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 218203688}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0de79c03d019c0e4da36b0a0b2450622, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &245234754
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1373,6 +1391,31 @@ PrefabInstance:
       propertyPath: m_Name
       value: Main Camera
       objectReference: {fileID: 0}
+    - target: {fileID: 2274140278054075116, guid: e126473d2b197dc499f883296e1aa639,
+        type: 3}
+      propertyPath: m_FogOfWarPlane
+      value: 
+      objectReference: {fileID: 2009947702}
+    - target: {fileID: 2274140278054075116, guid: e126473d2b197dc499f883296e1aa639,
+        type: 3}
+      propertyPath: m_Player
+      value: 
+      objectReference: {fileID: 978429441}
+    - target: {fileID: 2274140278054075116, guid: e126473d2b197dc499f883296e1aa639,
+        type: 3}
+      propertyPath: Player
+      value: 
+      objectReference: {fileID: 1524909013}
+    - target: {fileID: 2274140278054075116, guid: e126473d2b197dc499f883296e1aa639,
+        type: 3}
+      propertyPath: lamp
+      value: 
+      objectReference: {fileID: 1983925298}
+    - target: {fileID: 2274140278054075116, guid: e126473d2b197dc499f883296e1aa639,
+        type: 3}
+      propertyPath: levelManager
+      value: 
+      objectReference: {fileID: 1281505410}
     - target: {fileID: 2274140278054075107, guid: e126473d2b197dc499f883296e1aa639,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1428,31 +1471,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2274140278054075116, guid: e126473d2b197dc499f883296e1aa639,
-        type: 3}
-      propertyPath: m_FogOfWarPlane
-      value: 
-      objectReference: {fileID: 2009947702}
-    - target: {fileID: 2274140278054075116, guid: e126473d2b197dc499f883296e1aa639,
-        type: 3}
-      propertyPath: m_Player
-      value: 
-      objectReference: {fileID: 978429441}
-    - target: {fileID: 2274140278054075116, guid: e126473d2b197dc499f883296e1aa639,
-        type: 3}
-      propertyPath: Player
-      value: 
-      objectReference: {fileID: 1524909013}
-    - target: {fileID: 2274140278054075116, guid: e126473d2b197dc499f883296e1aa639,
-        type: 3}
-      propertyPath: lamp
-      value: 
-      objectReference: {fileID: 1983925298}
-    - target: {fileID: 2274140278054075116, guid: e126473d2b197dc499f883296e1aa639,
-        type: 3}
-      propertyPath: levelManager
-      value: 
-      objectReference: {fileID: 1281505410}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e126473d2b197dc499f883296e1aa639, type: 3}
 --- !u!1001 &5120229839949789154
