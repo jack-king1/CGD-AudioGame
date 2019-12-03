@@ -82,7 +82,7 @@ public class SpikeTrap : MonoBehaviour
     IEnumerator Lower()
     {
         canDealDamage = false;
-        target = new Vector3(transform.position.x, transform.position.y - 3.0f, transform.position.z);
+        target = new Vector3(transform.position.x, transform.position.y - 3.5f, transform.position.z);
         raised = false;
         while (transform.GetChild(0).position != target)
         {
