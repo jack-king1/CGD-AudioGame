@@ -71,7 +71,6 @@ public static class InputManager
 
     public static bool XButton(int player_id)
     {
-       
         return Input.GetButtonDown("X_Button_" + player_id.ToString());
     }
 
@@ -85,4 +84,13 @@ public static class InputManager
         return Input.GetButtonDown("Y_Button_" + player_id.ToString());
     }
 
+    public static bool StartButtonDown(int player_id)
+    {
+        return Input.GetButtonDown("Start_Button_" + player_id.ToString());
+    }
+
+    //public static bool DPadDown(int player_id)
+    //{
+    //    //return Input.GetButtonDown("Vertical_Arrow_" + player_id.ToString());
+    //}
 }

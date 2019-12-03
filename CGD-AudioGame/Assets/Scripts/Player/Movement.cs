@@ -24,12 +24,15 @@ public class Movement : MonoBehaviour
     private Vector3 stairEnd;
     private float stairTimer = 3.8f;
 
+    UIManager uim;
+
     private void Start()
     {
         playerID = GetComponent<PlayerData>().PlayerID();
         rb = GetComponent<Rigidbody>();
         anim = GetComponentInChildren<Animator>();
         PlayerModel = GameObject.FindGameObjectWithTag("PlayerModel");
+        uim = GameObject.FindGameObjectWithTag("Canvas").GetComponent<UIManager>();
     }
 
     public void Update()
@@ -133,23 +136,28 @@ public class Movement : MonoBehaviour
 
     public void Rotate(bool kbd)
     {
-        if(kbd)
-        {
-            float moveHorizontal = Input.GetAxis("Horizontal");
-            float moveVertical = Input.GetAxis("Vertical");
-            Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertical);
-            PlayerModel.transform.rotation = Quaternion.LookRotation(movement);
+        
+        
 
-        }
-        else
-        {
-            //Rotate the player on the Z axis
-            //Calculate an angle here using the analogue sticks axis values.
-            float go_direction = Mathf.Atan2(InputManager.JoystickVertical(playerID), InputManager.JoystickHorizontal(playerID));
-            //Calculate radians to degrees.
-            current_rotation = go_direction * Mathf.Rad2Deg + 90;
-            PlayerModel.transform.eulerAngles = new Vector3(0, current_rotation, 0);
-        }
+
+            if (kbd)
+            {
+                float moveHorizontal = Input.GetAxis("Horizontal");
+                float moveVertical = Input.GetAxis("Vertical");
+                Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertical);
+                PlayerModel.transform.rotation = Quaternion.LookRotation(movement);
+            }
+            else
+            {
+                //Rotate the player on the Z axis
+                //Calculate an angle here using the analogue sticks axis values.
+                float go_direction = Mathf.Atan2(InputManager.JoystickVertical(playerID), InputManager.JoystickHorizontal(playerID));
+                //Calculate radians to degrees.
+                current_rotation = go_direction * Mathf.Rad2Deg + 90;
+                PlayerModel.transform.eulerAngles = new Vector3(0, current_rotation, 0);
+            }
+        
+        
     }
 
     void FloorType(string tagName)
