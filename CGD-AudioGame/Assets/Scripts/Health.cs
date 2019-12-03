@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using enums;
 public class Health : MonoBehaviour
 {
     public GameObject blood_prefab;
@@ -48,6 +48,16 @@ public class Health : MonoBehaviour
         GameObject blood = Instantiate(blood_prefab, new Vector3(transform.position.x, transform.position.y + 1, transform.position.z), Quaternion.identity);
         ParticleSystem blood_p = blood.GetComponent<ParticleSystem>();
         DeleteAfterDelay delete = blood.GetComponent<DeleteAfterDelay>();
+        if (gameObject.tag == "Player")
+        {
+            PlayerAudioController audio_controller = GameObject.Find("AudioController").GetComponent<PlayerAudioController>();
+            audio_controller.PlaySound(gameObject, SOUND.die);
+        }
+        else if (gameObject.tag == "Enemy")
+        {
+            EnemyAudioController audio_controller = GameObject.Find("AudioController").GetComponent<EnemyAudioController>();
+            audio_controller.PlaySound(gameObject, SOUND.die);
+        }
         var em = blood_p.emission;
         em.enabled = true;
         blood_p.Play();

@@ -15,6 +15,12 @@
         ranged
     }
 
+    public enum PROJECTILE
+    {
+        fireball,
+        arrow
+    }
+
     public enum TRAP
     {
         spike,
@@ -27,7 +33,9 @@
         attack,
         chase,
         die,
-        footstep
+        footstep,
+        hit,
+        loop
     }
 
     public enum CAMERASTATE

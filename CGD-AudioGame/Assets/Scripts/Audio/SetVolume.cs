@@ -21,12 +21,14 @@ public class SetVolume : MonoBehaviour
     {
         masterBus.setVolume(Master);
         EnemyAudioController enemy_audio = GetComponent<EnemyAudioController>();
-        enemy_audio.SetVolume(100 * Gameplay * Master);
+        enemy_audio.SetVolume(100 * Gameplay);
         TrapAudioController trap_audio = GetComponent<TrapAudioController>();
-        trap_audio.SetVolume(100 * Gameplay * Master);
+        trap_audio.SetVolume(100 * Gameplay);
         GameAudioController game_audio = GetComponent<GameAudioController>();
-        game_audio.SetGameVolume(100 * Gameplay * Master);
-        game_audio.SetAtmosphericVolume(100 * Asmospheric * Master);
-        game_audio.SetMusicVolume(100 * Music * Master);
+        game_audio.SetGameVolume(100 * Gameplay);
+        game_audio.SetAtmosphericVolume(100 * Asmospheric);
+        game_audio.SetMusicVolume(100 * Music);
+        ProjectileAudioController projectile_audio = GetComponent<ProjectileAudioController>();
+        projectile_audio.SetGameVolume(100 * Gameplay);
     }
 }

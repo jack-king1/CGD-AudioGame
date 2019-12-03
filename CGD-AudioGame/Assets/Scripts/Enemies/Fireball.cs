@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using enums;
 public class Fireball : MonoBehaviour
 {
     public GameObject explosion_prefab;
@@ -9,6 +9,14 @@ public class Fireball : MonoBehaviour
     public float kill_timer = 5;
     bool moving = true;
     ParticleSystem fireball_p;
+    ProjectileAudioController audio_controller;
+    private void Start()
+    {
+        audio_controller = GameObject.Find("AudioController").GetComponent<ProjectileAudioController>();
+        audio_controller.SetupSound(gameObject, PROJECTILE.fireball);
+        audio_controller.PlaySound(gameObject, SOUND.loop);
+    }
+
     public void Fire(int dmg, float shot_speed, Vector3 target)
     {
         fireball_p = transform.GetChild(0).gameObject.GetComponent<ParticleSystem>();        
@@ -52,7 +60,8 @@ public class Fireball : MonoBehaviour
 
     IEnumerator Explode()
     {
-        moving = false;       
+        moving = false;
+        audio_controller.PlaySound(gameObject, SOUND.hit);
         yield return new WaitForSeconds(0.1f);
         var em = fireball_p.emission;
         em.enabled = false;
@@ -64,6 +73,7 @@ public class Fireball : MonoBehaviour
         explosion_p.Play();
         delete.StartDelete(0.5f);
         yield return new WaitForSeconds(0.4f);
+        audio_controller.RemoveSound(gameObject, 0);
         Destroy(this.gameObject);     
     }
 }
