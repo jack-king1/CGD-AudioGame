@@ -1897,6 +1897,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1230930054}
     m_Modifications:
+    - target: {fileID: 1641868856143768, guid: a6708921f3701a44f976527854381306, type: 3}
+      propertyPath: m_Name
+      value: Props_Skeleton_Skull (14)
+      objectReference: {fileID: 0}
     - target: {fileID: 4943443195327920, guid: a6708921f3701a44f976527854381306, type: 3}
       propertyPath: m_LocalPosition.x
       value: -65.92294
@@ -1940,10 +1944,6 @@ PrefabInstance:
     - target: {fileID: 4943443195327920, guid: a6708921f3701a44f976527854381306, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1641868856143768, guid: a6708921f3701a44f976527854381306, type: 3}
-      propertyPath: m_Name
-      value: Props_Skeleton_Skull (14)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a6708921f3701a44f976527854381306, type: 3}
@@ -4993,6 +4993,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1230930054}
     m_Modifications:
+    - target: {fileID: 1641868856143768, guid: a6708921f3701a44f976527854381306, type: 3}
+      propertyPath: m_Name
+      value: Props_Skeleton_Skull (12)
+      objectReference: {fileID: 0}
     - target: {fileID: 4943443195327920, guid: a6708921f3701a44f976527854381306, type: 3}
       propertyPath: m_LocalPosition.x
       value: -60.478127
@@ -5036,10 +5040,6 @@ PrefabInstance:
     - target: {fileID: 4943443195327920, guid: a6708921f3701a44f976527854381306, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1641868856143768, guid: a6708921f3701a44f976527854381306, type: 3}
-      propertyPath: m_Name
-      value: Props_Skeleton_Skull (12)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a6708921f3701a44f976527854381306, type: 3}
@@ -5683,6 +5683,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1230930054}
     m_Modifications:
+    - target: {fileID: 1641868856143768, guid: a6708921f3701a44f976527854381306, type: 3}
+      propertyPath: m_Name
+      value: Props_Skeleton_Skull
+      objectReference: {fileID: 0}
     - target: {fileID: 4943443195327920, guid: a6708921f3701a44f976527854381306, type: 3}
       propertyPath: m_LocalPosition.x
       value: -12.7439375
@@ -5734,10 +5738,6 @@ PrefabInstance:
     - target: {fileID: 4943443195327920, guid: a6708921f3701a44f976527854381306, type: 3}
       propertyPath: m_LocalScale.y
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1641868856143768, guid: a6708921f3701a44f976527854381306, type: 3}
-      propertyPath: m_Name
-      value: Props_Skeleton_Skull
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a6708921f3701a44f976527854381306, type: 3}
@@ -11860,7 +11860,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &518875093
 RectTransform:
   m_ObjectHideFlags: 0
@@ -15595,6 +15595,46 @@ PrefabInstance:
       propertyPath: m_Name
       value: Main Camera (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 2274140278054075116, guid: e126473d2b197dc499f883296e1aa639,
+        type: 3}
+      propertyPath: m_FogOfWarPlane
+      value: 
+      objectReference: {fileID: 1479201143}
+    - target: {fileID: 2274140278054075116, guid: e126473d2b197dc499f883296e1aa639,
+        type: 3}
+      propertyPath: m_Player
+      value: 
+      objectReference: {fileID: 814936092}
+    - target: {fileID: 2274140278054075116, guid: e126473d2b197dc499f883296e1aa639,
+        type: 3}
+      propertyPath: lamp
+      value: 
+      objectReference: {fileID: 19364023}
+    - target: {fileID: 2274140278054075116, guid: e126473d2b197dc499f883296e1aa639,
+        type: 3}
+      propertyPath: maxTime
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2274140278054075116, guid: e126473d2b197dc499f883296e1aa639,
+        type: 3}
+      propertyPath: m_radius
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2274140278054075116, guid: e126473d2b197dc499f883296e1aa639,
+        type: 3}
+      propertyPath: levelManager
+      value: 
+      objectReference: {fileID: 2125086053}
+    - target: {fileID: 2274140278054075116, guid: e126473d2b197dc499f883296e1aa639,
+        type: 3}
+      propertyPath: darkness
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2274140278054075116, guid: e126473d2b197dc499f883296e1aa639,
+        type: 3}
+      propertyPath: Player
+      value: 
+      objectReference: {fileID: 814936085}
     - target: {fileID: 2274140278054075107, guid: e126473d2b197dc499f883296e1aa639,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -15650,46 +15690,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2274140278054075116, guid: e126473d2b197dc499f883296e1aa639,
-        type: 3}
-      propertyPath: m_FogOfWarPlane
-      value: 
-      objectReference: {fileID: 1479201143}
-    - target: {fileID: 2274140278054075116, guid: e126473d2b197dc499f883296e1aa639,
-        type: 3}
-      propertyPath: m_Player
-      value: 
-      objectReference: {fileID: 814936092}
-    - target: {fileID: 2274140278054075116, guid: e126473d2b197dc499f883296e1aa639,
-        type: 3}
-      propertyPath: lamp
-      value: 
-      objectReference: {fileID: 19364023}
-    - target: {fileID: 2274140278054075116, guid: e126473d2b197dc499f883296e1aa639,
-        type: 3}
-      propertyPath: maxTime
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 2274140278054075116, guid: e126473d2b197dc499f883296e1aa639,
-        type: 3}
-      propertyPath: m_radius
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 2274140278054075116, guid: e126473d2b197dc499f883296e1aa639,
-        type: 3}
-      propertyPath: levelManager
-      value: 
-      objectReference: {fileID: 2125086053}
-    - target: {fileID: 2274140278054075116, guid: e126473d2b197dc499f883296e1aa639,
-        type: 3}
-      propertyPath: darkness
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2274140278054075116, guid: e126473d2b197dc499f883296e1aa639,
-        type: 3}
-      propertyPath: Player
-      value: 
-      objectReference: {fileID: 814936085}
     - target: {fileID: 2274140278054075117, guid: e126473d2b197dc499f883296e1aa639,
         type: 3}
       propertyPath: spinHeightabovePlayer
@@ -16503,6 +16503,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1230930054}
     m_Modifications:
+    - target: {fileID: 1641868856143768, guid: a6708921f3701a44f976527854381306, type: 3}
+      propertyPath: m_Name
+      value: Props_Skeleton_Skull (13)
+      objectReference: {fileID: 0}
     - target: {fileID: 4943443195327920, guid: a6708921f3701a44f976527854381306, type: 3}
       propertyPath: m_LocalPosition.x
       value: -72.32294
@@ -16546,10 +16550,6 @@ PrefabInstance:
     - target: {fileID: 4943443195327920, guid: a6708921f3701a44f976527854381306, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1641868856143768, guid: a6708921f3701a44f976527854381306, type: 3}
-      propertyPath: m_Name
-      value: Props_Skeleton_Skull (13)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a6708921f3701a44f976527854381306, type: 3}
@@ -25030,6 +25030,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1230930054}
     m_Modifications:
+    - target: {fileID: 1641868856143768, guid: a6708921f3701a44f976527854381306, type: 3}
+      propertyPath: m_Name
+      value: Props_Skeleton_Skull (15)
+      objectReference: {fileID: 0}
     - target: {fileID: 4943443195327920, guid: a6708921f3701a44f976527854381306, type: 3}
       propertyPath: m_LocalPosition.x
       value: -64.563675
@@ -25073,10 +25077,6 @@ PrefabInstance:
     - target: {fileID: 4943443195327920, guid: a6708921f3701a44f976527854381306, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: -5.775
-      objectReference: {fileID: 0}
-    - target: {fileID: 1641868856143768, guid: a6708921f3701a44f976527854381306, type: 3}
-      propertyPath: m_Name
-      value: Props_Skeleton_Skull (15)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a6708921f3701a44f976527854381306, type: 3}
@@ -28997,7 +28997,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1348194162
 RectTransform:
   m_ObjectHideFlags: 0
@@ -31699,6 +31699,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4088504733578734799, guid: 6fd9fe7409d5b9440a67ea3e3f4bdac6,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8772758763648627364, guid: 6fd9fe7409d5b9440a67ea3e3f4bdac6,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -31828,11 +31833,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_TagString
       value: CullRange
-      objectReference: {fileID: 0}
-    - target: {fileID: 4088504733578734799, guid: 6fd9fe7409d5b9440a67ea3e3f4bdac6,
-        type: 3}
-      propertyPath: m_Layer
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4088504733578734801, guid: 6fd9fe7409d5b9440a67ea3e3f4bdac6,
         type: 3}
@@ -36246,6 +36246,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1230930054}
     m_Modifications:
+    - target: {fileID: 1641868856143768, guid: a6708921f3701a44f976527854381306, type: 3}
+      propertyPath: m_Name
+      value: Props_Skeleton_Skull (1)
+      objectReference: {fileID: 0}
     - target: {fileID: 4943443195327920, guid: a6708921f3701a44f976527854381306, type: 3}
       propertyPath: m_LocalPosition.x
       value: -7.7571664
@@ -36301,10 +36305,6 @@ PrefabInstance:
     - target: {fileID: 4943443195327920, guid: a6708921f3701a44f976527854381306, type: 3}
       propertyPath: m_LocalScale.z
       value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1641868856143768, guid: a6708921f3701a44f976527854381306, type: 3}
-      propertyPath: m_Name
-      value: Props_Skeleton_Skull (1)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a6708921f3701a44f976527854381306, type: 3}
@@ -39660,7 +39660,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1855871320
 RectTransform:
   m_ObjectHideFlags: 0
@@ -43279,7 +43279,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2078039911
 RectTransform:
   m_ObjectHideFlags: 0
@@ -43430,7 +43430,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2078411668
 RectTransform:
   m_ObjectHideFlags: 0
