@@ -135,9 +135,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53fc759ce250fd240b6dd0838cd5ca02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireball_loop: 
-  fireball_hit: 
-  arrow_hit: 
+  fireball_loop: event:/Enemy/Fireball Loop
+  fireball_hit: event:/Enemy/Fireball Hit
+  arrow_hit: event:/Traps/Arrow Hit
 --- !u!114 &754432046046481132
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -152,3 +152,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   coin: event:/Environment/Collecting Treasure
   mana: event:/Environment/Mana Pickup
+  chest_sparkle: event:/Environment/Magical Treasure

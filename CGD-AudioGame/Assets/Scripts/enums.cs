@@ -18,7 +18,8 @@
     public enum PICKUP
     {
         coin,
-        mana
+        mana,
+        chest
     }
 
     public enum FOOTSTEP

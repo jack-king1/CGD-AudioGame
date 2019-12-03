@@ -8,6 +8,7 @@ public class PickupAudioController : MonoBehaviour
     List<SingleSound> sounds = new List<SingleSound>();
     [FMODUnity.EventRef] public string coin;
     [FMODUnity.EventRef] public string mana;
+    [FMODUnity.EventRef] public string chest_sparkle;
     private float last_vol;
     private float volume;
 
@@ -67,6 +68,32 @@ public class PickupAudioController : MonoBehaviour
         else if (type == PICKUP.mana)
         {
             sounds.Add(new SingleSound(owner, mana));
+        }
+        else if (type == PICKUP.chest)
+        {
+            sounds.Add(new SingleSound(owner, chest_sparkle));
+        }
+    }
+
+    public void RemoveSound(GameObject owner)
+    {
+        for (int i = 0; i < sounds.Count; i++)
+        {
+            if (sounds[i].Owner() == owner)
+            {              
+                sounds.Remove(sounds[i]);
+            }
+        }
+    }
+
+    public void StopSound(GameObject owner)
+    {
+        for (int i = 0; i < sounds.Count; i++)
+        {
+            if (sounds[i].Owner() == owner)
+            {
+                sounds[i].GetEvent().stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+            }
         }
     }
 }

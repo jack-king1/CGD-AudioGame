@@ -16,6 +16,7 @@ public class ChestOpen : MonoBehaviour
 
     private int playerID;
     GameAudioController audio_controller;
+    PickupAudioController pickup_audio_cont;
     // Start is called before the first frame update
     // posistion -60, -90 -120
     void Start()
@@ -25,9 +26,10 @@ public class ChestOpen : MonoBehaviour
         coin2.SetActive(false);
         coin3.SetActive(false);
         audio_controller = GameObject.Find("AudioController").GetComponent<GameAudioController>();
-        playerID = GetComponent<PlayerData>().PlayerID();
-
-        
+        pickup_audio_cont = GameObject.Find("AudioController").GetComponent<PickupAudioController>();
+        pickup_audio_cont.SetupSound(gameObject, PICKUP.chest);
+        pickup_audio_cont.PlaySound(gameObject);
+        playerID = GetComponent<PlayerData>().PlayerID();     
     }
 
    
@@ -66,6 +68,8 @@ public class ChestOpen : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
         audio_controller.PlayCoinSound(gameObject);
         yield return new WaitForSeconds(1.6f);
+        pickup_audio_cont.StopSound(gameObject);
+        pickup_audio_cont.RemoveSound(gameObject);
         ps.SetActive(true);
         coin1.SetActive(true);
         coin2.SetActive(true);
