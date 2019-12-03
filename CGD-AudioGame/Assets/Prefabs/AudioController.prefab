@@ -68,6 +68,8 @@ MonoBehaviour:
   atmospheric: event:/Environment/Atmospheric Sounds
   win_jingle: event:/Interface & Events/Victory Jingle
   lose_jingle: event:/Interface & Events/Loss Jingle
+  heartbeat: event:/Player/Heartbeat
+  enemies: []
 --- !u!114 &3484843366128476302
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -115,6 +117,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd8ff0450925af641a0bb477458b41e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player_footstep: event:/Player/Footsteps
+  spider_footstep: event:/Enemy/Spider Footsteps
+  bat_flap: event:/Enemy/Bat Flapping
 --- !u!114 &8235612850292739209
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -127,3 +132,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53fc759ce250fd240b6dd0838cd5ca02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fireball_loop: 
+  fireball_hit: 
+  arrow_hit: 

@@ -27,6 +27,7 @@ public class EnemyMovement : MonoBehaviour
     public ENEMYTYPE type;
     Animator anim;
     EnemyAudioController audio_controller;
+    FootstepAudioController footstep_controller;
     public LayerMask sight_layer_mask;
     void Start()
     {
@@ -43,18 +44,48 @@ public class EnemyMovement : MonoBehaviour
         }
 
         audio_controller = GameObject.Find("AudioController").GetComponent<EnemyAudioController>();
-        if (audio_controller != null)
+        audio_controller.SetupSound(gameObject, type);
+        footstep_controller = GameObject.Find("AudioController").GetComponent<FootstepAudioController>();
+        if (type == ENEMYTYPE.flying)
         {
-            audio_controller.SetupSound(gameObject, type);
+            footstep_controller.SetupSound(gameObject, FOOTSTEP.bat);
         }
-        else
+        else if (type == ENEMYTYPE.ground)
         {
-            Debug.Log("Audio controller not setup");
+            footstep_controller.SetupSound(gameObject, FOOTSTEP.spider);
         }
+        else if (type == ENEMYTYPE.ranged)
+        {
+            footstep_controller.SetupSound(gameObject, FOOTSTEP.pyro);
+        }
+    }
+
+    bool IsMoving()
+    {
+        if (agent.velocity.x == 0 && agent.velocity.y == 0 && agent.velocity.z == 0)
+        {
+            return false;
+        }
+        return true;
     }
 
     void Update()
     {
+        if (IsMoving())
+        {
+            if (!footstep_controller.IsPlaying(gameObject))
+            {
+                footstep_controller.PlaySound(gameObject);
+            }
+        }
+        else
+        {
+            if (footstep_controller.IsPlaying(gameObject))
+            {
+                footstep_controller.StopSound(gameObject);
+            }
+        }
+
         if (Input.GetKey("e"))
         {
             Time.timeScale = 0;

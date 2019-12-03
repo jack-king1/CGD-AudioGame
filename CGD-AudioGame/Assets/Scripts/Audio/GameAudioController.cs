@@ -20,9 +20,9 @@ public class GameAudioController : MonoBehaviour
     GameObject camera;
     public List<GameObject> enemies = new List<GameObject>();
     GameObject player;
-    public float lowest_distance;
+    float lowest_distance;
+
     public void SetMusicVolume(float vol) => music_volume = vol;
-    
     public void SetAtmosphericVolume(float vol) => atmospheric_volume = vol;
     
     public void SetGameVolume(float vol)

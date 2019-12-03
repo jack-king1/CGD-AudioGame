@@ -15,6 +15,14 @@
         ranged
     }
 
+    public enum FOOTSTEP
+    {
+        spider,
+        pyro,
+        player,
+        bat
+    }
+
     public enum PROJECTILE
     {
         fireball,
