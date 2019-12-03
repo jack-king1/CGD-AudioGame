@@ -3,28 +3,7 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags:
-  - Coin
-  - Projectile
-  - CheckPoint
-  - Start
-  - LevelManager
-  - Trap
-  - Door
-  - Path
-  - Enemy
-  - Stair
-  - PlayerStair
-  - PlayerModel
-  - CullRange
-  - AttractUI
-  - GameUI
-  - CineStart
-  - Fog
-  - FlyingEnemy
-  - Floor
-  - Floor2
-  - Checkpoint
+  tags: []
   layers:
   - Default
   - TransparentFX

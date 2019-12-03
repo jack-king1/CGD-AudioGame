@@ -5,7 +5,7 @@ using UnityEngine;
 public class DrawbridgeLock : MonoBehaviour
 {
     int codeLength = 4;
-    int placeInCode;
+    public static int placeInCode;
 
     int firstNumber;
     int secondNumber;
@@ -13,7 +13,9 @@ public class DrawbridgeLock : MonoBehaviour
     int fourthNumber;
 
     public string code = "";
-    public string attempedCode;
+
+    [SerializeField]
+    public static string attempedCode;
 
     public GameObject Drawbridge;
     public Animator anim;
@@ -72,6 +74,7 @@ public class DrawbridgeLock : MonoBehaviour
         if (placeInCode <= codeLength)
         {
             attempedCode += value;
+            CheckLights();
         }
 
         if (placeInCode == codeLength)
@@ -79,8 +82,15 @@ public class DrawbridgeLock : MonoBehaviour
             CheckCode();
             attempedCode = "";
             placeInCode = 0;
+            CheckLights();
+
         }
 
+        
+    }
+
+    public void CheckLights()
+    {
         if (placeInCode == 1)
         {
             light1.SetActive(true);

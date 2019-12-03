@@ -62,7 +62,7 @@ public class SpikeTrap : MonoBehaviour
         target = new Vector3(transform.position.x, transform.position.y, transform.position.z);
         if (!initialOffsetComplete && !isUndelayedTrap)
         {
-            yield return new WaitForSeconds(timer / 1.5f);
+            yield return new WaitForSeconds(timer / 1.25f);
             initialOffsetComplete = true;
             Debug.Log("Offset waited");
         }
@@ -81,7 +81,7 @@ public class SpikeTrap : MonoBehaviour
     IEnumerator Lower()
     {
         canDealDamage = false;
-        target = new Vector3(transform.position.x, transform.position.y - 3.0f, transform.position.z);
+        target = new Vector3(transform.position.x, transform.position.y - 3.5f, transform.position.z);
         raised = false;
         while (transform.GetChild(0).position != target)
         {
