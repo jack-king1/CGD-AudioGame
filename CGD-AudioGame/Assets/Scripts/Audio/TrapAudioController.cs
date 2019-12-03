@@ -4,7 +4,7 @@ using UnityEngine;
 using enums;
 public class TrapAudioController : MonoBehaviour
 {
-    List<TrapSounds> sounds = new List<TrapSounds>();
+    List<SingleSound> sounds = new List<SingleSound>();
     [FMODUnity.EventRef] public string SpikeTrap;
     [FMODUnity.EventRef] public string SawTrap;
     [FMODUnity.EventRef] public string ArrowTrap;
@@ -51,15 +51,15 @@ public class TrapAudioController : MonoBehaviour
     {
         if (trap_type == TRAP.spike)
         {
-            sounds.Add(new TrapSounds(owner, SpikeTrap));
+            sounds.Add(new SingleSound(owner, SpikeTrap));
         }
         else if (trap_type == TRAP.saw)
         {
-            sounds.Add(new TrapSounds(owner, SawTrap));
+            sounds.Add(new SingleSound(owner, SawTrap));
         }
         else if (trap_type == TRAP.arrow)
         {
-            sounds.Add(new TrapSounds(owner, ArrowTrap));
+            sounds.Add(new SingleSound(owner, ArrowTrap));
         }
     }
 
@@ -83,7 +83,7 @@ public class TrapAudioController : MonoBehaviour
 
 
 
-    IEnumerator SmoothMultiChange(TrapSounds sound, float level)
+    IEnumerator SmoothMultiChange(SingleSound sound, float level)
     {
         float multi = sound.GetVolMultiplier();
 

@@ -65,11 +65,18 @@
         <relationship name="automationTracks">
             <destination>{300eb74c-12f0-4c47-ab4d-c843c5195ffa}</destination>
         </relationship>
+        <relationship name="modules">
+            <destination>{93330d61-e8c6-43ae-bdfe-c2d183ade93b}</destination>
+        </relationship>
         <relationship name="mixerGroup">
             <destination>{42e7a691-6466-4f27-86d0-4c0ec3ce31f9}</destination>
         </relationship>
     </object>
-    <object class="Timeline" id="{15e986a4-5e10-4462-bd75-d6a6200b12fa}"/>
+    <object class="Timeline" id="{15e986a4-5e10-4462-bd75-d6a6200b12fa}">
+        <relationship name="modules">
+            <destination>{93330d61-e8c6-43ae-bdfe-c2d183ade93b}</destination>
+        </relationship>
+    </object>
     <object class="ParameterProxy" id="{57d6efb4-e0b0-4bc9-82b5-3eb1f6bdc427}">
         <relationship name="preset">
             <destination>{f45b08cc-9dda-45a9-89e8-84f0ba1ea121}</destination>
@@ -95,6 +102,11 @@
     <object class="AutomationTrack" id="{300eb74c-12f0-4c47-ab4d-c843c5195ffa}">
         <relationship name="automator">
             <destination>{ba672582-6cd0-45b7-9537-dba2a9642e0e}</destination>
+        </relationship>
+    </object>
+    <object class="SingleSound" id="{93330d61-e8c6-43ae-bdfe-c2d183ade93b}">
+        <relationship name="audioFile">
+            <destination>{97e4ae8e-ca6c-4f90-ab4c-aa670204cb6f}</destination>
         </relationship>
     </object>
     <object class="EventMixerGroup" id="{42e7a691-6466-4f27-86d0-4c0ec3ce31f9}">

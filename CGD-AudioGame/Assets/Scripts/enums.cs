@@ -15,6 +15,12 @@
         ranged
     }
 
+    public enum PICKUP
+    {
+        coin,
+        mana
+    }
+
     public enum FOOTSTEP
     {
         spider,

@@ -1,14 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using enums;
-public class TrapSounds
+
+public class SingleSound : MonoBehaviour
 {
-    private GameObject owner;
+    GameObject owner;
     private FMOD.Studio.EventInstance sound_instance;
     private float vol_multi = 1;
 
-    public TrapSounds(GameObject obj, string sound)
+    public SingleSound(GameObject obj, string sound)
     {
         owner = obj;
         sound_instance = FMODUnity.RuntimeManager.CreateInstance(sound);
