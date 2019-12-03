@@ -18,6 +18,9 @@ public class SawTrap : MonoBehaviour
     float lowered_height;
     float raised_height;
     float player_distance;
+    public float volume = 100;
+    bool spinning_up = false;
+    bool spinning_down = false;
     // Start is called before the first frame update
     void Start()
     {    
@@ -50,11 +53,11 @@ public class SawTrap : MonoBehaviour
             player_distance = 0;
         }
 
-        if (player_distance <= raise_range && !raised)
+        if (player_distance <= raise_range && !raised && !spinning_up && !spinning_down)
         {
             StartCoroutine(Raise());
         }
-        else if (player_distance > raise_range && raised)
+        else if (player_distance > raise_range && raised && !spinning_up && !spinning_down)
         {
             StartCoroutine(Lower());
         }
@@ -94,21 +97,41 @@ public class SawTrap : MonoBehaviour
 
     IEnumerator SpinUp()
     {
+        spinning_up = true;
         while (spin_speed < 350)
         {
-            spin_speed += 50 * Time.deltaTime;
+            if (volume < 100)
+            {
+                volume += 250 * Time.deltaTime;
+            }
+            audio_controller.SetParameter(gameObject, "Volume", volume);
+            audio_controller.SetParameter(gameObject, "Pitch", volume);
+            spin_speed += 250 * Time.deltaTime;
             yield return null;
         }
+        audio_controller.SetParameter(gameObject, "Volume", 100);
+        audio_controller.SetParameter(gameObject, "Pitch", 100);
         spin_speed = 350;
+        spinning_up = false;
     }
     IEnumerator SpinDown()
     {
+        spinning_down = true;
         while (spin_speed > 0)
         {
-            spin_speed -= 10 * Time.deltaTime;
+            if (volume > 0)
+            {
+                volume -= 250 * Time.deltaTime;
+            }
+            audio_controller.SetParameter(gameObject, "Volume", volume);
+            audio_controller.SetParameter(gameObject, "Pitch", volume);
+            spin_speed -= 250 * Time.deltaTime;
             yield return null;
         }
+        audio_controller.SetParameter(gameObject, "Volume", 0);
+        audio_controller.SetParameter(gameObject, "Pitch", 0);
         spin_speed = 0;
+        spinning_down = false;
     }
 
     void Move()

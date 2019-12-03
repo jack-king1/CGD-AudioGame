@@ -113,4 +113,18 @@ public class TrapAudioController : MonoBehaviour
         }
         sound.SetVolMultiplier(level);
     }
+
+    public float GetParameter(GameObject owner, string param)
+    {
+        float val = 0;
+        float val2 = 0;
+        for (int i = 0; i < sounds.Count; i++)
+        {
+            if (sounds[i].Owner() == owner)
+            {
+                sounds[i].GetEvent().getParameterValue(param, out val, out val2);              
+            }
+        }
+        return val;
+    }
 }
