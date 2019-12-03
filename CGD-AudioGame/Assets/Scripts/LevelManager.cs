@@ -16,12 +16,13 @@ public class LevelManager : MonoBehaviour
     public Transform m_PlayerStartPos;
     public Transform m_PlayerFinishPos;
     private GameObject m_Player;
-
+    GameAudioController audio_controller;
 
     private void Start()
-    {
+    {       
         m_Player = GameObject.FindGameObjectWithTag("Player");
         timerResetValue = m_levelTimer;
+        audio_controller = GameObject.Find("AudioController").GetComponent<GameAudioController>();
     }
 
     private void Update()
@@ -36,8 +37,7 @@ public class LevelManager : MonoBehaviour
             {
                 levelLost = true;
                 m_levelTimer = 0.0f;
-            }
-            
+            }     
         }
     }
 

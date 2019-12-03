@@ -20,12 +20,35 @@ public class FootstepAudioController : MonoBehaviour
         }
     }
 
+    public void SetSurface (GameObject owner, SURFACE surface)
+    {
+        for (int i = 0; i < sounds.Count; i++)
+        {
+            if (sounds[i].Owner() == owner)
+            {
+                if (surface == SURFACE.stone)
+                {
+                    sounds[i].GetEvent().setParameterValue("Surface", 0.5f);
+                }
+                else if (surface == SURFACE.wood)
+                {
+                    sounds[i].GetEvent().setParameterValue("Surface", 2.5f);
+                }
+                else if (surface == SURFACE.water)
+                {
+                    sounds[i].GetEvent().setParameterValue("Surface", 1.5f);
+                }
+            }
+        }
+    }
+
     public void PlaySound(GameObject owner)
     {
         for (int i = 0; i < sounds.Count; i++)
         {
             if (sounds[i].Owner() == owner)
             {
+                sounds[i].GetEvent().setParameterValue("Pace", 1.0f);
                 sounds[i].GetEvent().set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(sounds[i].Owner()));
                 sounds[i].GetEvent().start();
             }

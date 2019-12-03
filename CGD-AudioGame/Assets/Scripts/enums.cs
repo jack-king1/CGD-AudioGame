@@ -81,6 +81,14 @@
         floor2
     }
 
+    public enum SURFACE
+    {
+        stone,
+        wood,
+        water
+    }
+
+
     public enum SCENE
     {
 

@@ -104,6 +104,9 @@
         </relationship>
     </object>
     <object class="EventMixerMaster" id="{f3b9f8cd-acf7-424e-94cb-ea449e63fc32}">
+        <property name="pitch">
+            <value>-1</value>
+        </property>
         <relationship name="effectChain">
             <destination>{dd47f898-c359-4047-b738-032c3bb9ab86}</destination>
         </relationship>

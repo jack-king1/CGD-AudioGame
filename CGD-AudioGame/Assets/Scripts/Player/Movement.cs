@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using enums;
 [RequireComponent(typeof(PlayerData), typeof(Rigidbody))]
 public class Movement : MonoBehaviour
 {
@@ -18,17 +18,33 @@ public class Movement : MonoBehaviour
     private float current_rotation;
     public Animator anim;
     private GameObject PlayerModel;
-
+    FootstepAudioController audio_controller;
     private void Start()
     {
         playerID = GetComponent<PlayerData>().PlayerID();
         rb = GetComponent<Rigidbody>();
         anim = GetComponentInChildren<Animator>();
         PlayerModel = GameObject.FindGameObjectWithTag("PlayerModel");
+        audio_controller = GameObject.Find("AudioController").GetComponent<FootstepAudioController>();
+        audio_controller.SetupSound(gameObject, FOOTSTEP.player);
     }
 
     public void Update()
     {
+        if (anim.GetBool("Moving"))
+        {
+            if (!audio_controller.IsPlaying(gameObject))
+            {
+                audio_controller.PlaySound(gameObject);
+            }
+        }
+        else
+        {
+            if (audio_controller.IsPlaying(gameObject))
+            {
+                audio_controller.StopSound(gameObject);
+            }
+        }
 
         var currentPosition = transform.position;
         if (currentPosition != lastPosition)
@@ -36,7 +52,7 @@ public class Movement : MonoBehaviour
             if(footStepVolume != 0)
             {
                 SetFootstepVolume(0);
-                anim.SetBool("Moving", false);
+                anim.SetBool("Moving", false);              
             }
         }
     }
