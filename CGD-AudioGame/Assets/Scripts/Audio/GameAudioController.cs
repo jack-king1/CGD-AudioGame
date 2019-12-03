@@ -78,6 +78,7 @@ public class GameAudioController : MonoBehaviour
     {
         chest_event.start();
         yield return new WaitForSeconds(0.5f);
+        chest_event.start();
         int num_loops = 5;
         for (int i = 0; i < num_loops; i++)
         {
