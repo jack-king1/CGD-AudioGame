@@ -5,7 +5,8 @@ using UnityEngine;
 public class PlayerData : MonoBehaviour
 {
     [SerializeField] private int playerID = 0;
-    private float playerScore = 0;
+    public float playerScore = 0;
+    public float finalScore = 0;
 
     public int PlayerID()
     {
@@ -17,4 +18,22 @@ public class PlayerData : MonoBehaviour
         return playerScore;
     }
 
+    public void PlayerScore(float amount)
+    {
+        playerScore += amount;
+    }
+
+    public float CalculateFinalScore(bool levelWon)
+    {
+        if(levelWon)
+        {
+            finalScore = playerScore * GameObject.FindGameObjectWithTag("LevelManager").
+                GetComponent<LevelManager>().LevelTimer();
+        }
+        else
+        {
+            finalScore = playerScore;
+        }
+        return finalScore;
+    }
 }

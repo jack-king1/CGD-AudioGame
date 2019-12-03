@@ -4892,11 +4892,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: C:\Users\Hazar\Documents\University Work\Year 3\CGD\CGD-AudioGame\CGD-AudioGame\BlankFMod
     (To Be Replaced)\Build\Desktop\Master Bank.bank
-  lastModified: 637103769867501952
+  lastModified: 637104449190612525
   LoadResult: 0
   FileSizes:
   - Name: Desktop
-    Value: 12474
+    Value: 46144
   Exists: 1
 --- !u!114 &-2928208428111236503
 MonoBehaviour:
@@ -7738,16 +7738,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Path: event:/TestSound
-  guid: fcfb8db96fb98245b5c3626c3a369a18
+  guid: bd8ec98b77c694478e8eaae55985ecb0
   Banks:
-  - {fileID: 1746001798280986269}
+  - {fileID: -2252989466103658973}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
   Parameters:
-  - {fileID: -2545875355266972827}
-  MinDistance: 1
-  MaxDistance: 20
+  - {fileID: -2711773837722768075}
+  MinDistance: 720
+  MaxDistance: 10000
   Length: 3089
 --- !u!114 &1190564661026779680
 MonoBehaviour:
@@ -8386,11 +8386,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Path: BlankFMod (To Be Replaced)\Build\Desktop\Master Bank.strings.bank
-  lastModified: 637103769867881730
+  lastModified: 637104449190652404
   LoadResult: 0
   FileSizes:
   - Name: Desktop
-    Value: 672
+    Value: 720
   Exists: 1
 --- !u!114 &1989830930008868437
 MonoBehaviour:

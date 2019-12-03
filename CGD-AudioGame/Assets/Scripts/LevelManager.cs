@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class LevelManager : MonoBehaviour
 {
     [SerializeField] private float m_levelTimer = 60;
+
     private float timerResetValue;
     [SerializeField] private int m_levelID = 0;
     public bool m_startLevel = false;
@@ -16,12 +17,20 @@ public class LevelManager : MonoBehaviour
     public Transform m_PlayerStartPos;
     public Transform m_PlayerFinishPos;
     private GameObject m_Player;
+    public GameObject playerPrefab;
+    public PlayerCP pchkpt;
     GameAudioController audio_controller;
+
+
+    public Score score;
 
     private void Start()
     {       
         m_Player = GameObject.FindGameObjectWithTag("Player");
+        score = GetComponent<Score>();
         timerResetValue = m_levelTimer;
+        pchkpt = GetComponent<PlayerCP>();
+        pchkpt.activeCP = m_PlayerStartPos;
         audio_controller = GameObject.Find("AudioController").GetComponent<GameAudioController>();
     }
 
@@ -32,12 +41,18 @@ public class LevelManager : MonoBehaviour
             if(m_levelTimer > 0)
             {
                 m_levelTimer -= Time.deltaTime;
+                if (!m_Player)
+                {
+                   m_Player = Instantiate(playerPrefab, pchkpt.activeCP.transform.position, Quaternion.identity);
+                }
             }
             else if(m_levelTimer <= 0)
             {
-                levelLost = true;
+                LevelLost();
                 m_levelTimer = 0.0f;
-            }     
+            }
+
+
         }
     }
 
@@ -54,6 +69,7 @@ public class LevelManager : MonoBehaviour
     public bool IsLevelLost()
     {
         return levelLost;
+
     }
 
     public void LevelWin()

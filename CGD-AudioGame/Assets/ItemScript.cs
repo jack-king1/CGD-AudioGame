@@ -5,12 +5,13 @@ using enums;
 public class ItemScript : MonoBehaviour
 {
     public FogOfWarScript fow;
-    public MeshRenderer mesh;
     PickupAudioController audio_controller;
+    public SkinnedMeshRenderer Skinned;
+    public PlayerData Pd;
     // Start is called before the first frame update
     void Start()
     {
-        mesh.enabled = false;
+        Skinned.enabled = false;
         audio_controller = GameObject.Find("AudioController").GetComponent<PickupAudioController>();
         audio_controller.SetupSound(gameObject, PICKUP.mana);
     }
@@ -43,10 +44,9 @@ public class ItemScript : MonoBehaviour
 
 
         if(other.tag == "CullRange")
-        {
-            Debug.Log("Why");
-            mesh.enabled = true;
-            
+        { 
+            Skinned.enabled = true;
+
         }
 
        
@@ -55,6 +55,7 @@ public class ItemScript : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        mesh.enabled = false;
+      
+        Skinned.enabled = false;
     }
 }

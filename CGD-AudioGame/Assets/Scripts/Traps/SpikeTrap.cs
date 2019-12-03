@@ -15,7 +15,6 @@ public class SpikeTrap : MonoBehaviour
     public float speed = 30;
     private Vector3 target;
     TrapAudioController audio_controller;
-
     private bool initialOffsetComplete = false;
 
     // Start is called before the first frame update
@@ -30,6 +29,7 @@ public class SpikeTrap : MonoBehaviour
         {
             StartCoroutine(Raise());
         }
+
         if (isUndelayedTrap)
         {
             alternateTimer = 6.0f;
@@ -65,12 +65,12 @@ public class SpikeTrap : MonoBehaviour
     }
 
     IEnumerator Raise()
-    {    
+    {
         target = new Vector3(transform.position.x, transform.position.y, transform.position.z);
         
         if (!initialOffsetComplete && !isUndelayedTrap)
         {
-            yield return new WaitForSeconds(timer / 1.5f);
+            yield return new WaitForSeconds(timer / 1.25f);
             initialOffsetComplete = true;
             Debug.Log("Offset waited");
         }
@@ -87,15 +87,14 @@ public class SpikeTrap : MonoBehaviour
         yield return new WaitForSeconds(damageWindow);
         canDealDamage = false;
         raised = true;
-        yield return new WaitForSeconds(timer/3.0f - damageWindow);
+        yield return new WaitForSeconds(timer / 3.0f - damageWindow);
         StartCoroutine(Lower());
     }
 
     IEnumerator Lower()
     {
         canDealDamage = false;
-        target = new Vector3(transform.position.x, transform.position.y - 3.0f, transform.position.z);
-        
+        target = new Vector3(transform.position.x, transform.position.y - 3.5f, transform.position.z);
         raised = false;
         while (transform.GetChild(0).position != target)
         {
