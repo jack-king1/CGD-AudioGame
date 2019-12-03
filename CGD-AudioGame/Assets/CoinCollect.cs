@@ -1,18 +1,20 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using enums;
 public class CoinCollect : MonoBehaviour
 { 
     public float scoreAmount = 100;
     public Transform start;
     public Transform end;
-
+    PickupAudioController audio_controller;
     private void Update()
     {
         transform.Rotate(0, 60 * Time.deltaTime, 0);
 
         transform.position = new Vector3(gameObject.transform.position.x, Mathf.Lerp(start.transform.position.y, end.transform.position.y, Mathf.PingPong(Time.time, 1)), gameObject.transform.position.z);
+        audio_controller = GameObject.Find("AudioController").GetComponent<PickupAudioController>();
+        audio_controller.SetupSound(gameObject, PICKUP.mana);
     }
 
     void OnTriggerEnter(Collider col)
@@ -20,6 +22,7 @@ public class CoinCollect : MonoBehaviour
         Debug.Log("Coin Collided");
         if (col.CompareTag("Player"))
         {
+            audio_controller.PlaySound(gameObject);
             GameObject.FindGameObjectWithTag("LevelManager").GetComponent<Score>().playerScore += scoreAmount;
             Destroy(gameObject);
         }
