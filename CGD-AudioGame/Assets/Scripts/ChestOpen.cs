@@ -43,10 +43,7 @@ public class ChestOpen : MonoBehaviour
             {
                 
                 StartCoroutine (Chest());
-                //coin1.GetComponent<GameObject>().transform.rotation.y(-90);
-                coin1 = Instantiate(coin1, transform.TransformPoint(Vector3.forward), transform.SetPositionAndRotation(new Vector3(0,0,0), Quaternion.Euler(new Vector3(0,-90,0)));
-
-
+                
             }
         }
     }
