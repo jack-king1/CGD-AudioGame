@@ -23,6 +23,10 @@ TagManager:
   - Fog
   - FlyingEnemy
   - CodeLock
+  - Room1
+  - Room2
+  - Room3
+  - Room4
   layers:
   - Default
   - TransparentFX
