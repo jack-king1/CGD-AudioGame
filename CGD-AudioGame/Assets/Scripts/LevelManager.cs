@@ -49,8 +49,6 @@ public class LevelManager : MonoBehaviour
                 LevelLost();
                 m_levelTimer = 0.0f;
             }
-
-
         }
     }
 
@@ -102,11 +100,11 @@ public class LevelManager : MonoBehaviour
 
     public void NextLevel()
     {
-        SceneManager.LoadScene(LevelID() + 1);
+        SceneManager.LoadScene(0);
     }
 
     public void LoseScene()
     {
-        SceneManager.LoadScene(LevelID() + 2);
+        SceneManager.LoadScene(0);
     }
 }

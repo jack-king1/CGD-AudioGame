@@ -34,9 +34,11 @@ public class SpikeTrap : MonoBehaviour
         {
             alternateTimer = 6.0f;
         }
-
-        audio_controller = GameObject.Find("AudioController").GetComponent<TrapAudioController>();
-        audio_controller.SetupSound(gameObject, TRAP.spike);
+        if(GameObject.Find("AudioController").GetComponent<TrapAudioController>() != null)
+        {
+            audio_controller = GameObject.Find("AudioController").GetComponent<TrapAudioController>();
+            audio_controller.SetupSound(gameObject, TRAP.spike);
+        }
     }
 
     // Update is called once per frame

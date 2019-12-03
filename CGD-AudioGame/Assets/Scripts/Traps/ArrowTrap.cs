@@ -19,8 +19,11 @@ public class ArrowTrap : MonoBehaviour
         button = transform.GetChild(0).gameObject;
         target = transform.GetChild(1);
 
-        audio_controller = GameObject.Find("AudioController").GetComponent<TrapAudioController>();
-        audio_controller.SetupSound(gameObject, enums.TRAP.arrow);
+        if(GameObject.Find("AudioController").GetComponent<TrapAudioController>() != null)
+        {
+            audio_controller = GameObject.Find("AudioController").GetComponent<TrapAudioController>();
+            audio_controller.SetupSound(gameObject, enums.TRAP.arrow);
+        }
     }
 
     public void FireArrow()

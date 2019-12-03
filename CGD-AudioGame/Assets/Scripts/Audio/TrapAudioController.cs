@@ -21,7 +21,7 @@ public class TrapAudioController : MonoBehaviour
         for (int i = 0; i < sounds.Count; i++)
         {
             sounds[i].SetVolume(volume);
-            Debug.Log(sounds[i].GetVolume() + " TRAP VOL");
+            //Debug.Log(sounds[i].GetVolume() + " TRAP VOL");
         }
     }
 

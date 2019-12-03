@@ -21,8 +21,15 @@ public class SawTrap : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        audio_controller = GameObject.Find("AudioController").GetComponent<TrapAudioController>();
-        audio_controller.SetupSound(gameObject, enums.TRAP.saw);
+        if(GameObject.Find("AudioController").GetComponent<TrapAudioController>() != null)
+        {
+            audio_controller = GameObject.Find("AudioController").GetComponent<TrapAudioController>();
+        }
+        if(audio_controller != null)
+        {
+            audio_controller.SetupSound(gameObject, enums.TRAP.saw);
+        }
+        
         transform.position = start_point.position;
         lowered_height = transform.position.y - 2;
         raised_height = transform.position.y;

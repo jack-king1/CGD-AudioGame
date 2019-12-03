@@ -45,7 +45,6 @@ public class FogOfWarScript : MonoBehaviour
             if(lamp)
             {
                 lamp.spotAngle -= 10;
-                lamp.color -= (Color.white / 7.0f);
             }
             else
             {
