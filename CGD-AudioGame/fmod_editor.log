@@ -7,13 +7,104 @@
 [LOG] OutputWASAPI::init                       : Output buffer size: 4096 samples, latency: 0.00ms, period: 10.00ms, DSP buffer: 1024 * 4
 [LOG] Thread::initThread                       : Init FMOD stream thread. Priority: 2, Stack Size: 65536, Semaphore: No, Sleep Time: 10, Looping: Yes.
 [LOG] Thread::initThread                       : Init FMOD mixer thread. Priority: 3, Stack Size: 49152, Semaphore: No, Sleep Time: 0, Looping: Yes.
-[LOG] AsyncManager::init                       : manager 000001DD7D917BE8 isAsync 0 updatePeriod 0.02
+[LOG] AsyncManager::init                       : manager 000001DD7D916ED8 isAsync 0 updatePeriod 0.02
 [LOG] AsyncManager::init                       : done
 [LOG] PlaybackSystem::init                     : 
 [LOG] Thread::initThread                       : Init FMOD Studio sample load thread. Priority: 0, Stack Size: 65536, Semaphore: No, Sleep Time: 1, Looping: No.
 [LOG] PlaybackSystem::init                     : done
 [LOG] Thread::initThread                       : Init FMOD Studio bank load thread. Priority: 0, Stack Size: 65536, Semaphore: No, Sleep Time: 1, Looping: No.
 [LOG] Manager::init                            : done.
+[LOG] Manager::readBank                        : fileversion = 100, compatVersion = 99 (oldest = 44, newest = 100)
+[LOG] SystemI::createSoundInternal             : Create name='', mode=0x02000202
+[LOG] SystemI::createSoundInternal             : exinfo->cbsize             = 232
+[LOG] SystemI::createSoundInternal             : exinfo->length             = 3432416
+[LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 64800
+[LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 00000085388FF03C
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FFA538BD9C0
+[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FFA538BD990
+[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FFA538BDA90
+[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FFA538BDB50
+[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 000001DD7D84A448
+[LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
+[LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
+[LOG] SystemI::createSoundInternal             : Sample 0/1: name='Fire-ball-sustain', format=2, channels=2, frequency=48000, lengthbytes=31296, lengthpcm=192000, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.153040.
+[LOG] SystemI::createSoundInternal             : Create name='', mode=0x02000202
+[LOG] SystemI::createSoundInternal             : exinfo->cbsize             = 232
+[LOG] SystemI::createSoundInternal             : exinfo->length             = 3432416
+[LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 64800
+[LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 00000085388FF03C
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FFA538BD9C0
+[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FFA538BD990
+[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FFA538BDA90
+[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FFA538BDB50
+[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 000001DD7D84A448
+[LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
+[LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
+[LOG] SystemI::createSoundInternal             : Sample 0/1: name='fire-impact', format=2, channels=2, frequency=48000, lengthbytes=42432, lengthpcm=192000, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.880074.
+[LOG] Manager::readBank                        : fileversion = 100, compatVersion = 99 (oldest = 44, newest = 100)
+[LOG] SoundI::release                          : Player_Heartbeat (000001DD7A239C58)
+[LOG] SoundI::release                          :     Player_Heartbeat (000001DD2577FBE8)
+[LOG] SoundI::release                          :     Player_Heartbeat (000001DD2D947308)
+[LOG] SoundI::release                          : Dungeon Strolling (000001DD7A239748)
+[LOG] SoundI::release                          :     Dungeon Strolling (000001DD2577F568)
+[LOG] SoundI::release                          :     Dungeon Strolling (000001DD2D947668)
+[LOG] SoundI::release                          : Dungeon Atmos (000001DD7A2398F8)
+[LOG] SoundI::release                          :     Dungeon Atmos (000001DD2577FD88)
+[LOG] SoundI::release                          :     Dungeon Atmos (000001DD2D947158)
+[LOG] SoundI::release                          :  (000001DD2210CD08)
+[LOG] SoundI::release                          :     Player_Footsteps_Stone_6 (000001DD7AF67598)
+[LOG] SoundI::release                          :  (000001DD2210A358)
+[LOG] SoundI::release                          :     Player_Footsteps_Stone_7 (000001DD7DA50AB8)
+[LOG] SoundI::release                          :  (000001DD2210A638)
+[LOG] SoundI::release                          :     Player_Footsteps_Stone_4 (000001DD0AD90BE8)
+[LOG] SoundI::release                          :  (000001DD22109C28)
+[LOG] SoundI::release                          :     Player_Footsteps_Stone_1 (000001DD7AF670B8)
+[LOG] SoundI::release                          :  (000001DD2210D9F8)
+[LOG] SoundI::release                          :     Player_Footsteps_Puddle_3 (000001DD0AD90D88)
+[LOG] SoundI::release                          :  (000001DD2210BD38)
+[LOG] SoundI::release                          :     Player_Footsteps_Puddle_4 (000001DD11E3F3B8)
+[LOG] SoundI::release                          :  (000001DD2210C5D8)
+[LOG] SoundI::release                          :     Player_Footsteps_Puddle_5 (000001DD11E3F078)
+[LOG] SoundI::release                          :  (000001DD22109D98)
+[LOG] SoundI::release                          :     Player_Footsteps_Puddle_1 (000001DD11E3F218)
+[LOG] SoundI::release                          :  (000001DD2210C018)
+[LOG] SoundI::release                          :     Player_Footsteps_Wood_2 (000001DD11E3E9F8)
+[LOG] SoundI::release                          :  (000001DD2210A7A8)
+[LOG] SoundI::release                          :     Player_Footsteps_Wood_3 (000001DD7DA50918)
+[LOG] SoundI::release                          :  (000001DD2210CB98)
+[LOG] SoundI::release                          :     Player_Footsteps_Wood_4 (000001DD0AD908A8)
+[LOG] SoundI::release                          :  (000001DD2210C468)
+[LOG] SoundI::release                          :     Player_Footsteps_Wood_5 (000001DD11E3EB98)
+[LOG] SoundI::release                          :  (000001DD2210A4C8)
+[LOG] SoundI::release                          :     Player_Footsteps_Wood_8 (000001DD11E3ED38)
+[LOG] SoundI::release                          :  (000001DD2210B608)
+[LOG] SoundI::release                          :     Fire-ball-Shoot (000001DD7AF67258)
+[LOG] SoundI::release                          :  (000001DD7E053248)
+[LOG] SoundI::release                          :     fire-impact (000001DD2577F708)
+[LOG] SoundI::release                          :  (000001DD2210A1E8)
+[LOG] SoundI::release                          :     Player_Death_1 (000001DD0AD90708)
+[LOG] SoundI::release                          :  (000001DD2210C748)
+[LOG] SoundI::release                          :     Player_Death_2 (000001DD11E3EED8)
+[LOG] SoundI::release                          :  (000001DD2210C2F8)
+[LOG] SoundI::release                          :     Player_Death_3 (000001DD7AF673F8)
+[LOG] SoundI::release                          :  (000001DD7E0530D8)
+[LOG] SoundI::release                          :     Fire-ball-sustain (000001DD2577F228)
+[LOG] Thread::callback                         : FMOD Studio update thread finished.
+[LOG] Thread::callback                         : FMOD Studio bank load thread finished.
+[LOG] Profile::disconnectAll                   : Profiler disconnecting all clients
+[LOG] Thread::callback                         : FMOD Studio sample load thread finished.
+[LOG] LiveUpdate::release                      : 
+[LOG] LiveUpdate::reset                        : Reset connection (reason Disconnected)
+[LOG] Thread::callback                         : FMOD stream thread finished.
+[LOG] Thread::callback                         : FMOD mixer thread finished.
+[LOG] Profile::disconnectAll                   : Profiler disconnecting all clients
+[LOG] SystemI::close                           : Closed.
 [LOG] Manager::readBank                        : fileversion = 100, compatVersion = 99 (oldest = 44, newest = 100)
 [LOG] Manager::readBank                        : fileversion = 100, compatVersion = 99 (oldest = 44, newest = 100)
 [LOG] Manager::readBank                        : fileversion = 100, compatVersion = 99 (oldest = 44, newest = 100)
@@ -27,4 +118,6 @@
 [LOG] LiveUpdate::reset                        : Reset connection (reason Disconnected)
 [LOG] Thread::callback                         : FMOD stream thread finished.
 [LOG] Thread::callback                         : FMOD mixer thread finished.
+[LOG] Thread::callback                         : FMOD nonblocking thread (0) finished.
+[LOG] Thread::callback                         : FMOD file thread finished.
 [LOG] SystemI::close                           : Closed.

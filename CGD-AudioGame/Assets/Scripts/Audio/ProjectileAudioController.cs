@@ -43,6 +43,8 @@ public class ProjectileAudioController : MonoBehaviour
         {
             sounds.Add(new ProjectileSounds(owner, fireball_hit, fireball_loop));
         }
+        sounds[sounds.Count - 1].GetLoop().setParameterValue("Volume", game_volume);
+        sounds[sounds.Count - 1].GetHit().setParameterValue("Volume", game_volume);
     }
 
     public void RemoveSound(GameObject owner, float delay)

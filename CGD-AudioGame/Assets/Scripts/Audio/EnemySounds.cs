@@ -13,9 +13,18 @@ public class EnemySounds : MonoBehaviour
     public EnemySounds(GameObject obj, string attack, string chase, string die)
     {
         owner = obj;
-        attack_event = FMODUnity.RuntimeManager.CreateInstance(attack);
-        chase_event = FMODUnity.RuntimeManager.CreateInstance(chase);
-        die_event = FMODUnity.RuntimeManager.CreateInstance(die);
+        if (attack != "No Sound")
+        {
+            attack_event = FMODUnity.RuntimeManager.CreateInstance(attack);
+        }
+        if (chase != "No Sound")
+        {
+            chase_event = FMODUnity.RuntimeManager.CreateInstance(chase);
+        }
+        if (die != "No Sound")
+        {
+            die_event = FMODUnity.RuntimeManager.CreateInstance(die);
+        }
     }
 
     public GameObject Owner() => owner;
@@ -23,7 +32,7 @@ public class EnemySounds : MonoBehaviour
 
 
     public void SetVolume(float volume)
-    {
+    { 
         attack_event.setParameterValue("Volume", volume * vol_multi);
         chase_event.setParameterValue("Volume", volume * vol_multi);
         die_event.setParameterValue("Volume", volume * vol_multi);

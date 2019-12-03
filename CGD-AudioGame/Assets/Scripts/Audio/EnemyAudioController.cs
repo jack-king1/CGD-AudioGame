@@ -39,6 +39,7 @@ public class EnemyAudioController : MonoBehaviour
             {
                 if (sound_type == SOUND.attack)
                 {
+                    Debug.Log("SOUND TRIGGERED");
                     sounds[i].GetAttack().set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(sounds[i].Owner()));
                     sounds[i].GetAttack().start();
                 }
@@ -60,7 +61,7 @@ public class EnemyAudioController : MonoBehaviour
     {
         for (int i = 0; i < sounds.Count; i++)
         {
-            if  (sounds[i].Owner() == owner)
+            if (sounds[i].Owner() == owner)
             {
                 if (sound_type == SOUND.attack)
                 {
@@ -73,9 +74,9 @@ public class EnemyAudioController : MonoBehaviour
                 else if (sound_type == SOUND.die)
                 {
                     sounds[i].GetDeath().setParameterValue(param, val);
-                }             
+                }
             }
-        }      
+        }
     }
 
     public void SetVolMultiplier(GameObject owner, bool reduced)
@@ -97,7 +98,7 @@ public class EnemyAudioController : MonoBehaviour
     }
 
     IEnumerator SmoothMultiChange(EnemySounds sound, float level)
-    { 
+    {
         float multi = sound.GetVolMultiplier();
 
         if (level > multi)
@@ -156,7 +157,7 @@ public class EnemyAudioController : MonoBehaviour
     public void RemoveSound(GameObject owner)
     {
         for (int i = 0; i < sounds.Count; i++)
-        {   
+        {
             if (sounds[i].Owner() == owner)
             {
                 sounds.Remove(sounds[i]);
