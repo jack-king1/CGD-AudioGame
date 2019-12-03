@@ -69,6 +69,8 @@ MonoBehaviour:
   win_jingle: event:/Interface & Events/Victory Jingle
   lose_jingle: event:/Interface & Events/Loss Jingle
   heartbeat: event:/Player/Heartbeat
+  coins: event:/Environment/Collecting Treasure
+  chest: event:/Environment/Opening Treasure Chest
   enemies: []
 --- !u!114 &3484843366128476302
 MonoBehaviour:

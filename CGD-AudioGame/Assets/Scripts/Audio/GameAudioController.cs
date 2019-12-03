@@ -12,11 +12,15 @@ public class GameAudioController : MonoBehaviour
     [FMODUnity.EventRef] public string win_jingle;
     [FMODUnity.EventRef] public string lose_jingle;
     [FMODUnity.EventRef] public string heartbeat;
+    [FMODUnity.EventRef] public string coins;
+    [FMODUnity.EventRef] public string chest;
     FMOD.Studio.EventInstance music_event;
     FMOD.Studio.EventInstance atmospheric_event;
     FMOD.Studio.EventInstance win_event;
     FMOD.Studio.EventInstance lose_event;
     FMOD.Studio.EventInstance heartbeat_event;
+    FMOD.Studio.EventInstance coins_event;
+    FMOD.Studio.EventInstance chest_event;
     GameObject camera;
     public List<GameObject> enemies = new List<GameObject>();
     GameObject player;
@@ -37,6 +41,8 @@ public class GameAudioController : MonoBehaviour
         music_event = FMODUnity.RuntimeManager.CreateInstance(music);
         atmospheric_event = FMODUnity.RuntimeManager.CreateInstance(atmospheric);
         heartbeat_event = FMODUnity.RuntimeManager.CreateInstance(heartbeat);
+        coins_event = FMODUnity.RuntimeManager.CreateInstance(coins);
+        chest_event = FMODUnity.RuntimeManager.CreateInstance(chest);
         heartbeat_event.start();
         music_event.start();
         atmospheric_event.start();
@@ -60,6 +66,26 @@ public class GameAudioController : MonoBehaviour
 
     public void PlayWinJingle() => win_event.start();
     public void PlayLoseJingle() => lose_event.start();
+
+    public void PlayCoinSound(GameObject chest)
+    {
+        coins_event.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(chest));
+        chest_event.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(chest));
+        StartCoroutine(ChestSequence());
+    }
+
+    IEnumerator ChestSequence()
+    {
+        chest_event.start();
+        yield return new WaitForSeconds(0.5f);
+        int num_loops = 5;
+        for (int i = 0; i < num_loops; i++)
+        {
+            coins_event.start();
+            yield return new WaitForSeconds(0.5f);
+        }
+    }
+
 
     float HeartbeatDetect()
     {

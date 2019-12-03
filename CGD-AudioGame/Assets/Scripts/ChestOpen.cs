@@ -7,7 +7,6 @@ public class ChestOpen : MonoBehaviour
 
     public Animator anim;
     public bool animPlayed = false;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -23,6 +22,8 @@ public class ChestOpen : MonoBehaviour
             {
                 anim.Play("Chest Open");
                 animPlayed = true;
+                GameAudioController audio_controller = GameObject.Find("AudioController").GetComponent<GameAudioController>();
+                audio_controller.PlayCoinSound(gameObject);
             }
         }
     }

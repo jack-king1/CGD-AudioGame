@@ -7,129 +7,13 @@
 [LOG] OutputWASAPI::init                       : Output buffer size: 4096 samples, latency: 0.00ms, period: 10.00ms, DSP buffer: 1024 * 4
 [LOG] Thread::initThread                       : Init FMOD stream thread. Priority: 2, Stack Size: 65536, Semaphore: No, Sleep Time: 10, Looping: Yes.
 [LOG] Thread::initThread                       : Init FMOD mixer thread. Priority: 3, Stack Size: 49152, Semaphore: No, Sleep Time: 0, Looping: Yes.
-[LOG] AsyncManager::init                       : manager 000001DD7D916ED8 isAsync 0 updatePeriod 0.02
+[LOG] AsyncManager::init                       : manager 000001C536235FC8 isAsync 0 updatePeriod 0.02
 [LOG] AsyncManager::init                       : done
 [LOG] PlaybackSystem::init                     : 
 [LOG] Thread::initThread                       : Init FMOD Studio sample load thread. Priority: 0, Stack Size: 65536, Semaphore: No, Sleep Time: 1, Looping: No.
 [LOG] PlaybackSystem::init                     : done
 [LOG] Thread::initThread                       : Init FMOD Studio bank load thread. Priority: 0, Stack Size: 65536, Semaphore: No, Sleep Time: 1, Looping: No.
 [LOG] Manager::init                            : done.
-[LOG] Manager::readBank                        : fileversion = 100, compatVersion = 99 (oldest = 44, newest = 100)
-[LOG] Manager::readBank                        : fileversion = 100, compatVersion = 99 (oldest = 44, newest = 100)
-[LOG] SystemI::createSound                     : filename = Team Rexx\Build\Desktop/Master Bank.bank : mode 02010082
-[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
-[LOG] SystemI::createSound                     : setdata soundi = 000001DD305EC2A8 : node = 000001DD27EA51E0
-[LOG] SystemI::createSound                     : add node to async list : head = 000001DD2577FD38.  list count = 0
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000001DD305EC2A8
-[LOG] SystemI::createSoundInternal             :     Create name='Team Rexx\Build\Desktop/Master Bank.bank', mode=0x02010082
-[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 232
-[LOG] SystemI::createSoundInternal             :     exinfo->length             = 3432416
-[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 64800
-[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 000001DD27EA52F8
-[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
-[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
-[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
-[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='Player_Heartbeat', format=2, channels=2, frequency=48000, lengthbytes=119264, lengthpcm=559981, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.944031.
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000001DD305EC2A8
-[LOG] SoundI::getSubSound                      : sound 000001DD305EC2A8.  Subsound index 0 / 1
-[LOG] SoundI::release                          : Player_Heartbeat (000001DD27F8E618)
-[LOG] SoundI::release                          :     Player_Heartbeat (000001DD794B3008)
-[LOG] SoundI::release                          :     Player_Heartbeat (000001DD7B6AC9B8)
-[LOG] SystemI::createSound                     : filename = Team Rexx\Build\Desktop/Master Bank.bank : mode 02010082
-[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
-[LOG] SystemI::createSound                     : setdata soundi = 000001DD1F0CF798 : node = 000001DD2E1967B0
-[LOG] SystemI::createSound                     : add node to async list : head = 000001DD2577FD38.  list count = 0
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000001DD1F0CF798
-[LOG] SystemI::createSoundInternal             :     Create name='Team Rexx\Build\Desktop/Master Bank.bank', mode=0x02010082
-[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 232
-[LOG] SystemI::createSoundInternal             :     exinfo->length             = 3432416
-[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 64800
-[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 000001DD2E1968C8
-[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
-[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
-[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
-[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='Dungeon Atmos', format=2, channels=2, frequency=48000, lengthbytes=216192, lengthpcm=1069671, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.273045.
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000001DD1F0CF798
-[LOG] SoundI::getSubSound                      : sound 000001DD1F0CF798.  Subsound index 0 / 1
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000001DD7B6AB578
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000001DD7B6AB578
-[LOG] Manager::readBank                        : fileversion = 100, compatVersion = 99 (oldest = 44, newest = 100)
-[LOG] SoundI::release                          : Dungeon Strolling (000001DD27F8E468)
-[LOG] SoundI::release                          :     Dungeon Strolling (000001DD794B4868)
-[LOG] SoundI::release                          :     Dungeon Strolling (000001DD7B6AB8D8)
-[LOG] SoundI::release                          : Player_Heartbeat (000001DD305EC2A8)
-[LOG] SoundI::release                          :     Player_Heartbeat (000001DD794B41E8)
-[LOG] SoundI::release                          :     Player_Heartbeat (000001DD7B6AB3C8)
-[LOG] SoundI::release                          : Dungeon Atmos (000001DD1F0CF798)
-[LOG] SoundI::release                          :     Dungeon Atmos (000001DD794B3008)
-[LOG] SoundI::release                          :     Dungeon Atmos (000001DD7B6AB578)
-[LOG] SoundI::release                          : Dungeon Atmos (000001DD27F8E2B8)
-[LOG] SoundI::release                          :     Dungeon Atmos (000001DD794B2E68)
-[LOG] SoundI::release                          :     Dungeon Atmos (000001DD7B6ACB68)
-[LOG] SoundI::release                          :  (000001DD22109D98)
-[LOG] SoundI::release                          :     Player_Footsteps_Stone_6 (000001DD0BFA26F8)
-[LOG] SoundI::release                          :  (000001DD2210CA28)
-[LOG] SoundI::release                          :     Player_Footsteps_Stone_7 (000001DD2577FD88)
-[LOG] SoundI::release                          :  (000001DD2210B328)
-[LOG] SoundI::release                          :     Player_Footsteps_Stone_4 (000001DD2577FA48)
-[LOG] SoundI::release                          :  (000001DD2210C188)
-[LOG] SoundI::release                          :     Player_Footsteps_Stone_1 (000001DD0BFA23B8)
-[LOG] SoundI::release                          :  (000001DD2210D9F8)
-[LOG] SoundI::release                          :     Player_Footsteps_Puddle_3 (000001DD2577F8A8)
-[LOG] SoundI::release                          :  (000001DD2210D2C8)
-[LOG] SoundI::release                          :     Player_Footsteps_Puddle_4 (000001DD0BFA2D78)
-[LOG] SoundI::release                          :  (000001DD2210CD08)
-[LOG] SoundI::release                          :     Player_Footsteps_Puddle_5 (000001DD7CDA8448)
-[LOG] SoundI::release                          :  (000001DD2210A4C8)
-[LOG] SoundI::release                          :     Player_Footsteps_Puddle_1 (000001DD7CDA8108)
-[LOG] SoundI::release                          :  (000001DD2210A358)
-[LOG] SoundI::release                          :     Player_Footsteps_Wood_2 (000001DD0BFA2078)
-[LOG] SoundI::release                          :  (000001DD2210D158)
-[LOG] SoundI::release                          :     Player_Footsteps_Wood_3 (000001DD30941078)
-[LOG] SoundI::release                          :  (000001DD2210CB98)
-[LOG] SoundI::release                          :     Player_Footsteps_Wood_4 (000001DD0BFA2218)
-[LOG] SoundI::release                          :  (000001DD2210A918)
-[LOG] SoundI::release                          :     Player_Footsteps_Wood_5 (000001DD7CDA82A8)
-[LOG] SoundI::release                          :  (000001DD2210C748)
-[LOG] SoundI::release                          :     Player_Footsteps_Wood_8 (000001DD7CDA85E8)
-[LOG] SoundI::release                          :  (000001DD2210C5D8)
-[LOG] SoundI::release                          :     Spider FootStep 1 (000001DD0BFA2558)
-[LOG] SoundI::release                          :  (000001DD2210D438)
-[LOG] SoundI::release                          :     Spider FootStep 2 (000001DD2577F088)
-[LOG] SoundI::release                          :  (000001DD2210C018)
-[LOG] SoundI::release                          :     Spider FootStep 3 (000001DD2577F708)
-[LOG] SoundI::release                          :  (000001DD2210B498)
-[LOG] SoundI::release                          :     Spider FootStep 4 (000001DD1F0F8538)
-[LOG] SoundI::release                          :  (000001DD2210BD38)
-[LOG] SoundI::release                          :     Spider FootStep 5 (000001DD1F0F8878)
-[LOG] SoundI::release                          :  (000001DD2210AD68)
-[LOG] SoundI::release                          :     Spider FootStep 6 (000001DD2577F568)
-[LOG] SoundI::release                          :  (000001DD2210B048)
-[LOG] SoundI::release                          :     Spider FootStep 7 (000001DD30941218)
-[LOG] SoundI::release                          :  (000001DD2210A7A8)
-[LOG] SoundI::release                          :     Spider FootStep 8 (000001DD0BFA2BD8)
-[LOG] SoundI::release                          :  (000001DD2210B8E8)
-[LOG] SoundI::release                          :     Player_Death_1 (000001DD2577F228)
-[LOG] SoundI::release                          :  (000001DD2210AA88)
-[LOG] SoundI::release                          :     Player_Death_2 (000001DD7CDA8AC8)
-[LOG] SoundI::release                          :  (000001DD2210C468)
-[LOG] SoundI::release                          :     Player_Death_3 (000001DD0BFA2898)
-[LOG] SoundI::release                          :  (000001DD2210A078)
-[LOG] SoundI::release                          :     Spider Hiss (000001DD0BFA2A38)
-[LOG] Thread::callback                         : FMOD Studio update thread finished.
-[LOG] Thread::callback                         : FMOD Studio bank load thread finished.
-[LOG] Profile::disconnectAll                   : Profiler disconnecting all clients
-[LOG] Thread::callback                         : FMOD Studio sample load thread finished.
-[LOG] LiveUpdate::release                      : 
-[LOG] LiveUpdate::reset                        : Reset connection (reason Disconnected)
-[LOG] Thread::callback                         : FMOD stream thread finished.
-[LOG] Thread::callback                         : FMOD mixer thread finished.
-[LOG] Profile::disconnectAll                   : Profiler disconnecting all clients
-[LOG] SystemI::close                           : Closed.
-[LOG] Manager::readBank                        : fileversion = 100, compatVersion = 99 (oldest = 44, newest = 100)
-[LOG] Manager::readBank                        : fileversion = 100, compatVersion = 99 (oldest = 44, newest = 100)
 [LOG] Manager::readBank                        : fileversion = 100, compatVersion = 99 (oldest = 44, newest = 100)
 [LOG] Manager::readBank                        : fileversion = 100, compatVersion = 99 (oldest = 44, newest = 100)
 [LOG] Manager::readBank                        : fileversion = 100, compatVersion = 99 (oldest = 44, newest = 100)
@@ -141,6 +25,4 @@
 [LOG] LiveUpdate::reset                        : Reset connection (reason Disconnected)
 [LOG] Thread::callback                         : FMOD stream thread finished.
 [LOG] Thread::callback                         : FMOD mixer thread finished.
-[LOG] Thread::callback                         : FMOD nonblocking thread (0) finished.
-[LOG] Thread::callback                         : FMOD file thread finished.
 [LOG] SystemI::close                           : Closed.
