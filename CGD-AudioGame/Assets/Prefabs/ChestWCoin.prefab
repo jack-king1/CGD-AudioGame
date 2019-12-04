@@ -274,7 +274,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9150134559526067870}
   m_Layer: 0
-  m_Name: Chest
+  m_Name: ChestWCoin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

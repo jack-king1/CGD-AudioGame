@@ -65,17 +65,11 @@
         <relationship name="automationTracks">
             <destination>{fb4cff01-ffa6-4033-b4f6-a1b4146537dd}</destination>
         </relationship>
-        <relationship name="modules">
-            <destination>{57aeb483-78e4-4813-87d3-5d30fc5d2662}</destination>
-        </relationship>
         <relationship name="mixerGroup">
             <destination>{96ab1c70-3e46-4921-8c88-464d07005ccb}</destination>
         </relationship>
     </object>
     <object class="Timeline" id="{d7c64f9f-1dff-48d6-8e80-6b14ebd6a5a8}">
-        <relationship name="modules">
-            <destination>{57aeb483-78e4-4813-87d3-5d30fc5d2662}</destination>
-        </relationship>
         <relationship name="markers">
             <destination>{6bc97cdb-18c8-46ed-bd8c-52f6ad43c525}</destination>
             <destination>{295db1a4-7f78-4ffd-bd28-85b14ebcac9e}</destination>
@@ -106,14 +100,6 @@
     <object class="AutomationTrack" id="{fb4cff01-ffa6-4033-b4f6-a1b4146537dd}">
         <relationship name="automator">
             <destination>{d0d62146-fe45-456c-84b1-c2d5e98bcdfa}</destination>
-        </relationship>
-    </object>
-    <object class="SingleSound" id="{57aeb483-78e4-4813-87d3-5d30fc5d2662}">
-        <property name="length">
-            <value>4</value>
-        </property>
-        <relationship name="audioFile">
-            <destination>{5b37cf2c-7170-4bca-9ae8-22bca3710f2f}</destination>
         </relationship>
     </object>
     <object class="EventMixerGroup" id="{96ab1c70-3e46-4921-8c88-464d07005ccb}">
