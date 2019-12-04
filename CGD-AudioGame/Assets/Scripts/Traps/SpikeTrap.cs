@@ -13,7 +13,7 @@ public class SpikeTrap : MonoBehaviour
     public bool canDealDamage = false;
     public List<GameObject> targets = new List<GameObject>();
     public float speed = 30;
-    public Vector3 target;
+    private Vector3 target;
     TrapAudioController audio_controller;
     private bool initialOffsetComplete = false;
 
@@ -60,45 +60,27 @@ public class SpikeTrap : MonoBehaviour
     {
         target = new Vector3(transform.position.x, transform.position.y, transform.position.z);
         canDealDamage = true;
-        if (!initialOffsetComplete && !isUndelayedTrap)
-        {
-            yield return new WaitForSeconds(timer / 1.25f);
-            initialOffsetComplete = true;
-            Debug.Log("Offset waited");
-        }
-        
-        while (transform.GetChild(0).position != target)
-        {
-            yield return null;
-        }
         if (audio_controller != null)
         {
             audio_controller.SetParameter(gameObject, "Direction", 1.0f);
             audio_controller.PlaySound(TRAP.spike, gameObject);
         }
-        yield return new WaitForSeconds(damageWindow);      
         raised = true;
-        yield return new WaitForSeconds(timer / 3.0f - damageWindow);
+        yield return new WaitForSeconds(timer);
+        Debug.Log("RAISE");
         StartCoroutine(Lower());
     }
 
     IEnumerator Lower()
     {
-        canDealDamage = false;
         target = new Vector3(transform.position.x, transform.position.y - 3.5f, transform.position.z);
-        raised = false;
-        while (transform.GetChild(0).position != target)
-        {            
-            yield return null;
-        }
-        Debug.Log("LOWER");
         if (audio_controller != null)
         {
             audio_controller.SetParameter(gameObject, "Direction", 0.0f);
             audio_controller.PlaySound(TRAP.spike, gameObject);
         }
         yield return new WaitForSeconds(timer);
-
+        raised = false;
         StartCoroutine(Raise());
     }
 
