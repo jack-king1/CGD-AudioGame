@@ -9,13 +9,12 @@ public class ArrowTrap : MonoBehaviour
     public float cooldown = 3;
     public int damage = 100;
     private GameObject button;
-    private Transform target;
+    public Transform target;
     bool can_fire = true;
     TrapAudioController audio_controller;
     // Start is called before the first frame update
     void Start()
-    {
-        
+    {       
         button = transform.GetChild(0).gameObject;
         target = transform.GetChild(1);
 
@@ -47,9 +46,21 @@ public class ArrowTrap : MonoBehaviour
         arrow.transform.LookAt(target.position);
         Arrow arrow_scr = arrow.GetComponent<Arrow>();
         arrow_scr.SetDamage(damage);
-        while (arrow.transform.position != target.position && arrow != null)
+        bool arrow_moving = true;
+        while (arrow_moving)
         {
-            arrow.transform.position = Vector3.MoveTowards(arrow.transform.position, target.position, arrow_speed * Time.deltaTime);
+            if (arrow != null)
+            {
+                if (arrow.transform.position == target.position)
+                {
+                    arrow_moving = false;
+                }
+                arrow.transform.position = Vector3.MoveTowards(arrow.transform.position, target.position, arrow_speed * Time.deltaTime);
+            }     
+            else
+            {
+                arrow_moving = false;
+            }
             yield return null;
         }
         if (arrow != null)
@@ -57,6 +68,7 @@ public class ArrowTrap : MonoBehaviour
             Destroy(arrow.gameObject);
         }
         yield return new WaitForSeconds(cooldown);
-        can_fire = true;
+        Debug.Log("COOLED DOWN");
+        can_fire = true;              
     }
 }

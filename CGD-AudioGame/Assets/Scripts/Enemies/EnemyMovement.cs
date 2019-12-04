@@ -29,6 +29,7 @@ public class EnemyMovement : MonoBehaviour
     EnemyAudioController audio_controller;
     FootstepAudioController footstep_controller;
     public LayerMask sight_layer_mask;
+    bool chase_played = false;
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
@@ -118,7 +119,7 @@ public class EnemyMovement : MonoBehaviour
 
     void Movement()
     {
-        hear_volume = (pl_movement.FootStepVolume() * 20) - distance;
+        hear_volume = pl_movement.FootStepVolume() * 20;
         // If player is in range, start chasing
         if ((hear_volume >= detect_volume || distance <= detect_range) && player)
         {
@@ -149,12 +150,15 @@ public class EnemyMovement : MonoBehaviour
             }
             else
             {
-                current_state = STATE.patrol;
+                //current_state = STATE.patrol;
             }
 
             if (hear_volume < detect_volume || distance > detect_range)
             {
-                current_state = STATE.search;             
+                if (SearchDelay())
+                {
+                    current_state = STATE.search;
+                }
             }
 
             if (type == ENEMYTYPE.ranged && InLineOfSight())
@@ -166,7 +170,10 @@ public class EnemyMovement : MonoBehaviour
         {
             if (hear_volume < detect_volume)
             {
-                StartCoroutine(SwitchDelay(STATE.patrol, 2.0f));
+                if (SearchDelay())
+                {
+                    StartCoroutine(SwitchDelay(STATE.patrol, 2.0f));
+                }
             }
             else
             {
@@ -180,8 +187,23 @@ public class EnemyMovement : MonoBehaviour
         }
         else if (current_state == STATE.search)
         {
-            RandomMovement();
+            RandomMovement();          
         }
+    }
+
+    bool SearchDelay()
+    {
+        float timer = 0;
+        while (timer < 2)
+        {
+            timer += Time.deltaTime;
+            if (hear_volume > detect_volume)
+            {
+                return false;
+            }
+        }
+        Debug.Log("TRUUUUUE");
+        return true;
     }
 
     void Fire()
@@ -200,7 +222,7 @@ public class EnemyMovement : MonoBehaviour
     }
 
     void ChasePlayer()
-    {
+    {       
         LookatSmoothly(agent.steeringTarget);
         agent.speed = chase_speed;
         anim.SetFloat("Speed", 1.5f);
@@ -269,6 +291,7 @@ public class EnemyMovement : MonoBehaviour
 
         if (Vector3.Distance(transform.position, random_pos) < 2)
         {
+            chase_played = false;
             StartCoroutine(GetRandomPos());
         }
         agent.SetDestination(random_pos);
@@ -286,19 +309,17 @@ public class EnemyMovement : MonoBehaviour
         yield return null;
     }
 
+    
+
     IEnumerator SearchTimer(float time)
-    {
-        searching = true;
-        if (audio_controller != null)
-        {
-            audio_controller.PlaySound(gameObject, SOUND.chase);
-        }
+    {        
+        searching = true;        
         StartCoroutine(GetRandomPos());
         while (time > 0)
         {
             time -= Time.deltaTime;
             yield return null;
-        }
+        }        
         if (current_state == STATE.search)
         {
             // Finds closest patrol point after losing the player

@@ -8,6 +8,7 @@ public class TrapAudioController : MonoBehaviour
     [FMODUnity.EventRef] public string SpikeTrap;
     [FMODUnity.EventRef] public string SawTrap;
     [FMODUnity.EventRef] public string ArrowTrap;
+    [FMODUnity.EventRef] public string ArrowButton;
     private float last_vol;
     private float volume;
 
@@ -60,6 +61,10 @@ public class TrapAudioController : MonoBehaviour
         else if (trap_type == TRAP.arrow)
         {
             sounds.Add(new SingleSound(owner, ArrowTrap));
+        }
+        else if (trap_type == TRAP.arrow_btn)
+        {
+            sounds.Add(new SingleSound(owner, ArrowButton));
         }
     }
 

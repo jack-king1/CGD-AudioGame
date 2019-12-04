@@ -108,6 +108,7 @@ MonoBehaviour:
   SpikeTrap: event:/Traps/Spike
   SawTrap: event:/Traps/Saw Blade
   ArrowTrap: event:/Traps/Arrow Launch
+  ArrowButton: event:/Traps/Button Click
 --- !u!114 &1168151056689198854
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -40,7 +40,8 @@
     {
         spike,
         saw,
-        arrow
+        arrow,
+        arrow_btn
     }
 
     public enum SOUND

@@ -6,7 +6,7 @@ using enums;
 public class Movement : MonoBehaviour
 {
     [SerializeField] private float movementSpeed = 0;
-    private float footStepVolume;
+    public float footStepVolume;
 
     [Range(0, 10)]
     //Used for different floor types.
