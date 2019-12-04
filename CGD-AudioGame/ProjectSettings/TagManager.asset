@@ -26,6 +26,10 @@ TagManager:
   - Floor2
   - Checkpoint
   - CodeLock
+  - Room1
+  - Room2
+  - Room3
+  - Room4
   layers:
   - Default
   - TransparentFX

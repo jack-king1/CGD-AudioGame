@@ -78,7 +78,9 @@
     public enum GAMESTATE
     {
         attract,
-        game
+        game,
+        pause,
+        audioSettings
     }
 
     public enum FLOORTYPE

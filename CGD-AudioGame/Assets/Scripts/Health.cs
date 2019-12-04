@@ -77,8 +77,11 @@ public class Health : MonoBehaviour
     {
         if (gameObject.tag == "Enemy")
         {
-            EnemyAudioController audio_controller = GameObject.Find("AudioController").GetComponent<EnemyAudioController>();
-            audio_controller.RemoveSound(gameObject);
+            if(GameObject.Find("AudioController").GetComponent<EnemyAudioController>())
+            {
+                EnemyAudioController audio_controller = GameObject.Find("AudioController").GetComponent<EnemyAudioController>();
+                audio_controller.RemoveSound(gameObject);
+            }         
         }
     }
 }
