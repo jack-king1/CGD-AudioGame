@@ -14,6 +14,7 @@ public class GameAudioController : MonoBehaviour
     [FMODUnity.EventRef] public string heartbeat;
     [FMODUnity.EventRef] public string coins;
     [FMODUnity.EventRef] public string chest;
+    [FMODUnity.EventRef] public string note;
     FMOD.Studio.EventInstance music_event;
     FMOD.Studio.EventInstance atmospheric_event;
     FMOD.Studio.EventInstance win_event;
@@ -21,6 +22,7 @@ public class GameAudioController : MonoBehaviour
     FMOD.Studio.EventInstance heartbeat_event;
     FMOD.Studio.EventInstance coins_event;
     FMOD.Studio.EventInstance chest_event;
+    FMOD.Studio.EventInstance note_event;
     GameObject camera;
     public List<GameObject> enemies = new List<GameObject>();
     GameObject player;
@@ -43,6 +45,7 @@ public class GameAudioController : MonoBehaviour
         heartbeat_event = FMODUnity.RuntimeManager.CreateInstance(heartbeat);
         coins_event = FMODUnity.RuntimeManager.CreateInstance(coins);
         chest_event = FMODUnity.RuntimeManager.CreateInstance(chest);
+        note_event = FMODUnity.RuntimeManager.CreateInstance(note);
         heartbeat_event.start();
         music_event.start();
         atmospheric_event.start();
@@ -79,6 +82,29 @@ public class GameAudioController : MonoBehaviour
         coins_event.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(chest));
         chest_event.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(chest));
         StartCoroutine(ChestSequence());
+    }
+
+    public void PlayNoteSound(GameObject location, float pitch)
+    {
+        note_event.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(location));
+        note_event.setParameterValue("Pitch", pitch);
+        note_event.start();
+    }
+
+    public void PlayNoteSequence(GameObject location, float[] pitches)
+    {
+        note_event.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(location));
+        StartCoroutine(NoteSequence(pitches));
+    }
+
+    IEnumerator NoteSequence(float[] pitches)
+    {
+        for (int i = 0; i < 4; i++)
+        {
+            note_event.setParameterValue("Pitch", pitches[i]);
+            note_event.start();
+            yield return new WaitForSeconds(1);
+        }
     }
 
     IEnumerator ChestSequence()
