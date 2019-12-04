@@ -11,7 +11,7 @@ public class EnemyMovement : MonoBehaviour
     public float search_radius = 10f;
     public float hit_range = 1;
     public float detect_volume = 5;
-    public float detect_range = 2;
+    public float detect_range = 10;
     public float turn_speed = 5;
     public int damage = 100;
     public STATE current_state = STATE.patrol;
@@ -104,9 +104,9 @@ public class EnemyMovement : MonoBehaviour
         if (player)
         {
             distance = Vector3.Distance(player.transform.position, transform.position);
-            hear_volume = (pl_movement.FootStepVolume() * 20) - distance;
         }
 
+        hear_volume = (pl_movement.FootStepVolume() * 20) - distance;
         Movement();   
     }
 
@@ -127,7 +127,7 @@ public class EnemyMovement : MonoBehaviour
     void Movement()
     {       
         // If player is in range, start chasing
-        if ((hear_volume >= detect_volume || distance <= detect_range) && player)
+        if ((distance <= detect_range) && player)
         {
             if (type == ENEMYTYPE.ground || type == ENEMYTYPE.flying)
             {
@@ -159,7 +159,7 @@ public class EnemyMovement : MonoBehaviour
                 //current_state = STATE.patrol;
             }
 
-            if (hear_volume < detect_volume || distance > detect_range)
+            if (distance > detect_range)
             {
                 if (SearchDelay())
                 {
@@ -174,7 +174,7 @@ public class EnemyMovement : MonoBehaviour
         }
         else if (current_state == STATE.fire)
         {
-            if (hear_volume < detect_volume)
+            if (distance > detect_range)
             {
                 if (SearchDelay())
                 {

@@ -47,10 +47,11 @@ MonoBehaviour:
   search_radius: 10
   hit_range: 2.5
   detect_volume: 5
-  detect_range: 3
+  detect_range: 10
   turn_speed: 5
   damage: 100
   current_state: 0
+  player: {fileID: 0}
   distance: 0
   path_index: 0
   random_pos: {x: 0, y: 0, z: 0}
@@ -242,7 +243,7 @@ PrefabInstance:
     - target: {fileID: 8680827612502318362, guid: f32f8480d7dade04a9f5b84e05d014d0,
         type: 3}
       propertyPath: m_TagString
-      value: Enemy
+      value: FlyingEnemy
       objectReference: {fileID: 0}
     - target: {fileID: 5630387254964563721, guid: f32f8480d7dade04a9f5b84e05d014d0,
         type: 3}
