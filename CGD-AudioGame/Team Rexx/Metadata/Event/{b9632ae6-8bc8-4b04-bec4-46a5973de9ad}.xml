@@ -96,6 +96,7 @@
             <destination>{ad6dec0f-c346-41b8-a200-116ac7469e81}</destination>
             <destination>{d8026bcf-f835-4b0f-b143-c44cf5419372}</destination>
             <destination>{2d3e40b2-3f4e-4024-81de-c24540d0ca71}</destination>
+            <destination>{8314cc2c-cf24-4eae-bdf9-5e263939e70d}</destination>
         </relationship>
     </object>
     <object class="ParameterProxy" id="{ceb36f72-8b3f-4112-ad9e-b39738f7e192}">
@@ -283,6 +284,20 @@
         </property>
         <property name="name">
             <value>Chase</value>
+        </property>
+        <relationship name="timeline">
+            <destination>{f590352c-7f37-478f-a0e5-a6fa71787c87}</destination>
+        </relationship>
+        <relationship name="markerTrack">
+            <destination>{218bbb23-872e-4f1c-b090-9fcf50418682}</destination>
+        </relationship>
+    </object>
+    <object class="LoopRegion" id="{8314cc2c-cf24-4eae-bdf9-5e263939e70d}">
+        <property name="position">
+            <value>0</value>
+        </property>
+        <property name="length">
+            <value>64</value>
         </property>
         <relationship name="timeline">
             <destination>{f590352c-7f37-478f-a0e5-a6fa71787c87}</destination>
