@@ -305,7 +305,7 @@ GameObject:
   - component: {fileID: 1850568390775613537}
   - component: {fileID: 1850568390775613536}
   - component: {fileID: 1850568390775613539}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Player (1)
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -343,6 +343,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c023281cc136a84ca202f02ab98a64c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioButtonClicked: 0
+  backButtonClicked: 0
+  quitButtonClicked: 0
 --- !u!114 &1850568390775613564
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -373,6 +376,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementSpeed: 5
+  footStepVolume: 0
   FootStepVolumes:
   - 0
   - 1

@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 3119445464918953779}
   - component: {fileID: 1168151056689198854}
   - component: {fileID: 8235612850292739209}
+  - component: {fileID: 1413824996487049391}
   - component: {fileID: 754432046046481132}
   m_Layer: 0
   m_Name: AudioController
@@ -72,6 +73,7 @@ MonoBehaviour:
   heartbeat: event:/Player/Heartbeat
   coins: event:/Environment/Collecting Treasure
   chest: event:/Environment/Opening Treasure Chest
+  note: event:/Traps/Single Note
   enemies: []
 --- !u!114 &3484843366128476302
 MonoBehaviour:
@@ -139,6 +141,20 @@ MonoBehaviour:
   fireball_loop: event:/Enemy/Fireball Loop
   fireball_hit: event:/Enemy/Fireball Hit
   arrow_hit: event:/Traps/Arrow Hit
+--- !u!114 &1413824996487049391
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3484843366128476301}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b8d94eaaa2bcb64fad1ea7f17538844, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  footstep: event:/Player/Footsteps
+  death: event:/Player/Death
 --- !u!114 &754432046046481132
 MonoBehaviour:
   m_ObjectHideFlags: 0

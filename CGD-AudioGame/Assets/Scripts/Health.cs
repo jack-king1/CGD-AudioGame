@@ -68,20 +68,10 @@ public class Health : MonoBehaviour
         }
         else
         {
-            Destroy(this.gameObject);
+            transform.position = GameObject.FindGameObjectWithTag("LevelManager").GetComponent<PlayerCP>().currentCP().position;
+            health = 100;
+            is_dead = false;
         }
         yield return null;
-    }
-
-    private void OnDestroy()
-    {
-        if (gameObject.tag == "Enemy")
-        {
-            if(GameObject.Find("AudioController").GetComponent<EnemyAudioController>())
-            {
-                EnemyAudioController audio_controller = GameObject.Find("AudioController").GetComponent<EnemyAudioController>();
-                audio_controller.RemoveSound(gameObject);
-            }         
-        }
     }
 }

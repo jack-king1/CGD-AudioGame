@@ -15,7 +15,7 @@ public class EnemyMovement : MonoBehaviour
     public float turn_speed = 5;
     public int damage = 100;
     public STATE current_state = STATE.patrol;
-    private GameObject player;
+    public GameObject player;
     public float distance;
     public int path_index;
     private List<Transform> path_points = new List<Transform>();
@@ -72,6 +72,12 @@ public class EnemyMovement : MonoBehaviour
 
     void Update()
     {
+        if (player == null)
+        {
+            player = GameObject.FindGameObjectWithTag("Player");
+            
+            pl_movement = player.GetComponent<Movement>();
+        }
         if (IsMoving())
         {
             if (!footstep_controller.IsPlaying(gameObject))
@@ -98,7 +104,7 @@ public class EnemyMovement : MonoBehaviour
         if (player)
         {
             distance = Vector3.Distance(player.transform.position, transform.position);
-            hear_volume = pl_movement.FootStepVolume();
+            hear_volume = (pl_movement.FootStepVolume() * 20) - distance;
         }
 
         Movement();   

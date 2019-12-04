@@ -13,22 +13,14 @@ public class SpikeTrap : MonoBehaviour
     public bool canDealDamage = false;
     public List<GameObject> targets = new List<GameObject>();
     public float speed = 30;
-    private Vector3 target;
+    public Vector3 target;
     TrapAudioController audio_controller;
     private bool initialOffsetComplete = false;
 
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(Raise());
-        if (raised)
-        {
-            StartCoroutine(Lower());
-        }
-        else
-        {
-            StartCoroutine(Raise());
-        }
+        StartCoroutine(Lower());
 
         if (isUndelayedTrap)
         {
@@ -67,14 +59,14 @@ public class SpikeTrap : MonoBehaviour
     IEnumerator Raise()
     {
         target = new Vector3(transform.position.x, transform.position.y, transform.position.z);
-        
+        canDealDamage = true;
         if (!initialOffsetComplete && !isUndelayedTrap)
         {
             yield return new WaitForSeconds(timer / 1.25f);
             initialOffsetComplete = true;
             Debug.Log("Offset waited");
         }
-        canDealDamage = true;
+        
         while (transform.GetChild(0).position != target)
         {
             yield return null;
@@ -84,8 +76,7 @@ public class SpikeTrap : MonoBehaviour
             audio_controller.SetParameter(gameObject, "Direction", 1.0f);
             audio_controller.PlaySound(TRAP.spike, gameObject);
         }
-        yield return new WaitForSeconds(damageWindow);
-        canDealDamage = false;
+        yield return new WaitForSeconds(damageWindow);      
         raised = true;
         yield return new WaitForSeconds(timer / 3.0f - damageWindow);
         StartCoroutine(Lower());
@@ -97,15 +88,17 @@ public class SpikeTrap : MonoBehaviour
         target = new Vector3(transform.position.x, transform.position.y - 3.5f, transform.position.z);
         raised = false;
         while (transform.GetChild(0).position != target)
-        {
+        {            
             yield return null;
         }
+        Debug.Log("LOWER");
         if (audio_controller != null)
         {
             audio_controller.SetParameter(gameObject, "Direction", 0.0f);
             audio_controller.PlaySound(TRAP.spike, gameObject);
         }
         yield return new WaitForSeconds(timer);
+
         StartCoroutine(Raise());
     }
 

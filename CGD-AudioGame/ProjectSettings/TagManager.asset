@@ -30,6 +30,7 @@ TagManager:
   - Room2
   - Room3
   - Room4
+  - Wall
   layers:
   - Default
   - TransparentFX
@@ -39,11 +40,11 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Wall
+  - Pit
+  - Enemy
+  - Player
+  - Floor
   - 
   - 
   - 

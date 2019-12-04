@@ -5,6 +5,8 @@ using enums;
 public class ItemScript : MonoBehaviour
 {
     public FogOfWarScript fow;
+    PickupAudioController audio_controller;
+
 
     private void OnTriggerEnter(Collider col)
     {
