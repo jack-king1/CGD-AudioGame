@@ -35,7 +35,6 @@ public class Movement : MonoBehaviour
     public void Update()
     {
 
-
     }
 
     private void FixedUpdate()
@@ -123,7 +122,7 @@ public class Movement : MonoBehaviour
    public void SetFootstepVolume(float InputMagnitude)
     {
         footStepVolume = InputMagnitude + FootStepVolumes[currentFloorType];
-        //Debug.Log(footStepVolume);
+        Debug.Log(footStepVolume);
     }
 
     public float FootStepVolume()

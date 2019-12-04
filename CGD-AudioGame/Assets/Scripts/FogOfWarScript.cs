@@ -38,27 +38,33 @@ public class FogOfWarScript : MonoBehaviour
             lamp = Player.GetComponentInChildren<Light>();
         }
 
-        timer += Time.deltaTime ;
-        if(timer> maxTime)
-        {
-            m_radius -= 0.5f;
-            if(lamp)
-            {
-                lamp.spotAngle -= 10;
-            }
-            else
-            {
-                Debug.LogError("No Lamp Model Specified you mongrel.");
-            }
-            timer = 0;
+        //timer += Time.deltaTime ;
+        //if(timer> maxTime)
+        //{
+        //    m_radius -= 0.5f;
+        //    if(lamp)
+        //    {
+        //        lamp.spotAngle -= 10;
+        //    }
+        //    else
+        //    {
+        //        Debug.LogError("No Lamp Model Specified you mongrel.");
+        //    }
+        //    timer = 0;
             
-        }
+       // }
         if(levelManager)
         {
-            if (m_radius <= 3 || lamp.spotAngle == 0)
+            if (m_radius <2.5 )
 
             {
-                levelManager.LoseScene();
+                m_radius = 3.0f;
+
+            }
+            if (m_radius < 12.5)
+            {
+                m_radius = 12.0f;
+
             }
         }
         else
