@@ -74,6 +74,7 @@ public class SpikeTrap : MonoBehaviour
     IEnumerator Lower()
     {
         target = new Vector3(transform.position.x, transform.position.y - 3.5f, transform.position.z);
+        canDealDamage = false;
         if (audio_controller != null)
         {
             audio_controller.SetParameter(gameObject, "Direction", 0.0f);
