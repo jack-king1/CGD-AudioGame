@@ -21,7 +21,7 @@ public class EnemyMovement : MonoBehaviour
     private List<Transform> path_points = new List<Transform>();
     public Vector3 random_pos;
     bool searching = false;
-    public float hear_volume = 0.0f;
+    public float hear_volume;
     Movement pl_movement;
     NavMeshAgent agent;
     public ENEMYTYPE type;
@@ -98,6 +98,7 @@ public class EnemyMovement : MonoBehaviour
         if (player)
         {
             distance = Vector3.Distance(player.transform.position, transform.position);
+            hear_volume = pl_movement.FootStepVolume();
         }
 
         Movement();   
@@ -118,8 +119,7 @@ public class EnemyMovement : MonoBehaviour
     }
 
     void Movement()
-    {
-        hear_volume = pl_movement.FootStepVolume() * 20;
+    {       
         // If player is in range, start chasing
         if ((hear_volume >= detect_volume || distance <= detect_range) && player)
         {
