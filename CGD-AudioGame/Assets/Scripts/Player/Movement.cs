@@ -26,7 +26,7 @@ public class Movement : MonoBehaviour
 
     UIManager uim;
 
-    FootstepAudioController audio_controller;
+    public FootstepAudioController audio_controller;
     private void Start()
     {
         playerID = GetComponent<PlayerData>().PlayerID();
@@ -203,5 +203,15 @@ public class Movement : MonoBehaviour
         //    anim.SetBool("Moving", false);
         //    anim.SetFloat("InputMagnitude", 0.0f);
         //}
+    }
+
+    void FootL()
+    {
+
+    }
+
+    void FootR()
+    {
+
     }
 }

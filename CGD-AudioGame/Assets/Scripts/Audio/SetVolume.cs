@@ -10,27 +10,31 @@ public class SetVolume : MonoBehaviour
     public float Gameplay = 1.0f;
     string masterBusString = "Bus:/";
     FMOD.Studio.Bus masterBus;
-
+    EnemyAudioController enemy_audio;
+    TrapAudioController trap_audio;
+    GameAudioController game_audio;
+    ProjectileAudioController projectile_audio;
+    PickupAudioController pickup_audio;
     void Start()
     {
         masterBus = FMODUnity.RuntimeManager.GetBus(masterBusString);
         masterBus.setVolume(100 * Master);
+        trap_audio = GetComponent<TrapAudioController>();
+        projectile_audio = GetComponent<ProjectileAudioController>();
+        pickup_audio = GetComponent<PickupAudioController>();
+        enemy_audio = GetComponent<EnemyAudioController>();
+        game_audio = GetComponent<GameAudioController>();
     }
 
     void Update()
     {
         masterBus.setVolume(Master);
-        EnemyAudioController enemy_audio = GetComponent<EnemyAudioController>();
         enemy_audio.SetVolume(100 * Gameplay);
-        TrapAudioController trap_audio = GetComponent<TrapAudioController>();
         trap_audio.SetVolume(100 * Gameplay);
-        GameAudioController game_audio = GetComponent<GameAudioController>();
         game_audio.SetGameVolume(100 * Gameplay);
         game_audio.SetAtmosphericVolume(100 * Asmospheric);
         game_audio.SetMusicVolume(100 * Music);
-        ProjectileAudioController projectile_audio = GetComponent<ProjectileAudioController>();
         projectile_audio.SetGameVolume(100 * Gameplay);
-        PickupAudioController pickup_audio = GetComponent<PickupAudioController>();
         pickup_audio.SetVolume(100 * Gameplay);
     }
 }

@@ -30,7 +30,10 @@ MonoBehaviour:
   end_point: {fileID: 8318465171922172556}
   move_speed: 2.5
   spin_speed: 400
+  raise_speed: 3
+  raise_range: 10
   damage: 100
+  volume: 100
 --- !u!1 &8318465171908917206
 GameObject:
   m_ObjectHideFlags: 0
@@ -43,7 +46,7 @@ GameObject:
   - component: {fileID: 8318465171908917162}
   - component: {fileID: 8318465171908917205}
   - component: {fileID: 8318465171908917204}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Start
   m_TagString: Path
   m_Icon: {fileID: 0}
@@ -135,7 +138,7 @@ GameObject:
   - component: {fileID: 8318465171922172547}
   - component: {fileID: 8318465171922172546}
   - component: {fileID: 8318465171922172557}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: End
   m_TagString: Path
   m_Icon: {fileID: 0}
@@ -224,7 +227,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8318465172788801944}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Saw Trap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -262,6 +265,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: e3a25d4ccafb5c740aa3c70982a173e2, type: 3}
       propertyPath: m_TagString
       value: Trap
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: e3a25d4ccafb5c740aa3c70982a173e2, type: 3}
+      propertyPath: m_Layer
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: e3a25d4ccafb5c740aa3c70982a173e2, type: 3}
       propertyPath: m_LocalPosition.x

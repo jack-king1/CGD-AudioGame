@@ -93,14 +93,6 @@ public class EnemyMovement : MonoBehaviour
             }
         }
 
-        if (Input.GetKey("e"))
-        {
-            Time.timeScale = 0;
-        }
-        if (Input.GetKey("f"))
-        {
-            Time.timeScale = 1;
-        }
         if (player)
         {
             distance = Vector3.Distance(player.transform.position, transform.position);
@@ -127,7 +119,7 @@ public class EnemyMovement : MonoBehaviour
     void Movement()
     {       
         // If player is in range, start chasing
-        if ((distance <= detect_range) && player)
+        if ((distance <= detect_range || hear_volume > detect_volume) && player)
         {
             if (type == ENEMYTYPE.ground || type == ENEMYTYPE.flying)
             {
@@ -142,6 +134,7 @@ public class EnemyMovement : MonoBehaviour
                 }
                 else
                 {
+                    Debug.Log("FALSE");
                     current_state = STATE.chase;
                 }
             }
@@ -161,10 +154,7 @@ public class EnemyMovement : MonoBehaviour
 
             if (distance > detect_range)
             {
-                if (SearchDelay())
-                {
-                    current_state = STATE.search;
-                }
+                current_state = STATE.search;
             }
 
             if (type == ENEMYTYPE.ranged && InLineOfSight())
@@ -174,6 +164,7 @@ public class EnemyMovement : MonoBehaviour
         }
         else if (current_state == STATE.fire)
         {
+            Debug.Log("FIRE");
             if (distance > detect_range)
             {
                 if (SearchDelay())
@@ -208,7 +199,6 @@ public class EnemyMovement : MonoBehaviour
                 return false;
             }
         }
-        Debug.Log("TRUUUUUE");
         return true;
     }
 

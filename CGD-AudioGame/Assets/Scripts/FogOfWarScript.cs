@@ -107,17 +107,12 @@ public class FogOfWarScript : MonoBehaviour
                 UpdateColour();
             }
         }
-        else
-        {
-            Debug.LogError("No Fog OF War Plane, Please Add.");
-        }
-
     }
 
     void Init()
     {
         m_FogOfWarPlane = GameObject.FindGameObjectWithTag("Fog");
-        m_mesh = m_FogOfWarPlane.GetComponent<MeshFilter>().mesh;
+        m_mesh = m_FogOfWarPlane.GetComponent<MeshFilter>().GetComponent<Mesh>();
         if(m_FogOfWarPlane)
         {
             m_vertices = m_mesh.vertices;

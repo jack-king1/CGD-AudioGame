@@ -205,11 +205,8 @@
     </object>
     <object class="MixerBusFader" id="{5fadf747-3846-49cb-9447-f03e1846938c}"/>
     <object class="SpatialiserEffect" id="{e528581b-a3a8-418b-9a90-a2b786784bcc}">
-        <property name="minimumDistance">
-            <value>0</value>
-        </property>
         <property name="maximumDistance">
-            <value>275</value>
+            <value>50</value>
         </property>
     </object>
     <object class="AutomationCurve" id="{4b9b6bff-6f5d-498c-8d99-b863d0906a7b}">

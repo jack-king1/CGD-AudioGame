@@ -29,7 +29,7 @@ public class ChestOpen : MonoBehaviour
         pickup_audio_cont = GameObject.Find("AudioController").GetComponent<PickupAudioController>();
         pickup_audio_cont.SetupSound(gameObject, PICKUP.chest);
         pickup_audio_cont.PlaySound(gameObject);
-        playerID = GetComponent<PlayerData>().PlayerID();     
+        playerID = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerData>().PlayerID();     
     }
 
    

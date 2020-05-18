@@ -31,6 +31,7 @@ TagManager:
   - Room3
   - Room4
   - Wall
+  - Canvas
   layers:
   - Default
   - TransparentFX
@@ -45,7 +46,7 @@ TagManager:
   - Enemy
   - Player
   - Floor
-  - 
+  - Trap
   - 
   - 
   - 

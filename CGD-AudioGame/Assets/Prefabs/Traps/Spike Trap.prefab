@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5461989365495972603}
   - component: {fileID: 3355320376221677498}
   - component: {fileID: 8079890566013014988}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Needle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -91,7 +91,7 @@ GameObject:
   - component: {fileID: 7920677070716108733}
   - component: {fileID: 7920677070716108674}
   - component: {fileID: 7920677070716108675}
-  m_Layer: 11
+  m_Layer: 13
   m_Name: Spike Trap
   m_TagString: Trap
   m_Icon: {fileID: 0}

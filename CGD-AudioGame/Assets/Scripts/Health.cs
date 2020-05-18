@@ -9,19 +9,12 @@ public class Health : MonoBehaviour
     public int health;
     public float invulnerable_time = 0.5f;
     bool can_damage = true;
-    bool is_dead = false;
+    public bool is_dead = false;
     // Start is called before the first frame update
     void Start()
     {
         health = start_health;
-    }
-
-    void Update()
-    {
-        if (health <= 0 && !is_dead)
-        {
-            StartCoroutine(DeathRoutine());
-        }
+        is_dead = false;
     }
 
     public bool DealDamage(int damage)
@@ -38,25 +31,29 @@ public class Health : MonoBehaviour
     {
         can_damage = false;
         health -= damage;
+        if (health <= 0 && !is_dead)
+        {
+            is_dead = true;
+            StartCoroutine(DeathRoutine());
+        }
         yield return new WaitForSeconds(invulnerable_time);
         can_damage = true;
     }
 
     IEnumerator DeathRoutine()
     {
-        is_dead = true;
         GameObject blood = Instantiate(blood_prefab, new Vector3(transform.position.x, transform.position.y + 1, transform.position.z), Quaternion.identity);
         ParticleSystem blood_p = blood.GetComponent<ParticleSystem>();
         DeleteAfterDelay delete = blood.GetComponent<DeleteAfterDelay>();
         if (gameObject.tag == "Player")
         {
             PlayerAudioController audio_controller = GameObject.Find("AudioController").GetComponent<PlayerAudioController>();
-            audio_controller.PlaySound(gameObject, SOUND.die);
+            audio_controller.PlaySound(this.gameObject, SOUND.die);
         }
         else if (gameObject.tag == "Enemy")
         {
             EnemyAudioController audio_controller = GameObject.Find("AudioController").GetComponent<EnemyAudioController>();
-            audio_controller.PlaySound(gameObject, SOUND.die);
+            audio_controller.PlaySound(this.gameObject, SOUND.die);
         }
         var em = blood_p.emission;
         em.enabled = true;

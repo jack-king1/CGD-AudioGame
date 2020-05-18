@@ -41,17 +41,17 @@ public class EnemyAudioController : MonoBehaviour
                 if (sound_type == SOUND.attack)
                 {
                     Debug.Log("SOUND TRIGGERED");
-                    sounds[i].GetAttack().set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(sounds[i].Owner()));
+                    sounds[i].GetAttack().set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(owner));
                     sounds[i].GetAttack().start();
                 }
                 else if (sound_type == SOUND.chase)
                 {
-                    sounds[i].GetChase().set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(sounds[i].Owner()));
+                    sounds[i].GetChase().set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(owner));
                     sounds[i].GetChase().start();
                 }
                 else if (sound_type == SOUND.die)
                 {
-                    sounds[i].GetDeath().set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(sounds[0].Owner()));
+                    sounds[i].GetDeath().set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(owner));
                     sounds[i].GetDeath().start();
                 }
             }

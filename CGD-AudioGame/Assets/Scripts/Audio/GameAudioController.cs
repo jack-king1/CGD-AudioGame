@@ -128,8 +128,11 @@ public class GameAudioController : MonoBehaviour
         List<float> distances = new List<float>();
         foreach (GameObject enemy in enemies)
         {
-            float dist = Vector3.Distance(player.transform.position, enemy.transform.position);
-            distances.Add(dist);    
+            if (enemy)
+            {
+                float dist = Vector3.Distance(player.transform.position, enemy.transform.position);
+                distances.Add(dist);
+            }
         }
         distances.Sort();
         if (distances.Count > 0)

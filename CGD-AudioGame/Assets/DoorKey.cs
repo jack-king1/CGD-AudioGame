@@ -20,7 +20,7 @@ public class DoorKey : MonoBehaviour
 
     private void Start()
     {
-        playerID = GetComponent<PlayerData>().PlayerID();
+        playerID = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerData>().PlayerID();
     }
 
     private void OnTriggerEnter(Collider other)

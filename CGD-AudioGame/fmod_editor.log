@@ -7,7 +7,7 @@
 [LOG] OutputWASAPI::init                       : Output buffer size: 4096 samples, latency: 0.00ms, period: 10.00ms, DSP buffer: 1024 * 4
 [LOG] Thread::initThread                       : Init FMOD stream thread. Priority: 2, Stack Size: 65536, Semaphore: No, Sleep Time: 10, Looping: Yes.
 [LOG] Thread::initThread                       : Init FMOD mixer thread. Priority: 3, Stack Size: 49152, Semaphore: No, Sleep Time: 0, Looping: Yes.
-[LOG] AsyncManager::init                       : manager 000002507077E1C8 isAsync 0 updatePeriod 0.02
+[LOG] AsyncManager::init                       : manager 000002388B4B6EF8 isAsync 0 updatePeriod 0.02
 [LOG] AsyncManager::init                       : done
 [LOG] PlaybackSystem::init                     : 
 [LOG] Thread::initThread                       : Init FMOD Studio sample load thread. Priority: 0, Stack Size: 65536, Semaphore: No, Sleep Time: 1, Looping: No.
@@ -16,21 +16,207 @@
 [LOG] Manager::init                            : done.
 [LOG] Manager::readBank                        : fileversion = 100, compatVersion = 99 (oldest = 44, newest = 100)
 [LOG] Manager::readBank                        : fileversion = 100, compatVersion = 99 (oldest = 44, newest = 100)
+[LOG] SystemI::createSoundInternal             : Create name='', mode=0x02000202
+[LOG] SystemI::createSoundInternal             : exinfo->cbsize             = 232
+[LOG] SystemI::createSoundInternal             : exinfo->length             = 2644640
+[LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 69792
+[LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 00000082CB71F4DC
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FF90788D9C0
+[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FF90788D990
+[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FF90788DA90
+[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FF90788DB50
+[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 000002389527D138
+[LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
+[LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
+[LOG] SystemI::createSoundInternal             : Sample 0/1: name='Arrow Hit', format=2, channels=1, frequency=48000, lengthbytes=4000, lengthpcm=19274, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.820465.
+[LOG] SystemI::createSound                     : filename = Team Rexx\Build\Desktop/Master Bank.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     : setdata soundi = 000002388C5BB818 : node = 0000023894DDEB10
+[LOG] SystemI::createSound                     : add node to async list : head = 000002388C474248.  list count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000002388C5BB818
+[LOG] SystemI::createSoundInternal             :     Create name='Team Rexx\Build\Desktop/Master Bank.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 232
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 2644640
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 69792
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0000023894DDEC28
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='Player_Heartbeat', format=2, channels=2, frequency=48000, lengthbytes=119264, lengthpcm=559981, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.944031.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000002388C5BB818
+[LOG] SoundI::getSubSound                      : sound 000002388C5BB818.  Subsound index 0 / 1
+[LOG] SystemI::createSound                     : filename = Team Rexx\Build\Desktop/Master Bank.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     : setdata soundi = 000002388C5BA8E8 : node = 0000023894DE0160
+[LOG] SystemI::createSound                     : add node to async list : head = 000002388C474248.  list count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000002388C5BA8E8
+[LOG] SystemI::createSoundInternal             :     Create name='Team Rexx\Build\Desktop/Master Bank.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 232
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 2644640
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 69792
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0000023894DE0278
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='Dungeon Atmos', format=2, channels=2, frequency=48000, lengthbytes=216192, lengthpcm=1069671, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.273045.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000002388C5BA8E8
+[LOG] SoundI::getSubSound                      : sound 000002388C5BA8E8.  Subsound index 0 / 1
+[LOG] SoundI::release                          : Player_Heartbeat (000002389E8A21D8)
+[LOG] SoundI::release                          :     Player_Heartbeat (000002388C474438)
+[LOG] SoundI::release                          :     Player_Heartbeat (00000238F2BB8BE8)
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0000023888C879C8
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0000023888C879C8
+[LOG] Manager::readBank                        : fileversion = 100, compatVersion = 99 (oldest = 44, newest = 100)
+[LOG] Manager::readBank                        : fileversion = 100, compatVersion = 99 (oldest = 44, newest = 100)
+[LOG] SystemI::createSoundInternal             : Create name='', mode=0x02000202
+[LOG] SystemI::createSoundInternal             : exinfo->cbsize             = 232
+[LOG] SystemI::createSoundInternal             : exinfo->length             = 2644640
+[LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 69792
+[LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 00000082CB71F4DC
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FF90788D9C0
+[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FF90788D990
+[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FF90788DA90
+[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FF90788DB50
+[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 00000238952784B8
+[LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
+[LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
+[LOG] SystemI::createSoundInternal             : Sample 0/1: name='fire-impact', format=2, channels=2, frequency=48000, lengthbytes=42432, lengthpcm=192000, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.880074.
+[LOG] SoundI::release                          :  (0000023894DB3338)
+[LOG] SoundI::release                          :     Player_Footsteps_Stone_6 (000002388C472898)
+[LOG] SoundI::release                          :  (000002388B62BBA8)
+[LOG] SoundI::release                          :     Player_Footsteps_Stone_7 (000002388C476178)
+[LOG] SoundI::release                          :  (0000023894DB3D48)
+[LOG] SoundI::release                          :     Player_Footsteps_Stone_4 (000002388C472A38)
+[LOG] SoundI::release                          :  (0000023894DB2368)
+[LOG] SoundI::release                          :     Player_Footsteps_Stone_1 (000002388C477B78)
+[LOG] SoundI::release                          :  (0000023894DB2D78)
+[LOG] SoundI::release                          :     Player_Footsteps_Puddle_3 (000002388C4752D8)
+[LOG] SoundI::release                          :  (000002389E78EF88)
+[LOG] SoundI::release                          :     Player_Footsteps_Puddle_4 (000002388C4733F8)
+[LOG] SoundI::release                          : Player_Heartbeat (000002388C5BB818)
+[LOG] SoundI::release                          :     Player_Heartbeat (000002388B914D48)
+[LOG] SoundI::release                          :     Player_Heartbeat (000002388C5BA3D8)
+[LOG] SoundI::release                          : Dungeon Strolling (000002389E8A1B18)
+[LOG] SoundI::release                          :     Dungeon Strolling (000002388C4745D8)
+[LOG] SoundI::release                          :     Dungeon Strolling (00000238F2BB92A8)
+[LOG] SoundI::release                          : 399538__vendarro__windchime-soft (000002389E8A1968)
+[LOG] SoundI::release                          :     399538__vendarro__windchime-soft (000002388C477D18)
+[LOG] SoundI::release                          :     399538__vendarro__windchime-soft (00000238F2BB9458)
+[LOG] SoundI::release                          : 399538__vendarro__windchime-soft (000002389E8A26E8)
+[LOG] SoundI::release                          :     399538__vendarro__windchime-soft (000002388C476CD8)
+[LOG] SoundI::release                          :     399538__vendarro__windchime-soft (00000238F2BB8888)
+[LOG] SoundI::release                          : 399538__vendarro__windchime-soft (000002389E8A1E78)
+[LOG] SoundI::release                          :     399538__vendarro__windchime-soft (000002388C475FD8)
+[LOG] SoundI::release                          :     399538__vendarro__windchime-soft (0000023888C87668)
+[LOG] SoundI::release                          : 399538__vendarro__windchime-soft (000002389E8A2538)
+[LOG] SoundI::release                          :     399538__vendarro__windchime-soft (000002388C472558)
+[LOG] SoundI::release                          :     399538__vendarro__windchime-soft (00000238F2BB8F48)
+[LOG] SoundI::release                          : 399538__vendarro__windchime-soft (000002389E8A2DA8)
+[LOG] SoundI::release                          :     399538__vendarro__windchime-soft (000002388C4779D8)
+[LOG] SoundI::release                          :     399538__vendarro__windchime-soft (00000238F2BB8D98)
+[LOG] SoundI::release                          : Dungeon Atmos (000002388C5BA8E8)
+[LOG] SoundI::release                          :     Dungeon Atmos (000002388BAD89C8)
+[LOG] SoundI::release                          :     Dungeon Atmos (0000023888C879C8)
+[LOG] SoundI::release                          : Dungeon Atmos (000002389E8A1CC8)
+[LOG] SoundI::release                          :     Dungeon Atmos (000002388C475478)
+[LOG] SoundI::release                          :     Dungeon Atmos (00000238F2BB8A38)
+[LOG] SoundI::release                          :  (000002388BE2E018)
+[LOG] SoundI::release                          :     Player_Footsteps_Puddle_5 (000002388C474C58)
+[LOG] SoundI::release                          :  (00000238956395F8)
+[LOG] SoundI::release                          :     Player_Footsteps_Puddle_1 (000002388C477358)
+[LOG] SoundI::release                          :  (000002389563AE68)
+[LOG] SoundI::release                          :     Player_Footsteps_Wood_2 (000002388C4757B8)
+[LOG] SoundI::release                          :  (000002389E868158)
+[LOG] SoundI::release                          :     Player_Footsteps_Wood_3 (000002388C476318)
+[LOG] SoundI::release                          :  (0000023894DB2088)
+[LOG] SoundI::release                          :     Player_Footsteps_Wood_4 (000002388C4786D8)
+[LOG] SoundI::release                          :  (00000238F26B5FB8)
+[LOG] SoundI::release                          :     Player_Footsteps_Wood_5 (000002388C4723B8)
+[LOG] SoundI::release                          :  (000002388BE2C078)
+[LOG] SoundI::release                          :     Player_Footsteps_Wood_8 (000002388C4738D8)
+[LOG] SoundI::release                          :  (000002389E867FE8)
+[LOG] SoundI::release                          :     Piano 1 Gb5 (000002388C4781F8)
+[LOG] SoundI::release                          :  (0000023894DB31C8)
+[LOG] SoundI::release                          :     Fire-ball-Shoot (000002388C475138)
+[LOG] SoundI::release                          :  (000002389E78EB38)
+[LOG] SoundI::release                          :     Sword Unsheathe 01 (000002388C472F18)
+[LOG] SoundI::release                          :  (000002389E8672F8)
+[LOG] SoundI::release                          :     Click Konden (000002388C472BD8)
+[LOG] SoundI::release                          :  (000002389E78F0F8)
+[LOG] SoundI::release                          :     Builder_Game_Weapon_Arrow_Fire_4 (000002388C476998)
+[LOG] SoundI::release                          :  (00000238F26B5B68)
+[LOG] SoundI::release                          :     Builder_Game_Weapon_Arrow_Fire_3 (000002388C473598)
+[LOG] SoundI::release                          :  (000002388B62B8C8)
+[LOG] SoundI::release                          :     Builder_Game_Weapon_Arrow_Fire_2 (000002388C478538)
+[LOG] SoundI::release                          :  (000002389E868438)
+[LOG] SoundI::release                          :     Builder_Game_Weapon_Arrow_Fire_1 (000002388C477698)
+[LOG] SoundI::release                          :  (000002389E868718)
+[LOG] SoundI::release                          :     TreasureChestOpening2 (000002388C473258)
+[LOG] SoundI::release                          :  (000002388B62BFF8)
+[LOG] SoundI::release                          :     TreasureChestOpening3 (000002388C472D78)
+[LOG] SoundI::release                          :  (000002388BE2E5D8)
+[LOG] SoundI::release                          :     fire-impact (000002388C477EB8)
+[LOG] SoundI::release                          :  (0000023894DB34A8)
+[LOG] SoundI::release                          :     Spider Hiss (000002388C472218)
+[LOG] SoundI::release                          :  (000002388B62BA38)
+[LOG] SoundI::release                          :     Coins 1 (000002388C474778)
+[LOG] SoundI::release                          :  (00000238F26B5888)
+[LOG] SoundI::release                          :     Coins 2 (000002388C473738)
+[LOG] SoundI::release                          :  (000002388B62B198)
+[LOG] SoundI::release                          :     Coins 3 (000002388C4726F8)
+[LOG] SoundI::release                          :  (000002388BE2C7A8)
+[LOG] SoundI::release                          :     Arrow Hit (000002388B914BA8)
+[LOG] SoundI::release                          :  (000002389563A458)
+[LOG] SoundI::release                          :     Spider FootStep 1 (000002388C475C98)
+[LOG] SoundI::release                          :  (000002388B62A8F8)
+[LOG] SoundI::release                          :     Spider FootStep 2 (000002388C475618)
+[LOG] SoundI::release                          :  (000002388B62A4A8)
+[LOG] SoundI::release                          :     Spider FootStep 3 (000002388C474918)
+[LOG] SoundI::release                          :  (000002388B62B478)
+[LOG] SoundI::release                          :     Spider FootStep 4 (000002388C472078)
+[LOG] SoundI::release                          :  (000002389E869858)
+[LOG] SoundI::release                          :     Spider FootStep 5 (000002388C475AF8)
+[LOG] SoundI::release                          :  (000002388B62BD18)
+[LOG] SoundI::release                          :     Spider FootStep 6 (000002388C476658)
+[LOG] SoundI::release                          :  (000002389E8682C8)
+[LOG] SoundI::release                          :     Spider FootStep 7 (000002388C478398)
+[LOG] SoundI::release                          :  (0000023894DB3058)
+[LOG] SoundI::release                          :     Spider FootStep 8 (000002388C4767F8)
+[LOG] SoundI::release                          :  (000002388B62AD48)
+[LOG] SoundI::release                          :     Player_Death_1 (000002388C473DB8)
+[LOG] SoundI::release                          :  (000002388BE2D498)
+[LOG] SoundI::release                          :     Player_Death_2 (000002388C477838)
+[LOG] SoundI::release                          :  (0000023894DB21F8)
+[LOG] SoundI::release                          :     Player_Death_3 (000002388C474AB8)
+[LOG] Thread::callback                         : FMOD Studio update thread finished.
+[LOG] Thread::callback                         : FMOD Studio bank load thread finished.
+[LOG] Profile::disconnectAll                   : Profiler disconnecting all clients
+[LOG] Thread::callback                         : FMOD Studio sample load thread finished.
+[LOG] LiveUpdate::release                      : 
+[LOG] LiveUpdate::reset                        : Reset connection (reason Disconnected)
+[LOG] Thread::callback                         : FMOD stream thread finished.
+[LOG] Thread::callback                         : FMOD mixer thread finished.
+[LOG] Profile::disconnectAll                   : Profiler disconnecting all clients
+[LOG] SystemI::close                           : Closed.
+[LOG] Manager::readBank                        : fileversion = 100, compatVersion = 99 (oldest = 44, newest = 100)
+[LOG] Manager::readBank                        : fileversion = 100, compatVersion = 99 (oldest = 44, newest = 100)
 [LOG] Manager::readBank                        : fileversion = 100, compatVersion = 99 (oldest = 44, newest = 100)
 [LOG] Manager::readBank                        : fileversion = 100, compatVersion = 99 (oldest = 44, newest = 100)
 [LOG] Manager::readBank                        : fileversion = 100, compatVersion = 99 (oldest = 44, newest = 100)
 [LOG] Manager::readBank                        : fileversion = 100, compatVersion = 99 (oldest = 44, newest = 100)
 [LOG] PlaybackSystem::acquireMasterBus         : Setting master channel group format to 6
-[ERR] OutputWASAPI::mixerThread                : GetCurrentPadding returned 0x88890004.  Device was unplugged!
-[ERR] OutputWASAPI::mixerThread                : GetCurrentPadding returned 0x88890004.  Device was unplugged!
-[LOG] Thread::callback                         : FMOD mixer thread finished.
-[LOG] OutputWASAPI::init                       : Mix Format (WAVEFORMATEX): wFormatTag=0xFFFE, nChannels=2, nSamplesPerSec=44100, nAvgBytesPerSec=352800, nBlockAlign=8, wBitsPerSample=32, cbSize=22.
-[LOG] OutputWASAPI::init                       : Mix Format (WAVEFORMATEXTENSIBLE): wValidBitsPerSample=32, dwChannelMask=0x00000003, SubFormat=00000003-0000-0010-8000-00AA00389B71.
-[LOG] OutputWASAPI::init                       : Output buffer size: 3760 samples, latency: 0.00ms, period: 10.00ms, DSP buffer: 1024 * 4
-[WRN] SystemI::startDriver                     : Output requires a sample rate of 44100Hz, resampling will occur.
-[LOG] Thread::initThread                       : Init FMOD mixer thread. Priority: 3, Stack Size: 49152, Semaphore: No, Sleep Time: 0, Looping: Yes.
-[LOG] Thread::callback                         : FMOD mixer thread finished.
-[LOG] OutputWASAPI::init                       : Mix Format (WAVEFORMATEX): wFormatTag=0xFFFE, nChannels=2, nSamplesPerSec=48000, nAvgBytesPerSec=384000, nBlockAlign=8, wBitsPerSample=32, cbSize=22.
-[LOG] OutputWASAPI::init                       : Mix Format (WAVEFORMATEXTENSIBLE): wValidBitsPerSample=32, dwChannelMask=0x00000003, SubFormat=00000003-0000-0010-8000-00AA00389B71.
-[LOG] OutputWASAPI::init                       : Output buffer size: 4096 samples, latency: 0.00ms, period: 10.00ms, DSP buffer: 1024 * 4
-[LOG] Thread::initThread                       : Init FMOD mixer thread. Priority: 3, Stack Size: 49152, Semaphore: No, Sleep Time: 0, Looping: Yes.
+[LOG] Manager::readBank                        : fileversion = 100, compatVersion = 99 (oldest = 44, newest = 100)
+[LOG] Manager::readBank                        : fileversion = 100, compatVersion = 99 (oldest = 44, newest = 100)
+[LOG] Manager::readBank                        : fileversion = 100, compatVersion = 99 (oldest = 44, newest = 100)
+[LOG] Manager::readBank                        : fileversion = 100, compatVersion = 99 (oldest = 44, newest = 100)
+[LOG] Manager::readBank                        : fileversion = 100, compatVersion = 99 (oldest = 44, newest = 100)
+[LOG] Manager::readBank                        : fileversion = 100, compatVersion = 99 (oldest = 44, newest = 100)
+[LOG] PlaybackSystem::acquireMasterBus         : Setting master channel group format to 6
